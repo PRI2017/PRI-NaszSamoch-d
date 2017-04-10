@@ -10,9 +10,9 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
-using PRI_NaszSamochód.Models;
+using PRI_NaszSamochod.Models;
 
-namespace PRI_NaszSamochód
+namespace PRI_NaszSamochod
 {
     public class EmailService : IIdentityMessageService
     {

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 
-namespace PRI_NaszSamochód.Models
+namespace PRI_NaszSamochod.Models
 {
     public class IndexViewModel
     {

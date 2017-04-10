@@ -8,9 +8,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using PRI_NaszSamochód.Models;
+using PRI_NaszSamochod.Models;
 
-namespace PRI_NaszSamochód.Controllers
+namespace PRI_NaszSamochod.Controllers
 {
     [Authorize]
     public class AccountController : Controller

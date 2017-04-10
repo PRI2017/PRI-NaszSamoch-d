@@ -7,7 +7,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
-namespace PRI_NaszSamochód
+namespace PRI_NaszSamochod
 {
     public class MvcApplication : System.Web.HttpApplication
     {

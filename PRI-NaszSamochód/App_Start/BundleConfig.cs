@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace PRI_NaszSamochód
+namespace PRI_NaszSamochod
 {
     public class BundleConfig
     {

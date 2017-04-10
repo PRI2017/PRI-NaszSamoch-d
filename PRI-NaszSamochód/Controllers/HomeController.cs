@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace PRI_NaszSamochód.Controllers
+namespace PRI_NaszSamochod.Controllers
 {
     public class HomeController : Controller
     {

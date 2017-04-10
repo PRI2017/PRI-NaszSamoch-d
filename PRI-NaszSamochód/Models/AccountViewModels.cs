@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace PRI_NaszSamochód.Models
+namespace PRI_NaszSamochod.Models
 {
     public class ExternalLoginConfirmationViewModel
     {

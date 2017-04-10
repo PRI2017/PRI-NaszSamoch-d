@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 using System.Diagnostics;
 using System.IO;
 
-namespace PRI_NaszSamochód
+namespace PRI_NaszSamochod
 {
     public class AuthenticationRSA
     {

@@ -5,9 +5,9 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using PRI_NaszSamochód.Models;
+using PRI_NaszSamochod.Models;
 
-namespace PRI_NaszSamochód
+namespace PRI_NaszSamochod
 {
     public partial class Startup
     {
