@@ -1,0 +1,10 @@
+<resources>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="app_name">Nasz Samochód</string>
+    <string name="logIn">Zaloguj</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Hasło</string>
+    <string name="log">Logowanie</string>
+    <string name="take_photo_string">Zrób zdjęcie</string>
+</resources>
