@@ -57,7 +57,7 @@ namespace PRI_NaszSamochod
         /// <param name="plainText"></param>
         /// <param name="IsOAEPActive"></param>
         /// <returns>byte[] of encrypted text</returns>
-        public static byte[] Encypt(string publicKey, string plainText, bool IsOAEPActive)
+        public static byte[] Encrypt(string publicKey, string plainText, bool IsOAEPActive)
         {
             CspParameters cspParams = null;
             RSACryptoServiceProvider rsaCryptoServiceProvider = null;
@@ -81,7 +81,7 @@ namespace PRI_NaszSamochod
                 successfullyEncrypted = false;
                 Debug.WriteLine(e.Source);
                 Debug.WriteLine(e.Message);
-                return new byte[1];
+                return null;
             }
         }
 
@@ -115,7 +115,7 @@ namespace PRI_NaszSamochod
                 successfullyDecrypted = false;
                 Debug.WriteLine(e.Source);
                 Debug.WriteLine(e.Message);
-                return "";
+                return null;
             }
         }
 
