@@ -1,15 +1,20 @@
 package com.example.dominika.samochod;
 
 import android.app.Activity;
+import android.content.ContentResolver;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,9 +22,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -33,6 +40,8 @@ public class Camera extends Fragment {
     ImageView image;
     Button button;
     private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1888;
+    ContentValues values;
+    Uri imageUri;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,7 +55,9 @@ public class Camera extends Fragment {
         button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-               Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
                 startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
             }
 
@@ -54,12 +65,14 @@ public class Camera extends Fragment {
         return rootView;
     }
 
+
     //wyswietlenie zdjecia w imageview
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
+
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             image.setImageBitmap(imageBitmap);
