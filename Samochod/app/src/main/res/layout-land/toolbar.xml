@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.example.dominika.samochod.MainActivity">
+    tools:context="com.example.dominika.samochod.Toolbar">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
