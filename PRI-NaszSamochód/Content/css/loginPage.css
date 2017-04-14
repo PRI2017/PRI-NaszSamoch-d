@@ -1,0 +1,18 @@
+body {
+  background: url("../src/loginBackgroundblured.jpeg") no-repeat center center fixed #000;
+  background-size: cover !important; }
+
+.btn-success {
+  background-color: #ff4b00;
+  border: none; }
+
+.btn-success:hover {
+  background-color: #fc8351; }
+
+.form-control {
+  background-color: rgba(0, 0, 0, 0.37);
+  color: white;
+  border: none; }
+
+.loginPage {
+  padding: 15% 0 15% 0; }
