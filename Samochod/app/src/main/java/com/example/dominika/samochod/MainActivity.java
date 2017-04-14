@@ -25,12 +25,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-       // if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
             setContentView(R.layout.toolbar);
 
             mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
-            //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
             mViewPager = (ViewPager) findViewById(R.id.container);
             mViewPager.setAdapter(mSectionsPagerAdapter);
             mViewPager.setOffscreenPageLimit(3);
@@ -39,18 +37,9 @@ public class MainActivity extends AppCompatActivity {
             tabLayout.setupWithViewPager(mViewPager);
 
             setTabLayout();
-       /* }
-        else
-        {
-            setContentView(R.layout.toolbar);
-            AppBarLayout appbar = (AppBarLayout) findViewById(R.id.appbar);
-           // setTabLayout();
-            //appbar.setOrientation(AppBarLayout.HORIZONTAL);
-            //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        }*/
+
     }
 
-   // if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
     //USTAWIENIE IKON
     private void setTabLayout(){
         tabLayout.getTabAt(0).setIcon(R.drawable.group_icon);

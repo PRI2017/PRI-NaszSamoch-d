@@ -7,4 +7,6 @@
     <string name="password_hint">Hasło</string>
     <string name="log">Logowanie</string>
     <string name="take_photo_string">Zrób zdjęcie</string>
+    <string name="register">Nie jesteś zarejestrowany?</string>
+    <string name="link"><a href="https://www.google.pl/">Google</a></string>
 </resources>

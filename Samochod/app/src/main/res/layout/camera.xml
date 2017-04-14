@@ -11,8 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/camera"
         />
 
     <Button
@@ -20,7 +20,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/take_photo_string"
+        android:background="@drawable/button_shape"
+        android:textColor="@color/white"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="29dp" />
 
 </RelativeLayout>
