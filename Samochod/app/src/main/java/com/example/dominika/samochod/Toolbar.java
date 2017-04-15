@@ -7,13 +7,10 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 
+//KLASA SO WYSWIETLENIA I OBSLUGI TOOLBAR
 public class Toolbar extends AppCompatActivity {
 
-    //bez listview
-    //private SectionsPagerAdapter mSectionsPagerAdapter;
-
     private ViewPager mViewPager;
-
     private TabLayout tabLayout;
 
     @Override
@@ -22,19 +19,18 @@ public class Toolbar extends AppCompatActivity {
 
             setContentView(R.layout.toolbar);
 
-
-            //bez listview
-           // mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-
             mViewPager = (ViewPager) findViewById(R.id.container);
-            //mViewPager.setAdapter(mSectionsPagerAdapter);
+
+            //USTAWIENIE LICZYBY KART KTORE MA GENEROWAC
             mViewPager.setOffscreenPageLimit(3);
+
             PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager());
+
+            //DODANIE FRAGMENTOW, ODPOWIEDNICH KLAS DO ODPOWIEDNICH KART
             adapter.addFragment(new Conversation(), "Grupa");
             adapter.addFragment(new Chat(), "Czat");
             adapter.addFragment(new Camera(), "Zdjęcie");
             mViewPager.setAdapter(adapter);
-
 
             tabLayout = (TabLayout) findViewById(R.id.tabs);
             tabLayout.setupWithViewPager(mViewPager);
@@ -43,60 +39,10 @@ public class Toolbar extends AppCompatActivity {
 
     }
 
-    //USTAWIENIE IKON
+    //USTAWIENIE IKON ZNAJDUJACYCH SIE W ZAKLADKACH
     private void setTabLayout(){
         tabLayout.getTabAt(0).setIcon(R.drawable.group_icon);
         tabLayout.getTabAt(1).setIcon(R.drawable.chat_icon);
         tabLayout.getTabAt(2).setIcon(R.drawable.camera_icon);
     }
-
-    /*
-
-    //bez listview
-    //PRZELACZANIE MIEDZY ZAKLADKAMI
-    public class SectionsPagerAdapter extends FragmentPagerAdapter {
-
-        public SectionsPagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-
-            Fragment fragment = null;
-            switch(position){
-                case 0:
-                    fragment = new Conversation();
-                    break;
-                case 1:
-                    fragment = new Chat();
-                    break;
-                case 2:
-                    fragment = new Camera();
-                    break;
-                default:
-                    return null;
-            }
-            return fragment;
-        }
-
-        @Override
-        public int getCount() {
-            // Show 3 total pages.
-            return 3;
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            switch (position) {
-                case 0:
-                    return "GRUPY";
-                case 1:
-                    return "CHAT";
-                case 2:
-                    return "KAMERA";
-            }
-            return null;
-        }
-    }*/
 }

@@ -10,6 +10,7 @@ import android.view.ViewGroup;
  * Created by Dominika on 04.04.2017.
  */
 
+//KLASA OBSLUGUJACA CZAT
 public class Chat extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

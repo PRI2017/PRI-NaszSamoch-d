@@ -18,7 +18,7 @@ public class LogIn extends AppCompatActivity {
 
         final Button logIn = (Button) findViewById(R.id.logIn_button);
 
-        //making textView clickable
+        //UMOZLIWIENIE KLIKANIA NA LINK ODSYLAJACY DO STRONY Z REJESTRACJA
         TextView mLink;
         mLink = (TextView) findViewById(R.id.link);
         if (mLink != null) {

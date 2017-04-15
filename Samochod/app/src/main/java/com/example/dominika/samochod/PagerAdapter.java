@@ -11,34 +11,36 @@ import java.util.List;
  * Created by Dominika on 14.04.2017.
  */
 
+//KLASA DO OBSLUGI WIELU KART (PONIEWAZ KORZYSTAMY Z VIEW PAGER)
 public class PagerAdapter extends FragmentPagerAdapter {
 
-    private final List<Fragment> mFragmentList = new ArrayList<>();
+    private final List<Fragment> FragmentList = new ArrayList<>();
 
-    private final List<String> mFragmentTitleNames = new ArrayList();
+    private final List<String> FragmentTitleNames = new ArrayList();
 
     public PagerAdapter(FragmentManager fm) {
         super(fm);
     }
 
     public void addFragment(Fragment fragment, String title) {
-        mFragmentList.add(fragment);
-        mFragmentTitleNames.add(title);
+        FragmentList.add(fragment);
+        FragmentTitleNames.add(title);
     }
 
     @Override
     public Fragment getItem(int position) {
-        return mFragmentList.get(position);
+        return FragmentList.get(position);
     }
 
     @Override
     public int getCount() {
-        return mFragmentList.size();
+        return FragmentList.size();
     }
 
     @Override
-    public CharSequence getPageTitle(int position) {
-        return mFragmentTitleNames.get(position);
+    public CharSequence getPageTitle(int position)
+    {
+        return FragmentTitleNames.get(position);
     }
 }
 
