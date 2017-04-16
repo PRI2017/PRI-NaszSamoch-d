@@ -11,7 +11,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="~/Content/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="~/Content/css/loginPage.css">
 
     <title>Strona logowania</title>
@@ -22,7 +22,7 @@
     {
         @Html.AntiForgeryToken()
         <div class="container">
-            <div class="row justify-content-center ">
+            <div class="row justify-content-center">
                 <div class="loginPage col-6">
                         <div class="form-group">
                             <label for="inputEmail" class="form-control">Podaj adress e-mail: </label>
@@ -41,9 +41,9 @@
             </div>
         </div>
     }
-    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
-    <script src="~/Content/js/bootstrap.js"></script>
+    <script src="~/Content/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="~/Content/node_modules/tether/dist/js/tether.min.js"></script>
+    <script src="~/Content/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 
 </html>
