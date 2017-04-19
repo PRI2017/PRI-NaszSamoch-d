@@ -7,7 +7,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 
-namespace PRI_NaszSamochod
+namespace PRI_NaszSamochod.MobileAuthentication
 {
     /// <summary>
     /// Klasa obsługująca generowanie kluczy, szyfrowanie i deszyfrowanie
@@ -23,7 +23,7 @@ namespace PRI_NaszSamochod
         /// </summary>
         /// <param name="keySize"></param>
         /// <returns>string[] contains public and private key in that order</returns>
-        public static string[] GenerateKeys(int keySize)
+        public static void GenerateKeys(int keySize)
         {
             CspParameters cspParams = null;
             RSACryptoServiceProvider rsaCryptoServiceProvider = null;
@@ -47,7 +47,8 @@ namespace PRI_NaszSamochod
                 Debug.WriteLine(e.Source);
                 Debug.WriteLine(e.Message);
             }
-            return new string[] { publicKey, privateKey };
+            KeysHolder.PrivateKey = privateKey;
+            KeysHolder.PublicKey = publicKey;
         }
 
         /// <summary>
@@ -115,6 +116,8 @@ namespace PRI_NaszSamochod
                 successfullyDecrypted = false;
                 Debug.WriteLine(e.Source);
                 Debug.WriteLine(e.Message);
+                Debug.WriteLine(e.Data);
+                Debug.WriteLine(e.StackTrace);
                 return null;
             }
         }
