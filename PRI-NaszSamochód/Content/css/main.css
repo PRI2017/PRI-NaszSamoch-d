@@ -34,8 +34,8 @@ footer {
   background-color: aqua; }
 
 img.userProfilePhoto {
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 150px;
   background-color: #999; }
   img.userProfilePhoto.userProfilePhotoSmall {
     height: 40px;

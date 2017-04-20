@@ -17,7 +17,7 @@ footer{
 }
 img.userProfilePhoto {
 
-    @include userProfilePhoto(100px,1);
+    @include userProfilePhoto(100px,1.5);
 
     &.userProfilePhotoSmall {
 
