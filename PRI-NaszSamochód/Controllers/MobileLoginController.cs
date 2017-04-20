@@ -27,11 +27,10 @@ namespace PRI_NaszSamochód.Controllers
         }
 
         // POST: MobileLogin/Login
-       [HttpPost]
-        public ActionResult Login(MobileLoginModel model)
-        {
-            
-            return View();
-        }
+       //[HttpPost]
+       // public ActionResult Login(MobileLoginModel model)
+       // {
+       //     return View();
+       // }
     }
 }
