@@ -5,38 +5,72 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="~/Content/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/css/main.css">
 
     <title>Profil użytkownika</title>
 </head>
 
-<body>
-    <header>Header</header>
-    <img src="#" />
-
+<body class="container-fluid">
+    
+   
+    <img src="#" class="userProfilePhoto" style="position:absolute; z-index: 10;top: 100px"/>
     <div class="card">
-        <img class="card-img-top" src="..." alt="Card image cap">
-        
-        <div class="card-block">
-            <p class="card-text">There should be some breadcrumbs. </p>
+            <img class="card-img-top" src="#" alt="Card image cap">
             
-            <ul class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Informacje</a></li>
-                <li class="breadcrumb-item"><a href="#">Znajomi</a></li>
-                <li class="breadcrumb-item"><a href="#">Galeria</a></li>
-                <li class="breadcrumb-item"><a href="#">Statystyki</a></li>
+            <div class="">
+                @*<p class="card-text">There should be some breadcrumbs. </p>*@
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Informacje</a></li>
+                    <li class="breadcrumb-item"><a href="#">Znajomi</a></li>
+                    <li class="breadcrumb-item"><a href="#">Galeria</a></li>
+                    <li class="breadcrumb-item"><a href="#">Statystyki</a></li>
+                </ul>
+
+            </div>
+        </div>
+
+    <div class="row">
+        <aside class="col-3 navbar">
+                <p>Aside panel - nav, latest photos, some stuff</p>
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
             </ul>
 
+        </aside>
+
+        <div class="col-9 wall">
+
+            <p>@*<b>WALL: </b>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed nulla sed nisi pellentesque bibendum id a purus. Duis a scelerisque nunc. Donec interdum turpis quis arcu lacinia ornare. Aliquam iaculis risus vitae tellus ornare suscipit. Ut posuere felis in tristique dapibus. Nullam imperdiet magna in felis tristique, non consectetur erat tempor. Proin vulputate at justo et cursus. Sed rhoncus suscipit quam nec fermentum. Nulla non sagittis velit, at ullamcorper massa. In lacinia augue at libero sollicitudin, eleifend placerat nulla convallis. Praesent tincidunt interdum lacus vitae consequat. Donec nec volutpat mi. Curabitur imperdiet purus nibh, at aliquam risus laoreet quis. Phasellus sit amet ultrices dui. In semper ultrices purus, ut efficitur mauris tempor ac.*@</p>
+            <div class="card">
+                <div class="card-header">
+                    <img class="userProfilePhoto userProfilePhotoSmall"/>
+                    <b>Jacuś Gąbka</b>
+                    <i>1 godz.</i>
+                </div>
+                <div class="card-block">
+                    @*<h4 class="card-title">Special title treatment</h4>*@
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed nulla sed nisi pellentesque bibendum id a purus. Duis a scelerisque nunc. Donec interdum turpis quis arcu lacinia ornare. Aliquam iaculis risus vitae tellus ornare suscipit. Ut posuere felis in tristique dapibus. Nullam imperdiet magna in felis tristique, non consectetur erat tempor. Proin vulputate at justo et cursus. Sed rhoncus suscipit quam nec fermentum. Nulla non sagittis velit, at ullamcorper massa. In lacinia augue at libero sollicitudin, eleifend placerat nulla convallis. Praesent tincidunt interdum lacus vitae consequat. Donec nec volutpat mi. Curabitur imperdiet purus nibh, at aliquam risus laoreet quis. Phasellus sit amet ultrices dui. In semper ultrices purus, ut efficitur mauris tempor ac.</p>
+                    <a href="#" class="btn btn-success">Like it!</a>
+                </div>
+            </div>
         </div>
     </div>
 
-    <aside><p>Aside panel - nav, latest photos, some stuff</p></aside>
-
-    <div class="container">
-        
-        <p>main content - display info about user</p>
-
-    </div>
-    <footer><p>footer</p></footer>
+  
+        @*<footer>
+            <p><b>FOOTER: </b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed nulla sed nisi pellentesque bibendum id a purus. Duis a scelerisque nunc. Donec interdum turpis quis arcu lacinia ornare. Aliquam iaculis risus vitae tellus ornare suscipit. Ut posuere felis in tristique dapibus. Nullam imperdiet magna in felis tristique, non consectetur erat tempor. Proin vulputate at justo et cursus. Sed rhoncus suscipit quam nec fermentum. Nulla non sagittis velit, at ullamcorper massa. In lacinia augue at libero sollicitudin, eleifend placerat nulla convallis. Praesent tincidunt interdum lacus vitae consequat. Donec nec volutpat mi. Curabitur imperdiet purus nibh, at aliquam risus laoreet quis. Phasellus sit amet ultrices dui. In semper ultrices purus, ut efficitur mauris tempor ac.</p>
+        </footer>*@
 
     <script src="~/Content/node_modules/jquery/dist/jquery.min.js"></script>
     <script src="~/Content/node_modules/tether/dist/js/tether.min.js"></script>

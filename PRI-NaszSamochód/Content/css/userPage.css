@@ -1,0 +1,25 @@
+/*main palette*/
+/*orange*/
+/*light gray*/
+/*dark gray*/
+aside {
+  /*background-color: red;*/ }
+
+.wall {
+  /*background-color: yellow;*/ }
+
+footer {
+  background-color: aqua; }
+
+img.userProfilePhoto {
+  height: 100px;
+  width: 100px;
+  background-color: #999; }
+  img.userProfilePhoto.userProfilePhotoSmall {
+    height: 40px;
+    width: 40px;
+    background-color: #999; }
+
+.card-img-top {
+  height: 200px;
+  background-color: #333; }

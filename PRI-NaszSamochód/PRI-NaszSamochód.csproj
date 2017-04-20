@@ -4446,6 +4446,8 @@
     <Content Include="Content\node_modules\yargs\locales\zh_CN.json" />
     <Content Include="Content\node_modules\yargs\package.json" />
     <Content Include="Content\node_modules\yargs\README.md" />
+    <Content Include="Content\sass\userPage.scss" />
+    <Content Include="Content\sass\palette.scss" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

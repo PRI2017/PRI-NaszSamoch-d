@@ -17,7 +17,7 @@
     <title>Strona logowania</title>
 </head>
 
-<body>
+<body class="loginPageBody">
     @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
     {
         @Html.AntiForgeryToken()

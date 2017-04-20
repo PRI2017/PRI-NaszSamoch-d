@@ -1,0 +1,30 @@
+﻿@import 'palette.scss';
+
+@mixin userProfilePhoto($square, $factor) {
+    height: $square * $factor;
+    width: $square * $factor;
+    background-color: $color3;
+}
+
+aside{
+    /*background-color: red;*/
+}
+.wall{
+    /*background-color: yellow;*/
+}
+footer{
+    background-color: aqua;
+}
+img.userProfilePhoto {
+
+    @include userProfilePhoto(100px,1);
+
+    &.userProfilePhotoSmall {
+
+        @include userProfilePhoto(100px,0.4);
+    }
+}
+.card-img-top {
+    height: 200px;
+    background-color: $color5;
+}

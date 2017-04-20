@@ -1,13 +1,16 @@
-body {
+/*main palette*/
+/*orange*/
+/*light gray*/
+/*dark gray*/
+.loginPageBody {
   background: url("../src/loginBackgroundblured.jpeg") no-repeat center center fixed #000;
   background-size: cover !important; }
 
 .btn-success {
   background-color: #ff4b00;
   border: none; }
-
-.btn-success:hover {
-  background-color: #fc8351; }
+  .btn-success:hover {
+    background-color: #fc8351; }
 
 .form-control {
   background-color: rgba(0, 0, 0, 0.37);
