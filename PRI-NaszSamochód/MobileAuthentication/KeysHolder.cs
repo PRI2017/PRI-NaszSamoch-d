@@ -1,7 +1,9 @@
-﻿using Org.BouncyCastle.Crypto;
+﻿using Org.BouncyCastle.Asn1.X509;
+using Org.BouncyCastle.Crypto;
 using Org.BouncyCastle.Crypto.Generators;
 using Org.BouncyCastle.Crypto.Prng;
 using Org.BouncyCastle.Security;
+using Org.BouncyCastle.X509;
 using System;
 
 namespace PRI_NaszSamochod.MobileAuthentication
@@ -20,10 +22,12 @@ namespace PRI_NaszSamochod.MobileAuthentication
 
         public AsymmetricKeyParameter PublicKey
         {
-            get { return publicKeyHolder; }
+            get
+            {
+                return publicKeyHolder;
+            }
             set { publicKeyHolder = value; }
         }
-
 
         public DateTime ExpirationDate { get; set; }
 
@@ -42,6 +46,14 @@ namespace PRI_NaszSamochod.MobileAuthentication
             var keyPair = keyPairGenerator.GenerateKeyPair();
             PrivateKey = keyPair.Private;
             PublicKey = keyPair.Public;
+        }
+
+        public string SerializeKey()
+        {
+            SubjectPublicKeyInfo publicKeyInfo = SubjectPublicKeyInfoFactory.CreateSubjectPublicKeyInfo(PublicKey);
+            byte[] serializedPublicBytes = publicKeyInfo.ToAsn1Object().GetDerEncoded();
+            string serializedPublic = Convert.ToBase64String(serializedPublicBytes);
+            return serializedPublic;
         }
     }
 }

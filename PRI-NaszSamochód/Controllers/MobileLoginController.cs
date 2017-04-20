@@ -8,22 +8,22 @@ using PRI_NaszSamochod.MobileAuthentication;
 using System.Text;
 using System.Net;
 using System.Diagnostics;
+using System.Web.Http;
 
 namespace PRI_NaszSamochód.Controllers
 {
-    public class MobileLoginController : Controller
+    public class MobileLoginController : ApiController
     {
         // GET: MobileLogin
-        public ActionResult Index()
-        {
-            return View();
-        }
+        //public ActionResult Index()
+        //{
+
+        //}
 
         // GET: MobileLogin/Login
-        public ActionResult Login()
+        public string PublicKey()
         {
-            CryptoRSA.TestEncDec();
-            return View();
+            return new KeysHolder().SerializeKey();
         }
 
         // POST: MobileLogin/Login
