@@ -49,7 +49,7 @@ namespace PRI_NaszSamochod.MobileAuthentication
             cipher.Init(!publicKey.IsPrivate, publicKey);
             byte[] encryptedBytes = cipher.ProcessBlock(dataBytes, 0, data.Length);
 
-            return Base64.Encode(encryptedBytes);
+            return encryptedBytes;
         }
 
         /// <summary>
@@ -62,7 +62,7 @@ namespace PRI_NaszSamochod.MobileAuthentication
         {
             cipher.Init(!privateKey.IsPrivate, privateKey);
             Debug.WriteLine(cipher.GetInputBlockSize());
-            byte[] decipheredBytes = cipher.ProcessBlock(Base64.Decode(dataBytes), 0, dataBytes.Length);
+            byte[] decipheredBytes = cipher.ProcessBlock(dataBytes, 0, dataBytes.Length);
             return encoding.GetString(decipheredBytes);
         }
 
@@ -75,19 +75,20 @@ namespace PRI_NaszSamochod.MobileAuthentication
             GenerateKeys(1024);
             Debug.WriteLine("Plain message: " + message);
 
+
             byte[] cipher = Encrypt(message, KeysHolder.PublicKeyHolder);
-            string cstring = Base64.ToBase64String(cipher);
+            string cstring = Convert.ToBase64String(cipher);
             Debug.WriteLine("Encrypted message: " + cstring);
             byte[] cbytes = Convert.FromBase64String(cstring);
-            if (cbytes.Equals(cipher))
-            {
-                string deciphered = Decrypt(cbytes, KeysHolder.PrivateKeyHolder);
+            //if (Array.Equals(cipher, cbytes))
+            //{
+                string deciphered = Decrypt(cipher, KeysHolder.PrivateKeyHolder);
                 Debug.WriteLine("Decrypted message: " + deciphered);
-            }
-            else
-            {
-                Debug.WriteLine("Error");
-            }
+            //}
+            //else
+            //{
+            //    Debug.WriteLine("Error");
+            //}
        
         }
     }
