@@ -19,6 +19,6 @@ namespace PRI_NaszSamochód.Models
         [Required]
         [Display(Name = "Password")]
         //[DataType(DataType.Password)]
-        public string Password { get; set; }
+        public byte[] Password { get; set; }
     }
 }
