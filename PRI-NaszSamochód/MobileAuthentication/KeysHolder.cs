@@ -22,10 +22,7 @@ namespace PRI_NaszSamochod.MobileAuthentication
 
         public AsymmetricKeyParameter PublicKey
         {
-            get
-            {
-                return publicKeyHolder;
-            }
+            get { return publicKeyHolder; }
             set { publicKeyHolder = value; }
         }
 
