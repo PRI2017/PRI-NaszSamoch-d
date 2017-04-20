@@ -22,31 +22,15 @@ namespace PRI_NaszSamochód.Controllers
         // GET: MobileLogin/Login
         public ActionResult Login()
         {
+            CryptoRSA.TestEncDec();
             return View();
         }
 
         // POST: MobileLogin/Login
-        [HttpPost]
-        public ActionResult Login(MobileLoginModel model)
-        {
-            Debug.WriteLine(model.Password + model.Email);
-            using (Context context = new Context())
-            {
-                try
-                {
-                    string decryptedPassword = CryptoRSA.Decrypt(KeysHolder.PrivateKey, Encoding.Unicode.GetBytes(model.Password), false);
-                    var usr = context.mobileLoginModel.Where(u => u.Email == model.Email && u.Password == model.Password).FirstOrDefault();
-                    if (usr != null)
-                    {
-                        return new HttpStatusCodeResult(HttpStatusCode.OK);
-                    }
-                    return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
-                }catch(Exception e)
-                {
-                    Debug.WriteLine(e.Message);
-                    return new HttpStatusCodeResult(HttpStatusCode.NoContent);
-                }
-            }
-        }
+        //[HttpPost]
+        //public ActionResult Login(MobileLoginModel model)
+        //{
+            
+        //}
     }
 }

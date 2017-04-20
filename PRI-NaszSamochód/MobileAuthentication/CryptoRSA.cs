@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Security.Cryptography;
+﻿using Org.BouncyCastle.Crypto;
+using Org.BouncyCastle.Crypto.Engines;
+using Org.BouncyCastle.Crypto.Generators;
+using Org.BouncyCastle.Crypto.Prng;
+using Org.BouncyCastle.Security;
 using System.Diagnostics;
-using System.IO;
 using System.Text;
 
 namespace PRI_NaszSamochod.MobileAuthentication
@@ -14,130 +13,45 @@ namespace PRI_NaszSamochod.MobileAuthentication
     /// </summary>
     public class CryptoRSA
     {
-        //TODO
-        private static bool successfullyEncrypted;
-        private static bool successfullyDecrypted;
+        private static IAsymmetricBlockCipher cipher;
 
-        /// <summary>
-        /// Generate RSA public and private keys
-        /// </summary>
-        /// <param name="keySize"></param>
-        /// <returns>string[] contains public and private key in that order</returns>
         public static void GenerateKeys(int keySize)
         {
-            CspParameters cspParams = null;
-            RSACryptoServiceProvider rsaCryptoServiceProvider = null;
-            string publicKey = "";
-            string privateKey = "";
+            CryptoApiRandomGenerator randomGenerator = new CryptoApiRandomGenerator();
+            SecureRandom secureRandom = new SecureRandom(randomGenerator);
+            var keyGenerationParameters = new KeyGenerationParameters(secureRandom, keySize);
 
-            try
-            {
-                cspParams = new CspParameters();
-                cspParams.ProviderType = 1;
-                cspParams.Flags = CspProviderFlags.UseArchivableKey;
-                cspParams.KeyNumber = (int)KeyNumber.Exchange;
-                rsaCryptoServiceProvider = new RSACryptoServiceProvider(keySize, cspParams);
-
-                publicKey = rsaCryptoServiceProvider.ToXmlString(false);
-
-                privateKey = rsaCryptoServiceProvider.ToXmlString(true);
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine(e.Source);
-                Debug.WriteLine(e.Message);
-            }
-            KeysHolder.PrivateKey = privateKey;
-            KeysHolder.PublicKey = publicKey;
+            var keyPairGenerator = new RsaKeyPairGenerator();
+            keyPairGenerator.Init(keyGenerationParameters);
+            var keyPair = keyPairGenerator.GenerateKeyPair();
+            KeysHolder.PrivateKeyHolder = keyPair.Private;
+            KeysHolder.PublicKeyHolder = keyPair.Public;
         }
 
-        /// <summary>
-        /// RSA Encryption
-        /// </summary>
-        /// <param name="publicKey"></param>
-        /// <param name="plainText"></param>
-        /// <param name="IsOAEPActive"></param>
-        /// <returns>byte[] of encrypted text</returns>
-        public static byte[] Encrypt(string publicKey, string plainText, bool IsOAEPActive)
+        public static byte[] Encrypt(string data, AsymmetricKeyParameter publicKey)
         {
-            CspParameters cspParams = null;
-            RSACryptoServiceProvider rsaCryptoServiceProvider = null;
-            byte[] plainBytes = null;
+            byte[] dataBytes = UTF8Encoding.UTF8.GetBytes(data);
+            cipher = new RsaEngine();
 
-            try
-            {
-                cspParams = new CspParameters();
-                cspParams.ProviderType = 1;
-
-                rsaCryptoServiceProvider = new RSACryptoServiceProvider(cspParams);
-                rsaCryptoServiceProvider.FromXmlString(publicKey);
-                //Encryption
-                plainBytes = Encoding.Unicode.GetBytes(plainText);
-
-                successfullyEncrypted = true;
-                return rsaCryptoServiceProvider.Encrypt(plainBytes, IsOAEPActive);
-            }
-            catch (Exception e)
-            {
-                successfullyEncrypted = false;
-                Debug.WriteLine(e.Source);
-                Debug.WriteLine(e.Message);
-                return null;
-            }
+            cipher.Init(!publicKey.IsPrivate, publicKey);
+            return cipher.ProcessBlock(dataBytes, 0, data.Length);
         }
 
-        /// <summary>
-        /// RSA Decryption
-        /// </summary>
-        /// <param name="privateKey"></param>
-        /// <param name="encryptedBytes"></param>
-        /// <param name="IsOAEPActive"></param>
-        /// <returns>string with plain text</returns>
-        public static string Decrypt(string privateKey, byte[] encryptedBytes, bool IsOAEPActive)
+        public static string Decrypt(byte[] dataBytes, AsymmetricKeyParameter privateKey)
         {
-            CspParameters cspParams = null;
-            RSACryptoServiceProvider rsaCryptoServiceProvider = null;
-            byte[] plainBytes = null;
-
-            try
-            {
-                cspParams = new CspParameters();
-                cspParams.ProviderType = 1;
-                rsaCryptoServiceProvider = new RSACryptoServiceProvider(cspParams);
-                rsaCryptoServiceProvider.FromXmlString(privateKey);
-                //Decryption
-                plainBytes = rsaCryptoServiceProvider.Decrypt(encryptedBytes, IsOAEPActive);
-
-                successfullyDecrypted = true;
-                return Encoding.Unicode.GetString(plainBytes);
-            }
-            catch (Exception e)
-            {
-                successfullyDecrypted = false;
-                Debug.WriteLine(e.Source);
-                Debug.WriteLine(e.Message);
-                Debug.WriteLine(e.Data);
-                Debug.WriteLine(e.StackTrace);
-                return null;
-            }
+            cipher.Init(!privateKey.IsPrivate, privateKey);
+            return UTF8Encoding.UTF8.GetString(cipher.ProcessBlock(dataBytes, 0, dataBytes.Length));
         }
 
-        /// <summary>
-        /// Checks if encryption was successfull
-        /// </summary>
-        /// <returns></returns>
-        public bool IsSuccessfullyEncrypted()
+        public static void TestEncDec()
         {
-            return successfullyEncrypted;
-        }
-
-        /// <summary>
-        /// Checks if decryption was successfull
-        /// </summary>
-        /// <returns></returns>
-        public bool IsSuccessfullyDecrypted()
-        {
-            return successfullyDecrypted;
+            string message = "Hello World!";
+            GenerateKeys(2048);
+            Debug.WriteLine("Plain message: " + message);
+            byte[] cipher = Encrypt(message, KeysHolder.PublicKeyHolder);
+            Debug.WriteLine("Encrypted message: " + UTF8Encoding.UTF8.GetString(cipher));
+            string deciphered = Decrypt(cipher, KeysHolder.PrivateKeyHolder);
+            Debug.WriteLine("Decrypted message: " + deciphered);
         }
     }
 }
