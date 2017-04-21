@@ -2,13 +2,15 @@
 /*orange*/
 /*light gray*/
 /*dark gray*/
+/*for textboxex in login layout*/
 .loginPageBody {
   background: url("../src/loginBackgroundblured.jpeg") no-repeat center center fixed #000;
   background-size: cover !important; }
 
 .btn-success {
   background-color: #ff4b00;
-  border: none; }
+  border: none;
+  border-radius: 0px; }
   .btn-success:hover {
     background-color: #fc8351; }
 
