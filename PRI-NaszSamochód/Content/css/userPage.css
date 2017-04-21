@@ -28,7 +28,7 @@ img.userProfilePhoto {
 ul.breadcrumb {
   background-color: #ff4b00 !important; }
   ul.breadcrumb li > a {
-    color: white; }
+    color: white !important; }
 
 .card {
   /*border: none;*/
