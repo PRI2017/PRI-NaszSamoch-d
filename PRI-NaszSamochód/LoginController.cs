@@ -10,18 +10,21 @@ namespace PRI_NaszSamochod
 {
     public class LoginController : ApiController
     {
-        // GET api/<controller>
-        //public IEnumerable<string> Get()
-        //{
-        //    return new string[] { "value1", "value2" };
-        //}
+        public LoginController()
+        {
+            
+        }
 
-        // GET api/<controller>/5
+        private readonly IKeysHolder _keysHolder;
+        public LoginController(IKeysHolder keysHolder)
+        {
+            _keysHolder = keysHolder;
+        }
+
+        // GET api/<controller>
         public string Get()
         {
-            KeysHolder keysHolder = new KeysHolder();
-            keysHolder.GenerateKeys(2048);
-            return keysHolder.SerializeKey();
+            return _keysHolder.SerializePublicKey();
         }
 
         // POST api/<controller>
