@@ -19,7 +19,7 @@ import java.util.List;
 public class Chat extends Fragment {
 
     //LISTA GRUP DYSKUSYJNYCH
-    public static final String[] chatRow = {"Alfa Romeo","Audi","BMW","Bentley","Daewoo","Dacia","Citroen","Ford",
+    public static final String[] chatRow = {"Audi","BMW","Bentley","Daewoo","Dacia","Citroen","Ford",
             "Fiat","Ferrari","Honda","Hyundai","Lancia","Lexus","Mercedes","Seat","Skoda","Porsche","Renault",
             "Toyota","Suzuki","Subaru","Volvo","Volkswagen","Peugeot","Opel","Nissan","Maserati",
             "Mazda","Mitsubishi","Rolls-Royce","Lamborgini","Infiniti","Isuzu","Iveco","Chrystel"};
@@ -27,14 +27,17 @@ public class Chat extends Fragment {
     //PRZEKONWERTOWANIE ARRAY DO LIST
     List chat_row = Arrays.asList(chatRow);
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
         RecyclerView rv = (RecyclerView) inflater.inflate(
                 R.layout.chat_list_layout, container, false);
 
-        //rv.setLayoutManager(new LinearLayoutManager(rv.getContext()));
-        //rv.setAdapter(new RecycleviewAdapter(chat_row));
+        rv.setLayoutManager(new LinearLayoutManager(rv.getContext()));
+        rv.setAdapter(new RecycleViewAdapterChat(chat_row));
 
         return rv;
     }

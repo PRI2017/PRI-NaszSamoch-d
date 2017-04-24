@@ -39,7 +39,7 @@ public class Conversation extends Fragment {
                 R.layout.group_list_layout, container, false);
 
         rv.setLayoutManager(new LinearLayoutManager(rv.getContext()));
-        rv.setAdapter(new RecycleviewAdapter(carslist));
+        rv.setAdapter(new RecycleviewAdapterConv(carslist));
 
         return rv;
     }

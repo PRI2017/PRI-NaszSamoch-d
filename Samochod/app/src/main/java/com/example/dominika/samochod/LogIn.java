@@ -5,21 +5,32 @@ import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.LinkMovementMethod;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.android.volley.NetworkResponse;
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import org.bouncycastle.crypto.InvalidCipherTextException;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.CookieHandler;
 import java.net.CookieManager;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
+import java.util.HashMap;
 
 
 public class LogIn extends AppCompatActivity {
@@ -28,7 +39,8 @@ public class LogIn extends AppCompatActivity {
     NetworkResponse errorRes;
     String stringData = "";
     RequestQueue requestQueue;
-    String url = "http://localhost:62368/api/login";
+    String key;
+    String url = "http://naszsamochod.azurewebsites.net/api/login";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,35 +72,35 @@ public class LogIn extends AppCompatActivity {
         logIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LogIn.this, Toolbar.class);
+                //Intent intent = new Intent(LogIn.this, Toolbar.class);
                 /////////////////////////////////////////////////////////////
-                //final HashMap<String, String> params = new HashMap<String, String>();
-
-                try {
-                    new CryptoRSA().TestEncDec();
-                } catch (InvalidCipherTextException e) {
-                    e.printStackTrace();
-                } catch (NoSuchAlgorithmException e) {
-                    e.printStackTrace();
-                } catch (NoSuchProviderException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-               /* params.put("Email", emailET.getText().toString());
-                params.put("Password", passwordET.getText().toString());
-
-                JsonObjectRequest req = new JsonObjectRequest(Request.Method.POST, url, new JSONObject(params),
-                        new Response.Listener<JSONObject>() {
+                StringRequest req = new StringRequest(Request.Method.GET, url,
+                        new Response.Listener<String>() {
 
                             @Override
-                            public void onResponse(JSONObject response) {
+                            public void onResponse(String response) {
                                 Log.v("Response:%n %s", response.toString());
-                                Log.v("Cookies: $s $n", manager.getCookieStore().toString());
+                                //Log.v("Cookies: $s $n", manager.getCookieStore().toString());
 
-                                Intent intent = new Intent(LogIn.this, Toolbar.class);
-                                startActivityForResult(intent, CAM);
+
+                                //JSONObject first = new JSONObject(response);
+                                key = response.toString();
+
+
+                                try {
+                                    new CryptoRSA().TestEncDec(key);
+                                } catch (InvalidCipherTextException e) {
+                                    e.printStackTrace();
+                                } catch (NoSuchAlgorithmException e) {
+                                    e.printStackTrace();
+                                } catch (NoSuchProviderException e) {
+                                    e.printStackTrace();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+
+                                //Intent intent = new Intent(LogIn.this, Toolbar.class);
+                                //startActivityForResult(intent, CAM);
                             }
                         }, new Response.ErrorListener() {
 
@@ -106,9 +118,10 @@ public class LogIn extends AppCompatActivity {
                         Log.e("Error", stringData);
                     }
                 });
-                odp(req);*/
+                odp(req);
                 //////////////////////////////////////////////////////////////////////////////////////
-                startActivityForResult(intent, CAM);
+                //startActivityForResult(intent, CAM);
+
             }
         });
     }
@@ -118,7 +131,7 @@ public class LogIn extends AppCompatActivity {
     }
 
 
-    private void odp(JsonObjectRequest postRequest)
+    private void odp(StringRequest postRequest)
     {
         Volley.newRequestQueue(this).add(postRequest);
     }
