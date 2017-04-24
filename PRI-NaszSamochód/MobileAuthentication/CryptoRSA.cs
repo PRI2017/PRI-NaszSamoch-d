@@ -4,7 +4,7 @@ using System;
 using System.Diagnostics;
 using System.Text;
 
-namespace PRI_NaszSamochod.MobileAuthentication
+namespace PRI_NaszSamochód.MobileAuthentication
 {
     /// <summary>
     /// Class handling encryption and decryption for authentication with mobile app

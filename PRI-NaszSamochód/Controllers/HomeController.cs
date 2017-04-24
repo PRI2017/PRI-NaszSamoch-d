@@ -4,13 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace PRI_NaszSamochod.Controllers
+namespace PRI_NaszSamochód.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         public ActionResult Index()
         {
-            return View();
+            return View("UserPage");
         }
 
         public ActionResult About()
@@ -24,6 +25,11 @@ namespace PRI_NaszSamochod.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+
+        public ActionResult UserPage()
+        {
             return View();
         }
     }

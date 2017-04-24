@@ -1,16 +1,13 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Security.Claims;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using PRI_NaszSamochod.Models;
+using PRI_NaszSamochód.Models;
 
-namespace PRI_NaszSamochod.Controllers
+namespace PRI_NaszSamochód.Controllers
 {
     [Authorize]
     public class AccountController : Controller

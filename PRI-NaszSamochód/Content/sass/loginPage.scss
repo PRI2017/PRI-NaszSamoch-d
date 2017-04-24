@@ -1,0 +1,25 @@
+﻿@import 'palette.scss';
+
+.loginPageBody {
+    background: url("../src/loginBackgroundblured.jpeg") no-repeat center center fixed #000;
+    background-size: cover !important;
+}
+.btn-success {
+    background-color: $color1;
+    border: none;
+    border-radius: 0px;
+
+    &:hover {
+        background-color: $color1Hover;
+    }
+}
+
+ .form-control
+ {
+     background-color: $fadedGray;
+     color: white;
+     border: none;
+ }
+.loginPage{
+    padding: 15% 0 15% 0;
+}

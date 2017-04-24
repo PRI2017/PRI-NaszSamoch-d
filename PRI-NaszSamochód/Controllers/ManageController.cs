@@ -6,9 +6,10 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using PRI_NaszSamochod.Models;
+using PRI_NaszSamochód.Models;
+using PRI_NaszSamochód;
 
-namespace PRI_NaszSamochod.Controllers
+namespace PRI_NaszSamochód.Controllers
 {
     [Authorize]
     public class ManageController : Controller

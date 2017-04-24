@@ -1,4 +1,4 @@
-﻿using PRI_NaszSamochod.MobileAuthentication;
+﻿using PRI_NaszSamochód.MobileAuthentication;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace PRI_NaszSamochod
+namespace PRI_NaszSamochód
 {
     public class LoginController : ApiController
     {

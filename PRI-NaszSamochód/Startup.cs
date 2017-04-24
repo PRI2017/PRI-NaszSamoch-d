@@ -1,8 +1,8 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(PRI_NaszSamochod.Startup))]
-namespace PRI_NaszSamochod
+[assembly: OwinStartupAttribute(typeof(PRI_NaszSamochód.Startup))]
+namespace PRI_NaszSamochód
 {
     public partial class Startup
     {

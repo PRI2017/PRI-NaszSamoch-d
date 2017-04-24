@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-namespace PRI_NaszSamochod
+namespace PRI_NaszSamochód
 {
     public static class WebApiConfig
     {

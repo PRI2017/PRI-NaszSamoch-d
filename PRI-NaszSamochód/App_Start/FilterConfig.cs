@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace PRI_NaszSamochod
+namespace PRI_NaszSamochód
 {
     public class FilterConfig
     {

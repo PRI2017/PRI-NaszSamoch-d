@@ -1,0 +1,59 @@
+/*main palette*/
+/*orange*/
+/*light gray*/
+/*dark gray*/
+/*for textboxex in login layout*/
+.loginPageBody {
+  background: url("../src/loginBackgroundblured.jpeg") no-repeat center center fixed #000;
+  background-size: cover !important; }
+
+.btn-success {
+  background-color: #ff4b00;
+  border: none;
+  border-radius: 0px; }
+  .btn-success:hover {
+    background-color: #fc8351; }
+
+.form-control {
+  background-color: rgba(0, 0, 0, 0.37);
+  color: white;
+  border: none; }
+
+.loginPage {
+  padding: 15% 0 15% 0; }
+
+/*main palette*/
+/*orange*/
+/*light gray*/
+/*dark gray*/
+/*for textboxex in login layout*/
+body {
+  background-color: #f5f5f5; }
+
+aside {
+  /*background-color: red;*/ }
+
+.wall {
+  background-color: #f5f5f5; }
+
+img.userProfilePhoto {
+  height: 150px;
+  width: 150px;
+  background-color: #999; }
+  img.userProfilePhoto.userProfilePhotoSmall {
+    height: 40px;
+    width: 40px;
+    background-color: #999; }
+
+.card-img-top {
+  height: 200px;
+  background-color: #333; }
+
+ul.breadcrumb {
+  background-color: #ff4b00 !important; }
+  ul.breadcrumb li > a {
+    color: white; }
+
+.card {
+  /*border: none;*/
+  border-radius: 0px; }

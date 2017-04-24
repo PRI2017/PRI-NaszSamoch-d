@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace PRI_NaszSamochod
+namespace PRI_NaszSamochód
 {
     public class RouteConfig
     {

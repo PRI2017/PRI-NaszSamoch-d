@@ -6,7 +6,7 @@ using Org.BouncyCastle.Security;
 using Org.BouncyCastle.X509;
 using System;
 
-namespace PRI_NaszSamochod.MobileAuthentication
+namespace PRI_NaszSamochód.MobileAuthentication
 {
     public class KeysHolder
     {
