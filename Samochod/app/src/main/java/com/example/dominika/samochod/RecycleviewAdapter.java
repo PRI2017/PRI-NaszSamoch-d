@@ -50,6 +50,8 @@ public class RecycleviewAdapter extends RecyclerView.Adapter<RecycleviewAdapter.
         public void onClick(View v) {
             Log.d(TAG, "onClick " + getPosition() + " " + mItem);
             System.out.println(mItem);
+            //ANIMACJA NA ITEM W RECYCLERVIEW
+            v.animate().rotationX(360);
         }
     }
 
