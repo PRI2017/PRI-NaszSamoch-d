@@ -38,6 +38,14 @@ namespace PRI_NaszSamochod.MobileAuthentication
         public DateTime ExpirationDate { get; set; }
 
         /// <summary>
+        /// Constructor
+        /// </summary>
+        public KeysHolder()
+        {
+            GenerateKeys(4096);
+        }
+
+        /// <summary>
         /// Generating private and public keys for RSA algorithm with size = <code>keySize</code>
         /// </summary>
         /// <param name="keySize"></param>
