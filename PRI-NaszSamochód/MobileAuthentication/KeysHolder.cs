@@ -19,6 +19,8 @@ namespace PRI_NaszSamochod.MobileAuthentication
 
     public class KeysHolder : IKeysHolder
     {
+
+        private static readonly KeysHolder _instance = new KeysHolder();
         private AsymmetricKeyParameter privateKeyHolder;
 
         public AsymmetricKeyParameter PrivateKey
@@ -35,15 +37,23 @@ namespace PRI_NaszSamochod.MobileAuthentication
             set { publicKeyHolder = value; }
         }
 
-        public DateTime ExpirationDate { get; set; }
-
         /// <summary>
         /// Constructor
         /// </summary>
-        public KeysHolder()
+        private KeysHolder()
         {
-            GenerateKeys(4096);
+            GenerateKeys(1024);
         }
+
+        public static KeysHolder Instance
+        {
+            get
+            {
+                return _instance;
+            }
+        }
+
+        public DateTime ExpirationDate { get; set; }
 
         /// <summary>
         /// Generating private and public keys for RSA algorithm with size = <code>keySize</code>

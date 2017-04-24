@@ -11,8 +11,6 @@ namespace PRI_NaszSamochod
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
-            KeysHolder kh = new KeysHolder();
-            kh.GenerateKeys(4096);
         }
     }
 }

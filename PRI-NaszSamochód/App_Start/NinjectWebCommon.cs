@@ -47,7 +47,7 @@ namespace PRI_NaszSamochód.App_Start
             {
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
-                kernel.Bind<IKeysHolder>().To<KeysHolder>();
+                kernel.Bind<IKeysHolder>().ToMethod(context => KeysHolder.Instance).InSingletonScope();
 
                 RegisterServices(kernel);
 

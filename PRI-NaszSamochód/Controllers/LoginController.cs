@@ -10,6 +10,10 @@ namespace PRI_NaszSamochod
 {
     public class LoginController : ApiController
     {
+        public LoginController()
+        {
+        }
+
         private readonly IKeysHolder _keysHolder;
         public LoginController(IKeysHolder keysHolder)
         {

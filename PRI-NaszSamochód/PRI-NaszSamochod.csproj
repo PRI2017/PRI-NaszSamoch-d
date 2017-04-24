@@ -246,7 +246,6 @@
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\js\bootstrap.js" />
     <Content Include="Content\js\bootstrap.min.js" />
-    <Content Include="Content\loginBackground — blured.jpeg" />
     <Content Include="Content\loginBackground.jpeg" />
     <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
@@ -264,6 +263,8 @@
     <Content Include="Content\css\bootstrap-reboot.min.css.map" />
     <Content Include="Content\css\bootstrap.css.map" />
     <Content Include="Content\css\bootstrap.min.css.map" />
+    <None Include="Properties\PublishProfiles\NaszSamochod - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\PRI-NaszSamochod20170424104344 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
