@@ -49,28 +49,26 @@ namespace PRI_NaszSamochod.MobileAuthentication
         /// <summary>
         /// Testing encryption and decryption
         /// </summary>
-        //public static void TestEncDec()
-        //{
+        public static void TestEncDec(string message)
+        {
+            KeysHolder kh = KeysHolder.Instance;
+            kh.GenerateKeys(2048);
+            Debug.WriteLine("Plain message: " + message);
 
-        //    string message = "1111111111111";
-        //    KeysHolder kh = new KeysHolder();
-        //    kh.GenerateKeys(2048);
-        //    Debug.WriteLine("Plain message: " + message);
+            byte[] cipher = Encrypt(message, kh.PublicKey);
+            string cstring = Convert.ToBase64String(cipher);
+            Debug.WriteLine("Encrypted message: " + cstring);
+            byte[] cbytes = Convert.FromBase64String(cstring);
+            //if (Array.Equals(cipher, cbytes))
+            //{
+            string deciphered = Decrypt(cbytes, kh.PrivateKey);
+            Debug.WriteLine("Decrypted message: " + deciphered);
+            //}
+            //else
+            //{
+            //    Debug.WriteLine("Error");
+            //}
 
-        //    byte[] cipher = Encrypt(message, kh.PublicKey);
-        //    string cstring = Convert.ToBase64String(cipher);
-        //    Debug.WriteLine("Encrypted message: " + cstring);
-        //    byte[] cbytes = Convert.FromBase64String(cstring);
-        //    //if (Array.Equals(cipher, cbytes))
-        //    //{
-        //    string deciphered = Decrypt(cbytes, kh.PrivateKey);
-        //    Debug.WriteLine("Decrypted message: " + deciphered);
-        //    //}
-        //    //else
-        //    //{
-        //    //    Debug.WriteLine("Error");
-        //    //}
-
-        //}
+        }
     }
 }

@@ -52,6 +52,19 @@ namespace PRI_NaszSamochód.Controllers
             }
         }
 
+        /* Mobile should send json with login, encrypted password (In Base64String !!!!!), and boolean RememberMe. Something like this:
+             *
+             *      {
+             *          "Email" : "example@mail.com",
+             *          "Password" : "WhvdZx7hx9RVVlYy6f7m2b2cY2AfcRN+EwcTHr8iy56k3LhhRFkIQq3el21YI9cVPWiUJG0uDibacXYAqQ1s97ycJn4O8G+
+             *                        hFeYq3+SENkxbXFBHMfxN6QqRBT40N+pysJgN3ygc7fR7Ucu2/ZLhy5y6RiK5ZALo27XFXqsDt2c+FPEdz23lNFfSwOjAdPJynArU1KMTvvF7iPj6KAdpSZ795
+             *                        /OEc0hzV/yA2udZd4RwwpZ6j4AMMo+sjo8qCnuVyTx4TVHRzWr7JRKiYmcb6PegZumuhDwRYTIMjEML0+o0USCMyOew1gLoL+N3iGM+YQJ8dlh+d6T1p3apEnkNmQ==",
+             *          "RememberMe" : false
+             *      }
+             *      
+             *      Still, it doesn't work - Null Object Reference in "SignInStatus x = await SignInManager.PasswordSignInAsync(" etc.
+             */
+
         //
         // POST: Mobile/Login
         [HttpPost]

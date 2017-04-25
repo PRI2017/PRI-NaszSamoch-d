@@ -11,6 +11,9 @@ namespace PRI_NaszSamochod
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+
+            //TODO: Delete this two lines when the mobile login works !!!
+            CryptoRSA.TestEncDec("password1234567890");
         }
     }
 }
