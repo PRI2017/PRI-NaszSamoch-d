@@ -29,6 +29,9 @@
                 <label for="inputName">Nazwisko: </label>
             </li>
             <li>
+                <label for="inputName">Numer telefonu: </label>
+            </li>
+            <li>
                 <label for="inputEmail">E-mail: </label>
                 @Html.TextBoxFor(m => m.Email)
                 @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
