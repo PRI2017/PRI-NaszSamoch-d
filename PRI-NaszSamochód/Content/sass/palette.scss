@@ -13,3 +13,8 @@ $color1Hover: rgb(252, 131, 81);
 $fadedGray: rgba(0, 0, 0, 0.37);
 
 $wallBackground: #f5f5f5;
+
+$baseFS: 16px;
+@mixin calcRem($sizeToConvert) {
+    font-size: ($sizeToConvert / $baseFS) + rem;
+}

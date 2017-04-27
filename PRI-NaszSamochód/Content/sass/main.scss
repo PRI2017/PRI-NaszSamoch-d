@@ -1,2 +1,11 @@
+﻿/*$baseFS: 16px;
+@mixin calcRem($sizeToConvert) {
+    font-size: ($sizeToConvert / $baseFS) + rem;
+}*/
+/*@import 'reset';*/
+@import url('https://fonts.googleapis.com/css?family=Lato');
+html {
+    font-family: 'Lato', sans-serif;
+}
 @import 'loginPage';
 @import 'userPage';
