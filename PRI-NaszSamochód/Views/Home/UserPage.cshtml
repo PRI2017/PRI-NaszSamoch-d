@@ -14,7 +14,7 @@
 <body class="container-fluid">
     
             @*Profile photo*@
-        <img src="~/ProfPhoto" input type="file" class="userProfilePhoto offset-1" style="position:absolute; z-index: 10; top: 100px;"  />
+        <img src="~/ProfPhoto?user=@User.Identity.Name" input type="file" class="userProfilePhoto offset-1" style="position:absolute; z-index: 10; top: 100px;"  />
         
     <div class="card">
             @*background photo*@

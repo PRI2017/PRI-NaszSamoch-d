@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Http;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 
 namespace PRI_NaszSamochód.Controllers
-{   [Authorize]
+{   [System.Web.Mvc.Authorize]
     public class ProfPhotoController : Controller
     {
         private ApplicationSignInManager _signInManager;
@@ -23,15 +25,20 @@ namespace PRI_NaszSamochód.Controllers
         }
 
         // GET: ProfilePhoto
-        public ActionResult Index()
+        [System.Web.Mvc.Route("ProfPhoto/{user}")]
+        [System.Web.Mvc.HttpGet]
+
+        public ActionResult Index(String user)
         {   
-            Console.WriteLine(User.Identity.Name );
+            Debug.WriteLine(User.Identity.GetUserId() );
             var dir = Server.MapPath("/ProfilePhoto");
-            var path = Path.Combine(dir, User.Identity.Name + ".jpg");
+            var path = Path.Combine(dir, user + ".jpg");
+            Debug.WriteLine(user);
             return base.File(path, "image/jpeg");
+          
         }
 
-        [HttpPost]
+        [System.Web.Mvc.HttpPost]
         public void Upload()
         {
             
