@@ -4,51 +4,52 @@
     ViewBag.Title = "Register";
 }
 
-<html lang="pl">
+<html>
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    @*<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">*@
 
-    <link rel="stylesheet" href="~/Content/node_modules/bootstrap/dist/css/bootstrap.min.css">    <link rel="stylesheet" href="~/Content/css/loginPage.css">
+    <link rel="stylesheet" href="~/Content/css/normalize.css">
+    <link rel="stylesheet" href="~/Content/css/main.css">
 
     <title>Strona logowania</title>
 </head>
 <body class="loginPageBody">
-    @*<h2>@ViewBag.Title.</h2>*@
-
+<div class="loginPage-container">
     @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
         @Html.AntiForgeryToken()
-        <div class="container">
-       
-            <div class="row justify-content-center">
-                <div class="loginPage col-6">
-                    @*@Html.ValidationSummary("", new { @class = "text-danger" })*@
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.Email, new { @class = "form-control" })
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.Password, new { @class = "form-control" })
-                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        <ul class="flex-outer">
+            @*@Html.ValidationSummary("", new { @class = "text-danger" })*@
+            <li>
+                <label for="inputName">Imię: </label>
+            </li>
+            <li>
+                <label for="inputName">Nazwisko: </label>
+            </li>
+            <li>
+                <label for="inputEmail">E-mail: </label>
+                @Html.TextBoxFor(m => m.Email)
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+            </li>
+            <li>
+                <label for="inputPassword">Hasło: </label>
+                @Html.PasswordFor(m => m.Password)
 
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "form-control" })
-                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                    </div>
-                    <div class="form-group">
-                        <div class="col-12 text-center">
-                            <input type="submit" class="btn btn-success" value="Register" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+            </li>
+            <li>
+                <label for="inputConfirmedPassword">Powtórz hasło: </label>
+                @Html.PasswordFor(m => m.ConfirmPassword)
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+            </li>
+
+            <li>
+                <button type="submit" class="btn-success" value="Register">Zarejestruj się</button>
+            </li>
+          </ul>
     }
+    </div>
 
     @section Scripts {
         @Scripts.Render("~/bundles/jqueryval")

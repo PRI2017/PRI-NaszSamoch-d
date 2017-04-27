@@ -26,7 +26,7 @@
             @Html.AntiForgeryToken()
             <ul class="flex-outer">
                 <li>
-                    <label for="inputEmail">Podaj adress e-mail: </label>
+                    <label for="inputEmail">Podaj adres e-mail: </label>
                     @Html.TextBoxFor(m => m.Email, new { @id = "inputEmail" })
                     @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                 </li>
