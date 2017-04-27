@@ -1,9 +1,4 @@
-﻿using PRI_NaszSamochod.MobileAuthentication;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using PRI_NaszSamochód.MobileAuthentication;
 using System.Web.Http;
 
 namespace PRI_NaszSamochod

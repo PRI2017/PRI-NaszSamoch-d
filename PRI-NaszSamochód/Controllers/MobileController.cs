@@ -1,12 +1,10 @@
 ﻿using Microsoft.AspNet.Identity.Owin;
-using PRI_NaszSamochod;
-using PRI_NaszSamochod.MobileAuthentication;
 using System;
-using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Net;
-using PRI_NaszSamochod.Models;
+using PRI_NaszSamochód.MobileAuthentication;
+using PRI_NaszSamochód.Models;
 
 namespace PRI_NaszSamochód.Controllers
 {

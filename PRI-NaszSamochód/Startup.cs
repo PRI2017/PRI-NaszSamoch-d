@@ -1,7 +1,6 @@
 ﻿using Microsoft.Owin;
 using Owin;
-using PRI_NaszSamochod.MobileAuthentication;
-using System.Diagnostics;
+using PRI_NaszSamochód.MobileAuthentication;
 
 [assembly: OwinStartupAttribute(typeof(PRI_NaszSamochód.Startup))]
 namespace PRI_NaszSamochód

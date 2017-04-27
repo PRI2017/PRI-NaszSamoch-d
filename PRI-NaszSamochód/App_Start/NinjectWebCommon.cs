@@ -10,9 +10,9 @@ namespace PRI_NaszSamochód.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
-    using PRI_NaszSamochod.MobileAuthentication;
     using System.Web.Http;
     using WebApiContrib.IoC.Ninject;
+    using PRI_NaszSamochód.MobileAuthentication;
 
     public static class NinjectWebCommon 
     {
