@@ -14,18 +14,17 @@ namespace PRI_NaszSamochód.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-        private readonly KeysHolder _keysHolder;
+        //private readonly IKeysHolder _keysHolder;
 
         public MobileController()
         {
 
         }
 
-        public MobileController(ApplicationUserManager userManager, ApplicationSignInManager signInManager, KeysHolder keysHolder)
+        public MobileController(ApplicationUserManager userManager, ApplicationSignInManager signInManager, IKeysHolder keysHolder)
         {
             _userManager = userManager;
             _signInManager = signInManager;
-            _keysHolder = keysHolder;
         }
 
         public ApplicationSignInManager SignInManager
@@ -69,19 +68,18 @@ namespace PRI_NaszSamochód.Controllers
         // POST: Mobile/Login
         [HttpPost]
         [AllowAnonymous]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl = null)
+        public ActionResult Login(LoginViewModel model, string returnUrl = null)
         {
-            ViewData["ReturnUrl"] = returnUrl;
             if (!ModelState.IsValid)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            SignInStatus x = await SignInManager.PasswordSignInAsync(
+            SignInStatus x = SignInManager.PasswordSignIn(
                 model.Email,
                 CryptoRSA.Decrypt(
                     Convert.FromBase64String(model.Password),
-                    _keysHolder.PrivateKey),
+                    KeysHolder.Instance.PrivateKey),
                 model.RememberMe,
                 shouldLockout: false);
 
@@ -90,9 +88,13 @@ namespace PRI_NaszSamochód.Controllers
                 case SignInStatus.Success:
                     return new HttpStatusCodeResult(HttpStatusCode.OK);
                 case SignInStatus.Failure:
+                    return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+                case SignInStatus.LockedOut:
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                case SignInStatus.RequiresVerification:
+                    return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
                 default:
-                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                    return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
             }
         }
     }
