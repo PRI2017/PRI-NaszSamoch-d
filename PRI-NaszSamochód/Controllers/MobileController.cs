@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNet.Identity.Owin;
+using PRI_NaszSamochód.MobileAuthentication;
 using System;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Net;
-using PRI_NaszSamochód.MobileAuthentication;
 using PRI_NaszSamochód.Models;
 
 namespace PRI_NaszSamochód.Controllers
@@ -66,14 +67,14 @@ namespace PRI_NaszSamochód.Controllers
         // POST: Mobile/Login
         [HttpPost]
         [AllowAnonymous]
-        public ActionResult Login(LoginViewModel model, string returnUrl = null)
+        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl = null)
         {
             if (!ModelState.IsValid)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            SignInStatus x = SignInManager.PasswordSignIn(
+            SignInStatus x = await SignInManager.PasswordSignInAsync(
                 model.Email,
                 CryptoRSA.Decrypt(
                     Convert.FromBase64String(model.Password),
