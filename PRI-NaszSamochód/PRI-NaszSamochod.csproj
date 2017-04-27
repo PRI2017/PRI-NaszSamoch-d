@@ -54,6 +54,15 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Common, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.Common.3.2.3.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.MVC5.3.2.1.0\lib\net45-full\Ninject.Web.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -106,6 +115,12 @@
     <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+    <Reference Include="WebApiContrib.IoC.Ninject, Version=0.9.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebApiContrib.IoC.Ninject.0.9.3.0\lib\net40\WebApiContrib.IoC.Ninject.dll</HintPath>
     </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
@@ -200,6 +215,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -208,19 +224,25 @@
     <Compile Include="Controllers\BackPhotoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+<<<<<<< HEAD
     <Compile Include="Controllers\ProfPhotoController.cs" />
+=======
+    <Compile Include="Controllers\MobileController.cs" />
+>>>>>>> auth
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="LoginController.cs" />
+    <Compile Include="Controllers\PublicKeyController.cs" />
     <Compile Include="MobileAuthentication\CryptoRSA.cs" />
     <Compile Include="MobileAuthentication\KeysHolder.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Context.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+<<<<<<< HEAD
     <Compile Include="Models\MobileLoginModel.cs" />
     <Compile Include="Models\ProfileViewModel.cs" />
+=======
+>>>>>>> auth
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -236,7 +258,6 @@
     <Content Include="Content\gulpfile.js" />
     <Content Include="Content\js\bootstrap.js" />
     <Content Include="Content\js\bootstrap.min.js" />
-    <Content Include="Content\loginBackground — blured.jpeg" />
     <Content Include="Content\loginBackground.jpeg" />
     <Content Include="Content\loginBackgroundblured.jpeg" />
     <Content Include="Content\node_modules\abbrev\abbrev.js" />
@@ -2738,6 +2759,7 @@
     <Content Include="Content\css\bootstrap-reboot.min.css.map" />
     <Content Include="Content\css\bootstrap.css.map" />
     <Content Include="Content\css\bootstrap.min.css.map" />
+<<<<<<< HEAD
     <Content Include="Content\package.json" />
     <Content Include="Content\node_modules\.bin\gulp" />
     <Content Include="Content\node_modules\.bin\gulp.cmd" />
@@ -4491,6 +4513,10 @@
     <Content Include="Content\sass\main.scss" />
     <Content Include="Content\sass\palette.scss" />
     <Content Include="Content\sass\userPage.scss" />
+=======
+    <None Include="Properties\PublishProfiles\NaszSamochod - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\PRI-NaszSamochod20170424104344 - Web Deploy.pubxml" />
+>>>>>>> auth
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -4535,6 +4561,7 @@
     <Content Include="Views\Manage\ManageLogins.cshtml" />
     <Content Include="Views\Manage\SetPassword.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\MobileLogin\Login.cshtml" />
     <Content Include="Views\Home\UserPage.cshtml" />
   </ItemGroup>
@@ -4542,6 +4569,12 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\NewFolder1\" />
     <Folder Include="Views\BackPhoto\" />
+=======
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\MobileLogin\" />
+>>>>>>> auth
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

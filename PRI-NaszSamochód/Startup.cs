@@ -1,5 +1,7 @@
 ﻿using Microsoft.Owin;
 using Owin;
+using PRI_NaszSamochod.MobileAuthentication;
+using System.Diagnostics;
 
 [assembly: OwinStartupAttribute(typeof(PRI_NaszSamochód.Startup))]
 namespace PRI_NaszSamochód
@@ -9,6 +11,9 @@ namespace PRI_NaszSamochód
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+
+            //TODO: Delete this two lines when the mobile login works !!!
+            CryptoRSA.TestEncDec("password1234567890");
         }
     }
 }
