@@ -224,11 +224,10 @@
     <Compile Include="Controllers\BackPhotoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-<<<<<<< HEAD
     <Compile Include="Controllers\ProfPhotoController.cs" />
-=======
+
     <Compile Include="Controllers\MobileController.cs" />
->>>>>>> auth
+
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -238,11 +237,8 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-<<<<<<< HEAD
     <Compile Include="Models\MobileLoginModel.cs" />
     <Compile Include="Models\ProfileViewModel.cs" />
-=======
->>>>>>> auth
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -2759,7 +2755,6 @@
     <Content Include="Content\css\bootstrap-reboot.min.css.map" />
     <Content Include="Content\css\bootstrap.css.map" />
     <Content Include="Content\css\bootstrap.min.css.map" />
-<<<<<<< HEAD
     <Content Include="Content\package.json" />
     <Content Include="Content\node_modules\.bin\gulp" />
     <Content Include="Content\node_modules\.bin\gulp.cmd" />
@@ -4513,10 +4508,8 @@
     <Content Include="Content\sass\main.scss" />
     <Content Include="Content\sass\palette.scss" />
     <Content Include="Content\sass\userPage.scss" />
-=======
     <None Include="Properties\PublishProfiles\NaszSamochod - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\PRI-NaszSamochod20170424104344 - Web Deploy.pubxml" />
->>>>>>> auth
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -4561,7 +4554,6 @@
     <Content Include="Views\Manage\ManageLogins.cshtml" />
     <Content Include="Views\Manage\SetPassword.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\MobileLogin\Login.cshtml" />
     <Content Include="Views\Home\UserPage.cshtml" />
   </ItemGroup>
@@ -4569,12 +4561,10 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\NewFolder1\" />
     <Folder Include="Views\BackPhoto\" />
-=======
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\MobileLogin\" />
->>>>>>> auth
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
