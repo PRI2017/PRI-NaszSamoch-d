@@ -496,6 +496,7 @@
     <Content Include="Content\node_modules\expand-tilde\index.js" />
     <Content Include="Content\node_modules\extend\index.js" />
     <Content Include="Content\node_modules\extglob\index.js" />
+    <Content Include="Content\node_modules\extsprintf\.gitmodules" />
     <Content Include="Content\node_modules\extsprintf\examples\simple.js" />
     <Content Include="Content\node_modules\extsprintf\lib\extsprintf.js" />
     <Content Include="Content\node_modules\fancy-log\index.js" />
@@ -2098,6 +2099,7 @@
     <Content Include="Content\node_modules\node-sass\src\custom_function_bridge.h" />
     <Content Include="Content\node_modules\node-sass\src\custom_importer_bridge.cpp" />
     <Content Include="Content\node_modules\node-sass\src\custom_importer_bridge.h" />
+    <Content Include="Content\node_modules\node-sass\src\libsass\.gitattributes" />
     <Content Include="Content\node_modules\node-sass\src\libsass\contrib\plugin.cpp" />
     <Content Include="Content\node_modules\node-sass\src\libsass\include\sass.h" />
     <Content Include="Content\node_modules\node-sass\src\libsass\include\sass2scss.h" />
@@ -2320,6 +2322,7 @@
     <Content Include="Content\node_modules\pify\index.js" />
     <Content Include="Content\node_modules\pinkie-promise\index.js" />
     <Content Include="Content\node_modules\pinkie\index.js" />
+    <Content Include="Content\node_modules\preserve\.gitattributes" />
     <Content Include="Content\node_modules\preserve\index.js" />
     <Content Include="Content\node_modules\preserve\test.js" />
     <Content Include="Content\node_modules\pretty-hrtime\index.js" />
@@ -2662,6 +2665,7 @@
     <Content Include="Content\node_modules\uuid\v4.js" />
     <Content Include="Content\node_modules\v8flags\index.js" />
     <Content Include="Content\node_modules\validate-npm-package-license\index.js" />
+    <Content Include="Content\node_modules\verror\.gitmodules" />
     <Content Include="Content\node_modules\verror\examples\levels-verror.js" />
     <Content Include="Content\node_modules\verror\examples\levels-werror.js" />
     <Content Include="Content\node_modules\verror\examples\varargs.js" />
@@ -2753,6 +2757,10 @@
     <Content Include="Content\css\bootstrap.css.map" />
     <Content Include="Content\css\bootstrap.min.css.map" />
     <Content Include="Content\package.json" />
+    <Content Include="Content\sass\loginPage.scss" />
+    <Content Include="Content\sass\main.scss" />
+    <Content Include="Content\sass\palette.scss" />
+    <Content Include="Content\sass\userPage.scss" />
     <Content Include="Content\node_modules\.bin\gulp" />
     <Content Include="Content\node_modules\.bin\gulp.cmd" />
     <Content Include="Content\node_modules\.bin\in-install" />
@@ -3177,7 +3185,6 @@
     <Content Include="Content\node_modules\extglob\LICENSE" />
     <Content Include="Content\node_modules\extglob\package.json" />
     <Content Include="Content\node_modules\extglob\README.md" />
-    <Content Include="Content\node_modules\extsprintf\.gitmodules" />
     <Content Include="Content\node_modules\extsprintf\jsl.node.conf" />
     <Content Include="Content\node_modules\extsprintf\LICENSE" />
     <Content Include="Content\node_modules\extsprintf\Makefile" />
@@ -3844,7 +3851,6 @@
     <Content Include="Content\node_modules\node-sass\README.md" />
     <Content Include="Content\node_modules\node-sass\src\libsass.gyp" />
     <Content Include="Content\node_modules\node-sass\src\libsass\.editorconfig" />
-    <Content Include="Content\node_modules\node-sass\src\libsass\.gitattributes" />
     <Content Include="Content\node_modules\node-sass\src\libsass\.github\CONTRIBUTING.md" />
     <Content Include="Content\node_modules\node-sass\src\libsass\.github\ISSUE_TEMPLATE.md" />
     <Content Include="Content\node_modules\node-sass\src\libsass\.npmignore" />
@@ -3961,7 +3967,7 @@
     <Content Include="Content\node_modules\node-sass\test\fixtures\watching\index.sass" />
     <Content Include="Content\node_modules\node-sass\test\fixtures\watching\index.scss" />
     <Content Include="Content\node_modules\node-sass\test\fixtures\watching\white.scss" />
-    <Content Include="Content\node_modules\node-sass\vendor\win32-x64-47\binding.node" />
+    <Content Include="Content\node_modules\node-sass\vendor\win32-x64-48\binding.node" />
     <Content Include="Content\node_modules\nopt\.npmignore" />
     <Content Include="Content\node_modules\nopt\.travis.yml" />
     <Content Include="Content\node_modules\nopt\LICENSE" />
@@ -4067,7 +4073,6 @@
     <Content Include="Content\node_modules\pinkie\license" />
     <Content Include="Content\node_modules\pinkie\package.json" />
     <Content Include="Content\node_modules\pinkie\readme.md" />
-    <Content Include="Content\node_modules\preserve\.gitattributes" />
     <Content Include="Content\node_modules\preserve\.jshintrc" />
     <Content Include="Content\node_modules\preserve\.npmignore" />
     <Content Include="Content\node_modules\preserve\.travis.yml" />
@@ -4406,7 +4411,6 @@
     <Content Include="Content\node_modules\validate-npm-package-license\LICENSE" />
     <Content Include="Content\node_modules\validate-npm-package-license\package.json" />
     <Content Include="Content\node_modules\validate-npm-package-license\README.md" />
-    <Content Include="Content\node_modules\verror\.gitmodules" />
     <Content Include="Content\node_modules\verror\.npmignore" />
     <Content Include="Content\node_modules\verror\jsl.node.conf" />
     <Content Include="Content\node_modules\verror\LICENSE" />
@@ -4501,10 +4505,6 @@
     <Content Include="Content\node_modules\yargs\locales\zh_CN.json" />
     <Content Include="Content\node_modules\yargs\package.json" />
     <Content Include="Content\node_modules\yargs\README.md" />
-    <Content Include="Content\sass\loginPage.scss" />
-    <Content Include="Content\sass\main.scss" />
-    <Content Include="Content\sass\palette.scss" />
-    <Content Include="Content\sass\userPage.scss" />
     <None Include="Properties\PublishProfiles\NaszSamochod - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\PRI-NaszSamochod20170424104344 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -4559,7 +4559,10 @@
     <Folder Include="Content\NewFolder1\" />
     <Folder Include="Views\BackPhoto\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <TypeScriptCompile Include="Content\node_modules\ajv\lib\ajv.d.ts" />
+    <TypeScriptCompile Include="Content\node_modules\tweetnacl\nacl.d.ts" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>
@@ -4574,10 +4577,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <TypeScriptCompile Include="Content\node_modules\ajv\lib\ajv.d.ts" />
-    <TypeScriptCompile Include="Content\node_modules\tweetnacl\nacl.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
