@@ -1,5 +1,7 @@
 package com.example.dominika.samochod;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -30,6 +32,8 @@ public class RecycleviewAdapterConv extends RecyclerView.Adapter<RecycleviewAdap
 
         public final TextView mTextView;
 
+        private final Context context;
+
         private String mItem;
 
         public void setItem(String item) {
@@ -42,6 +46,7 @@ public class RecycleviewAdapterConv extends RecyclerView.Adapter<RecycleviewAdap
             mView = view;
             mTextView = (TextView) view.findViewById(R.id.name_of_group_tv);
             recyclerView = (RecyclerView) view.findViewById(R.id.id_recycleview);
+            context = view.getContext();
             view.setOnClickListener(this);
         }
 
@@ -52,6 +57,12 @@ public class RecycleviewAdapterConv extends RecyclerView.Adapter<RecycleviewAdap
             System.out.println(mItem);
             //ANIMACJA NA ITEM W RECYCLERVIEW
             v.animate().rotationX(360);
+
+            Intent intent;
+            intent =  new Intent(context, Conv.class);
+
+            context.startActivity(intent);
+
         }
     }
 

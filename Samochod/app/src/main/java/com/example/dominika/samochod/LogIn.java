@@ -16,13 +16,10 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import org.bouncycastle.crypto.InvalidCipherTextException;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -40,7 +37,8 @@ public class LogIn extends AppCompatActivity {
     String stringData = "";
     RequestQueue requestQueue;
     String key;
-    String url = "http://naszsamochod.azurewebsites.net/api/login";
+    String url2 = "http://naszsamochod.azurewebsites.net/Mobile/Login";
+    String url = "http://naszsamochod.azurewebsites.net/api/publickey";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,11 +66,10 @@ public class LogIn extends AppCompatActivity {
         }
         //////
 
-
+        //ODEBRANIE KLUCZA Z SERWERA
         logIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent(LogIn.this, Toolbar.class);
                 /////////////////////////////////////////////////////////////
                 StringRequest req = new StringRequest(Request.Method.GET, url,
                         new Response.Listener<String>() {
@@ -82,8 +79,6 @@ public class LogIn extends AppCompatActivity {
                                 Log.v("Response:%n %s", response.toString());
                                 //Log.v("Cookies: $s $n", manager.getCookieStore().toString());
 
-
-                                //JSONObject first = new JSONObject(response);
                                 key = response.toString();
 
 
@@ -91,16 +86,16 @@ public class LogIn extends AppCompatActivity {
                                     new CryptoRSA().TestEncDec(key);
                                 } catch (InvalidCipherTextException e) {
                                     e.printStackTrace();
-                                } catch (NoSuchAlgorithmException e) {
-                                    e.printStackTrace();
                                 } catch (NoSuchProviderException e) {
+                                    e.printStackTrace();
+                                } catch (NoSuchAlgorithmException e) {
                                     e.printStackTrace();
                                 } catch (IOException e) {
                                     e.printStackTrace();
                                 }
-
-                                //Intent intent = new Intent(LogIn.this, Toolbar.class);
-                                //startActivityForResult(intent, CAM);
+                                //USUNAC
+                                Intent intent = new Intent(LogIn.this, Toolbar.class);
+                                startActivityForResult(intent, CAM);
                             }
                         }, new Response.ErrorListener() {
 
@@ -119,19 +114,61 @@ public class LogIn extends AppCompatActivity {
                     }
                 });
                 odp(req);
-                //////////////////////////////////////////////////////////////////////////////////////
-                //startActivityForResult(intent, CAM);
 
+                //WYSLANIE POSTA NA SERWER Z EMAIL I HASLEM
+                final HashMap<String, String> params = new HashMap<String, String>();
+
+                params.put("Email", emailET.getText().toString());
+                params.put("Password", passwordET.getText().toString());
+                params.put("RememberMe", "false");
+
+
+                JsonObjectRequest req2 = new JsonObjectRequest(Request.Method.POST, url2, new JSONObject(params),
+                        new Response.Listener<JSONObject>() {
+
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                Log.v("Response:%n %s", response.toString());
+
+                                //DODAC PO WPROWADZENIU ODPOWIEDNIEGO REQUEST
+                                //Intent intent = new Intent(LogIn.this, Conversation.class);
+                                //startActivity(intent);
+                            }
+                        }, new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        errorRes = error.networkResponse;
+                        if (errorRes != null && errorRes.data != null) {
+                            try {
+                                stringData = new String(errorRes.data, "UTF-8");
+                                showErrorToast();
+                            } catch (UnsupportedEncodingException e) {
+                                e.printStackTrace();
+                            }
+                            Log.e("Error", stringData);
+                        }
+                    }
+                });
+                odp2(req2);
             }
         });
     }
 
+    //WYSWIETLENIE POSTA PRZY NIEUDANEJ PROBIE LOGOWANIA
     private void showErrorToast() {
         Toast.makeText(this, R.string.error, Toast.LENGTH_SHORT).show();
     }
 
 
+    //STRING REQUEST
     private void odp(StringRequest postRequest)
+    {
+        Volley.newRequestQueue(this).add(postRequest);
+    }
+
+    //JSON REQUEST
+    private void odp2(JsonObjectRequest postRequest)
     {
         Volley.newRequestQueue(this).add(postRequest);
     }
