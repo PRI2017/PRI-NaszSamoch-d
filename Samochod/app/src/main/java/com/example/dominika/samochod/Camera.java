@@ -48,15 +48,16 @@ public class Camera extends Fragment {
 
                 /*Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);*/
-                File photo = null;
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 try {
+                    File photo;
                     photo = this.createTemporaryFile("picture", ".jpg");
                     photo.delete();
+                    mImageUri = Uri.fromFile(photo);
                 } catch (Exception e) {
                     Log.v(TAG, "Can't create file to take picture!");
                 }
-                mImageUri = Uri.fromFile(photo);
+
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, mImageUri);
                 startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
             }
@@ -91,6 +92,9 @@ public class Camera extends Fragment {
         if(resultCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK)
         {
             this.grabImage(image);
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            image.setImageBitmap(imageBitmap);
         }
         Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
         super.onActivityResult(requestCode,resultCode,intent);
