@@ -12,7 +12,7 @@ namespace PRI_NaszSamochód
             ConfigureAuth(app);
 
             //TODO: Delete this two lines when the mobile login works !!!
-            CryptoRSA.TestEncDec("password1234567890");
+            //CryptoRSA.TestEncDec("password1234567890");
         }
     }
 }
