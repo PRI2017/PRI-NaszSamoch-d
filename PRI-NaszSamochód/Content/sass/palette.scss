@@ -12,9 +12,6 @@ $color1Hover: rgb(252, 131, 81);
 /*for textboxex in login layout*/
 $fadedGray: rgba(0, 0, 0, 0.37);
 
-<<<<<<< HEAD
-$wallBackground: #f5f5f5;
-=======
 $wallBackground: #f5f5f5;
 
 $baseFS: 16px;
@@ -23,4 +20,3 @@ $text-danger: rgb(255, 233, 223);
 @mixin calcRem($sizeToConvert) {
     font-size: ($sizeToConvert / $baseFS) + rem;
 }
->>>>>>> frontend

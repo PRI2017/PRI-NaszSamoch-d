@@ -11,11 +11,8 @@
   "devDependencies": {
     "bootstrap": "^4.0.0-alpha.6",
     "gulp": "^3.9.1",
-<<<<<<< HEAD
-    "gulp-sass": "^3.1.0"
-=======
     "gulp-sass": "^3.1.0",
     "normalize.scss": "^0.1.0"
->>>>>>> frontend
+
   }
 }

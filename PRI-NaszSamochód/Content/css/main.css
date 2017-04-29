@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 /*$baseFS: 16px;
 @mixin calcRem($sizeToConvert) {
     font-size: ($sizeToConvert / $baseFS) + rem;
@@ -9,7 +7,6 @@
 html {
   font-family: 'Lato', sans-serif; }
 
->>>>>>> frontend
 /*main palette*/
 /*orange*/
 /*light gray*/
@@ -22,19 +19,6 @@ html {
 .btn-success {
   background-color: #ff4b00;
   border: none;
-<<<<<<< HEAD
-  border-radius: 0px; }
-  .btn-success:hover {
-    background-color: #fc8351; }
-
-.form-control {
-  background-color: rgba(0, 0, 0, 0.37);
-  color: white;
-  border: none; }
-
-.loginPage {
-  padding: 15% 0 15% 0; }
-=======
   border-radius: 0px;
   font-family: inherit; }
   .btn-success:hover {
@@ -96,7 +80,6 @@ html {
 .flex-outer > li > label + *,
 .flex-inner {
   flex: 1 0 220px; }
->>>>>>> frontend
 
 /*main palette*/
 /*orange*/
@@ -128,11 +111,7 @@ img.userProfilePhoto {
 ul.breadcrumb {
   background-color: #ff4b00 !important; }
   ul.breadcrumb li > a {
-<<<<<<< HEAD
-    color: white; }
-=======
     color: white !important; }
->>>>>>> frontend
 
 .card {
   /*border: none;*/

@@ -4,35 +4,18 @@
     background: url("../src/loginBackgroundblured.jpeg") no-repeat center center fixed #000;
     background-size: cover !important;
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> frontend
 .btn-success {
     background-color: $color1;
     border: none;
     border-radius: 0px;
-<<<<<<< HEAD
-
-=======
     font-family: inherit;
->>>>>>> frontend
+
     &:hover {
         background-color: $color1Hover;
     }
 }
-<<<<<<< HEAD
 
- .form-control
- {
-     background-color: $fadedGray;
-     color: white;
-     border: none;
- }
-.loginPage{
-    padding: 15% 0 15% 0;
-}
-=======
 .loginPage-container {
     padding: 15% 0 15% 0;
     font-family: inherit;
@@ -41,6 +24,7 @@
     margin: 0 auto;
     box-sizing: border-box;
 }
+
 .flex-outer {
     list-style-type: none;
     padding: 0;
@@ -64,9 +48,10 @@
             max-width: 220px;
         }
 
-        .text-danger{
+        .text-danger {
             color: $text-danger;
         }
+
         p {
             margin: 0;
         }
@@ -90,16 +75,17 @@
     }
 }
 
-    > li:not(:last-child) {
-        margin-bottom: 20px;
-    }
-    .flex-outer > li > label,
-    .flex-outer li p {
-        flex: 1 0 120px;
-        max-width: 220px;
-    }
-    .flex-outer > li > label + *,
-    .flex-inner {
-        flex: 1 0 220px;
-    }
->>>>>>> frontend
+> li:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.flex-outer > li > label,
+.flex-outer li p {
+    flex: 1 0 120px;
+    max-width: 220px;
+}
+
+.flex-outer > li > label + *,
+.flex-inner {
+    flex: 1 0 220px;
+}
