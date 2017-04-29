@@ -419,6 +419,14 @@ namespace PRI_NaszSamochód.Controllers
 
             base.Dispose(disposing);
         }
+        //Mine
+        //
+        // GET: /Account/UserPage
+        [AllowAnonymous]
+        public ActionResult UserPage()
+        {
+            return View();
+        }
 
         #region Helpers
         // Used for XSRF protection when adding external logins

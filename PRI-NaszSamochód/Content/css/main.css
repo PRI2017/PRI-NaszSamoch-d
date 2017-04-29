@@ -1,3 +1,15 @@
+<<<<<<< HEAD
+=======
+/*$baseFS: 16px;
+@mixin calcRem($sizeToConvert) {
+    font-size: ($sizeToConvert / $baseFS) + rem;
+}*/
+/*@import 'reset';*/
+@import url("https://fonts.googleapis.com/css?family=Lato");
+html {
+  font-family: 'Lato', sans-serif; }
+
+>>>>>>> frontend
 /*main palette*/
 /*orange*/
 /*light gray*/
@@ -10,6 +22,7 @@
 .btn-success {
   background-color: #ff4b00;
   border: none;
+<<<<<<< HEAD
   border-radius: 0px; }
   .btn-success:hover {
     background-color: #fc8351; }
@@ -21,6 +34,69 @@
 
 .loginPage {
   padding: 15% 0 15% 0; }
+=======
+  border-radius: 0px;
+  font-family: inherit; }
+  .btn-success:hover {
+    background-color: #fc8351; }
+
+.loginPage-container {
+  padding: 15% 0 15% 0;
+  font-family: inherit;
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box; }
+
+.flex-outer {
+  list-style-type: none;
+  padding: 0;
+  max-width: 50%;
+  margin: 0 auto; }
+  .flex-outer li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center; }
+    .flex-outer li label, .flex-outer li p {
+      /*background-color: $fadedGray;*/
+      color: white;
+      border: none;
+      padding: 8px;
+      /*font-weight: 300;*/
+      /*letter-spacing: .09em;*/
+      /*text-transform: uppercase;*/
+      flex: 1 0 120px;
+      max-width: 220px; }
+    .flex-outer li .text-danger {
+      color: #ffe9df; }
+    .flex-outer li p {
+      margin: 0; }
+    .flex-outer li input {
+      background-color: rgba(0, 0, 0, 0.37);
+      color: white;
+      border: none;
+      padding: 8px; }
+    .flex-outer li button.btn-success {
+      margin-left: 50%;
+      padding: 8px 16px;
+      border: none;
+      letter-spacing: .09em;
+      border-radius: 2px;
+      color: white;
+      /*max-width: 50%;*/ }
+
+> li:not(:last-child) {
+  margin-bottom: 20px; }
+
+.flex-outer > li > label,
+.flex-outer li p {
+  flex: 1 0 120px;
+  max-width: 220px; }
+
+.flex-outer > li > label + *,
+.flex-inner {
+  flex: 1 0 220px; }
+>>>>>>> frontend
 
 /*main palette*/
 /*orange*/
@@ -52,7 +128,11 @@ img.userProfilePhoto {
 ul.breadcrumb {
   background-color: #ff4b00 !important; }
   ul.breadcrumb li > a {
+<<<<<<< HEAD
     color: white; }
+=======
+    color: white !important; }
+>>>>>>> frontend
 
 .card {
   /*border: none;*/

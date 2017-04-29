@@ -4,15 +4,24 @@
     background: url("../src/loginBackgroundblured.jpeg") no-repeat center center fixed #000;
     background-size: cover !important;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> frontend
 .btn-success {
     background-color: $color1;
     border: none;
     border-radius: 0px;
+<<<<<<< HEAD
 
+=======
+    font-family: inherit;
+>>>>>>> frontend
     &:hover {
         background-color: $color1Hover;
     }
 }
+<<<<<<< HEAD
 
  .form-control
  {
@@ -23,3 +32,74 @@
 .loginPage{
     padding: 15% 0 15% 0;
 }
+=======
+.loginPage-container {
+    padding: 15% 0 15% 0;
+    font-family: inherit;
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+.flex-outer {
+    list-style-type: none;
+    padding: 0;
+    max-width: 50%;
+    margin: 0 auto;
+
+    li {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+
+        label, p {
+            /*background-color: $fadedGray;*/
+            color: white;
+            border: none;
+            padding: 8px;
+            /*font-weight: 300;*/
+            /*letter-spacing: .09em;*/
+            /*text-transform: uppercase;*/
+            flex: 1 0 120px;
+            max-width: 220px;
+        }
+
+        .text-danger{
+            color: $text-danger;
+        }
+        p {
+            margin: 0;
+        }
+
+        input {
+            background-color: $fadedGray;
+            color: white;
+            border: none;
+            padding: 8px;
+        }
+
+        button.btn-success {
+            margin-left: 50%;
+            padding: 8px 16px;
+            border: none;
+            letter-spacing: .09em;
+            border-radius: 2px;
+            color: white;
+            /*max-width: 50%;*/
+        }
+    }
+}
+
+    > li:not(:last-child) {
+        margin-bottom: 20px;
+    }
+    .flex-outer > li > label,
+    .flex-outer li p {
+        flex: 1 0 120px;
+        max-width: 220px;
+    }
+    .flex-outer > li > label + *,
+    .flex-inner {
+        flex: 1 0 220px;
+    }
+>>>>>>> frontend

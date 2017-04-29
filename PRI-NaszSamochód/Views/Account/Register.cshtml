@@ -1,10 +1,14 @@
 ﻿<!DOCTYPE html>
+<<<<<<< HEAD
 @using PRI_NaszSamochód.Models
+=======
+>>>>>>> frontend
 @model PRI_NaszSamochód.Models.RegisterViewModel
 @{
     ViewBag.Title = "Register";
 }
 
+<<<<<<< HEAD
 <html lang="pl">
 
 <head>
@@ -12,10 +16,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="~/Content/node_modules/bootstrap/dist/css/bootstrap.min.css">    <link rel="stylesheet" href="~/Content/css/loginPage.css">
+=======
+<html>
+
+<head>
+    <meta charset="utf-8">
+    @*<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">*@
+
+    <link rel="stylesheet" href="~/Content/css/normalize.css">
+    <link rel="stylesheet" href="~/Content/css/main.css">
+>>>>>>> frontend
 
     <title>Strona logowania</title>
 </head>
 <body class="loginPageBody">
+<<<<<<< HEAD
     @*<h2>@ViewBag.Title.</h2>*@
 
     @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
@@ -50,6 +65,45 @@
             </div>
         </div>
     }
+=======
+<div class="loginPage-container">
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <ul class="flex-outer">
+            @*@Html.ValidationSummary("", new { @class = "text-danger" })*@
+            <li>
+                <label for="inputName">Imię: </label>
+            </li>
+            <li>
+                <label for="inputName">Nazwisko: </label>
+            </li>
+            <li>
+                <label for="inputPhone">Numer telefonu: </label>
+            </li>
+            <li>
+                <label for="inputEmail">E-mail: </label>
+                @Html.TextBoxFor(m => m.Email)
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+            </li>
+            <li>
+                <label for="inputPassword">Hasło: </label>
+                @Html.PasswordFor(m => m.Password)
+
+            </li>
+            <li>
+                <label for="inputConfirmedPassword">Powtórz hasło: </label>
+                @Html.PasswordFor(m => m.ConfirmPassword)
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+            </li>
+
+            <li>
+                <button type="submit" class="btn-success" value="Register">Zarejestruj się</button>
+            </li>
+          </ul>
+    }
+    </div>
+>>>>>>> frontend
 
     @section Scripts {
         @Scripts.Render("~/bundles/jqueryval")

@@ -5,12 +5,17 @@
     ViewBag.Title = "Log in";
 }
 
+<<<<<<< HEAD
 <html lang="pl">
+=======
+<html>
+>>>>>>> frontend
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+<<<<<<< HEAD
     <link rel="stylesheet" href="~/Content/node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="~/Content/css/loginPage.css">
 
@@ -41,6 +46,39 @@
             </div>
         </div>
     }
+=======
+    @*<link rel="stylesheet" href="~/Content/node_modules/bootstrap/dist/css/bootstrap.min.css">*@
+    <link rel="stylesheet" href="~/Content/css/normalize.css">
+    <link rel="stylesheet" href="~/Content/css/main.css">
+    @*<link rel="stylesheet" href="~/Content/css/loginPage.css">*@
+
+    <title>Strona logowania</title>
+</head>
+
+<body class="loginPageBody">
+    <div class="loginPage-container">
+        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <ul class="flex-outer">
+                <li>
+                    <label for="inputEmail">Podaj adres e-mail: </label>
+                    @Html.TextBoxFor(m => m.Email, new { @id = "inputEmail" })
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                </li>
+
+                <li class="form-group">
+                    <label for="inputPassword">Podaj hasło: </label>
+                    @Html.PasswordFor(m => m.Password, new { @id = "inputPassword" })
+                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                </li>
+                <li>
+                    <button type="submit" class="btn-success">Zaloguj</button>
+                </li>
+            </ul>
+        }
+    </div>
+>>>>>>> frontend
     <script src="~/Content/node_modules/jquery/dist/jquery.min.js"></script>
     <script src="~/Content/node_modules/tether/dist/js/tether.min.js"></script>
     <script src="~/Content/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
