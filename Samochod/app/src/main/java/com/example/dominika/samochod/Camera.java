@@ -18,6 +18,8 @@ import android.widget.ImageView;
 
 import java.io.File;
 import java.net.URI;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by Dominika on 04.04.2017.
@@ -52,27 +54,38 @@ public class Camera extends Fragment {
                 try {
                     File photo;
                     photo = this.createTemporaryFile("picture", ".jpg");
-                    photo.delete();
+                    //photo.delete();
                     mImageUri = Uri.fromFile(photo);
+                    intent.putExtra(MediaStore.EXTRA_OUTPUT, mImageUri);
+                    startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
                 } catch (Exception e) {
                     Log.v(TAG, "Can't create file to take picture!");
                 }
 
-                intent.putExtra(MediaStore.EXTRA_OUTPUT, mImageUri);
-                startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
+                //intent.putExtra(MediaStore.EXTRA_OUTPUT, mImageUri);
+                //startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
+
             }
 
             private File createTemporaryFile(String part, String ext) throws Exception {
                 //File outputDir = getContext().getCacheDir(); // context being the Activity pointer
                 //File outputFile = File.createTempFile("prefix", "extension", outputDir);
 
-                File tempDir = Environment.getExternalStorageDirectory();
+                String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+
+                String imageFileName="JPEG_"+timeStamp+".jpg";
+
+                File photo = new File(Environment.getExternalStorageDirectory(),  imageFileName);
+
+                return photo;
+
+                /*File tempDir = Environment.getExternalStorageDirectory();
                 tempDir = new File(tempDir.getAbsolutePath() + "/.temp/");
                 if (!tempDir.exists()) {
                     tempDir.mkdirs();
                 }
                 return File.createTempFile(part, ext, tempDir);
-                //return outputFile;
+                //return outputFile;*/
             }
         });
         return rootView;
@@ -81,7 +94,7 @@ public class Camera extends Fragment {
     //WYSWIETLENIE ZDJECIA W IMAGEVIEW
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+        //super.onActivityResult(requestCode, resultCode, data);
 
         /*if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
             Bundle extras = data.getExtras();
@@ -89,12 +102,9 @@ public class Camera extends Fragment {
             image.setImageBitmap(imageBitmap);
         }*/
 
-        if(resultCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK)
+        if(requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK)
         {
             this.grabImage(image);
-            Bundle extras = data.getExtras();
-            Bitmap imageBitmap = (Bitmap) extras.get("data");
-            image.setImageBitmap(imageBitmap);
         }
         Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
         super.onActivityResult(requestCode,resultCode,intent);
@@ -110,6 +120,7 @@ public class Camera extends Fragment {
         try
         {
             bitmap = android.provider.MediaStore.Images.Media.getBitmap(cr, mImageUri);
+
             imageView.setImageBitmap(bitmap);
         }
         catch (Exception e)
