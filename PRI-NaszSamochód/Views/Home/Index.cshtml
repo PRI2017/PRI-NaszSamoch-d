@@ -1,4 +1,4 @@
-﻿@{
+﻿@*@{
     ViewBag.Title = "Home Page";
 }
 
@@ -28,4 +28,30 @@
         <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
         <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
     </div>
-</div>
+</div>*@
+<html>
+    <head>
+        <title>Strona domowa</title>
+        <script src="~/Content/node_modules/angular/angular.min.js"></script>
+        <link rel="stylesheet" href="~/Content/css/main.css">
+        <script src="~/Content/js/script.js"></script>
+    </head>
+    <body>
+        <div class="main-flex">
+            <header>
+                <p>Header</p>
+            </header>
+            <div class="child-flex">
+                <aside>
+                    <p>PANEL</p>
+                </aside>
+                <div class="wall" ng-app="">
+                    <p>WALL</p>
+                    <p>Name : <input type="text" ng-model="test"></p>
+                    <h1>Hello {{test}}</h1>
+                </div>
+            </div>
+            <footer><p>Footer</p></footer>
+            </div>
+</body>
+</html>

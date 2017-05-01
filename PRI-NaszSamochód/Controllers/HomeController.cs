@@ -11,7 +11,7 @@ namespace PRI_NaszSamochód.Controllers
     {
         public ActionResult Index()
         {
-            return View("UserPage");
+            return View();
         }
 
         public ActionResult About()

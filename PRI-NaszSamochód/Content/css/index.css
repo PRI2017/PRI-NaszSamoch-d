@@ -1,0 +1,36 @@
+/*main palette*/
+/*orange*/
+/*light gray*/
+/*dark gray*/
+/*for textboxex in login layout*/
+.main-flex {
+  display: flex;
+  flex-direction: column;
+  align-content: stretch; }
+  .main-flex header {
+    background-color: #ff4b00;
+    height: 300px;
+    width: auto; }
+  .main-flex .child-flex {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    width: 100%;
+    height: auto; }
+    .main-flex .child-flex aside {
+      order: 1;
+      align-self: flex-start;
+      height: auto;
+      width: 300px;
+      background-color: #999;
+      flex-shrink: 1; }
+    .main-flex .child-flex .wall {
+      flex: 1;
+      order: 2;
+      height: 300px;
+      width: 600px;
+      background-color: #cccccc;
+      flex-shrink: 3; }
+  .main-flex footer {
+    background-color: #ff4b00;
+    height: 150px; }

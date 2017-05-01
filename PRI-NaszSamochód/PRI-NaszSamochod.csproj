@@ -250,6 +250,7 @@
     <Content Include="Content\gulpfile.js" />
     <Content Include="Content\js\bootstrap.js" />
     <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\script.js" />
     <Content Include="Content\node_modules\abbrev\abbrev.js" />
     <Content Include="Content\node_modules\ajv\.tonic_example.js" />
     <Content Include="Content\node_modules\ajv\dist\ajv.bundle.js" />
@@ -304,6 +305,10 @@
     <Content Include="Content\node_modules\ajv\scripts\compile-dots.js" />
     <Content Include="Content\node_modules\amdefine\amdefine.js" />
     <Content Include="Content\node_modules\amdefine\intercept.js" />
+    <Content Include="Content\node_modules\angular\angular-csp.css" />
+    <Content Include="Content\node_modules\angular\angular.js" />
+    <Content Include="Content\node_modules\angular\angular.min.js" />
+    <Content Include="Content\node_modules\angular\index.js" />
     <Content Include="Content\node_modules\ansi-regex\index.js" />
     <Content Include="Content\node_modules\ansi-styles\index.js" />
     <Content Include="Content\node_modules\aproba\index.js" />
@@ -4998,6 +5003,12 @@
     <Content Include="Content\node_modules\node-gyp\gyp\buildbot\commit_queue\cq_config.json" />
     <Content Include="Content\node_modules\node-gyp\gyp\buildbot\commit_queue\OWNERS" />
     <Content Include="Content\node_modules\node-gyp\gyp\buildbot\commit_queue\README" />
+    <Content Include="Content\node_modules\angular\angular.min.js.gzip" />
+    <Content Include="Content\node_modules\angular\angular.min.js.map" />
+    <Content Include="Content\node_modules\angular\bower.json" />
+    <Content Include="Content\node_modules\angular\LICENSE.md" />
+    <Content Include="Content\node_modules\angular\package.json" />
+    <Content Include="Content\node_modules\angular\README.md" />
     <None Include="Content\node_modules\node-gyp\gyp\codereview.settings" />
     <Content Include="Content\node_modules\node-gyp\gyp\DEPS" />
     <Content Include="Content\node_modules\node-gyp\gyp\gyp" />
@@ -5759,6 +5770,7 @@
     <Content Include="Content\node_modules\yargs\node_modules\camelcase\readme.md" />
     <Content Include="Content\node_modules\yargs\package.json" />
     <Content Include="Content\node_modules\yargs\README.md" />
+    <Content Include="Content\sass\index.scss" />
     <None Include="Properties\PublishProfiles\NaszSamochod - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />

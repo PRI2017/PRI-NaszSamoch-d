@@ -1,0 +1,44 @@
+@import 'palette.scss';
+
+.main-flex {
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+
+    header {
+        background-color: $color1;
+        height: 300px;
+        width: auto;
+    }
+
+    .child-flex {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        width: 100%;
+        height: auto;
+
+        aside {
+            order: 1;
+            align-self: flex-start;
+            height: auto;
+            width: 300px;
+            background-color: $color3;
+            flex-shrink:1;
+        }
+
+        .wall {
+            flex: 1;
+            order: 2;
+            height: 300px;
+            width: 600px;
+            background-color: $color2;
+            flex-shrink: 3;
+        }
+    }
+
+    footer {
+        background-color: $color1;
+        height: 150px;
+    }
+}
