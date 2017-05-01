@@ -137,12 +137,16 @@ ul.breadcrumb {
     width: 100%;
     height: auto; }
     .main-flex .child-flex aside {
-      order: 1;
-      align-self: flex-start;
       height: auto;
-      width: 300px;
-      background-color: #999;
-      flex-shrink: 1; }
+      width: 300px; }
+      .main-flex .child-flex aside#nav {
+        order: 1;
+        background-color: #999;
+        flex-shrink: 1; }
+      .main-flex .child-flex aside#chat {
+        order: 3;
+        background-color: #999;
+        /*display: none;*/ }
     .main-flex .child-flex .wall {
       flex: 1;
       order: 2;

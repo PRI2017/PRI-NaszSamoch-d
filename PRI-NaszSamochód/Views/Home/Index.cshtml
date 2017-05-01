@@ -36,16 +36,19 @@
         <link rel="stylesheet" href="~/Content/css/main.css">
         <script src="~/Content/js/script.js"></script>
     </head>
-    <body>
+    <body ng-app="">
         <div class="main-flex">
             <header>
                 <p>Header</p>
             </header>
             <div class="child-flex">
-                <aside>
+                <aside id="nav">
                     <p>PANEL</p>
                 </aside>
-                <div class="wall" ng-app="">
+                <aside id="chat">
+                    <p>PANEL</p>
+                </aside>
+                <div class="wall">
                     <p>WALL</p>
                     <p>Name : <input type="text" ng-model="test"></p>
                     <h1>Hello {{test}}</h1>

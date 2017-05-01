@@ -19,12 +19,20 @@
         height: auto;
 
         aside {
-            order: 1;
-            align-self: flex-start;
             height: auto;
             width: 300px;
-            background-color: $color3;
-            flex-shrink:1;
+
+            &#nav {
+                order: 1;
+                background-color: $color3;
+                flex-shrink: 1;
+            }
+
+            &#chat {
+                order: 3;
+                background-color: $color3;
+                /*display: none;*/
+            }
         }
 
         .wall {
