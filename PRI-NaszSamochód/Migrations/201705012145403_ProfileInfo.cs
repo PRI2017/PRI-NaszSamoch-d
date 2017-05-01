@@ -6,7 +6,8 @@ namespace PRI_NaszSamochód.Migrations
     public partial class ProfileInfo : DbMigration
     {
         public override void Up()
-        {
+        {   
+            Down();
             CreateTable(
                 "dbo.AspNetRoles",
                 c => new

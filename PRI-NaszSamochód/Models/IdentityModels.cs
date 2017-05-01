@@ -11,8 +11,8 @@ namespace PRI_NaszSamochód.Models
     public class ApplicationUser : IdentityUser
     {
         
-        public String Name { get; set; }
-        public String Surname { get; set; }
+       public String Name { get; set; }
+       public String Surname { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
