@@ -1,10 +1,12 @@
 package com.example.dominika.samochod;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -17,6 +19,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URI;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -47,9 +50,6 @@ public class Camera extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                /*Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);*/
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 try {
                     File photo;
@@ -61,10 +61,6 @@ public class Camera extends Fragment {
                 } catch (Exception e) {
                     Log.v(TAG, "Can't create file to take picture!");
                 }
-
-                //intent.putExtra(MediaStore.EXTRA_OUTPUT, mImageUri);
-                //startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
-
             }
 
             private File createTemporaryFile(String part, String ext) throws Exception {
@@ -78,14 +74,6 @@ public class Camera extends Fragment {
                 File photo = new File(Environment.getExternalStorageDirectory(),  imageFileName);
 
                 return photo;
-
-                /*File tempDir = Environment.getExternalStorageDirectory();
-                tempDir = new File(tempDir.getAbsolutePath() + "/.temp/");
-                if (!tempDir.exists()) {
-                    tempDir.mkdirs();
-                }
-                return File.createTempFile(part, ext, tempDir);
-                //return outputFile;*/
             }
         });
         return rootView;
@@ -94,40 +82,39 @@ public class Camera extends Fragment {
     //WYSWIETLENIE ZDJECIA W IMAGEVIEW
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        //super.onActivityResult(requestCode, resultCode, data);
-
-        /*if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
-            Bundle extras = data.getExtras();
-            Bitmap imageBitmap = (Bitmap) extras.get("data");
-            image.setImageBitmap(imageBitmap);
-        }*/
 
         if(requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK)
         {
-            this.grabImage(image);
+            ContentResolver cr = this.getContext().getContentResolver();
+            Bitmap bitmap;
+
+            if (shouldAskPermissions()) {
+                askPermissions();
+            }
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(cr, mImageUri);
+                image.setImageBitmap(bitmap);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
         super.onActivityResult(requestCode,resultCode,intent);
     }
-
-    ///////
-
-    public void grabImage(ImageView imageView)
-    {
-        this.getContext().getContentResolver().notifyChange(mImageUri, null);
-        ContentResolver cr = this.getContext().getContentResolver();
-        Bitmap bitmap;
-        try
-        {
-            bitmap = android.provider.MediaStore.Images.Media.getBitmap(cr, mImageUri);
-
-            imageView.setImageBitmap(bitmap);
-        }
-        catch (Exception e)
-        {
-            //Toast.makeText(this, "Failed to load", Toast.LENGTH_SHORT).show();
-            Log.d(TAG, "Failed to load", e);
-        }
+    
+    //DLA NOWSZYCH WERSJI ANDROIDA
+    protected boolean shouldAskPermissions() {
+        return (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP_MR1);
     }
 
+    @TargetApi(23)
+    protected void askPermissions() {
+        String[] permissions = {
+                "android.permission.READ_EXTERNAL_STORAGE",
+                "android.permission.WRITE_EXTERNAL_STORAGE"
+        };
+        int requestCode = 200;
+        requestPermissions(permissions, requestCode);
+    }
+    //////////////////////////////////////////////////////////////
 }
