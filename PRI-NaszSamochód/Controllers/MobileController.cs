@@ -69,31 +69,39 @@ namespace PRI_NaszSamochód.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl = null)
         {
+            SignInStatus x = new SignInStatus();
             if (!ModelState.IsValid)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            SignInStatus x = await SignInManager.PasswordSignInAsync(
-                model.Email,
-                CryptoRSA.Decrypt(
-                    Convert.FromBase64String(model.Password),
-                    KeysHolder.Instance.PrivateKey),
-                model.RememberMe,
-                shouldLockout: false);
+            try
+            {
+                x = await SignInManager.PasswordSignInAsync(
+                        model.Email,
+                        CryptoRSA.Decrypt(
+                            Convert.FromBase64String(model.Password),
+                            KeysHolder.Instance.PrivateKey),
+                        model.RememberMe,
+                        shouldLockout: false);
+            }
+            catch (Exception)
+            {
+                x = SignInStatus.Failure;
+            }
 
             switch (x)
             {
                 case SignInStatus.Success:
-                    return new HttpStatusCodeResult(HttpStatusCode.OK);
+                    return new HttpStatusCodeResult(HttpStatusCode.OK, "User found");
                 case SignInStatus.Failure:
-                    return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+                    return new HttpStatusCodeResult(HttpStatusCode.NoContent, "Sign in failed");
                 case SignInStatus.LockedOut:
-                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "User locked out");
                 case SignInStatus.RequiresVerification:
-                    return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+                    return new HttpStatusCodeResult(HttpStatusCode.Forbidden, "User requires verification");
                 default:
-                    return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
+                    return new HttpStatusCodeResult(HttpStatusCode.Conflict, "Server has a problem");
             }
         }
     }
