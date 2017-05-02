@@ -1,6 +1,7 @@
 @import 'palette.scss';
 
 .main-flex {
+    /*ogarn¹æ flex-shrink i -grow*/
     display: flex;
     flex-direction: column;
     align-content: stretch;
@@ -21,11 +22,11 @@
         aside {
             height: auto;
             width: 300px;
+            /*flex-shrink: 3;*/
 
             &#nav {
                 order: 1;
                 background-color: $color3;
-                flex-shrink: 1;
             }
 
             &#chat {
@@ -41,7 +42,7 @@
             height: 300px;
             width: 600px;
             background-color: $color2;
-            flex-shrink: 3;
+            /*flex-shrink: 1;*/
         }
     }
 

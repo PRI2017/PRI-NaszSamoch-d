@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*$baseFS: 16px;
 @mixin calcRem($sizeToConvert) {
     font-size: ($sizeToConvert / $baseFS) + rem;
@@ -123,6 +124,7 @@ ul.breadcrumb {
 /*dark gray*/
 /*for textboxex in login layout*/
 .main-flex {
+  /*ogarn¹æ flex-shrink i -grow*/
   display: flex;
   flex-direction: column;
   align-content: stretch; }
@@ -138,11 +140,11 @@ ul.breadcrumb {
     height: auto; }
     .main-flex .child-flex aside {
       height: auto;
-      width: 300px; }
+      width: 300px;
+      /*flex-shrink: 3;*/ }
       .main-flex .child-flex aside#nav {
         order: 1;
-        background-color: #999;
-        flex-shrink: 1; }
+        background-color: #999; }
       .main-flex .child-flex aside#chat {
         order: 3;
         background-color: #999;
@@ -153,7 +155,7 @@ ul.breadcrumb {
       height: 300px;
       width: 600px;
       background-color: #cccccc;
-      flex-shrink: 3; }
+      /*flex-shrink: 1;*/ }
   .main-flex footer {
     background-color: #ff4b00;
     height: 150px; }
