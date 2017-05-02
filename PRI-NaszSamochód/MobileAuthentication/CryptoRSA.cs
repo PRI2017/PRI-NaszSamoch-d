@@ -23,13 +23,22 @@ namespace PRI_NaszSamochód.MobileAuthentication
         /// <returns></returns>
         public static byte[] Encrypt(string data, AsymmetricKeyParameter publicKey)
         {
-            byte[] dataBytes = encoding.GetBytes(data);
-            cipher = new RsaEngine();
+            try
+            {
+                byte[] dataBytes = encoding.GetBytes(data);
+                cipher = new RsaEngine();
 
-            cipher.Init(!publicKey.IsPrivate, publicKey);
-            byte[] encryptedBytes = cipher.ProcessBlock(dataBytes, 0, data.Length);
+                cipher.Init(!publicKey.IsPrivate, publicKey);
+                byte[] encryptedBytes = cipher.ProcessBlock(dataBytes, 0, data.Length);
+                return encryptedBytes;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                return new byte[1];
+            }
 
-            return encryptedBytes;
+            
         }
 
         /// <summary>
@@ -40,10 +49,18 @@ namespace PRI_NaszSamochód.MobileAuthentication
         /// <returns></returns>
         public static string Decrypt(byte[] dataBytes, AsymmetricKeyParameter privateKey)
         {
-            cipher.Init(!privateKey.IsPrivate, privateKey);
-            Debug.WriteLine(cipher.GetInputBlockSize());
-            byte[] decipheredBytes = cipher.ProcessBlock(dataBytes, 0, dataBytes.Length);
-            return encoding.GetString(decipheredBytes);
+            try
+            {
+                cipher.Init(!privateKey.IsPrivate, privateKey);
+                Debug.WriteLine(cipher.GetInputBlockSize());
+                byte[] decipheredBytes = cipher.ProcessBlock(dataBytes, 0, dataBytes.Length);
+                return encoding.GetString(decipheredBytes);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                return "0";
+            }
         }
 
         /// <summary>
