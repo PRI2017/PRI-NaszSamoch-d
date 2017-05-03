@@ -101,7 +101,7 @@ public class Camera extends Fragment {
         Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
         super.onActivityResult(requestCode,resultCode,intent);
     }
-    
+
     //DLA NOWSZYCH WERSJI ANDROIDA
     protected boolean shouldAskPermissions() {
         return (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP_MR1);

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.LinkMovementMethod;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -19,7 +20,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
+import org.bouncycastle.asn1.crmf.PKIPublicationInfo;
 import org.bouncycastle.crypto.InvalidCipherTextException;
+import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
+import org.bouncycastle.crypto.util.PublicKeyFactory;
 import org.json.JSONObject;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -36,7 +41,7 @@ public class LogIn extends AppCompatActivity {
     NetworkResponse errorRes;
     String stringData = "";
     RequestQueue requestQueue;
-    String key;
+    static String key;
     String url2 = "http://naszsamochod.azurewebsites.net/Mobile/Login";
     String url = "http://naszsamochod.azurewebsites.net/api/publickey";
 
@@ -81,7 +86,6 @@ public class LogIn extends AppCompatActivity {
 
                                 key = response.toString();
 
-
                                 try {
                                     new CryptoRSA().TestEncDec(key);
                                 } catch (InvalidCipherTextException e) {
@@ -94,8 +98,8 @@ public class LogIn extends AppCompatActivity {
                                     e.printStackTrace();
                                 }
                                 //USUNAC
-                                Intent intent = new Intent(LogIn.this, Toolbar.class);
-                                startActivityForResult(intent, CAM);
+                                //Intent intent = new Intent(LogIn.this, Toolbar.class);
+                                //startActivityForResult(intent, CAM);
                             }
                         }, new Response.ErrorListener() {
 
@@ -118,6 +122,19 @@ public class LogIn extends AppCompatActivity {
                 //WYSLANIE POSTA NA SERWER Z EMAIL I HASLEM
                 final HashMap<String, String> params = new HashMap<String, String>();
 
+                AsymmetricKeyParameter key2 = null;
+                try {
+                    //NAPRAWIC BO KEY NEI JEST WIDOCZNY W TYM MIEJSCU
+                    key2 = PublicKeyFactory.createKey(Base64.decode(key, Base64.DEFAULT));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                try {
+                    CryptoRSA.Encrypt(passwordET.getText().toString(),key2);
+                } catch (InvalidCipherTextException e) {
+                    e.printStackTrace();
+                }
                 params.put("Email", emailET.getText().toString());
                 params.put("Password", passwordET.getText().toString());
                 params.put("RememberMe", "false");
@@ -131,8 +148,8 @@ public class LogIn extends AppCompatActivity {
                                 Log.v("Response:%n %s", response.toString());
 
                                 //DODAC PO WPROWADZENIU ODPOWIEDNIEGO REQUEST
-                                //Intent intent = new Intent(LogIn.this, Conversation.class);
-                                //startActivity(intent);
+                                Intent intent = new Intent(LogIn.this, Conversation.class);
+                                startActivity(intent);
                             }
                         }, new Response.ErrorListener() {
 
@@ -172,4 +189,10 @@ public class LogIn extends AppCompatActivity {
     {
         Volley.newRequestQueue(this).add(postRequest);
     }
+
+   /* public AsymmetricKeyParameter DeserializePublicKey(String serializedKey)
+    {
+        //return PublicKeyFactory.
+        //return PublicKeyFactory.CreateKey(Convert.FromBase64String(serializedKey));
+    }*/
 }
