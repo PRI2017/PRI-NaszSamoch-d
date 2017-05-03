@@ -1,20 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 
 namespace PRI_NaszSamochód.Controllers
 {
     public class BackPhotoController : Controller
     {
-        // GET: BackPhoto
-        public ActionResult Index()
+        [System.Web.Mvc.Route("BackPhoto/{userId}")]
+        [System.Web.Mvc.HttpGet]
+        public ActionResult Index(String userId)
         {
-            Console.WriteLine(User.Identity.Name);
-            var dir = Server.MapPath("/BackGroundPhoto");
-            var path = Path.Combine(dir, User.Identity.Name + ".jpg");
+            Debug.WriteLine(User.Identity.GetUserId());
+            var dir = Server.MapPath("/ProfilePhoto");
+            var path = Path.Combine(dir, userId + ".jpg");
+            Debug.WriteLine(userId);
             return base.File(path, "image/jpeg");
         }
     }

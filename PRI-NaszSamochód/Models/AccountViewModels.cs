@@ -79,6 +79,14 @@ namespace PRI_NaszSamochód.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Display(Name = "Imię")]
+        public string Name { get; set; }
+
+        [Display(Name = "Nazwisko")]
+        public string Surname { get; set; }
+        [Display(Name = "Numer Telefonu")]
+        public string PhoneNumber { get; set; }
     }
 
     public class ResetPasswordViewModel
