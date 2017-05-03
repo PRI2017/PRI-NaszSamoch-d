@@ -18,6 +18,6 @@ namespace PRI_NaszSamochód.Models
         public ApplicationUser User { get; set; }
         public String ProfilePhotoUrl { get; set; }
         public String BackPhotoUrl { get; set; }
-        public ISet<PostModel> LastPosts { get; set; }
+        
     }
 }
