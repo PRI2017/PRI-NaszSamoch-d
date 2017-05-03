@@ -66,20 +66,35 @@ body {
     }
 
     .wall-flex {
-        display: flex;
-        height: 200px;
-        width: auto;
-        background-color: $wallBackground;
-
-
         .post {
-            height: 200px;
-            width: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             background-color: white;
+            margin: 10px;
 
             .postHeader {
-                height: 50px;
                 background-color: $color1;
+
+                ul {
+                    list-style: none;
+                    flex-direction: column;
+
+                    & li, p {
+                        display: inline;
+                        color: white;
+                        align-items: flex-end;
+                    }
+                }
+            }
+
+            .postContent {
+                padding: 10px;
+                /*background-color: white;*/
+            }
+
+            button {
+                align-self: flex-start;
             }
         }
     }

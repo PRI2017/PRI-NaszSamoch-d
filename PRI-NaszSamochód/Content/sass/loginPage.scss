@@ -10,6 +10,12 @@
     border: none;
     border-radius: 0px;
     font-family: inherit;
+    padding: 8px 16px;
+    border: none;
+    letter-spacing: .09em;
+    border-radius: 2px;
+    color: white;
+    margin: 10px;
 
     &:hover {
         background-color: $color1Hover;
@@ -35,6 +41,7 @@
         display: flex;
         flex-wrap: wrap;
         align-items: center;
+        justify-content: center;
 
         label, p {
             /*background-color: $fadedGray;*/
@@ -61,16 +68,6 @@
             color: white;
             border: none;
             padding: 8px;
-        }
-
-        button.btn-success {
-            margin-left: 50%;
-            padding: 8px 16px;
-            border: none;
-            letter-spacing: .09em;
-            border-radius: 2px;
-            color: white;
-            /*max-width: 50%;*/
         }
     }
 }

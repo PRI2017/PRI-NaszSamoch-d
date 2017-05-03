@@ -11,7 +11,13 @@
   background-color: #ff4b00;
   border: none;
   border-radius: 0px;
-  font-family: inherit; }
+  font-family: inherit;
+  padding: 8px 16px;
+  border: none;
+  letter-spacing: .09em;
+  border-radius: 2px;
+  color: white;
+  margin: 10px; }
   .btn-success:hover {
     background-color: #fc8351; }
 
@@ -31,7 +37,8 @@
   .flex-outer li {
     display: flex;
     flex-wrap: wrap;
-    align-items: center; }
+    align-items: center;
+    justify-content: center; }
     .flex-outer li label, .flex-outer li p {
       /*background-color: $fadedGray;*/
       color: white;
@@ -51,14 +58,6 @@
       color: white;
       border: none;
       padding: 8px; }
-    .flex-outer li button.btn-success {
-      margin-left: 50%;
-      padding: 8px 16px;
-      border: none;
-      letter-spacing: .09em;
-      border-radius: 2px;
-      color: white;
-      /*max-width: 50%;*/ }
 
 > li:not(:last-child) {
   margin-bottom: 20px; }
