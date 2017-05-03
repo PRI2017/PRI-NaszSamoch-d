@@ -89,6 +89,12 @@ html {
 body {
   background-color: #e9e9e9; }
 
+.dialog {
+  z-index: 10;
+  width: 200px;
+  height: 100px;
+  background-color: red; }
+
 .container-flex {
   display: flex;
   flex-direction: column;
@@ -106,14 +112,29 @@ body {
       height: 40px;
       width: 40px;
       background-color: #999; }
-  .container-flex .userPageHeader, .container-flex img.userBackgroundImg {
+  .container-flex .userPageHeader {
     display: flex;
     height: 200px;
     width: auto;
     align-items: flex-end;
     background-color: #333; }
-    .container-flex .userPageHeader img.userProfilePhoto, .container-flex img.userBackgroundImg img.userProfilePhoto {
-      margin-left: 50px; }
+    .container-flex .userPageHeader img.userProfilePhoto {
+      margin-left: 50px;
+      position: relative; }
+      .container-flex .userPageHeader img.userProfilePhoto:hover::after {
+        content: "\f07c";
+        font-family: 'FontAwesome';
+        color: #ff4b00;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: inherit;
+        /*--adjust as necessary--*/
+        font-size: 18px;
+        /*padding-right: 0.5em;*/
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 100; }
   .container-flex ul.nav {
     display: inline-flex;
     list-style: none;

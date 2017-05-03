@@ -8,7 +8,12 @@
 body {
     background-color: $wallBackground;
 }
-
+.dialog {
+    z-index: 10;
+    width: 200px;
+    height: 100px;
+    background-color: red;
+}
 .container-flex {
     display: flex;
     flex-direction: column;
@@ -30,7 +35,7 @@ body {
         }
     }
 
-    .userPageHeader, img.userBackgroundImg {
+    .userPageHeader {
         display: flex;
         height: 200px;
         width: auto;
@@ -39,9 +44,25 @@ body {
 
         img.userProfilePhoto {
             margin-left: 50px;
+            position: relative;
+
+            &:hover::after {
+                content: "\f07c";
+                font-family: 'FontAwesome';
+                color: $color1;
+                font-style: normal;
+                font-weight: normal;
+                text-decoration: inherit;
+                /*--adjust as necessary--*/
+                font-size: 18px;
+                /*padding-right: 0.5em;*/
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                z-index: 100;
+            }
         }
     }
-
     ul.nav {
         display: inline-flex;
         list-style: none;

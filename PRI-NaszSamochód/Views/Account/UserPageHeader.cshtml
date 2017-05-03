@@ -8,17 +8,23 @@
     <script src="~/Content/node_modules/jquery/dist/jquery.min.js"></script>
     <link rel="stylesheet" href="~/Content/css/main.css">
     <link rel="stylesheet" href="~/Content/css/userPage.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="~/Content/node_modules/angular/angular.min.js"></script>
     <title>Profil użytkownika</title>
 </head>
 
-<body>
+<body ng-app="">
+    @*<div class="dialog" ng-init="show = false" ng-show="show" id="dialog">
+            <input type="file" onchange="previewFile()" id="imgInput"><br>
+        </div>*@
     <div class="container-flex">
         @*<img src="#" class="userProfilePhoto"/>*@
 
         <div class="userPageHeader">
             @*background photo*@
             @*<img class="userBackgroundImg" src="#">*@
-            <img src="#" class="userProfilePhoto" />
+            <img src="#" class="userProfilePhoto"/>
+            @*<input type="file" onchange="previewFile()" id="imgInput">*@<br>
         </div>
         <ul class="nav">
             <li><a href="#">Informacje</a></li>
@@ -27,6 +33,31 @@
             <li><a href="#">Statystyki</a></li>
         </ul>
     </div>
+    @*<script>
+        var show = false;
+        var img = document.getElementById("dialog").onclick = showF;
+        function showF() {
+            show = true;
+            console.log(show);
+        }
+
+        function previewFile() {
+       var preview = document.querySelector('img.userProfilePhoto'); //selects the query named img
+       var file = document.querySelector('input[type=file]').files[0]; //sames as here
+       var reader = new FileReader();
+       reader.onloadend = function () {
+           preview.src = reader.result;
+       }
+
+       if (file) {
+           reader.readAsDataURL(file); //reads the data as a URL
+       } else {
+           preview.src = "";
+       }
+  }
+
+  previewFile();  //calls the function named previewFile()
+    </script>*@
 </body>
 
 </html>
