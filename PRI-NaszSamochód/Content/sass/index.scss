@@ -7,8 +7,14 @@
     align-content: stretch;
 
     header {
+        background-color: $color2;
+        height: 200px;
+        width: auto;
+    }
+
+    nav {
         background-color: $color1;
-        height: 300px;
+        height: 50px;
         width: auto;
     }
 
@@ -23,7 +29,6 @@
             height: auto;
             width: 300px;
             /*flex-shrink: 3;*/
-
             &#nav {
                 order: 1;
                 background-color: $color3;
@@ -32,8 +37,19 @@
             &#chat {
                 order: 3;
                 background-color: $color3;
-                /*display: none;*/
+                display: none;
             }
+
+            ul > li {
+                list-style: none;
+            }
+            p {
+                margin-left: 30px;
+            }
+
+            /*ul.groups li {
+                list-style-position: outside;
+            }*/
         }
 
         .wall {
@@ -41,7 +57,7 @@
             order: 2;
             height: 300px;
             width: 600px;
-            background-color: $color2;
+            background-color: $wallBackground;
             /*flex-shrink: 1;*/
         }
     }

@@ -5,43 +5,82 @@
     width: $square * $factor;
     background-color: $color3;
 }
-
 body {
     background-color: $wallBackground;
 }
 
-aside {
-    /*background-color: red;*/
-}
+.container-flex {
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
 
-.wall {
-    background-color: $wallBackground;
-}
+    img.userProfilePhoto {
 
-img.userProfilePhoto {
+        @include userProfilePhoto(100px,1.5);
+        background: url("../src/no-pic-avatar.jpg");
+        background-size: cover;
+        border-color: white;
+        border-width: 1px;
+        border: ridge;
 
-    @include userProfilePhoto(100px,1.5);
 
-    &.userProfilePhotoSmall {
+        &.userProfilePhotoSmall {
 
-        @include userProfilePhoto(100px,0.4);
+            @include userProfilePhoto(100px,0.4);
+        }
     }
-}
 
-.card-img-top {
-    height: 200px;
-    background-color: $color5;
-}
+    .userPageHeader, img.userBackgroundImg {
+        display: flex;
+        height: 200px;
+        width: auto;
+        align-items: flex-end;
+        background-color: $color5;
 
-ul.breadcrumb {
-    background-color: $color1 !important;
-
-    li > a {
-        color: white !important;
+        img.userProfilePhoto {
+            margin-left: 50px;
+        }
     }
-}
 
-.card {
-    /*border: none;*/
-    border-radius: 0px;
+    ul.nav {
+        display: inline-flex;
+        list-style: none;
+        height: auto;
+        width: auto;
+        background-color: $color1;
+        margin-top: 0;
+
+        & > li {
+            padding: 20px;
+
+            & > a {
+                color: white;
+                text-decoration: none;
+            }
+
+
+            &:hover {
+                background-color: $color1Hover;
+            }
+        }
+    }
+
+    .wall-flex {
+        display: flex;
+        height: 200px;
+        width: auto;
+        background-color: $wallBackground;
+
+
+        .post {
+            height: 200px;
+            width: auto;
+            background-color: white;
+
+            .postHeader {
+                height: 50px;
+                background-color: $color1;
+            }
+        }
+    }
 }

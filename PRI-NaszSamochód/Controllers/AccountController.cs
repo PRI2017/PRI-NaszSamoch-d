@@ -421,9 +421,15 @@ namespace PRI_NaszSamochód.Controllers
         }
         //Mine
         //
-        // GET: /Account/UserPage
+        // GET: /Account/UserPageContent
         [AllowAnonymous]
-        public ActionResult UserPage()
+        public ActionResult UserPageContent()
+        {
+            return View();
+        }
+        // GET: /Account/UserPageHeader
+        [AllowAnonymous]
+        public ActionResult UserPageHeader()
         {
             return View();
         }

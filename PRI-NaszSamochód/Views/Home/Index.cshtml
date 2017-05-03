@@ -34,16 +34,27 @@
         <title>Strona domowa</title>
         <script src="~/Content/node_modules/angular/angular.min.js"></script>
         <link rel="stylesheet" href="~/Content/css/main.css">
+        <link rel="stylesheet" href="~/Content/css/index.css">
         <script src="~/Content/js/script.js"></script>
     </head>
     <body ng-app="">
         <div class="main-flex">
+            <nav><p>Nav</p></nav>
             <header>
                 <p>Header</p>
             </header>
             <div class="child-flex">
                 <aside id="nav">
                     <p>PANEL</p>
+                    <ul>
+                        <li>Aktualności</li>
+                        <li>Wiadomości</li>
+                    </ul>
+                    <p>Grupy</p>
+                    <ul class="groups">
+                        <li>Grupa #1</li>
+                        <li>Grupa #2</li>
+                    </ul>
                 </aside>
                 <aside id="chat">
                     <p>PANEL</p>

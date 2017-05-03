@@ -2839,6 +2839,7 @@
     <Content Include="Content\node_modules\yargs\yargs.js" />
     <Content Include="Content\src\loginBackground.jpeg" />
     <Content Include="Content\src\loginBackgroundblured.jpeg" />
+    <Content Include="Content\src\no-pic-avatar.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -4727,7 +4728,8 @@
     <Content Include="Views\Home\UserPage.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\UserPage.cshtml" />
+    <Content Include="Views\Account\UserPageContent.cshtml" />
+    <Content Include="Views\Account\UserPageHeader.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
