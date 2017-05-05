@@ -13,10 +13,12 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
 import org.bouncycastle.crypto.AsymmetricBlockCipher;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
 import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.bouncycastle.crypto.KeyGenerationParameters;
+import org.bouncycastle.crypto.encodings.PKCS1Encoding;
 import org.bouncycastle.crypto.engines.RSAEngine;
 import org.bouncycastle.crypto.generators.RSAKeyPairGenerator;
 import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
@@ -34,8 +36,11 @@ import java.security.KeyPair;
 import java.security.KeyPairGenerator;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
+import java.security.PublicKey;
 import java.security.SecureRandom;
 import java.security.Security;
+
+import javax.crypto.Cipher;
 
 /**
  * Created by Dominika on 20.04.2017.
@@ -43,8 +48,7 @@ import java.security.Security;
 public class CryptoRSA extends AppCompatActivity {
 
     private static AsymmetricBlockCipher cipher;
-    private static Charset charset = Charset.forName("UTF8");
-    String url = "http://naszsamochod.azurewebsites.net/api/login";
+    private static Charset charset = Charset.forName("UTF-8");
     private AsymmetricKeyParameter publicKey;
     private AsymmetricKeyParameter getPublicKey() {
         return publicKey;
@@ -57,6 +61,17 @@ public class CryptoRSA extends AppCompatActivity {
         byte[] encryptedBytes = cipher.processBlock(dataBytes, 0, data.length());
         return encryptedBytes;
     }
+
+/*
+    public static String encryptString(String unencryptedString,
+                                       AsymmetricKeyParameter key) throws InvalidCipherTextException, IOException {
+        AsymmetricBlockCipher cipher = new PKCS1Encoding(new RSAEngine());
+        byte[] dataBytes = unencryptedString.getBytes(charset);
+        cipher.init(!key.isPrivate(), key);
+        byte[] encryptedBytes = cipher.processBlock(dataBytes, 0, unencryptedString.length());
+
+        return new String(encryptedBytes);
+    }*/
 
     public static String Decrypt(byte[] dataBytes, AsymmetricKeyParameter privateKey) throws InvalidCipherTextException {
         cipher.init(!privateKey.isPrivate(), privateKey);
@@ -90,7 +105,7 @@ public class CryptoRSA extends AppCompatActivity {
     }
 */
 
-    public void TestEncDec(String publickey) throws InvalidCipherTextException, NoSuchProviderException, NoSuchAlgorithmException, IOException {
+    /*public void TestEncDec(String publickey) throws InvalidCipherTextException, NoSuchProviderException, NoSuchAlgorithmException, IOException {
         String message = "1111111111111";
         //GenerateKeys(2048);
 
@@ -111,5 +126,5 @@ public class CryptoRSA extends AppCompatActivity {
 
         String deciphered = Decrypt(cipher, getPrivateKey());
         System.out.println("Decrypted message: " + deciphered);
-    }
+    }*/
 }

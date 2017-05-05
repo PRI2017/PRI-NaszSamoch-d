@@ -23,6 +23,7 @@ import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
 import org.bouncycastle.crypto.util.PublicKeyFactory;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 /**
  * Created by Dominika on 04.05.2017.
@@ -34,7 +35,9 @@ public class Login2 extends AppCompatActivity {
     private static Context context;
     private static String key;
     AsymmetricKeyParameter key2;
-    private static byte[] keyOk;
+    private static byte[] password;
+    private static AsymmetricKeyParameter keyy;
+    private static String convertedPassword;
 
 
     @Override
@@ -73,48 +76,60 @@ public class Login2 extends AppCompatActivity {
                                 key = result;
                                 try {
                                     key2 = PublicKeyFactory.createKey(Base64.decode(key, Base64.DEFAULT));
-                                    keyOk = CryptoRSA.Encrypt(passwordET.getText().toString(), key2);
-                                    System.out.println(keyOk);
+
+                                    //KODOWANIE HASLA ZA POMOCA POBRANEGO KLUCZA
+                                    password = CryptoRSA.Encrypt(passwordET.getText().toString(), key2);
+
+                                    System.out.println("kluczyk: "+ password);
                                 } catch (IOException e1) {
                                     e1.printStackTrace();
                                 } catch (InvalidCipherTextException e1) {
                                     e1.printStackTrace();
+                                } catch (Exception e1) {
+                                    e1.printStackTrace();
                                 }
                                 System.out.println(result);
-                                System.out.println(keyOk);
-                            }
-                        });
+                                //System.out.println("KeyOk: " + password);
 
 
-                //KODOWANIE KLUCZA
-                JsonObject json = new JsonObject();
-                json.addProperty("Email",  emailET.getText().toString());
-                json.addProperty("Password",  passwordET.getText().toString());
-                json.addProperty("RememberMe",  "false");
 
-                /*Ion.with(context)
-                        .load(url2)
-                        .setJsonObjectBody(json)
-                        .asJsonObject()
-                        .setCallback(new FutureCallback<JsonObject>() {
-                            @Override
-                            public void onCompleted(Exception e, JsonObject result) {
-                                Ion.getDefault(context).configure().setLogging("MyLogs", Log.DEBUG);
-                            }
-                        });*/
+                                //KODOWANIE KLUCZA I WYSYLANIE JSONA
+                                JsonObject json = new JsonObject();
+                                json.addProperty("Email",  emailET.getText().toString());
+                                convertedPassword = openFileToString(password);
+                                //String str = new String(password, StandardCharsets.UTF_8);
+                                json.addProperty("Password", convertedPassword);
+                                    //json.addProperty("Password", String.valueOf((CryptoRSA.Encrypt(passwordET.getText().toString(), key2))));
+                                    //json.addProperty("Password", String.valueOf(Base64.encode(CryptoRSA.Encrypt(passwordET.getText().toString(), key2),Base64.DEFAULT)));
 
-                Ion.with(context)
-                        .load(url2)
-                        .asJsonObject()
-                        .withResponse()
-                        .setCallback(new FutureCallback<Response<JsonObject>>() {
-                            @Override
-                            public void onCompleted(Exception e, Response<JsonObject> result) {
-                                System.out.println("KOD BLEDU: "+result.getHeaders().code());
+                                json.addProperty("RememberMe",  "false");
+
+                                Ion.with(context)
+                                        .load(url2)
+                                        .setJsonObjectBody(json)
+                                        .asJsonObject()
+                                        .withResponse()
+                                        .setCallback(new FutureCallback<Response<JsonObject>>() {
+                                            @Override
+                                            public void onCompleted(Exception e, Response<JsonObject> result) {
+                                                System.out.println("KOD BLEDU: "+result.getHeaders().code());
+                                            }
+                                        });
                             }
                         });
             }
         });
+    }
+
+
+    public String openFileToString(byte[] _bytes) {
+        String file_string = "";
+
+        for (int i = 0; i < _bytes.length; i++) {
+            file_string += (char) _bytes[i];
+        }
+
+        return file_string;
     }
 }
 

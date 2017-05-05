@@ -44,7 +44,7 @@ import java.util.concurrent.ExecutionException;
 
 public class LogIn extends AppCompatActivity {
 
-    static final int CAM = 0;
+   /* static final int CAM = 0;
     NetworkResponse errorRes;
     String stringData = "";
     RequestQueue requestQueue;
@@ -99,7 +99,7 @@ public class LogIn extends AppCompatActivity {
                     e.printStackTrace();
                 }*/
 
-                StringRequest req = new StringRequest(Request.Method.GET, url,
+             /*   StringRequest req = new StringRequest(Request.Method.GET, url,
                         new Response.Listener<String>() {
 
                             @Override
@@ -224,7 +224,7 @@ public class LogIn extends AppCompatActivity {
     private void odp2(JsonObjectRequest postRequest)
     {
         Volley.newRequestQueue(this).add(postRequest);
-    }
+    }*/
 
    /* public AsymmetricKeyParameter DeserializePublicKey(String serializedKey)
     {
@@ -232,10 +232,10 @@ public class LogIn extends AppCompatActivity {
         //return PublicKeyFactory.CreateKey(Convert.FromBase64String(serializedKey));
     }*/
 
-    public boolean isOnline() {
+   /* public boolean isOnline() {
         ConnectivityManager cm =
                 (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo netInfo = cm.getActiveNetworkInfo();
         return netInfo != null && netInfo.isConnectedOrConnecting();
-    }
+    }*/
 }
