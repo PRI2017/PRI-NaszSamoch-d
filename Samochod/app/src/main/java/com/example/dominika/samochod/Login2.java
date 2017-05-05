@@ -1,6 +1,7 @@
 package com.example.dominika.samochod;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.JsonObject;
 import com.koushikdutta.async.future.FutureCallback;
@@ -36,8 +38,6 @@ public class Login2 extends AppCompatActivity {
     private static String key;
     AsymmetricKeyParameter key2;
     private static byte[] password;
-    private static AsymmetricKeyParameter keyy;
-    private static String convertedPassword;
 
 
     @Override
@@ -77,10 +77,11 @@ public class Login2 extends AppCompatActivity {
                                 try {
                                     key2 = PublicKeyFactory.createKey(Base64.decode(key, Base64.DEFAULT));
 
-                                    //KODOWANIE HASLA ZA POMOCA POBRANEGO KLUCZA
+                                    //KODOWANIE HASLA ZA POMOCA POBRANEGO KLUCZA/////////////////////////////////////////////
                                     password = CryptoRSA.Encrypt(passwordET.getText().toString(), key2);
 
                                     System.out.println("kluczyk: "+ password);
+                                    //convertedPassword =
                                 } catch (IOException e1) {
                                     e1.printStackTrace();
                                 } catch (InvalidCipherTextException e1) {
@@ -93,14 +94,15 @@ public class Login2 extends AppCompatActivity {
 
 
 
-                                //KODOWANIE KLUCZA I WYSYLANIE JSONA
+                                //KODOWANIE KLUCZA I WYSYLANIE JSONA////////////////////////////////////////////
                                 JsonObject json = new JsonObject();
                                 json.addProperty("Email",  emailET.getText().toString());
-                                convertedPassword = openFileToString(password);
-                                //String str = new String(password, StandardCharsets.UTF_8);
-                                json.addProperty("Password", convertedPassword);
-                                    //json.addProperty("Password", String.valueOf((CryptoRSA.Encrypt(passwordET.getText().toString(), key2))));
-                                    //json.addProperty("Password", String.valueOf(Base64.encode(CryptoRSA.Encrypt(passwordET.getText().toString(), key2),Base64.DEFAULT)));
+
+                                try {
+                                    json.addProperty("Password", String.valueOf(Base64.encodeToString((CryptoRSA.Encrypt(passwordET.getText().toString(), key2)),Base64.DEFAULT)));
+                                } catch (InvalidCipherTextException e1) {
+                                    e1.printStackTrace();
+                                }
 
                                 json.addProperty("RememberMe",  "false");
 
@@ -113,6 +115,15 @@ public class Login2 extends AppCompatActivity {
                                             @Override
                                             public void onCompleted(Exception e, Response<JsonObject> result) {
                                                 System.out.println("KOD BLEDU: "+result.getHeaders().code());
+                                                if(result.getHeaders().code() == 200)
+                                                {
+                                                    Intent intent = new Intent(Login2.this, Toolbar.class);
+                                                    startActivity(intent);
+                                                }
+                                                else
+                                                {
+                                                    showErrorToast();
+                                                }
                                             }
                                         });
                             }
@@ -120,16 +131,9 @@ public class Login2 extends AppCompatActivity {
             }
         });
     }
-
-
-    public String openFileToString(byte[] _bytes) {
-        String file_string = "";
-
-        for (int i = 0; i < _bytes.length; i++) {
-            file_string += (char) _bytes[i];
-        }
-
-        return file_string;
+    //WYSWIETLENIE POSTA PRZY NIEUDANEJ PROBIE LOGOWANIA
+    private void showErrorToast() {
+        Toast.makeText(this, R.string.error, Toast.LENGTH_SHORT).show();
     }
 }
 
