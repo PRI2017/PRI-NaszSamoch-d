@@ -15,7 +15,29 @@ body {
 .container-flex {
   display: flex;
   flex-direction: column;
-  align-content: stretch; }
+  align-content: stretch;
+  /*ul.nav {
+        display: inline-flex;
+        list-style: none;
+        height: auto;
+        width: auto;
+        background-color: $color1;
+        margin-top: 0;
+
+        & > li {
+            padding: 20px;
+
+            & > a {
+                color: white;
+                text-decoration: none;
+            }
+
+
+            &:hover {
+                background-color: $color1Hover;
+            }
+        }
+    }*/ }
   .container-flex .userProfilePhoto {
     height: 150px;
     width: 150px;
@@ -52,20 +74,6 @@ body {
         top: 10px;
         left: 10px;
         z-index: 100; }
-  .container-flex ul.nav {
-    display: inline-flex;
-    list-style: none;
-    height: auto;
-    width: auto;
-    background-color: #ff4b00;
-    margin-top: 0; }
-    .container-flex ul.nav > li {
-      padding: 20px; }
-      .container-flex ul.nav > li > a {
-        color: white;
-        text-decoration: none; }
-      .container-flex ul.nav > li:hover {
-        background-color: #fc8351; }
   .container-flex .wall-flex .post {
     display: flex;
     flex-direction: column;

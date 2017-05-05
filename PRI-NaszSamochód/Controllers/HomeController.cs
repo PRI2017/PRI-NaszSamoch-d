@@ -18,24 +18,24 @@ namespace PRI_NaszSamochód.Controllers
 
     public class HomeController : Controller
     {
-        private ApplicationUserManager _userManager;
+        //private ApplicationUserManager _userManager;
 
-        public ApplicationUserManager UserManager
-        {
-            get
-            {
-                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            }
-            private set
-            {
-                _userManager = value;
-            }
-        }
+        //public ApplicationUserManager UserManager
+        //{
+        //    get
+        //    {
+        //        return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+        //    }
+        //    private set
+        //    {
+        //        _userManager = value;
+        //    }
+        //}
 
-        public HomeController( ApplicationUserManager userManager)
-        {
-            UserManager = userManager;
-        }
+        //public HomeController( ApplicationUserManager userManager)
+        //{
+        //    UserManager = userManager;
+        //}
 
         public ActionResult Index()
         {

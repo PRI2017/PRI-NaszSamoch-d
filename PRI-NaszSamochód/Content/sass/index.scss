@@ -12,10 +12,12 @@
         width: auto;
     }
 
-    nav {
+    ul.nav {
+        justify-content: flex-end;
         background-color: $color1;
-        height: 50px;
+        height: auto;
         width: auto;
+        margin-bottom: 0;
     }
 
     .child-flex {
@@ -67,3 +69,18 @@
         height: 150px;
     }
 }
+/*.userProfilePhoto {
+
+    @include userProfilePhoto(100px,1.5);
+    background-image: url("../src/no-pic-avatar.jpg");
+    background-size: cover;
+    border-color: white;
+    border-width: 1px;
+    border: ridge;
+
+
+    &.userProfilePhotoSmall {
+
+        @include userProfilePhoto(100px,0.4);
+    }
+ }*/

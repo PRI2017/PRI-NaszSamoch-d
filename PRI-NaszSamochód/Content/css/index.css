@@ -13,10 +13,12 @@
     background-color: #cccccc;
     height: 200px;
     width: auto; }
-  .main-flex nav {
+  .main-flex ul.nav {
+    justify-content: flex-end;
     background-color: #ff4b00;
-    height: 50px;
-    width: auto; }
+    height: auto;
+    width: auto;
+    margin-bottom: 0; }
   .main-flex .child-flex {
     display: flex;
     flex-direction: row;
@@ -51,3 +53,19 @@
   .main-flex footer {
     background-color: #ff4b00;
     height: 150px; }
+
+/*.userProfilePhoto {
+
+    @include userProfilePhoto(100px,1.5);
+    background-image: url("../src/no-pic-avatar.jpg");
+    background-size: cover;
+    border-color: white;
+    border-width: 1px;
+    border: ridge;
+
+
+    &.userProfilePhotoSmall {
+
+        @include userProfilePhoto(100px,0.4);
+    }
+ }*/

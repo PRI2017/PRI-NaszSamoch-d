@@ -98,7 +98,29 @@ body {
 .container-flex {
   display: flex;
   flex-direction: column;
-  align-content: stretch; }
+  align-content: stretch;
+  /*ul.nav {
+        display: inline-flex;
+        list-style: none;
+        height: auto;
+        width: auto;
+        background-color: $color1;
+        margin-top: 0;
+
+        & > li {
+            padding: 20px;
+
+            & > a {
+                color: white;
+                text-decoration: none;
+            }
+
+
+            &:hover {
+                background-color: $color1Hover;
+            }
+        }
+    }*/ }
   .container-flex .userProfilePhoto {
     height: 150px;
     width: 150px;
@@ -135,20 +157,6 @@ body {
         top: 10px;
         left: 10px;
         z-index: 100; }
-  .container-flex ul.nav {
-    display: inline-flex;
-    list-style: none;
-    height: auto;
-    width: auto;
-    background-color: #ff4b00;
-    margin-top: 0; }
-    .container-flex ul.nav > li {
-      padding: 20px; }
-      .container-flex ul.nav > li > a {
-        color: white;
-        text-decoration: none; }
-      .container-flex ul.nav > li:hover {
-        background-color: #fc8351; }
   .container-flex .wall-flex .post {
     display: flex;
     flex-direction: column;
@@ -187,10 +195,12 @@ body {
     background-color: #cccccc;
     height: 200px;
     width: auto; }
-  .main-flex nav {
+  .main-flex ul.nav {
+    justify-content: flex-end;
     background-color: #ff4b00;
-    height: 50px;
-    width: auto; }
+    height: auto;
+    width: auto;
+    margin-bottom: 0; }
   .main-flex .child-flex {
     display: flex;
     flex-direction: row;
@@ -225,3 +235,44 @@ body {
   .main-flex footer {
     background-color: #ff4b00;
     height: 150px; }
+
+/*.userProfilePhoto {
+
+    @include userProfilePhoto(100px,1.5);
+    background-image: url("../src/no-pic-avatar.jpg");
+    background-size: cover;
+    border-color: white;
+    border-width: 1px;
+    border: ridge;
+
+
+    &.userProfilePhotoSmall {
+
+        @include userProfilePhoto(100px,0.4);
+    }
+ }*/
+ul.nav {
+  display: inline-flex;
+  list-style: none;
+  height: auto;
+  width: auto;
+  background-color: #ff4b00;
+  margin-top: 0; }
+  ul.nav > li {
+    padding: 20px; }
+    ul.nav > li > a {
+      color: white;
+      text-decoration: none; }
+    ul.nav > li:hover {
+      background-color: #fc8351; }
+
+div.fao {
+  font-family: 'FontAwesome';
+  font-style: normal;
+  font-weight: normal; }
+  div.fao#bell::before {
+    content: "\f0c0"; }
+  div.fao#envelope::before {
+    content: "\f0e0"; }
+  div.fao#user::before {
+    content: "\f0f3"; }

@@ -12,3 +12,43 @@ html {
 @import 'loginPage';
 @import 'userPage';
 @import 'index.scss';
+
+ul.nav {
+    display: inline-flex;
+    list-style: none;
+    height: auto;
+    width: auto;
+    background-color: $color1;
+    margin-top: 0;
+
+    & > li {
+        padding: 20px;
+
+        & > a{
+            color: white;
+            text-decoration: none;
+        }
+
+
+        &:hover {
+            background-color: $color1Hover;
+        }
+    }
+}
+div.fao{
+    font-family: 'FontAwesome';
+    font-style: normal;
+    font-weight: normal;
+
+    &#bell::before {
+        content: "\f0c0";
+    }
+
+    &#envelope::before {
+        content: "\f0e0";
+    }
+
+    &#user::before {
+        content: "\f0f3";
+    }
+}

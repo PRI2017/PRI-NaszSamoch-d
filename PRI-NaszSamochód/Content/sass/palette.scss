@@ -19,3 +19,9 @@ $text-danger: rgb(255, 233, 223);
 @mixin calcRem($sizeToConvert) {
     font-size: ($sizeToConvert / $baseFS) + rem;
 }
+
+@mixin userProfilePhoto($square, $factor) {
+    height: $square * $factor;
+    width: $square * $factor;
+    background-color: $color3;
+}
