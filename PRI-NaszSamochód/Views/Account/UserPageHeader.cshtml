@@ -21,10 +21,7 @@
         @*<img src="#" class="userProfilePhoto"/>*@
 
         <div class="userPageHeader">
-            @*background photo*@
-            @*<img class="userBackgroundImg" src="#">*@
-            <img src="#" class="userProfilePhoto"/>
-            @*<input type="file" onchange="previewFile()" id="imgInput">*@<br>
+            <div class="userProfilePhoto"></div>
         </div>
         <ul class="nav">
             <li><a href="#">Informacje</a></li>
@@ -33,31 +30,8 @@
             <li><a href="#">Statystyki</a></li>
         </ul>
     </div>
-    @*<script>
-        var show = false;
-        var img = document.getElementById("dialog").onclick = showF;
-        function showF() {
-            show = true;
-            console.log(show);
-        }
-
-        function previewFile() {
-       var preview = document.querySelector('img.userProfilePhoto'); //selects the query named img
-       var file = document.querySelector('input[type=file]').files[0]; //sames as here
-       var reader = new FileReader();
-       reader.onloadend = function () {
-           preview.src = reader.result;
-       }
-
-       if (file) {
-           reader.readAsDataURL(file); //reads the data as a URL
-       } else {
-           preview.src = "";
-       }
-  }
-
-  previewFile();  //calls the function named previewFile()
-    </script>*@
+    <script>
+    </script>
 </body>
 
 </html>

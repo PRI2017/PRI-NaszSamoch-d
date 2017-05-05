@@ -19,10 +19,10 @@ body {
     flex-direction: column;
     align-content: stretch;
 
-    img.userProfilePhoto {
+    .userProfilePhoto {
 
         @include userProfilePhoto(100px,1.5);
-        background: url("../src/no-pic-avatar.jpg");
+        background-image: url("../src/no-pic-avatar.jpg");
         background-size: cover;
         border-color: white;
         border-width: 1px;
@@ -42,7 +42,7 @@ body {
         align-items: flex-end;
         background-color: $color5;
 
-        img.userProfilePhoto {
+        .userProfilePhoto {
             margin-left: 50px;
             position: relative;
 

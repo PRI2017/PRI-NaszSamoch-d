@@ -16,16 +16,16 @@ body {
   display: flex;
   flex-direction: column;
   align-content: stretch; }
-  .container-flex img.userProfilePhoto {
+  .container-flex .userProfilePhoto {
     height: 150px;
     width: 150px;
     background-color: #999;
-    background: url("../src/no-pic-avatar.jpg");
+    background-image: url("../src/no-pic-avatar.jpg");
     background-size: cover;
     border-color: white;
     border-width: 1px;
     border: ridge; }
-    .container-flex img.userProfilePhoto.userProfilePhotoSmall {
+    .container-flex .userProfilePhoto.userProfilePhotoSmall {
       height: 40px;
       width: 40px;
       background-color: #999; }
@@ -35,10 +35,10 @@ body {
     width: auto;
     align-items: flex-end;
     background-color: #333; }
-    .container-flex .userPageHeader img.userProfilePhoto {
+    .container-flex .userPageHeader .userProfilePhoto {
       margin-left: 50px;
       position: relative; }
-      .container-flex .userPageHeader img.userProfilePhoto:hover::after {
+      .container-flex .userPageHeader .userProfilePhoto:hover::after {
         content: "\f07c";
         font-family: 'FontAwesome';
         color: #ff4b00;
