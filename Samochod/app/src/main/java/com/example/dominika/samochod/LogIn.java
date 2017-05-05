@@ -1,6 +1,9 @@
 package com.example.dominika.samochod;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
@@ -12,12 +15,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.RequestFuture;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -33,6 +39,7 @@ import java.net.CookieManager;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.util.HashMap;
+import java.util.concurrent.ExecutionException;
 
 
 public class LogIn extends AppCompatActivity {
@@ -41,7 +48,7 @@ public class LogIn extends AppCompatActivity {
     NetworkResponse errorRes;
     String stringData = "";
     RequestQueue requestQueue;
-    static String key;
+    String key;
     String url2 = "http://naszsamochod.azurewebsites.net/Mobile/Login";
     String url = "http://naszsamochod.azurewebsites.net/api/publickey";
 
@@ -50,8 +57,8 @@ public class LogIn extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.log_in);
 
-        final CookieManager manager = new CookieManager();
-        CookieHandler.setDefault( manager  );
+       // final CookieManager manager = new CookieManager();
+        //CookieHandler.setDefault( manager  );
 
         requestQueue = Volley.newRequestQueue(this);
 
@@ -71,11 +78,27 @@ public class LogIn extends AppCompatActivity {
         }
         //////
 
-        //ODEBRANIE KLUCZA Z SERWERA
+
+
+
         logIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 /////////////////////////////////////////////////////////////
+
+                /*RequestFuture<JSONObject> future = RequestFuture.newFuture();
+                JsonObjectRequest request = new JsonObjectRequest(url, new JSONObject(), future, future);
+                requestQueue.add(request);
+
+                try {
+                    JSONObject response = future.get();
+                    System.out.println("KLUCZYK: " + response);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }*/
+
                 StringRequest req = new StringRequest(Request.Method.GET, url,
                         new Response.Listener<String>() {
 
@@ -119,19 +142,31 @@ public class LogIn extends AppCompatActivity {
                 });
                 odp(req);
 
+
+
+
+
+
+
+
+
                 //WYSLANIE POSTA NA SERWER Z EMAIL I HASLEM
                 final HashMap<String, String> params = new HashMap<String, String>();
 
+
+                if(key!=null)
+                {
                 AsymmetricKeyParameter key2 = null;
                 try {
                     //NAPRAWIC BO KEY NEI JEST WIDOCZNY W TYM MIEJSCU
                     key2 = PublicKeyFactory.createKey(Base64.decode(key, Base64.DEFAULT));
+                    System.out.println("Klucz: " + key2);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
 
                 try {
-                    CryptoRSA.Encrypt(passwordET.getText().toString(),key2);
+                    CryptoRSA.Encrypt(passwordET.getText().toString(), key2);
                 } catch (InvalidCipherTextException e) {
                     e.printStackTrace();
                 }
@@ -169,6 +204,7 @@ public class LogIn extends AppCompatActivity {
                 });
                 odp2(req2);
             }
+            }
         });
     }
 
@@ -195,4 +231,11 @@ public class LogIn extends AppCompatActivity {
         //return PublicKeyFactory.
         //return PublicKeyFactory.CreateKey(Convert.FromBase64String(serializedKey));
     }*/
+
+    public boolean isOnline() {
+        ConnectivityManager cm =
+                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        return netInfo != null && netInfo.isConnectedOrConnecting();
+    }
 }

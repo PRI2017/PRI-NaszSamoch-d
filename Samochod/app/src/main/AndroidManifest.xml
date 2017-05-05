@@ -18,7 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".LogIn"
+            android:name=".Login2"
             android:label="@string/app_name"
             android:theme="@style/LogIn" >
             <intent-filter>
