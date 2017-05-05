@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.google.gson.JsonObject;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
+import com.koushikdutta.ion.Response;
 
 import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
@@ -33,6 +34,7 @@ public class Login2 extends AppCompatActivity {
     private static Context context;
     private static String key;
     AsymmetricKeyParameter key2;
+    private static byte[] keyOk;
 
 
     @Override
@@ -71,13 +73,15 @@ public class Login2 extends AppCompatActivity {
                                 key = result;
                                 try {
                                     key2 = PublicKeyFactory.createKey(Base64.decode(key, Base64.DEFAULT));
-                                    CryptoRSA.Encrypt(passwordET.getText().toString(), key2);
+                                    keyOk = CryptoRSA.Encrypt(passwordET.getText().toString(), key2);
+                                    System.out.println(keyOk);
                                 } catch (IOException e1) {
                                     e1.printStackTrace();
                                 } catch (InvalidCipherTextException e1) {
                                     e1.printStackTrace();
                                 }
                                 System.out.println(result);
+                                System.out.println(keyOk);
                             }
                         });
 
@@ -88,7 +92,7 @@ public class Login2 extends AppCompatActivity {
                 json.addProperty("Password",  passwordET.getText().toString());
                 json.addProperty("RememberMe",  "false");
 
-                Ion.with(context)
+                /*Ion.with(context)
                         .load(url2)
                         .setJsonObjectBody(json)
                         .asJsonObject()
@@ -96,6 +100,17 @@ public class Login2 extends AppCompatActivity {
                             @Override
                             public void onCompleted(Exception e, JsonObject result) {
                                 Ion.getDefault(context).configure().setLogging("MyLogs", Log.DEBUG);
+                            }
+                        });*/
+
+                Ion.with(context)
+                        .load(url2)
+                        .asJsonObject()
+                        .withResponse()
+                        .setCallback(new FutureCallback<Response<JsonObject>>() {
+                            @Override
+                            public void onCompleted(Exception e, Response<JsonObject> result) {
+                                System.out.println("KOD BLEDU: "+result.getHeaders().code());
                             }
                         });
             }
