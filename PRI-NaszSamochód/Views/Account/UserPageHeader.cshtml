@@ -6,10 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     @*<link rel="stylesheet" href="~/Content/node_modules/bootstrap/dist/css/bootstrap.min.css">*@
     <script src="~/Content/node_modules/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" href="~/Content/css/main.css">
     <link rel="stylesheet" href="~/Content/css/userPage.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="~/Content/node_modules/angular/angular.min.js"></script>
+    <script src="~/Content/js/dropzone.js"></script>
+    <link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">
     <title>Profil użytkownika</title>
 </head>
 
@@ -21,8 +26,24 @@
         @*<img src="#" class="userProfilePhoto"/>*@
 
         <div class="userPageHeader">
-            <div class="userProfilePhoto"></div>
+            <div class="userProfilePhoto" id="userProfilePhoto"></div>
         </div>
+        <div id="dialog">
+            <form action="/file-upload"
+                  class="dropzone"
+                  id="my-awesome-dropzone"></form>
+        </div>
+        @*<div class="dz-preview dz-file-preview">
+            <div class="dz-details">
+                <div class="dz-filename"><span data-dz-name></span></div>
+                <div class="dz-size" data-dz-size></div>
+                <img data-dz-thumbnail />
+            </div>
+            <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>
+            <div class="dz-success-mark"><span>✔</span></div>
+            <div class="dz-error-mark"><span>✘</span></div>
+            <div class="dz-error-message"><span data-dz-errormessage></span></div>
+        </div>*@
         <ul class="nav">
             <li><a href="#">Informacje</a></li>
             <li><a href="#">Znajomi</a></li>
@@ -31,6 +52,9 @@
         </ul>
     </div>
     <script>
+        document.getElementById('userProfilePhoto').addEventListener("click", showDialog);
+       function showDialog() { $("#dialog").dialog();};
+      
     </script>
 </body>
 

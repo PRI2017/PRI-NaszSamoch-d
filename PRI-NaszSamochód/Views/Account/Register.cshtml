@@ -24,12 +24,15 @@
                 @*@Html.ValidationSummary("", new { @class = "text-danger" })*@
                 <li>
                     <label for="inputName">Imię: </label>
+                    @Html.TextBoxFor(m => m.Name)
                 </li>
                 <li>
                     <label for="inputName">Nazwisko: </label>
+                    @Html.TextBoxFor(m => m.Surname)
                 </li>
                 <li>
                     <label for="inputPhone">Numer telefonu: </label>
+                    @Html.TextBoxFor(m => m.PhoneNumber)
                 </li>
                 <li>
                     <label for="inputEmail">E-mail: </label>

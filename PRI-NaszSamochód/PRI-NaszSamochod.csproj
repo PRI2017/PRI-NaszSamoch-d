@@ -257,6 +257,7 @@
     <Content Include="Content\gulpfile.js" />
     <Content Include="Content\js\bootstrap.js" />
     <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\dropzone.js" />
     <Content Include="Content\js\script.js" />
     <Content Include="Content\node_modules\abbrev\abbrev.js" />
     <Content Include="Content\node_modules\ajv\.tonic_example.js" />

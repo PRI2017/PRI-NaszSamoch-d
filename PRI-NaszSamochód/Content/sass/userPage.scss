@@ -19,6 +19,7 @@ body {
     flex-direction: column;
     align-content: stretch;
 
+   
     .userProfilePhoto {
 
         @include userProfilePhoto(100px,1.5);
@@ -63,6 +64,7 @@ body {
             }
         }
     }
+
     ul.nav {
         display: inline-flex;
         list-style: none;
@@ -120,3 +122,6 @@ body {
         }
     }
 }
+/*form .dz-image > img{
+    height: 300px;
+}*/
