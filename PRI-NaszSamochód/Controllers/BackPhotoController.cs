@@ -16,10 +16,31 @@ namespace PRI_NaszSamochód.Controllers
         public ActionResult Index(String userId)
         {
             Debug.WriteLine(User.Identity.GetUserId());
-            var dir = Server.MapPath("/ProfilePhoto");
+            var dir = Server.MapPath("~/BackGroundPhoto");
             var path = Path.Combine(dir, userId + ".jpg");
             Debug.WriteLine(userId);
             return base.File(path, "image/jpeg");
+        }
+
+        [System.Web.Mvc.HttpPost]
+        public void Upload()
+        {
+
+
+            // Get the uploaded image from the Files collection
+            var httpPostedFile = HttpContext.Request.Files[0];
+
+            if (httpPostedFile != null)
+            {
+                // Validate the uploaded image(optional)
+
+                // Get the complete file path
+                var fileSavePath = Path.Combine(Server.MapPath("~/BackGroundPhoto"), User.Identity.GetUserId() + ".jpg");
+
+                // Save the uploaded file to "UploadedFiles" folder
+                httpPostedFile.SaveAs(fileSavePath);
+            }
+
         }
     }
 }
