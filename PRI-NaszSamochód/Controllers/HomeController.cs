@@ -39,7 +39,7 @@ namespace PRI_NaszSamochód.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("Index", "UserPage");
         }
 
         public ActionResult About()
@@ -58,10 +58,9 @@ namespace PRI_NaszSamochód.Controllers
 
         public ActionResult UserPage()
         {
-            ProfileViewModel model = new ProfileViewModel(ApplicationDbContext.Create().Users.Single(u => u.Id == User.Identity.GetUserId()));
 
-            return View(model);
 
+            return RedirectToAction("Index","UserPage");
         }
     }
 }

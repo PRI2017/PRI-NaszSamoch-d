@@ -10,8 +10,8 @@ namespace PRI_NaszSamochód.Models
         public ProfileViewModel(ApplicationUser user)
         {
             User = user;
-            ProfilePhotoUrl = "~/ProfPhoto?userId=" + user.Id;
-            BackPhotoUrl = "~/BackPhoto?userId=" + user.Id;
+            ProfilePhotoUrl = "/ProfPhoto?userId=" + user.Id;
+            BackPhotoUrl = "/BackPhoto?userId=" + user.Id;
         }
 
 
