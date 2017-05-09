@@ -17,10 +17,11 @@
     <script src="~/Content/node_modules/angular/angular.min.js"></script>
     <script src="~/Content/js/dropzone.js"></script>
     <link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">
+    <script src="~/Content/js/AngularJSControllers/UserTabsController.js"></script>
     <title>Profil użytkownika</title>
 </head>
 
-<body ng-app="">
+<body ng-app="myApp">
     @*<div class="dialog" ng-init="show = false" ng-show="show" id="dialog">
             <input type="file" onchange="previewFile()" id="imgInput"><br>
         </div>*@
@@ -48,10 +49,10 @@
             <div class="dz-error-message"><span data-dz-errormessage></span></div>
         </div>*@
         <ul class="nav">
-            <li><a href="#">Informacje</a></li>
-            <li><a href="#">Znajomi</a></li>
-            <li><a href="#">Galeria</a></li>
-            <li><a href="#">Statystyki</a></li>
+            <li><a href="#User/Info">Informacje</a></li>
+            <li><a href="#User/Friends">Znajomi</a></li>
+            <li><a href="#User/Gallery">Galeria</a></li>
+            <li><a href="#User/Statistics">Statystyki</a></li>
         </ul>
     </div>
     <script>

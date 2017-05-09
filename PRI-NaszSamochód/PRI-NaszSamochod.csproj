@@ -257,6 +257,7 @@
     <Content Include="Content\css\reset.css" />
     <Content Include="Content\css\userPage.css" />
     <Content Include="Content\gulpfile.js" />
+    <Content Include="Content\js\AngularJSControllers\UserTabsController.js" />
     <Content Include="Content\js\bootstrap.js" />
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\dropzone.js" />
@@ -4736,6 +4737,10 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\UserPage\UserPageContent.cshtml" />
     <Content Include="Views\UserPage\UserPageHeader.cshtml" />
+    <Content Include="Views\UserPage\UserInfo.cshtml" />
+    <Content Include="Views\UserPage\UserFriends.cshtml" />
+    <Content Include="Views\UserPage\UserGallery.cshtml" />
+    <Content Include="Views\UserPage\UserStatistics.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

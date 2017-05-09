@@ -22,6 +22,37 @@ namespace PRI_NaszSamochód.Controllers
             String id = User.Identity.GetUserId();
             ProfileViewModel model = new ProfileViewModel(ApplicationDbContext.Create().Users.Single(u => u.Id == id ));
             return View(model);
+          }
+        [AllowAnonymous]
+        public ActionResult UserPageContent()
+
+        {
+            return View();
+        }
+        [AllowAnonymous]
+        public ActionResult UserInfo()
+        {
+            String id = User.Identity.GetUserId();
+            ProfileViewModel model = new ProfileViewModel(ApplicationDbContext.Create().Users.Single(u => u.Id == id));
+            return View(model);
+        }
+        public ActionResult UserStatistics()
+        {
+            String id = User.Identity.GetUserId();
+            ProfileViewModel model = new ProfileViewModel(ApplicationDbContext.Create().Users.Single(u => u.Id == id));
+            return View(model);
+        }
+        public ActionResult UserFriends()
+        {
+            String id = User.Identity.GetUserId();
+            ProfileViewModel model = new ProfileViewModel(ApplicationDbContext.Create().Users.Single(u => u.Id == id));
+            return View(model);
+        }
+        public ActionResult UserGallery()
+        {
+            String id = User.Identity.GetUserId();
+            ProfileViewModel model = new ProfileViewModel(ApplicationDbContext.Create().Users.Single(u => u.Id == id));
+            return View(model);
         }
     }
 }

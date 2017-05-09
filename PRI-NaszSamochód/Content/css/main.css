@@ -178,9 +178,35 @@ body {
     .container-flex .wall-flex .post button {
       align-self: flex-start; }
 
-/*form .dz-image > img{
-    height: 300px;
-}*/
+ul.info {
+  list-style-type: none;
+  padding-left: 0;
+  /*display: flex;
+    flex-flow: column;
+    align-items: stretch;*/ }
+  ul.info li {
+    padding: 10px;
+    border: 1px solid white;
+    position: relative; }
+    ul.info li:hover {
+      background-color: #cccccc;
+      cursor: pointer; }
+      ul.info li:hover::after {
+        font-family: 'FontAwesome';
+        content: '\f040';
+        color: #333;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: inherit;
+        /*--adjust as necessary--*/
+        font-size: 18px;
+        /*padding-right: 0.5em;*/
+        position: sticky;
+        /*top: 10px;
+                left: 10px;*/
+        z-index: 100;
+        margin-left: 10px; }
+
 /*main palette*/
 /*orange*/
 /*light gray*/
