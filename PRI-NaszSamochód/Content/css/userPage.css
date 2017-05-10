@@ -8,8 +8,8 @@ body {
 
 .dialog {
   z-index: 10;
-  width: 200px;
-  height: 100px;
+  width: 12.5rem;
+  height: 6.25rem;
   background-color: red; }
 
 .container-flex {
@@ -53,12 +53,12 @@ body {
       background-color: #999; }
   .container-flex .userPageHeader {
     display: flex;
-    height: 200px;
+    height: 12.5rem;
     width: auto;
     align-items: flex-end;
     background-color: #333; }
     .container-flex .userPageHeader .userProfilePhoto {
-      margin-left: 50px;
+      margin-left: 3.125rem;
       position: relative; }
       .container-flex .userPageHeader .userProfilePhoto:hover::after {
         content: "\f07c";
@@ -68,18 +68,18 @@ body {
         font-weight: normal;
         text-decoration: inherit;
         /*--adjust as necessary--*/
-        font-size: 18px;
+        font-size: 1.125rem;
         /*padding-right: 0.5em;*/
         position: absolute;
-        top: 10px;
-        left: 10px;
+        top: 0.625rem;
+        left: 0.625rem;
         z-index: 100; }
   .container-flex .wall-flex .post {
     display: flex;
     flex-direction: column;
     justify-content: center;
     background-color: white;
-    margin: 10px; }
+    margin: 0.625rem; }
     .container-flex .wall-flex .post .postHeader {
       background-color: #ff4b00; }
       .container-flex .wall-flex .post .postHeader ul {
@@ -90,7 +90,7 @@ body {
           color: white;
           align-items: flex-end; }
     .container-flex .wall-flex .post .postContent {
-      padding: 10px;
+      padding: 0.625rem;
       /*background-color: white;*/ }
     .container-flex .wall-flex .post button {
       align-self: flex-start; }
@@ -102,7 +102,7 @@ ul.info {
     flex-flow: column;
     align-items: stretch;*/ }
   ul.info li {
-    padding: 10px;
+    padding: 0.625rem;
     border: 1px solid white;
     position: relative; }
     ul.info li:hover {
@@ -122,4 +122,4 @@ ul.info {
         /*top: 10px;
                 left: 10px;*/
         z-index: 100;
-        margin-left: 10px; }
+        margin-left: 0.625rem; }

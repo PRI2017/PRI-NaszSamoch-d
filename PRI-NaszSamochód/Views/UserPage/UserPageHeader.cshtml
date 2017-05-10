@@ -6,28 +6,36 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    @*<link rel="stylesheet" href="~/Content/node_modules/bootstrap/dist/css/bootstrap.min.css">*@
+
+
+    @*JQuery*@
     <script src="~/Content/node_modules/jquery/dist/jquery.min.js"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    @*Css*@
     <link rel="stylesheet" href="~/Content/css/main.css">
     <link rel="stylesheet" href="~/Content/css/userPage.css" />
+
+        @*Awesome Fonts*@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    @*Angular*@
     <script src="~/Content/node_modules/angular/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+    <script src="~/Content/js/AngularJSControllers/UserTabsController.js"></script>
+
+    @*Dropzone*@
     <script src="~/Content/js/dropzone.js"></script>
     <link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">
-    <script src="~/Content/js/AngularJSControllers/UserTabsController.js"></script>
+    
     <title>Profil użytkownika</title>
 </head>
 
 <body ng-app="myApp">
-    @*<div class="dialog" ng-init="show = false" ng-show="show" id="dialog">
-            <input type="file" onchange="previewFile()" id="imgInput"><br>
-        </div>*@
-    <div class="container-flex">
-        @*<img src= class="userProfilePhoto"/>*@
 
+    <div class="container-flex">
         <div class="userPageHeader">
             <div class="userProfilePhoto" id="userProfilePhoto" style="background-image:url(@Model.ProfilePhotoUrl)"></div>
         </div>
@@ -36,18 +44,7 @@
                   class="dropzone"
                   id="my-awesome-dropzone" style="display: none"></form>
         </div>
-        
-        @*<div class="dz-preview dz-file-preview">
-            <div class="dz-details">
-                <div class="dz-filename"><span data-dz-name></span></div>
-                <div class="dz-size" data-dz-size></div>
-                <img data-dz-thumbnail />
-            </div>
-            <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>
-            <div class="dz-success-mark"><span>✔</span></div>
-            <div class="dz-error-mark"><span>✘</span></div>
-            <div class="dz-error-message"><span data-dz-errormessage></span></div>
-        </div>*@
+
         <ul class="nav">
             <li><a href="#User/Info">Informacje</a></li>
             <li><a href="#User/Friends">Znajomi</a></li>

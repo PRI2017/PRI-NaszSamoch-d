@@ -61,9 +61,7 @@ namespace PRI_NaszSamochód.Controllers
 
         public ActionResult UserPage()
         {
-
-
-            return RedirectToAction("Index","UserPage");
+             return RedirectToAction("Index","UserPage");
         }
     }
 }

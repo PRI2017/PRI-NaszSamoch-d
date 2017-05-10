@@ -8,7 +8,7 @@
 
     header {
         background-color: $color2;
-        height: 200px;
+        height: 12.5rem;
         width: auto;
     }
 
@@ -29,7 +29,7 @@
 
         aside {
             height: auto;
-            width: 300px;
+            width: 18.75rem;
             /*flex-shrink: 3;*/
             &#nav {
                 order: 1;
@@ -45,10 +45,10 @@
             ul > li {
                 list-style: none;
             }
-            p {
-                margin-left: 30px;
-            }
 
+            p {
+                margin-left: 1.875rem;
+            }
             /*ul.groups li {
                 list-style-position: outside;
             }*/
@@ -57,8 +57,8 @@
         .wall {
             flex: 1;
             order: 2;
-            height: 300px;
-            width: 600px;
+            height: 18.75rem;
+            width: 18.75*2rem;
             background-color: $wallBackground;
             /*flex-shrink: 1;*/
         }
@@ -66,7 +66,7 @@
 
     footer {
         background-color: $color1;
-        height: 150px;
+        height: 18.75 * 1/2 rem;
     }
 }
 /*.userProfilePhoto {

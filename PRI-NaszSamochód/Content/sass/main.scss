@@ -22,9 +22,9 @@ ul.nav {
     margin-top: 0;
 
     & > li {
-        padding: 20px;
+        padding: 0.625*2rem;
 
-        & > a{
+        & > a {
             color: white;
             text-decoration: none;
         }
