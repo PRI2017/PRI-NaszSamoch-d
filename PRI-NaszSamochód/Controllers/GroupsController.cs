@@ -3,7 +3,8 @@ using PRI_NaszSamochód.Models.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Net;
+using System.Web.Http;
 using System.Web.Mvc;
 
 namespace PRI_NaszSamochód.Controllers
@@ -18,11 +19,6 @@ namespace PRI_NaszSamochód.Controllers
             _context = context;
         }
 
-        public IEnumerable<GroupModel> Groups()
-        {
-            return _context.Groups.ToList();
-        }
-
         // GET: Groups
         public ActionResult Index()
         {
@@ -30,53 +26,69 @@ namespace PRI_NaszSamochód.Controllers
         }
 
         // GET: Groups/Details/5
-        public GroupModel Details(int id)
+        public ActionResult Details(int? id)
         {
-            GroupModel model = _context.Groups.Where(x => x.Id == id).Single();
-            if (model.Equals(null))
+            if (id == null)
             {
-                return new GroupModel();
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            return model;
-        }
-
-        // GET: Groups/Create
-        public ActionResult Create()
-        {
-            return View();
+            GroupModel group = _context.Groups.Find(id);
+            if (group == null)
+            {
+                return HttpNotFound();
+            }
+            return View(group);
         }
 
         // POST: Groups/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [System.Web.Mvc.HttpPost]
+        public ActionResult Create([Bind(Include = "Id, GroupName, Description, GroupTheme")]GroupModel group)
         {
             try
             {
-                // TODO: Add insert logic here
+                if (ModelState.IsValid)
+                {
+                    _context.Groups.Add(group);
+                    _context.SaveChanges();
+                    return RedirectToAction("Index");
+                }
 
-                return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                ModelState.AddModelError("", ex.Message);
             }
+            return View(group);
         }
 
         // GET: Groups/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            GroupModel group = _context.Groups.Find(id);
+            if (group == null)
+            {
+                return HttpNotFound();
+            }
+            return View(group);
         }
 
         // POST: Groups/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [System.Web.Mvc.HttpPut]
+        public ActionResult Edit(int id, [Bind(Include = "Id, GroupName, Description, GroupTheme")]GroupModel model)
         {
             try
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    _context.Entry(model).State = System.Data.Entity.EntityState.Modified;
+                    _context.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                return View(model);
             }
             catch
             {
@@ -85,25 +97,32 @@ namespace PRI_NaszSamochód.Controllers
         }
 
         // GET: Groups/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            GroupModel group = _context.Groups.Find(id);
+            if (group == null)
+            {
+                return HttpNotFound();
+            }
+            return View(group);
         }
 
         // POST: Groups/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [System.Web.Mvc.HttpDelete, System.Web.Mvc.ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
+            GroupModel group = _context.Groups.Find(id);
+            if (group == null)
             {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
+                return HttpNotFound();
             }
-            catch
-            {
-                return View();
-            }
+            _context.Groups.Remove(group);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
