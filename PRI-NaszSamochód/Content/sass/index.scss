@@ -69,18 +69,30 @@
         height: 18.75 * 1/2 rem;
     }
 }
-/*.userProfilePhoto {
 
-    @include userProfilePhoto(100px,1.5);
-    background-image: url("../src/no-pic-avatar.jpg");
-    background-size: cover;
-    border-color: white;
-    border-width: 1px;
-    border: ridge;
+li .dropdown {
+    position: relative;
+    display: inline-block;
 
-
-    &.userProfilePhotoSmall {
-
-        @include userProfilePhoto(100px,0.4);
+    &:active .dropdown-content {
+        display: block;
     }
- }*/
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        margin: 0;
+        top: 40px;
+        right: 5px;
+        background-color: rgba(0, 0, 0, 0.25);
+        /*min-height: 50px;*/
+        box-shadow: 0px;
+        padding: 20px;
+        z-index: 1;
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+    }
+}
