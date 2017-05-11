@@ -228,7 +228,7 @@ ul.info {
     width: auto;
     margin-bottom: 0; }
     .main-flex ul.nav li.search input[type=search] {
-      border: 6px solid #ffcaa5;
+      border: 2px solid #ffcaa5;
       border-radius: 10px;
       color: #333; }
   .main-flex .child-flex {
