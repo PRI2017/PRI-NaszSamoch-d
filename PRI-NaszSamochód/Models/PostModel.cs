@@ -13,15 +13,16 @@ namespace PRI_NaszSamochód.Models
     {   
         [Key]
         public int Id { get; set; }
-        [ForeignKey("ApplicationUser")]
-        public int CreatorId { get; set; } 
-        public ApplicationUser Creator { get; set; }
+        [Required]
+        public virtual ApplicationUser Creator { get; set; }
         public String Text { get; set; }
         
         public String PhotoPath { get; set; }
-        public virtual ICollection<ApplicationUser> Likes { get; set; }
-        public virtual ICollection<CommentModel> Comments { get; set; }
+        public virtual IList<LikeModel> Likes { get; set; }
+        public virtual IList<CommentModel> Comments { get; set; }
 
 
     }
+
+   
 }
