@@ -15,7 +15,7 @@ namespace PRI_NaszSamochód.Models
         public string GroupName { get; set; }
         public string Description { get; set; }
         public string GroupTheme { get; set; }
-        //public virtual ICollection<PostModel> Posts { get; set; }
+        public virtual ICollection<PostModel> Posts { get; set; }
         //public virtual ICollection<ApplicationUser> Administrators { get; set; }
         //public virtual ICollection<ApplicationUser> Memebers { get; set; }
     }

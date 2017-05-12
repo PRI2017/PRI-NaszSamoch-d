@@ -14,7 +14,7 @@ namespace PRI_NaszSamochód.Models.Context
         }
 
         public DbSet<GroupModel> Groups { get; set; }
-
+        public DbSet<PostModel> Posts { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
