@@ -11,7 +11,7 @@
   align-content: stretch; }
   .main-flex header {
     background-color: #cccccc;
-    height: 200px;
+    height: 12.5rem;
     width: auto; }
   .main-flex ul.nav {
     justify-content: flex-end;
@@ -19,6 +19,10 @@
     height: auto;
     width: auto;
     margin-bottom: 0; }
+    .main-flex ul.nav li.search input[type=search] {
+      border: 2px solid #ffcaa5;
+      border-radius: 10px;
+      color: #333; }
   .main-flex .child-flex {
     display: flex;
     flex-direction: row;
@@ -27,7 +31,7 @@
     height: auto; }
     .main-flex .child-flex aside {
       height: auto;
-      width: 300px;
+      width: 18.75rem;
       /*flex-shrink: 3;*/
       /*ul.groups li {
                 list-style-position: outside;
@@ -42,30 +46,34 @@
       .main-flex .child-flex aside ul > li {
         list-style: none; }
       .main-flex .child-flex aside p {
-        margin-left: 30px; }
+        margin-left: 1.875rem; }
     .main-flex .child-flex .wall {
       flex: 1;
       order: 2;
-      height: 300px;
-      width: 600px;
+      height: 18.75rem;
+      width: 37.5rem;
       background-color: #e9e9e9;
       /*flex-shrink: 1;*/ }
   .main-flex footer {
     background-color: #ff4b00;
-    height: 150px; }
+    height: 9.375 rem; }
 
-/*.userProfilePhoto {
-
-    @include userProfilePhoto(100px,1.5);
-    background-image: url("../src/no-pic-avatar.jpg");
-    background-size: cover;
-    border-color: white;
-    border-width: 1px;
-    border: ridge;
-
-
-    &.userProfilePhotoSmall {
-
-        @include userProfilePhoto(100px,0.4);
-    }
- }*/
+li .dropdown {
+  position: relative;
+  display: inline-block; }
+  li .dropdown:active .dropdown-content {
+    display: block; }
+  li .dropdown .dropdown-content {
+    display: none;
+    position: absolute;
+    margin: 0;
+    top: 40px;
+    right: 5px;
+    background-color: rgba(0, 0, 0, 0.25);
+    /*min-height: 50px;*/
+    box-shadow: 0px;
+    padding: 20px;
+    z-index: 1; }
+    li .dropdown .dropdown-content a {
+      color: white;
+      text-decoration: none; }

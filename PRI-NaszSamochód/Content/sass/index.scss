@@ -8,7 +8,7 @@
 
     header {
         background-color: $color2;
-        height: 200px;
+        height: 12.5rem;
         width: auto;
     }
 
@@ -18,6 +18,14 @@
         height: auto;
         width: auto;
         margin-bottom: 0;
+
+        li.search {
+            input[type=search] {
+                border: 2px solid #ffcaa5;
+                border-radius: 10px;
+                color: $color5;
+            }
+        }
     }
 
     .child-flex {
@@ -29,7 +37,7 @@
 
         aside {
             height: auto;
-            width: 300px;
+            width: 18.75rem;
             /*flex-shrink: 3;*/
             &#nav {
                 order: 1;
@@ -45,10 +53,10 @@
             ul > li {
                 list-style: none;
             }
-            p {
-                margin-left: 30px;
-            }
 
+            p {
+                margin-left: 1.875rem;
+            }
             /*ul.groups li {
                 list-style-position: outside;
             }*/
@@ -57,8 +65,8 @@
         .wall {
             flex: 1;
             order: 2;
-            height: 300px;
-            width: 600px;
+            height: 18.75rem;
+            width: 18.75*2rem;
             background-color: $wallBackground;
             /*flex-shrink: 1;*/
         }
@@ -66,21 +74,33 @@
 
     footer {
         background-color: $color1;
-        height: 150px;
+        height: 18.75 * 1/2 rem;
     }
 }
-/*.userProfilePhoto {
 
-    @include userProfilePhoto(100px,1.5);
-    background-image: url("../src/no-pic-avatar.jpg");
-    background-size: cover;
-    border-color: white;
-    border-width: 1px;
-    border: ridge;
+li .dropdown {
+    position: relative;
+    display: inline-block;
 
-
-    &.userProfilePhotoSmall {
-
-        @include userProfilePhoto(100px,0.4);
+    &:active .dropdown-content {
+        display: block;
     }
- }*/
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        margin: 0;
+        top: 40px;
+        right: 5px;
+        background-color: rgba(0, 0, 0, 0.25);
+        /*min-height: 50px;*/
+        box-shadow: 0px;
+        padding: 20px;
+        z-index: 1;
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+    }
+}

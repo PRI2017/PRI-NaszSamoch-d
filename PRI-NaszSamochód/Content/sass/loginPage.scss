@@ -10,12 +10,12 @@
     border: none;
     border-radius: 0px;
     font-family: inherit;
-    padding: 8px 16px;
+    padding: 0.5rem 1rem;
     border: none;
     letter-spacing: .09em;
     border-radius: 2px;
     color: white;
-    margin: 10px;
+    margin: 0.625rem;
 
     &:hover {
         background-color: $color1Hover;
@@ -26,7 +26,7 @@
     padding: 15% 0 15% 0;
     font-family: inherit;
     width: 80%;
-    max-width: 1200px;
+    max-width: 0.625*120rem;
     margin: 0 auto;
     box-sizing: border-box;
 }
@@ -47,12 +47,12 @@
             /*background-color: $fadedGray;*/
             color: white;
             border: none;
-            padding: 8px;
+            padding: 0.5rem;
             /*font-weight: 300;*/
             /*letter-spacing: .09em;*/
             /*text-transform: uppercase;*/
-            flex: 1 0 120px;
-            max-width: 220px;
+            flex: 1 0 0.625*12rem;
+            max-width: 0.625*22rem;
         }
 
         .text-danger {
@@ -67,22 +67,22 @@
             background-color: $fadedGray;
             color: white;
             border: none;
-            padding: 8px;
+            padding: 0.5rem;
         }
     }
 }
 
 > li:not(:last-child) {
-    margin-bottom: 20px;
+    margin-bottom: 0.625*2rem;
 }
 
 .flex-outer > li > label,
 .flex-outer li p {
-    flex: 1 0 120px;
+    flex: 1 0 0.625*12rem;
     max-width: 220px;
 }
 
 .flex-outer > li > label + *,
 .flex-inner {
-    flex: 1 0 220px;
+    flex: 1 0 0.625*22rem;
 }

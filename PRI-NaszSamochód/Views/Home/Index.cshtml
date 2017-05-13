@@ -32,26 +32,36 @@
 <html>
     <head>
         <title>Strona domowa</title>
-        <script src="~/Content/node_modules/angular/angular.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="~/Content/css/main.css">
         <link rel="stylesheet" href="~/Content/css/index.css">
+        <script data-require="angular.js@1.5.10" data-semver="1.5.10" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.10/angular.min.js"></script>
+        <script data-require="angular-router@1.2.0-rc1" data-semver="1.2.0-rc1" src="https://code.angularjs.org/1.2.0rc1/angular-route.js"></script>
         @*<script src="~/Content/js/AngularJSControllers/UserTabsController.js"></script>*@
     </head>
     <body ng-app="myApp">
         <div class="main-flex">
             @*plnkr.co/edit/5ImqWj65YllaCYD5kX5E?p=preview*@
             <ul class="nav">
-                <li>@*img*@</li>
-                <li><a href="#UserPageTest">  @Model.User.Name @Model.User.Surname  </a></li>
+                <li class="search">
+                        <input type="search"/>
+                </li>
+                <li><a href="#UserPageHeader">  @Model.User.Name @Model.User.Surname  </a></li>
                 <li><a href="#"><div class="fao" id="user"></div></a></li>
                 <li><a href="#"><div class="fao" id="envelope"></div></a></li>
                 <li><a href="#"><div class="fao" id="bell"></div></a></li>
+                <li><div class="dropdown">
+                        <div class="fao" id="signout"></div>
+                        <div class="dropdown-content">
+                            <a href="#">Wyloguj</a>
+                        </div>
+                    </div>
+                </li>
             </ul>
             
-            <header ng-view>
+            <header>
                 <p>Header</p>
+                <div ng-view></div>
             </header>
             <div class="child-flex">
                 <aside id="nav">
@@ -76,13 +86,18 @@
             <footer><p>Footer</p></footer>
             </div>
         <script>
-            var app = angular.module("myApp", ["ngRoute"]);
-            app.config(function ($routeProvider) {
-                $routeProvider
-                .when("/UserPageTest", {
-                    templateUrl: "~/Views/UserPage/UserPageHeader"
+            var angualarModule = angular.module("myApp", ['ngRoute']);
+            angualarModule.controller("indexController", function ($scope) {
+                $scope.name = "Anubhav";
+            })
+            angualarModule.config(function ($routeProvider) {
+                $routeProvider.
+                when('/UserPageHeader', {
+                    templateUrl: 'UserPage/UserPageHeader',
+                    //controller: 'routeDemoFirstController'
                 })
-            });
+               
+            })
         </script>
 </body>
 </html>

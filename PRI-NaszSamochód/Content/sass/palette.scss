@@ -15,9 +15,9 @@ $fadedGray: rgba(0, 0, 0, 0.37);
 $wallBackground: #e9e9e9;
 $baseFS: 16px;
 $text-danger: rgb(255, 233, 223);
-
-@mixin calcRem($sizeToConvert) {
-    font-size: ($sizeToConvert / $baseFS) + rem;
+$tenPx: 0.625rem;
+@mixin calcRem($sizeToConvert, $param) {
+    $param: ($sizeToConvert / $baseFS) + rem;
 }
 
 @mixin userProfilePhoto($square, $factor) {

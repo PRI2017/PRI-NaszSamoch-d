@@ -22,12 +22,12 @@ html {
   border: none;
   border-radius: 0px;
   font-family: inherit;
-  padding: 8px 16px;
+  padding: 0.5rem 1rem;
   border: none;
   letter-spacing: .09em;
   border-radius: 2px;
   color: white;
-  margin: 10px; }
+  margin: 0.625rem; }
   .btn-success:hover {
     background-color: #fc8351; }
 
@@ -35,7 +35,7 @@ html {
   padding: 15% 0 15% 0;
   font-family: inherit;
   width: 80%;
-  max-width: 1200px;
+  max-width: 75rem;
   margin: 0 auto;
   box-sizing: border-box; }
 
@@ -53,12 +53,12 @@ html {
       /*background-color: $fadedGray;*/
       color: white;
       border: none;
-      padding: 8px;
+      padding: 0.5rem;
       /*font-weight: 300;*/
       /*letter-spacing: .09em;*/
       /*text-transform: uppercase;*/
-      flex: 1 0 120px;
-      max-width: 220px; }
+      flex: 1 0 7.5rem;
+      max-width: 13.75rem; }
     .flex-outer li .text-danger {
       color: #ffe9df; }
     .flex-outer li p {
@@ -67,19 +67,19 @@ html {
       background-color: rgba(0, 0, 0, 0.37);
       color: white;
       border: none;
-      padding: 8px; }
+      padding: 0.5rem; }
 
 > li:not(:last-child) {
-  margin-bottom: 20px; }
+  margin-bottom: 1.25rem; }
 
 .flex-outer > li > label,
 .flex-outer li p {
-  flex: 1 0 120px;
+  flex: 1 0 7.5rem;
   max-width: 220px; }
 
 .flex-outer > li > label + *,
 .flex-inner {
-  flex: 1 0 220px; }
+  flex: 1 0 13.75rem; }
 
 /*main palette*/
 /*orange*/
@@ -91,8 +91,8 @@ body {
 
 .dialog {
   z-index: 10;
-  width: 200px;
-  height: 100px;
+  width: 12.5rem;
+  height: 6.25rem;
   background-color: red; }
 
 .container-flex {
@@ -136,12 +136,12 @@ body {
       background-color: #999; }
   .container-flex .userPageHeader {
     display: flex;
-    height: 200px;
+    height: 12.5rem;
     width: auto;
     align-items: flex-end;
     background-color: #333; }
     .container-flex .userPageHeader .userProfilePhoto {
-      margin-left: 50px;
+      margin-left: 3.125rem;
       position: relative; }
       .container-flex .userPageHeader .userProfilePhoto:hover::after {
         content: "\f07c";
@@ -151,18 +151,18 @@ body {
         font-weight: normal;
         text-decoration: inherit;
         /*--adjust as necessary--*/
-        font-size: 18px;
+        font-size: 1.125rem;
         /*padding-right: 0.5em;*/
         position: absolute;
-        top: 10px;
-        left: 10px;
+        top: 0.625rem;
+        left: 0.625rem;
         z-index: 100; }
   .container-flex .wall-flex .post {
     display: flex;
     flex-direction: column;
     justify-content: center;
     background-color: white;
-    margin: 10px; }
+    margin: 0.625rem; }
     .container-flex .wall-flex .post .postHeader {
       background-color: #ff4b00; }
       .container-flex .wall-flex .post .postHeader ul {
@@ -173,7 +173,7 @@ body {
           color: white;
           align-items: flex-end; }
     .container-flex .wall-flex .post .postContent {
-      padding: 10px;
+      padding: 0.625rem;
       /*background-color: white;*/ }
     .container-flex .wall-flex .post button {
       align-self: flex-start; }
@@ -185,7 +185,7 @@ ul.info {
     flex-flow: column;
     align-items: stretch;*/ }
   ul.info li {
-    padding: 10px;
+    padding: 0.625rem;
     border: 1px solid white;
     position: relative; }
     ul.info li:hover {
@@ -205,7 +205,7 @@ ul.info {
         /*top: 10px;
                 left: 10px;*/
         z-index: 100;
-        margin-left: 10px; }
+        margin-left: 0.625rem; }
 
 /*main palette*/
 /*orange*/
@@ -219,7 +219,7 @@ ul.info {
   align-content: stretch; }
   .main-flex header {
     background-color: #cccccc;
-    height: 200px;
+    height: 12.5rem;
     width: auto; }
   .main-flex ul.nav {
     justify-content: flex-end;
@@ -227,6 +227,10 @@ ul.info {
     height: auto;
     width: auto;
     margin-bottom: 0; }
+    .main-flex ul.nav li.search input[type=search] {
+      border: 2px solid #ffcaa5;
+      border-radius: 10px;
+      color: #333; }
   .main-flex .child-flex {
     display: flex;
     flex-direction: row;
@@ -235,7 +239,7 @@ ul.info {
     height: auto; }
     .main-flex .child-flex aside {
       height: auto;
-      width: 300px;
+      width: 18.75rem;
       /*flex-shrink: 3;*/
       /*ul.groups li {
                 list-style-position: outside;
@@ -250,33 +254,38 @@ ul.info {
       .main-flex .child-flex aside ul > li {
         list-style: none; }
       .main-flex .child-flex aside p {
-        margin-left: 30px; }
+        margin-left: 1.875rem; }
     .main-flex .child-flex .wall {
       flex: 1;
       order: 2;
-      height: 300px;
-      width: 600px;
+      height: 18.75rem;
+      width: 37.5rem;
       background-color: #e9e9e9;
       /*flex-shrink: 1;*/ }
   .main-flex footer {
     background-color: #ff4b00;
-    height: 150px; }
+    height: 9.375 rem; }
 
-/*.userProfilePhoto {
+li .dropdown {
+  position: relative;
+  display: inline-block; }
+  li .dropdown:active .dropdown-content {
+    display: block; }
+  li .dropdown .dropdown-content {
+    display: none;
+    position: absolute;
+    margin: 0;
+    top: 40px;
+    right: 5px;
+    background-color: rgba(0, 0, 0, 0.25);
+    /*min-height: 50px;*/
+    box-shadow: 0px;
+    padding: 20px;
+    z-index: 1; }
+    li .dropdown .dropdown-content a {
+      color: white;
+      text-decoration: none; }
 
-    @include userProfilePhoto(100px,1.5);
-    background-image: url("../src/no-pic-avatar.jpg");
-    background-size: cover;
-    border-color: white;
-    border-width: 1px;
-    border: ridge;
-
-
-    &.userProfilePhotoSmall {
-
-        @include userProfilePhoto(100px,0.4);
-    }
- }*/
 ul.nav {
   display: inline-flex;
   list-style: none;
@@ -285,7 +294,7 @@ ul.nav {
   background-color: #ff4b00;
   margin-top: 0; }
   ul.nav > li {
-    padding: 20px; }
+    padding: 1.25rem; }
     ul.nav > li > a {
       color: white;
       text-decoration: none; }
@@ -302,3 +311,7 @@ div.fao {
     content: "\f0e0"; }
   div.fao#user::before {
     content: "\f0f3"; }
+  div.fao#signout::before {
+    content: "\f08b";
+    color: white;
+    cursor: pointer; }

@@ -12,12 +12,12 @@
   border: none;
   border-radius: 0px;
   font-family: inherit;
-  padding: 8px 16px;
+  padding: 0.5rem 1rem;
   border: none;
   letter-spacing: .09em;
   border-radius: 2px;
   color: white;
-  margin: 10px; }
+  margin: 0.625rem; }
   .btn-success:hover {
     background-color: #fc8351; }
 
@@ -25,7 +25,7 @@
   padding: 15% 0 15% 0;
   font-family: inherit;
   width: 80%;
-  max-width: 1200px;
+  max-width: 75rem;
   margin: 0 auto;
   box-sizing: border-box; }
 
@@ -43,12 +43,12 @@
       /*background-color: $fadedGray;*/
       color: white;
       border: none;
-      padding: 8px;
+      padding: 0.5rem;
       /*font-weight: 300;*/
       /*letter-spacing: .09em;*/
       /*text-transform: uppercase;*/
-      flex: 1 0 120px;
-      max-width: 220px; }
+      flex: 1 0 7.5rem;
+      max-width: 13.75rem; }
     .flex-outer li .text-danger {
       color: #ffe9df; }
     .flex-outer li p {
@@ -57,16 +57,16 @@
       background-color: rgba(0, 0, 0, 0.37);
       color: white;
       border: none;
-      padding: 8px; }
+      padding: 0.5rem; }
 
 > li:not(:last-child) {
-  margin-bottom: 20px; }
+  margin-bottom: 1.25rem; }
 
 .flex-outer > li > label,
 .flex-outer li p {
-  flex: 1 0 120px;
+  flex: 1 0 7.5rem;
   max-width: 220px; }
 
 .flex-outer > li > label + *,
 .flex-inner {
-  flex: 1 0 220px; }
+  flex: 1 0 13.75rem; }

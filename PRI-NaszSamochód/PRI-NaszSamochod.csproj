@@ -224,7 +224,6 @@
     <Compile Include="Content\node_modules\node-gyp\lib\Find-VS2017.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BackPhotoController.cs" />
-    <Compile Include="Controllers\GroupsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProfPhotoController.cs" />
@@ -238,14 +237,20 @@
     <Compile Include="Migrations\201705012145403_ProfileInfo.Designer.cs">
       <DependentUpon>201705012145403_ProfileInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705121846172_PostMigration.cs" />
+    <Compile Include="Migrations\201705121846172_PostMigration.Designer.cs">
+      <DependentUpon>201705121846172_PostMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MobileAuthentication\CryptoRSA.cs" />
     <Compile Include="MobileAuthentication\KeysHolder.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\CommentModel.cs" />
-    <Compile Include="Models\Context\NSDbContext.cs" />
+    <Compile Include="Models\FriendModel.cs" />
     <Compile Include="Models\GroupModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\LikeModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PostModel.cs" />
     <Compile Include="Models\ProfileViewModel.cs" />
@@ -4770,6 +4775,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201705012145403_ProfileInfo.resx">
       <DependentUpon>201705012145403_ProfileInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705121846172_PostMigration.resx">
+      <DependentUpon>201705121846172_PostMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
