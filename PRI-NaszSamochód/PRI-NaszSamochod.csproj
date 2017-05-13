@@ -224,6 +224,7 @@
     <Compile Include="Content\node_modules\node-gyp\lib\Find-VS2017.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BackPhotoController.cs" />
+    <Compile Include="Controllers\GroupsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProfPhotoController.cs" />
@@ -233,13 +234,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Controllers\PublicKeyController.cs" />
-    <Compile Include="Migrations\201705012145403_ProfileInfo.cs" />
-    <Compile Include="Migrations\201705012145403_ProfileInfo.Designer.cs">
-      <DependentUpon>201705012145403_ProfileInfo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201705121846172_PostMigration.cs" />
-    <Compile Include="Migrations\201705121846172_PostMigration.Designer.cs">
-      <DependentUpon>201705121846172_PostMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201705130831042_InitialCreate.cs" />
+    <Compile Include="Migrations\201705130831042_InitialCreate.Designer.cs">
+      <DependentUpon>201705130831042_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MobileAuthentication\CryptoRSA.cs" />
@@ -4773,16 +4770,13 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201705012145403_ProfileInfo.resx">
-      <DependentUpon>201705012145403_ProfileInfo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705121846172_PostMigration.resx">
-      <DependentUpon>201705121846172_PostMigration.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <TypeScriptCompile Include="Content\node_modules\ajv\lib\ajv.d.ts" />
     <TypeScriptCompile Include="Content\node_modules\tweetnacl\nacl.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201705130831042_InitialCreate.resx">
+      <DependentUpon>201705130831042_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

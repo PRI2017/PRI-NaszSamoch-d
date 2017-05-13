@@ -1,5 +1,4 @@
 ﻿using PRI_NaszSamochód.Models;
-using PRI_NaszSamochód.Models.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +11,9 @@ namespace PRI_NaszSamochód.Controllers
     public class GroupsController : Controller
     {
 
-        private readonly NSDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public GroupsController(NSDbContext context)
+        public GroupsController(ApplicationDbContext context)
         {
             _context = context;
         }
