@@ -257,7 +257,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\css\imports.css" />
+    <Content Include="Content\css\index.css" />
     <Content Include="Content\css\loginPage.css" />
     <Content Include="Content\css\main.css" />
     <Content Include="Content\css\normalize.css" />
@@ -269,7 +269,7 @@
     <Content Include="Content\js\bootstrap.js" />
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\dropzone.js" />
-    <Content Include="Content\js\script.js" />
+    <Content Include="Content\js\dialogScript.js" />
     <Content Include="Content\node_modules\abbrev\abbrev.js" />
     <Content Include="Content\node_modules\ajv\.tonic_example.js" />
     <Content Include="Content\node_modules\ajv\dist\ajv.bundle.js" />
@@ -4740,7 +4740,6 @@
     <Content Include="Views\Manage\ManageLogins.cshtml" />
     <Content Include="Views\Manage\SetPassword.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
-    <Content Include="Views\Home\UserPage.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\UserPage\UserPageContent.cshtml" />

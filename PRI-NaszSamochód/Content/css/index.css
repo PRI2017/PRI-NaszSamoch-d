@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /*main palette*/
 /*orange*/
 /*light gray*/
@@ -11,7 +11,7 @@
   align-content: stretch; }
   .main-flex header {
     background-color: #cccccc;
-    height: 12.5rem;
+    height: 16rem;
     width: auto; }
   .main-flex ul.nav {
     justify-content: flex-end;

@@ -29,7 +29,7 @@
     @*Dropzone*@
     <script src="~/Content/js/dropzone.js"></script>
     <link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">
-    
+
     <title>Profil użytkownika</title>
 </head>
 
@@ -52,14 +52,7 @@
             <li><a href="#User/Statistics">Statystyki</a></li>
         </ul>
     </div>
-    <script>
-        document.getElementById('userProfilePhoto').addEventListener("click", showDialog);
-        function showDialog() {
-            $("#dialog").dialog();
-            document.getElementById("my-awesome-dropzone").style.display = "flex";
-        };
-      
-    </script>
+    <script src="~/Content/js/dialogScript.js"></script>
 </body>
 
 </html>
