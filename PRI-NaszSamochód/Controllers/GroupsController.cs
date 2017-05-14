@@ -1,4 +1,5 @@
-﻿using PRI_NaszSamochód.Models;
+﻿using Microsoft.AspNet.Identity;
+using PRI_NaszSamochód.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,7 @@ using System.Web.Mvc;
 
 namespace PRI_NaszSamochód.Controllers
 {
+    [System.Web.Mvc.Authorize]
     public class GroupsController : Controller
     {
 
@@ -21,7 +23,13 @@ namespace PRI_NaszSamochód.Controllers
         // GET: Groups
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("");
+        }
+
+        public ActionResult GroupHeader()
+        {
+            GroupModel model = new GroupModel();
+            return View(model);
         }
 
         // GET: Groups/Details/5
