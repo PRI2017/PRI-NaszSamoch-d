@@ -235,9 +235,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Controllers\PublicKeyController.cs" />
-    <Compile Include="Migrations\201705130831042_InitialCreate.cs" />
-    <Compile Include="Migrations\201705130831042_InitialCreate.Designer.cs">
-      <DependentUpon>201705130831042_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201705151105305_GroupModelMigration.cs" />
+    <Compile Include="Migrations\201705151105305_GroupModelMigration.Designer.cs">
+      <DependentUpon>201705151105305_GroupModelMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MobileAuthentication\CryptoRSA.cs" />
@@ -249,6 +249,7 @@
     <Compile Include="Models\GroupModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LikeModel.cs" />
+    <Compile Include="Models\PostViewModelList.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembersModel.cs" />
     <Compile Include="Models\PostModel.cs" />
@@ -4778,8 +4779,8 @@
     <TypeScriptCompile Include="Content\node_modules\tweetnacl\nacl.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201705130831042_InitialCreate.resx">
-      <DependentUpon>201705130831042_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705151105305_GroupModelMigration.resx">
+      <DependentUpon>201705151105305_GroupModelMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

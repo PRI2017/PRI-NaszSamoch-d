@@ -54,5 +54,13 @@ namespace PRI_NaszSamochód.Controllers
             ProfileViewModel model = new ProfileViewModel(ApplicationDbContext.Create().Users.Single(u => u.Id == id));
             return View(model);
         }
+
+        public ActionResult UserPosts()
+        {
+            return View(new PostViewModelList(ApplicationDbContext.Create().Posts
+                .Where(p => p.Creator.Id == User.Identity.GetUserId())
+                .Take(15).ToList()));
+
+        }
     }
 }
