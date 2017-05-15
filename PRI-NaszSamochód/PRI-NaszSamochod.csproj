@@ -226,6 +226,7 @@
     <Compile Include="Controllers\BackPhotoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PostPhotController.cs" />
     <Compile Include="Controllers\ProfPhotoController.cs" />
     <Compile Include="Controllers\MobileController.cs" />
     <Compile Include="Controllers\UserPageController.cs" />
@@ -4752,6 +4753,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\BackPhoto\" />
+    <Folder Include="Views\PostPhot\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
