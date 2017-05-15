@@ -9,7 +9,8 @@ namespace PRI_NaszSamochód.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
+            ContextKey = "PRI_NaszSamochód.Models.ApplicationDbContext";
         }
 
         protected override void Seed(PRI_NaszSamochód.Models.ApplicationDbContext context)
