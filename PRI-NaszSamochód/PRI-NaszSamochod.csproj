@@ -265,11 +265,12 @@
     <Content Include="Content\css\reset.css" />
     <Content Include="Content\css\userPage.css" />
     <Content Include="Content\gulpfile.js" />
-    <Content Include="Content\js\AngularJSControllers\UserTabsController.js" />
+    <Content Include="Content\js\AngularJSControllers\app.js" />
     <Content Include="Content\js\bootstrap.js" />
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\dropzone.js" />
     <Content Include="Content\js\dialogScript.js" />
+    <Content Include="Content\js\module.js" />
     <Content Include="Content\node_modules\abbrev\abbrev.js" />
     <Content Include="Content\node_modules\ajv\.tonic_example.js" />
     <Content Include="Content\node_modules\ajv\dist\ajv.bundle.js" />
@@ -324,6 +325,9 @@
     <Content Include="Content\node_modules\ajv\scripts\compile-dots.js" />
     <Content Include="Content\node_modules\amdefine\amdefine.js" />
     <Content Include="Content\node_modules\amdefine\intercept.js" />
+    <Content Include="Content\node_modules\angular-route\angular-route.js" />
+    <Content Include="Content\node_modules\angular-route\angular-route.min.js" />
+    <Content Include="Content\node_modules\angular-route\index.js" />
     <Content Include="Content\node_modules\angular\angular-csp.css" />
     <Content Include="Content\node_modules\angular\angular.js" />
     <Content Include="Content\node_modules\angular\angular.min.js" />
@@ -3932,6 +3936,11 @@
     <Content Include="Content\node_modules\node-gyp\gyp\buildbot\commit_queue\cq_config.json" />
     <Content Include="Content\node_modules\node-gyp\gyp\buildbot\commit_queue\OWNERS" />
     <Content Include="Content\node_modules\node-gyp\gyp\buildbot\commit_queue\README" />
+    <Content Include="Content\node_modules\angular-route\angular-route.min.js.map" />
+    <Content Include="Content\node_modules\angular-route\bower.json" />
+    <Content Include="Content\node_modules\angular-route\LICENSE.md" />
+    <Content Include="Content\node_modules\angular-route\package.json" />
+    <Content Include="Content\node_modules\angular-route\README.md" />
     <None Include="Content\node_modules\node-gyp\gyp\codereview.settings" />
     <Content Include="Content\node_modules\node-gyp\gyp\DEPS" />
     <Content Include="Content\node_modules\node-gyp\gyp\gyp" />
