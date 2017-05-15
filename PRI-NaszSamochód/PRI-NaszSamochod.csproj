@@ -247,13 +247,12 @@
     <Compile Include="Models\CommentModel.cs" />
     <Compile Include="Models\FriendModel.cs" />
     <Compile Include="Models\GroupModel.cs" />
-    <Compile Include="Models\GroupViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LikeModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembersModel.cs" />
     <Compile Include="Models\PostModel.cs" />
-    <Compile Include="Models\PostViewModels.cs" />
+    <Compile Include="Models\SocialViewModels.cs" />
     <Compile Include="Models\ProfileViewModel.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

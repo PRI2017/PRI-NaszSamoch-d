@@ -26,8 +26,12 @@ namespace PRI_NaszSamochód.Controllers
             return RedirectToAction("GroupHeader");
         }
 
-        public ActionResult GroupHeader(int id)
+        public ActionResult GroupHeader(int? id)
         {
+            if(id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             GroupViewModel model = new GroupViewModel(_context.Groups.Find(id));
             return View();
         }
