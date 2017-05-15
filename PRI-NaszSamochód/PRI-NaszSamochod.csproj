@@ -227,10 +227,10 @@
     <Compile Include="Controllers\GroupsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\PostPhotController.cs" />
     <Compile Include="Controllers\ProfPhotoController.cs" />
     <Compile Include="Controllers\MobileController.cs" />
     <Compile Include="Controllers\UserPageController.cs" />
+    <Compile Include="Controllers\WallController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -4754,6 +4754,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Views\BackPhoto\" />
     <Folder Include="Views\PostPhot\" />
+    <Folder Include="Views\Wall\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
