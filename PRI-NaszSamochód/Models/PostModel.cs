@@ -16,7 +16,7 @@ namespace PRI_NaszSamochód.Models
         [Required]
         public virtual ApplicationUser Creator { get; set; }
         public String Text { get; set; }
-        
+        public DateTime Added { get; set; }
         public String PhotoPath { get; set; }
         public virtual IList<LikeModel> Likes { get; set; }
         public virtual IList<CommentModel> Comments { get; set; }

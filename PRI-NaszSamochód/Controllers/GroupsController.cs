@@ -23,13 +23,19 @@ namespace PRI_NaszSamochód.Controllers
         // GET: Groups
         public ActionResult Index()
         {
-            return RedirectToAction("");
+            return RedirectToAction("GroupHeader");
         }
 
-        public ActionResult GroupHeader()
+        public ActionResult GroupHeader(int id)
         {
-            GroupModel model = new GroupModel();
-            return View(model);
+            GroupViewModel model = new GroupViewModel(_context.Groups.Find(id));
+            return View();
+        }
+
+        [System.Web.Mvc.AllowAnonymous]
+        public ActionResult GroupContent()
+        {
+            return View();
         }
 
         // GET: Groups/Details/5
