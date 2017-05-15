@@ -23,8 +23,8 @@ namespace PRI_NaszSamochód.Models
 
         public virtual List<PostModel> Posts { get; set; }
 
-        public virtual List<ApplicationUser> Administrators { get; set; }
+        public virtual List<AdministratorsModel> Administrators { get; set; }
 
-        public virtual List<ApplicationUser> Memebers { get; set; }
+        public virtual List<MembersModel> Memebers { get; set; }
     }
 }

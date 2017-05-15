@@ -17,6 +17,7 @@ namespace PRI_NaszSamochód.Models
         }
         public DbSet<PostModel> Posts { get; set; }
         public DbSet<FriendModel> Friends { get; set; }
+        public DbSet<GroupModel> Groups { get; set; }
 
     }
 }

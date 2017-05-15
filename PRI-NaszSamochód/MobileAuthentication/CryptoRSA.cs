@@ -69,7 +69,7 @@ namespace PRI_NaszSamochód.MobileAuthentication
         public static void TestEncDec(string message)
         {
             KeysHolder kh = KeysHolder.Instance;
-            kh.GenerateKeys(2048);
+            kh.GenerateKeys(1024);
             Debug.WriteLine("Plain message: " + message);
 
             byte[] cipher = Encrypt(message, kh.PublicKey);

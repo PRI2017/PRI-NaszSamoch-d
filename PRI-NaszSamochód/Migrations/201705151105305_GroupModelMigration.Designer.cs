@@ -7,13 +7,13 @@ namespace PRI_NaszSamochód.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class PostMigration : IMigrationMetadata
+    public sealed partial class GroupModelMigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(PostMigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(GroupModelMigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "201705121846172_PostMigration"; }
+            get { return "201705151105305_GroupModelMigration"; }
         }
         
         string IMigrationMetadata.Source

@@ -224,22 +224,20 @@
     <Compile Include="Content\node_modules\node-gyp\lib\Find-VS2017.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BackPhotoController.cs" />
+    <Compile Include="Controllers\GroupsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProfPhotoController.cs" />
     <Compile Include="Controllers\MobileController.cs" />
     <Compile Include="Controllers\UserPageController.cs" />
+    <Compile Include="Controllers\WallController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Controllers\PublicKeyController.cs" />
-    <Compile Include="Migrations\201705012145403_ProfileInfo.cs" />
-    <Compile Include="Migrations\201705012145403_ProfileInfo.Designer.cs">
-      <DependentUpon>201705012145403_ProfileInfo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201705121846172_PostMigration.cs" />
-    <Compile Include="Migrations\201705121846172_PostMigration.Designer.cs">
-      <DependentUpon>201705121846172_PostMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201705151105305_GroupModelMigration.cs" />
+    <Compile Include="Migrations\201705151105305_GroupModelMigration.Designer.cs">
+      <DependentUpon>201705151105305_GroupModelMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MobileAuthentication\CryptoRSA.cs" />
@@ -251,8 +249,11 @@
     <Compile Include="Models\GroupModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LikeModel.cs" />
+    <Compile Include="Models\PostViewModelList.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MembersModel.cs" />
     <Compile Include="Models\PostModel.cs" />
+    <Compile Include="Models\SocialViewModels.cs" />
     <Compile Include="Models\ProfileViewModel.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -4761,6 +4762,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\BackPhoto\" />
+    <Folder Include="Views\PostPhot\" />
+    <Folder Include="Views\Wall\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -4781,16 +4784,13 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201705012145403_ProfileInfo.resx">
-      <DependentUpon>201705012145403_ProfileInfo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705121846172_PostMigration.resx">
-      <DependentUpon>201705121846172_PostMigration.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <TypeScriptCompile Include="Content\node_modules\ajv\lib\ajv.d.ts" />
     <TypeScriptCompile Include="Content\node_modules\tweetnacl\nacl.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201705151105305_GroupModelMigration.resx">
+      <DependentUpon>201705151105305_GroupModelMigration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
