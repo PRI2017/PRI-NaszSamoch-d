@@ -23,6 +23,7 @@
       console.log("I setted template", header, content)
       $rootScope.header = header;
       $rootScope.content = content;
+           
    }
 
    function setInfo() {
