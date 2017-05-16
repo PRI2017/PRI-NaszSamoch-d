@@ -10,3 +10,6 @@
           });
     }
   ]);
+
+//docs.angularjs.org/api/ng/directive/ngInclude
+//docs.angularjs.org/api/ng/directive/ngSwitch

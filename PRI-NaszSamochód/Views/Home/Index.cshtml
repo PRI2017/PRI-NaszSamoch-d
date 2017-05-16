@@ -16,11 +16,13 @@
         @*Angular*@
         <script src="~/Content/node_modules/angular/angular.js"></script>
         <script src="~/Content/node_modules/angular-route/angular-route.js"></script>
+        <script src="~/Content/node_modules/angular-animate/angular-animate.js"></script>
 
         @*docs.angularjs.org/tutorial/step_09*@
 
         <script src="~/Content/js/module.js"></script>
         <script src="~/Content/js/AngularJSControllers/app.js"></script>
+        <script src="~/Content/js/AngularJSControllers/WallSwitcherController.js"></script>
     </head>
     <body ng-app="myApp">
         <div class="main-flex">
@@ -29,7 +31,7 @@
                 <li class="search">
                         <input type="search"/>
                 </li>
-                <li><a href="#UserPageHeader">  @Model.User.Name @Model.User.Surname  </a></li>
+                <li><a href="#/@Model.User.Name @Model.User.Surname " id="userPageClicker">  @Model.User.Name @Model.User.Surname  </a></li>
                 <li><a href="#"><div class="fao" id="user"></div></a></li>
                 <li><a href="#"><div class="fao" id="envelope"></div></a></li>
                 <li><a href="#"><div class="fao" id="bell"></div></a></li>
@@ -42,8 +44,8 @@
                 </li>
             </ul>
             
-            <header ng-view>
-                @*<div ng-view></div>*@
+            <header ng-controller="WallSwitcherController">
+                <ng-include src="getHeader()" onload="setters()"></ng-include>
             </header>
             <div class="child-flex">
                 <aside id="nav">
@@ -61,8 +63,9 @@
                 <aside id="chat">
                     <p>PANEL</p>
                 </aside>
-                <div class="wall">
-                    <p>WALL</p>
+                @*<div class="wall" ng-include="'UserPage/UserPageContent'">*@
+                <div class="wall" ng-controller="WallSwitcherController">
+                    <ng-include src="getContent()" ></ng-include>
                 </div>
             </div>
             <footer><p>Footer</p></footer>
