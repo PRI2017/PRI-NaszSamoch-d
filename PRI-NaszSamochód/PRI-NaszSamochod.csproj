@@ -3315,6 +3315,8 @@
     <Content Include="Content\src\loginBackground.jpeg" />
     <Content Include="Content\src\loginBackgroundblured.jpeg" />
     <Content Include="Content\src\no-pic-avatar.jpg" />
+    <Content Include="Content\src\preview.jpg" />
+    <Content Include="Content\src\preview1.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

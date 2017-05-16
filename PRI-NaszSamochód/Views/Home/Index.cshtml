@@ -1,6 +1,7 @@
 ﻿<html>
     <head>
         <title>Strona domowa</title>
+        <meta charset="UTF-8">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="~/Content/css/main.css">
         <link rel="stylesheet" href="~/Content/css/index.css">
@@ -46,6 +47,7 @@
             </ul>
             
             <header ng-controller="WallSwitcherController">
+                <p id="headerPar"></p>
                 <ng-include src="getHeader()" onload="setters()"></ng-include>
             </header>
             <div class="child-flex">

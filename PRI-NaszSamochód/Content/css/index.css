@@ -1,9 +1,10 @@
-﻿@charset "UTF-8";
+@charset "UTF-8";
 /*main palette*/
 /*orange*/
 /*light gray*/
 /*dark gray*/
 /*for textboxex in login layout*/
+@import url("https://fonts.googleapis.com/css?family=Dancing+Script");
 .main-flex {
   /*ogarn�� flex-shrink i -grow*/
   display: flex;
@@ -11,8 +12,21 @@
   align-content: stretch; }
   .main-flex header {
     background-color: #cccccc;
+    background-image: url("../src/preview1.jpg");
+    background-repeat: repeat-x;
+    background-size: 40rem;
+    background-position-y: center;
     height: 16rem;
     width: auto; }
+    .main-flex header p::after {
+      color: white;
+      font-size: 6.25rem;
+      font-family: 'Dancing Script', cursive;
+      font-style: normal;
+      content: "Nasz Samochód.";
+      position: absolute;
+      top: 8.125rem;
+      left: 50rem; }
   .main-flex ul.nav {
     justify-content: flex-end;
     background-color: #ff4b00;
