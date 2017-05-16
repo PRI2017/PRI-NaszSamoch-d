@@ -141,5 +141,24 @@ namespace PRI_NaszSamochód.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        ////////////////////////////////////////////////////////////////
+        //////////////////// NEXT ONE IS GONNA BE //////////////////////
+        //////////////////// USED IN THE MOBILE   //////////////////////
+        ////////////////////////////////////////////////////////////////
+        [System.Web.Mvc.HttpGet]
+        public GroupViewModel MobileGroup(int? id)
+        {
+            if(id == null)
+            {
+                return new GroupViewModel(new GroupModel());
+            }
+            GroupModel model = _context.Groups.Find(id);
+            if(model == null)
+            {
+                return new GroupViewModel(new GroupModel());
+            }
+            return new GroupViewModel(model);
+        }
     }
 }
