@@ -23,7 +23,7 @@
       console.log("I setted template", header, content)
       $rootScope.header = header;
       $rootScope.content = content;
-           
+      document.getElementById('headerPar').style.display = "none";
    }
 
    function setInfo() {
@@ -66,8 +66,7 @@
     }
 
     document.getElementById('userPageClicker').addEventListener('click', setUserPage);
-    $scope.setters = function()
-    {
+    $scope.setters = function () {
         document.getElementById('userPageInfoClicker').addEventListener('click', setInfo);
         document.getElementById('userPageFriendsClicker').addEventListener('click', setFriends);
         document.getElementById('userPageGalleryClicker').addEventListener('click', setGallery);
