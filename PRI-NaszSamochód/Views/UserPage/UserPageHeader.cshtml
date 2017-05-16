@@ -30,6 +30,7 @@
     @*Dropzone*@
     <script src="~/Content/js/dropzone.js"></script>
     <link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">
+    <script src="~/Content/js/dialogScript.js"></script>
 
     <title>Profil użytkownika</title>
 </head>
@@ -37,6 +38,7 @@
 <body ng-app="myApp">
 
     <div class="container-flex">
+        <span my-draggable>Drag Me</span>
         <div class="userPageHeader">
             <div class="userProfilePhoto" id="userProfilePhoto" style="background-image:url(@Model.ProfilePhotoUrl)"></div>
         </div>
@@ -53,7 +55,7 @@
             <li><a href="#User/Statistics" id="userPageStatisticsClicker">Statystyki</a></li>
         </ul>
     </div>
-    <script src="~/Content/js/dialogScript.js"></script>
+    @*<script src="~/Content/js/dialogScript.js"></script>*@
 </body>
 
 </html>

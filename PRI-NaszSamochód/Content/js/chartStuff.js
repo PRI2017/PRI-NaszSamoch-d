@@ -1,18 +1,4 @@
-﻿<!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="~/Content/css/main.css" />
-        <title>Statystyki</title>
-        <script src="~/Content/node_modules/chart.js/dist/Chart.min.js"></script>
-
-        @*<script src="~/Content/js/chartStuff.js"></script>*@
-    </head>
-    <body>
-        <h1>Statystyki - simple chart test</h1>
-        <canvas id="canvas" width="20" height="20"></canvas>
-<script>
-    //docs.angularjs.org/api/ng/directive/ngBindHtml
-    var canvas = document.getElementById("canvas");
+﻿var canvas = document.getElementById("canvas");
     var ctx = canvas.getContext("2d");
 
     var dat = {
@@ -45,12 +31,8 @@
     var myNewChart = new Chart(ctx, {
         type: "line",
         data: dat,
-        options: 
+        options:
             {
                 responsive: true
             }
     });
-
-</script>
-    </body>
-</html>
