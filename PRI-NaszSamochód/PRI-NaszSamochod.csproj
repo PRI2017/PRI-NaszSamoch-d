@@ -273,6 +273,7 @@
     <Content Include="Content\js\dropzone.js" />
     <Content Include="Content\js\dialogScript.js" />
     <Content Include="Content\js\chartStuff.js" />
+    <Content Include="Content\js\jquery.canvasjs.min.js" />
     <Content Include="Content\js\module.js" />
     <Content Include="Content\node_modules\abbrev\abbrev.js" />
     <Content Include="Content\node_modules\ajv\.tonic_example.js" />

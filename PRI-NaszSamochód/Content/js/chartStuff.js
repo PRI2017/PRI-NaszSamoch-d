@@ -1,38 +1,31 @@
-﻿var canvas = document.getElementById("canvas");
-    var ctx = canvas.getContext("2d");
-
-    var dat = {
-        labels: ["January", "February", "March", "April", "May", "June", "July"],
-        datasets: [
-            {
-                label: "My First dataset",
-                fillColor: "rgba(220,220,220,0.2)",
-                strokeColor: "rgba(220,220,220,1)",
-                pointColor: "rgba(220,220,220,1)",
-                pointStrokeColor: "#fff",
-                pointHighlightFill: "#fff",
-                pointHighlightStroke: "rgba(220,220,220,1)",
-                data: [65, 59, 80, 81, 56, 55, 40]
+﻿
+$.getScript('/Content/js/jquery.canvasjs.min.js',
+    function () {
+        console.log("charts loaded");
+        var options = {
+            title: {
+                text: "Spline Chart using jQuery Plugin"
             },
-            {
-                label: "My Second dataset",
-                fillColor: "rgba(151,187,205,0.2)",
-                strokeColor: "rgba(151,187,205,1)",
-                pointColor: "rgba(151,187,205,1)",
-                pointStrokeColor: "#fff",
-                pointHighlightFill: "#fff",
-                pointHighlightStroke: "rgba(151,187,205,1)",
-                data: [28, 48, 40, 19, 86, 27, 90]
-            }
-        ]
-    };
+            animationEnabled: true,
+            data: [
+                {
+                    type: "spline", //change it to line, area, column, pie, etc
+                    dataPoints: [
+                        { x: 10, y: 10 },
+                        { x: 20, y: 12 },
+                        { x: 30, y: 8 },
+                        { x: 40, y: 14 },
+                        { x: 50, y: 6 },
+                        { x: 60, y: 24 },
+                        { x: 70, y: -4 },
+                        { x: 80, y: 10 }
+                    ]
+                }
+            ]
+        };
+
+        $("#chartTest").CanvasJSChart(options);
+       
 
 
-    var myNewChart = new Chart(ctx, {
-        type: "line",
-        data: dat,
-        options:
-            {
-                responsive: true
-            }
     });

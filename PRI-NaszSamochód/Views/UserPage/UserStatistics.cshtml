@@ -3,12 +3,14 @@
     <head>
         <link rel="stylesheet" href="~/Content/css/main.css" />
         <title>Statystyki</title>
+        <script src="~/Content/node_modules/jquery/dist/jquery.min.js"></script>
         <script src="~/Content/node_modules/chart.js/dist/Chart.min.js"></script>
-
+        @Scripts.Render("~/Content/js/chartStuff.js")
         @*<script src="~/Content/js/chartStuff.js"></script>*@
     </head>
     <body>
-        <h1>Statystyki - simple chart test</h1>
+    <h1>Statystyki - simple chart test</h1>
+        <div id="chartTest" style="height: 300px; width: 100%;"></div>
         <canvas id="canvas" width="20" height="20"></canvas>
 <script>
     //docs.angularjs.org/api/ng/directive/ngBindHtml
