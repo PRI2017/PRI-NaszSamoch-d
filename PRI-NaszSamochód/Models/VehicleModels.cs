@@ -37,7 +37,10 @@ namespace PRI_NaszSamochód.Models
     }
 
     public class MotorcycleModel : Vehicle
-    {
+    {   
+        [Key]
+        [Required]
+        public int Key { get; set; }
         public VehicleStatisticsModel Statistics { get; set; }
     }
 }
