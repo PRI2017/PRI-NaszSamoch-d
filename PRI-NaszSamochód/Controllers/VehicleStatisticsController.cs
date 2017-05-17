@@ -5,6 +5,7 @@ using System.Web;
 using PRI_NaszSamochód.Models;
 using System.Web.Mvc;
 using System.Net;
+using Newtonsoft.Json;
 
 namespace PRI_NaszSamochód.Controllers
 {
@@ -23,13 +24,15 @@ namespace PRI_NaszSamochód.Controllers
             return RedirectToAction("VehicleStatisticsHeader");
         }
 
-        public ActionResult VehicleStatisticsHeader(int? Id)
+        public ActionResult VehicleStatisticsHeader(int? vId, int? sId)
         {
-            if (Id == null)
+            if (vId == null || sId == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            VehicleStatisticsModel model = _context.Vehicles.Find(Id).Statistics;
+            VehicleStatisticsModel model = _context.Vehicles.Find(vId).
+                Statistics.
+                Find(x => x.Key == sId);
             if (model == null)
             {
                 return HttpNotFound();
@@ -42,77 +45,55 @@ namespace PRI_NaszSamochód.Controllers
             return View();
         }
 
-        // POST: Groups/Create
         [HttpPost]
-        public ActionResult Create([Bind(Include = "Key, KilometersDriven, FuelUsed, MaxVelocity, RecordStartTime, RecordEndTime")]VehicleStatisticsModel model, int vehicleId)
+        public ActionResult Create([Bind(Include = "Key, KilometersDriven, FuelUsed, MaxVelocity, RecordTime")]VehicleStatisticsModel model, int vId)
         {
             if (ModelState.IsValid)
             {
-                _context.Vehicles.Find(vehicleId).Statistics = model;
+                _context.Vehicles.Find(vId).Statistics.Add(model);
                 _context.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(_context.Vehicles.Find(vehicleId).Statistics);
+            return View(_context.Vehicles.Find(vId).Statistics);
         }
 
-        // GET: Groups/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult FuelChart(int? vId)
         {
-            if (id == null)
+            List<DataPoint> chartPoints = new List<DataPoint>();
+
+            foreach(var item in _context.Vehicles.Find(vId).Statistics)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                chartPoints.Add(new DataPoint(item.RecordTime.ToOADate(), item.FuelUsed));
             }
-            GroupModel group = _context.Groups.Find(id);
-            if (group == null)
-            {
-                return HttpNotFound();
-            }
-            return View(group);
+
+            ViewBag.DataPoints = JsonConvert.SerializeObject(chartPoints);
+            return View();
         }
 
-        // POST: Groups/Edit/5
-        [System.Web.Mvc.HttpPut]
-        public ActionResult Edit([Bind(Include = "Key, KilometersDriven, FuelUsed, MaxVelocity, RecordStartTime, RecordEndTime")]VehicleStatisticsModel model, int vehicleId)
+        public ActionResult KilometersDrivenChart(int? vId)
         {
-            if (ModelState.IsValid)
+            List<DataPoint> chartPoints = new List<DataPoint>();
+
+            foreach (var item in _context.Vehicles.Find(vId).Statistics)
             {
-                _context.Vehicles.Find(vehicleId).Statistics = model;
-                _context.SaveChanges();
-                return RedirectToAction("Index");
+                chartPoints.Add(new DataPoint(item.RecordTime.ToOADate(), item.KilometersDriven));
             }
-            return View(model);
+
+            ViewBag.DataPoints = JsonConvert.SerializeObject(chartPoints);
+            return View();
         }
 
-        // GET: Groups/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult MaxVelocityChart(int? vId)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            GroupModel group = _context.Groups.Find(id);
-            if (group == null)
-            {
-                return HttpNotFound();
-            }
-            return View(group);
-        }
+            List<DataPoint> chartPoints = new List<DataPoint>();
 
-        // POST: Groups/Delete/5
-        [System.Web.Mvc.HttpDelete, System.Web.Mvc.ActionName("Delete")]
-        public ActionResult DeleteConfirmed(int vehicleId)
-        {
-            VehicleModel model = _context.Vehicles.Find(vehicleId);
-            if (model == null)
+            foreach (var item in _context.Vehicles.Find(vId).Statistics)
             {
-                return HttpNotFound();
+                chartPoints.Add(new DataPoint(item.RecordTime.ToOADate(), item.MaxVelocity));
             }
-            if (!(model.Statistics == null))
-            {
-                _context.Vehicles.Find(vehicleId).Statistics = null;
-                _context.SaveChanges();
-            }
-            return RedirectToAction("Index");
+
+            ViewBag.DataPoints = JsonConvert.SerializeObject(chartPoints);
+            return View();
         }
     }
 }

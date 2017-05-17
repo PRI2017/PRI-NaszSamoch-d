@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace PRI_NaszSamochód.Models
 {
@@ -31,6 +32,6 @@ namespace PRI_NaszSamochód.Models
         public EngineModel Engine { get; set; }
         public VehicleBody VehicleBody { get; set; }
 
-        public VehicleStatisticsModel Statistics { get; set; }
+        public List<VehicleStatisticsModel> Statistics { get; set; }
     }
 }

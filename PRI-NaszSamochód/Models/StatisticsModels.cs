@@ -17,8 +17,7 @@ namespace PRI_NaszSamochód.Models
         public double KilometersDriven { get; set; }
         public double FuelUsed { get; set; }
         public double MaxVelocity { get; set; }
-        public DateTime RecordStartTime { get; set; }
-        public DateTime RecordEndTime { get; set; }
+        public DateTime RecordTime { get; set; }
     }
 
     public class RouteStatisticsModel
@@ -30,8 +29,8 @@ namespace PRI_NaszSamochód.Models
         public Coordinates EndPoint { get; set; }
         public double RouteLength { get; set; }
         public List<string> PlacesSeen { get; set; }
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
+        public DateTime RouteStartTime { get; set; }
+        public DateTime RouteEndTime { get; set; }
     }
 
     // Used in CanvasJS to make charts
