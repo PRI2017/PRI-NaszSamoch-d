@@ -28,21 +28,24 @@
     @*<script src="~/Content/js/AngularJSControllers/UserTabsController.js"></script>*@
 
     @*Dropzone*@
-    <script src="~/Content/js/dropzone.js"></script>
+@*    <script src="~/Content/js/dropzone.js"></script>*@
     <link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">
-
+  @*  <script src="~/Content/js/dialogScript.js"></script> *@
+    @Scripts.Render("~/Content/js/dialogScript.js")
+    @Scripts.Render("~/Content/js/dropzone.js")
     <title>Profil użytkownika</title>
 </head>
 
 <body ng-app="myApp">
 
     <div class="container-flex">
+        @*<span my-draggable>Drag Me</span>*@
         <div class="userPageHeader">
             <div class="userProfilePhoto" id="userProfilePhoto" style="background-image:url(@Model.ProfilePhotoUrl)"></div>
         </div>
         <div id="dialog">
             <form action="/ProfPhoto/Upload"
-                  class="dropzone"
+                  
                   id="my-awesome-dropzone" style="display: none"></form>
         </div>
 
@@ -53,7 +56,7 @@
             <li><a href="#User/Statistics" id="userPageStatisticsClicker">Statystyki</a></li>
         </ul>
     </div>
-    <script src="~/Content/js/dialogScript.js"></script>
+    @*<script src="~/Content/js/dialogScript.js"></script>*@
 </body>
 
 </html>

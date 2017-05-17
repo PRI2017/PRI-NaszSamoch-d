@@ -276,6 +276,8 @@
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\dropzone.js" />
     <Content Include="Content\js\dialogScript.js" />
+    <Content Include="Content\js\chartStuff.js" />
+    <Content Include="Content\js\jquery.canvasjs.min.js" />
     <Content Include="Content\js\module.js" />
     <Content Include="Content\node_modules\abbrev\abbrev.js" />
     <Content Include="Content\node_modules\ajv\.tonic_example.js" />
@@ -338,6 +340,9 @@
     <Content Include="Content\node_modules\angular-route\angular-route.js" />
     <Content Include="Content\node_modules\angular-route\angular-route.min.js" />
     <Content Include="Content\node_modules\angular-route\index.js" />
+    <Content Include="Content\node_modules\angular-sanitize\angular-sanitize.js" />
+    <Content Include="Content\node_modules\angular-sanitize\angular-sanitize.min.js" />
+    <Content Include="Content\node_modules\angular-sanitize\index.js" />
     <Content Include="Content\node_modules\angular\angular-csp.css" />
     <Content Include="Content\node_modules\angular\angular.js" />
     <Content Include="Content\node_modules\angular\angular.min.js" />
@@ -3315,6 +3320,8 @@
     <Content Include="Content\src\loginBackground.jpeg" />
     <Content Include="Content\src\loginBackgroundblured.jpeg" />
     <Content Include="Content\src\no-pic-avatar.jpg" />
+    <Content Include="Content\src\preview.jpg" />
+    <Content Include="Content\src\preview1.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -4361,6 +4368,11 @@
     <Content Include="Content\node_modules\gulp\node_modules\semver\README.md" />
     <Content Include="Content\node_modules\gulp\node_modules\semver\semver.browser.js.gz" />
     <Content Include="Content\node_modules\gulp\node_modules\semver\semver.min.js.gz" />
+    <Content Include="Content\node_modules\angular-sanitize\angular-sanitize.min.js.map" />
+    <Content Include="Content\node_modules\angular-sanitize\bower.json" />
+    <Content Include="Content\node_modules\angular-sanitize\LICENSE.md" />
+    <Content Include="Content\node_modules\angular-sanitize\package.json" />
+    <Content Include="Content\node_modules\angular-sanitize\README.md" />
     <None Include="Content\node_modules\node-gyp\gyp\codereview.settings" />
     <Content Include="Content\node_modules\node-gyp\gyp\DEPS" />
     <Content Include="Content\node_modules\node-gyp\gyp\gyp" />

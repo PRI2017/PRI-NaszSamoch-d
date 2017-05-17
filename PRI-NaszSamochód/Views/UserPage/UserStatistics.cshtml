@@ -3,9 +3,56 @@
     <head>
         <link rel="stylesheet" href="~/Content/css/main.css" />
         <title>Statystyki</title>
-
+        <script src="~/Content/node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="~/Content/node_modules/chart.js/dist/Chart.min.js"></script>
+        @Scripts.Render("~/Content/js/chartStuff.js")
+        @*<script src="~/Content/js/chartStuff.js"></script>*@
     </head>
     <body>
-        <script></script>
+    <h1>Statystyki - simple chart test</h1>
+        <div id="chartTest" style="height: 300px; width: 100%;"></div>
+        <canvas id="canvas" width="20" height="20"></canvas>
+<script>
+    //docs.angularjs.org/api/ng/directive/ngBindHtml
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+
+    var dat = {
+        labels: ["January", "February", "March", "April", "May", "June", "July"],
+        datasets: [
+            {
+                label: "My First dataset",
+                fillColor: "rgba(220,220,220,0.2)",
+                strokeColor: "rgba(220,220,220,1)",
+                pointColor: "rgba(220,220,220,1)",
+                pointStrokeColor: "#fff",
+                pointHighlightFill: "#fff",
+                pointHighlightStroke: "rgba(220,220,220,1)",
+                data: [65, 59, 80, 81, 56, 55, 40]
+            },
+            {
+                label: "My Second dataset",
+                fillColor: "rgba(151,187,205,0.2)",
+                strokeColor: "rgba(151,187,205,1)",
+                pointColor: "rgba(151,187,205,1)",
+                pointStrokeColor: "#fff",
+                pointHighlightFill: "#fff",
+                pointHighlightStroke: "rgba(151,187,205,1)",
+                data: [28, 48, 40, 19, 86, 27, 90]
+            }
+        ]
+    };
+
+
+    var myNewChart = new Chart(ctx, {
+        type: "line",
+        data: dat,
+        options: 
+            {
+                responsive: true
+            }
+    });
+
+</script>
     </body>
 </html>
