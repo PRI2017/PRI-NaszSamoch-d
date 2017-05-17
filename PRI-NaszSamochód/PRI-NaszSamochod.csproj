@@ -229,6 +229,8 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProfPhotoController.cs" />
     <Compile Include="Controllers\MobileController.cs" />
+    <Compile Include="Controllers\RouteStatisticsController.cs" />
+    <Compile Include="Controllers\VehicleStatisticsController.cs" />
     <Compile Include="Controllers\UserPageController.cs" />
     <Compile Include="Controllers\WallController.cs" />
     <Compile Include="Global.asax.cs">
@@ -244,7 +246,11 @@
     <Compile Include="MobileAuthentication\KeysHolder.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Utilities\Coordinates.cs" />
+    <Compile Include="Models\RouteModel.cs" />
+    <Compile Include="Models\VehicleModels.cs" />
     <Compile Include="Models\CommentModel.cs" />
+    <Compile Include="Models\EngineModel.cs" />
     <Compile Include="Models\FriendModel.cs" />
     <Compile Include="Models\GroupModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -255,6 +261,7 @@
     <Compile Include="Models\PostModel.cs" />
     <Compile Include="Models\SocialViewModels.cs" />
     <Compile Include="Models\ProfileViewModel.cs" />
+    <Compile Include="Models\StatisticsModels.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -5292,6 +5299,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Views\BackPhoto\" />
     <Folder Include="Views\PostPhot\" />
+    <Folder Include="Views\RouteStatistics\" />
     <Folder Include="Views\Wall\" />
   </ItemGroup>
   <ItemGroup>

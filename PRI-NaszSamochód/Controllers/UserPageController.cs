@@ -25,7 +25,6 @@ namespace PRI_NaszSamochód.Controllers
           }
         [AllowAnonymous]
         public ActionResult UserPageContent()
-
         {
             return View();
         }
