@@ -80,15 +80,16 @@
         .wall {
             flex: 1;
             order: 2;
-            height: 18.75rem;
-            width: 18.75*2rem;
+            min-height: 18.75rem;
+            min-width: 18.75*2rem;
+            max-height:none;
             background-color: $wallBackground;
             /*flex-shrink: 1;*/
         }
     }
 
     footer {
-        background-color: $color1;
+        background-color: $color5;
         height: 18.75 * 1/2 rem;
     }
 }

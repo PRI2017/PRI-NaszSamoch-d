@@ -8,16 +8,63 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    @*<link rel="stylesheet" href="~/Content/node_modules/bootstrap/dist/css/bootstrap.min.css">*@
+
     <script src="~/Content/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="~/Content/node_modules/jscroll/jquery.jscroll.min.js"></script>
     <link rel="stylesheet" href="~/Content/css/main.css">
     <link rel="stylesheet" href="~/Content/css/userPage.css" />
+   @Scripts.Render("~/Content/js/infiniteScroll.js")
+    @Scripts.Render("~/Content/node_modules/jscroll/jquery.jscroll.min.js")
+
+
     <title>Profil użytkownika</title>
 </head>
 
 <body>
-    <div class="container-flex">
+    <div class="container-flex" id="scrollIt">
         <div class="wall-flex">
+
+            <div class="post">
+                <div class="postHeader">
+                    <ul>
+                        <li><div class="userProfilePhoto userProfilePhotoSmall"></div></li>
+                        <li><p>Tadeusz Norek<p></li>
+                        <li><p>1 godz.</p></li>
+                    </ul>
+                </div>
+                <div class="postContent">
+                    <p class="postText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed nulla sed nisi pellentesque bibendum id a purus. Duis a scelerisque nunc. Donec interdum turpis quis arcu lacinia ornare. Aliquam iaculis risus vitae tellus ornare suscipit. Ut posuere felis in tristique dapibus. Nullam imperdiet magna in felis tristique, non consectetur erat tempor. Proin vulputate at justo et cursus. Sed rhoncus suscipit quam nec fermentum. Nulla non sagittis velit, at ullamcorper massa. In lacinia augue at libero sollicitudin, eleifend placerat nulla convallis. Praesent tincidunt interdum lacus vitae consequat. Donec nec volutpat mi. Curabitur imperdiet purus nibh, at aliquam risus laoreet quis. Phasellus sit amet ultrices dui. In semper ultrices purus, ut efficitur mauris tempor ac.</p>
+                </div>
+                <button class="btn-success">Poleć!</button>
+            </div>
+
+            <div class="post">
+                <div class="postHeader">
+                    <ul>
+                        <li><div class="userProfilePhoto userProfilePhotoSmall"></div></li>
+                        <li><p>Tadeusz Norek<p></li>
+                        <li><p>1 godz.</p></li>
+                    </ul>
+                </div>
+                <div class="postContent">
+                    <p class="postText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed nulla sed nisi pellentesque bibendum id a purus. Duis a scelerisque nunc. Donec interdum turpis quis arcu lacinia ornare. Aliquam iaculis risus vitae tellus ornare suscipit. Ut posuere felis in tristique dapibus. Nullam imperdiet magna in felis tristique, non consectetur erat tempor. Proin vulputate at justo et cursus. Sed rhoncus suscipit quam nec fermentum. Nulla non sagittis velit, at ullamcorper massa. In lacinia augue at libero sollicitudin, eleifend placerat nulla convallis. Praesent tincidunt interdum lacus vitae consequat. Donec nec volutpat mi. Curabitur imperdiet purus nibh, at aliquam risus laoreet quis. Phasellus sit amet ultrices dui. In semper ultrices purus, ut efficitur mauris tempor ac.</p>
+                </div>
+                <button class="btn-success">Poleć!</button>
+            </div>
+
+            <div class="post">
+                <div class="postHeader">
+                    <ul>
+                        <li><div class="userProfilePhoto userProfilePhotoSmall"></div></li>
+                        <li><p>Tadeusz Norek<p></li>
+                        <li><p>1 godz.</p></li>
+                    </ul>
+                </div>
+                <div class="postContent">
+                    <p class="postText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed nulla sed nisi pellentesque bibendum id a purus. Duis a scelerisque nunc. Donec interdum turpis quis arcu lacinia ornare. Aliquam iaculis risus vitae tellus ornare suscipit. Ut posuere felis in tristique dapibus. Nullam imperdiet magna in felis tristique, non consectetur erat tempor. Proin vulputate at justo et cursus. Sed rhoncus suscipit quam nec fermentum. Nulla non sagittis velit, at ullamcorper massa. In lacinia augue at libero sollicitudin, eleifend placerat nulla convallis. Praesent tincidunt interdum lacus vitae consequat. Donec nec volutpat mi. Curabitur imperdiet purus nibh, at aliquam risus laoreet quis. Phasellus sit amet ultrices dui. In semper ultrices purus, ut efficitur mauris tempor ac.</p>
+                </div>
+                <button class="btn-success">Poleć!</button>
+            </div>
 
             <div class="post">
                 <div class="postHeader">

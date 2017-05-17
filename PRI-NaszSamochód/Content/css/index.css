@@ -64,8 +64,9 @@
     .main-flex .child-flex .wall {
       flex: 1;
       order: 2;
-      height: 18.75rem;
-      width: 37.5rem;
+      min-height: 18.75rem;
+      min-width: 37.5rem;
+      max-height: none;
       background-color: #e9e9e9;
       /*flex-shrink: 1;*/ }
   .main-flex footer {
