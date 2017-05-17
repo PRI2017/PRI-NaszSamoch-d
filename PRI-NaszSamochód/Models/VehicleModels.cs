@@ -2,7 +2,7 @@
 
 namespace PRI_NaszSamochód.Models
 {
-    public enum VehicleBody
+    public enum CarBody
     {
         SUV,
         Convertible,
@@ -12,16 +12,11 @@ namespace PRI_NaszSamochód.Models
         Wagon,
         Minivan,
         MPV,
-        Luxury,
-        Motorcycle
+        Luxury
     }
 
-    public class VehicleModel
+    public class Vehicle
     {
-        [Key]
-        [Required]
-        public int Key { get; set; }
-
         public ApplicationUser Owner { get; set; }
         public string Brand { get; set; }
         public string Model { get; set; }
@@ -29,8 +24,20 @@ namespace PRI_NaszSamochód.Models
         public string YearBought { get; set; }
         public string Color { get; set; }
         public EngineModel Engine { get; set; }
-        public VehicleBody VehicleBody { get; set; }
+    }
 
+    public class CarModel : Vehicle
+    {
+        [Key]
+        [Required]
+        public int Key { get; set; }
+
+        public CarBody CarBody { get; set; }
+        public VehicleStatisticsModel Statistics { get; set; }
+    }
+
+    public class MotorcycleModel : Vehicle
+    {
         public VehicleStatisticsModel Statistics { get; set; }
     }
 }

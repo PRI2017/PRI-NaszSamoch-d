@@ -12,8 +12,6 @@ namespace PRI_NaszSamochód.Models
         [Required]
         public int Key { get; set; }
 
-        public ApplicationUser Owner { get; set; }
-
         public string Name { get; set; }
         public RouteStatisticsModel Statistics { get; set; }
     }

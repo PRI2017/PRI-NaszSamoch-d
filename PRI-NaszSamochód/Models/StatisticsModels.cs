@@ -26,6 +26,9 @@ namespace PRI_NaszSamochód.Models
         [Key]
         [Required]
         public int Key { get; set; }
+
+        public ApplicationUser Owner { get; set; }
+
         public Coordinates StartPoint { get; set; }
         public Coordinates EndPoint { get; set; }
         public double RouteLength { get; set; }

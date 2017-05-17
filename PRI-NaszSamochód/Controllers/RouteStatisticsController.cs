@@ -8,7 +8,6 @@ using PRI_NaszSamochód.Models;
 
 namespace PRI_NaszSamochód.Controllers
 {
-    [Authorize]
     public class RouteStatisticsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -17,13 +16,11 @@ namespace PRI_NaszSamochód.Controllers
         {
             _context = context;
         }
-
         // GET: RouteStatistics
         public ActionResult Index()
         {
             return RedirectToAction("RouteStatisticsHeader");
         }
-
 
         public ActionResult RouteStatisticsHeader(int? routeId)
         {
@@ -31,11 +28,7 @@ namespace PRI_NaszSamochód.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            RouteStatisticsModel model = _context.Routes.Find(routeId).Statistics;
-            if(model == null)
-            {
-                return HttpNotFound();
-            }
+            RouteStatisticsModel model = _context.RoutesStatistics.Find(routeId);
             return View(model);
         }
     }
