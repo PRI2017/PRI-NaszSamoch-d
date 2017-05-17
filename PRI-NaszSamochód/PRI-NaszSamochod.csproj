@@ -246,6 +246,7 @@
     <Compile Include="MobileAuthentication\KeysHolder.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\POI.cs" />
     <Compile Include="Utilities\Coordinates.cs" />
     <Compile Include="Models\RouteModel.cs" />
     <Compile Include="Models\VehicleModels.cs" />
@@ -263,6 +264,7 @@
     <Compile Include="Models\ProfileViewModel.cs" />
     <Compile Include="Models\StatisticsModels.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Utilities\DataPoint.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\index.css" />

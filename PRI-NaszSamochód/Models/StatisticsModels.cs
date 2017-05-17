@@ -1,10 +1,7 @@
-﻿using System;
+﻿using PRI_NaszSamochód.Utilities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Web;
-using PRI_NaszSamochód.Utilities;
 
 namespace PRI_NaszSamochód.Models
 {
@@ -28,25 +25,8 @@ namespace PRI_NaszSamochód.Models
         public Coordinates StartPoint { get; set; }
         public Coordinates EndPoint { get; set; }
         public double RouteLength { get; set; }
-        public List<string> PlacesSeen { get; set; }
+        public List<POI> PlacesSeen { get; set; }
         public DateTime RouteStartTime { get; set; }
         public DateTime RouteEndTime { get; set; }
-    }
-
-    // Used in CanvasJS to make charts
-    [DataContract]
-    public class DataPoint
-    {
-        [DataMember(Name = "x")]
-        public Nullable<double> X = null;
-
-        [DataMember(Name = "y")]
-        public Nullable<double> Y = null;
-
-        public DataPoint(double x, double y)
-        {
-            X = x;
-            Y = y;
-        }
     }
 }
