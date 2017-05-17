@@ -33,10 +33,11 @@ namespace PRI_NaszSamochód.Models
         public int Key { get; set; }
 
         public CarBody CarBody { get; set; }
+        public VehicleStatisticsModel Statistics { get; set; }
     }
 
     public class MotorcycleModel : Vehicle
     {
-
+        public VehicleStatisticsModel Statistics { get; set; }
     }
 }

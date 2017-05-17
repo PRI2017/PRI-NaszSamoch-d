@@ -229,7 +229,8 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProfPhotoController.cs" />
     <Compile Include="Controllers\MobileController.cs" />
-    <Compile Include="Controllers\StatisticsController.cs" />
+    <Compile Include="Controllers\RouteStatisticsController.cs" />
+    <Compile Include="Controllers\VehicleStatisticsController.cs" />
     <Compile Include="Controllers\UserPageController.cs" />
     <Compile Include="Controllers\WallController.cs" />
     <Compile Include="Global.asax.cs">
@@ -245,6 +246,8 @@
     <Compile Include="MobileAuthentication\KeysHolder.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Utilities\Coordinates.cs" />
+    <Compile Include="Models\RouteModel.cs" />
     <Compile Include="Models\VehicleModels.cs" />
     <Compile Include="Models\CommentModel.cs" />
     <Compile Include="Models\EngineModel.cs" />
@@ -5112,6 +5115,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Views\BackPhoto\" />
     <Folder Include="Views\PostPhot\" />
+    <Folder Include="Views\RouteStatistics\" />
     <Folder Include="Views\Wall\" />
   </ItemGroup>
   <ItemGroup>

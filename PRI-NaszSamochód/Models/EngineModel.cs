@@ -33,7 +33,8 @@ namespace PRI_NaszSamochód.Models
         public string Manufacturer { get; set; }
         public int EngineSpeed { get; set; }
         public string EngineSpeedUnit { get { return "RPM"; } }
+        public int EnginePower { get; set; }
+        public string EnginePowerUnit { get { return "BPH"; } }
         public EngineType EngineType { get; set; }
-
     }
 }
