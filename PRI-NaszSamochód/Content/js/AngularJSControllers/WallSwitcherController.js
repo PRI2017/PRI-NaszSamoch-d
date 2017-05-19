@@ -9,7 +9,10 @@
         { name: 'UserPageInfo', url: 'UserPage/UserInfo' },
         { name: 'UserPageFriends', url: 'UserPage/UserFriends' },
         { name: 'UserPageGallery', url: 'UserPage/UserGallery' },
-        { name: 'UserPageStatisctics', url: 'UserPage/UserStatistics' }
+        { name: 'UserPageStatisctics', url: 'UserPage/UserStatistics' },
+        { name: 'GroupHeader', url: 'Groups/GroupHeader' },
+        { name: 'AddNewGroup', url: 'Groups/AddNewGroup' }
+
     ];
 
    header = 'null';
@@ -55,6 +58,13 @@
        $rootScope.header = header;
        $rootScope.content = content;
    }
+   function setAddNewGroup() {
+       header = userPageTemplate[6].url;
+       content = userPageTemplate[7].url;
+       console.log("I setted template", header, content)
+       $rootScope.header = header;
+       $rootScope.content = content;
+   }
     $scope.getHeader = function()
     {
         
@@ -72,6 +82,6 @@
         document.getElementById('userPageGalleryClicker').addEventListener('click', setGallery);
         document.getElementById('userPageStatisticsClicker').addEventListener('click', setStatistics);
     }
-
+    document.getElementById('addNewGroupClicker').addEventListener('click', setAddNewGroup);
 
 }]);

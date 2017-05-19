@@ -3481,6 +3481,7 @@
     <Content Include="Content\src\no-pic-avatar.jpg" />
     <Content Include="Content\src\preview.jpg" />
     <Content Include="Content\src\preview1.jpg" />
+    <Content Include="Content\src\preview1.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -5298,6 +5299,8 @@
     <Content Include="Views\UserPage\UserFriends.cshtml" />
     <Content Include="Views\UserPage\UserGallery.cshtml" />
     <Content Include="Views\UserPage\UserStatistics.cshtml" />
+    <Content Include="Views\Groups\AddNewGroup.cshtml" />
+    <Content Include="Views\Groups\GroupHeader.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

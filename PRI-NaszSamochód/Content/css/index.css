@@ -12,7 +12,7 @@
   align-content: stretch; }
   .main-flex header {
     background-color: #cccccc;
-    background-image: url("../src/preview1.jpg");
+    background-image: url("../src/preview1.png");
     background-repeat: repeat-x;
     background-size: 40rem;
     background-position-y: center;
@@ -26,7 +26,8 @@
       content: "Nasz Samochód.";
       position: absolute;
       top: 8.125rem;
-      left: 50rem; }
+      left: 37.5rem;
+      right: 0rem; }
   .main-flex ul.nav {
     justify-content: flex-end;
     background-color: #ff4b00;

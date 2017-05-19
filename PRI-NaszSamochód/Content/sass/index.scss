@@ -8,7 +8,7 @@
 
     header {
         background-color: $color2;
-        background-image: url('../src/preview1.jpg');
+        background-image: url('../src/preview1.png');
         background-repeat: repeat-x;
         background-size: 40rem;
         background-position-y: center;
@@ -23,7 +23,8 @@
             content: "Nasz Samoch\00f3" + "d.";
             position: absolute;
             top: $tenPx*13;
-            left: $tenPx*80;
+            left: $tenPx*60;
+            right: $tenPx*0;
         }
     }
 
