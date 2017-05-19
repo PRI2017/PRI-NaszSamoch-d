@@ -241,6 +241,10 @@
     <Compile Include="Migrations\201705151105305_GroupModelMigration.Designer.cs">
       <DependentUpon>201705151105305_GroupModelMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705191235105_mig-after-groups.cs" />
+    <Compile Include="Migrations\201705191235105_mig-after-groups.Designer.cs">
+      <DependentUpon>201705191235105_mig-after-groups.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MobileAuthentication\CryptoRSA.cs" />
     <Compile Include="MobileAuthentication\KeysHolder.cs" />
@@ -5323,6 +5327,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201705151105305_GroupModelMigration.resx">
       <DependentUpon>201705151105305_GroupModelMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705191235105_mig-after-groups.resx">
+      <DependentUpon>201705191235105_mig-after-groups.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
