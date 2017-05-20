@@ -47,21 +47,25 @@
     .main-flex .child-flex aside {
       height: auto;
       width: 18.75rem;
-      /*flex-shrink: 3;*/
-      /*ul.groups li {
-                list-style-position: outside;
-            }*/ }
+      /*flex-shrink: 3;*/ }
       .main-flex .child-flex aside#nav {
         order: 1;
-        background-color: #999; }
+        background-color: #999;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        position: absolute; }
       .main-flex .child-flex aside#chat {
         order: 3;
         background-color: #999;
         display: none; }
-      .main-flex .child-flex aside ul > li {
-        list-style: none; }
-      .main-flex .child-flex aside p {
-        margin-left: 1.875rem; }
+      .main-flex .child-flex aside .asideUl li {
+        background-color: white;
+        padding: 0.625rem;
+        border-radius: 5px;
+        position: relative; }
+        .main-flex .child-flex aside .asideUl li:hover {
+          background-color: #cccccc; }
     .main-flex .child-flex .wall {
       flex: 1;
       order: 2;

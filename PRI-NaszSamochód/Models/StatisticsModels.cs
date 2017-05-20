@@ -50,4 +50,6 @@ namespace PRI_NaszSamochód.Models
             Y = y;
         }
     }
+
+
 }

@@ -245,6 +245,10 @@
     <Compile Include="Migrations\201705191235105_mig-after-groups.Designer.cs">
       <DependentUpon>201705191235105_mig-after-groups.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705201622093_mig-after-groups-2.cs" />
+    <Compile Include="Migrations\201705201622093_mig-after-groups-2.Designer.cs">
+      <DependentUpon>201705201622093_mig-after-groups-2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MobileAuthentication\CryptoRSA.cs" />
     <Compile Include="MobileAuthentication\KeysHolder.cs" />
@@ -286,6 +290,7 @@
     <Content Include="Content\js\chartStuff.js" />
     <Content Include="Content\js\infiniteScroll.js" />
     <Content Include="Content\js\jquery.canvasjs.min.js" />
+    <Content Include="Content\js\leftaside.js" />
     <Content Include="Content\js\module.js" />
     <Content Include="Content\node_modules\abbrev\abbrev.js" />
     <Content Include="Content\node_modules\ajv\.tonic_example.js" />
@@ -986,7 +991,9 @@
     <Content Include="Content\node_modules\jqueryui\jquery-ui.css" />
     <Content Include="Content\node_modules\jqueryui\jquery-ui.js" />
     <Content Include="Content\node_modules\jqueryui\jquery-ui.min.css" />
-    <Content Include="Content\node_modules\jqueryui\jquery-ui.min.js" />
+    <Content Include="Content\node_modules\jqueryui\jquery-ui.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\node_modules\jqueryui\jquery-ui.structure.css" />
     <Content Include="Content\node_modules\jqueryui\jquery-ui.structure.min.css" />
     <Content Include="Content\node_modules\jqueryui\jquery-ui.theme.css" />
@@ -5301,13 +5308,15 @@
     <Content Include="Views\UserPage\UserStatistics.cshtml" />
     <Content Include="Views\Groups\AddNewGroup.cshtml" />
     <Content Include="Views\Groups\GroupHeader.cshtml" />
+    <Content Include="Views\Groups\GroupContent.cshtml" />
+    <Content Include="Views\Wall\WallContent.cshtml" />
+    <Content Include="Views\Wall\WallHeader.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\BackPhoto\" />
     <Folder Include="Views\PostPhot\" />
     <Folder Include="Views\RouteStatistics\" />
-    <Folder Include="Views\Wall\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -5333,6 +5342,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705191235105_mig-after-groups.resx">
       <DependentUpon>201705191235105_mig-after-groups.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705201622093_mig-after-groups-2.resx">
+      <DependentUpon>201705201622093_mig-after-groups-2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

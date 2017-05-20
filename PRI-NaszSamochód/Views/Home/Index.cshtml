@@ -25,6 +25,8 @@
         <script src="~/Content/js/module.js"></script>
         <script src="~/Content/js/AngularJSControllers/app.js"></script>
         <script src="~/Content/js/AngularJSControllers/WallSwitcherController.js"></script>
+
+        @Scripts.Render("~/Content/js/leftaside.js")
     </head>
     <body ng-app="myApp">
         <div class="main-flex">
@@ -52,18 +54,19 @@
             </header>
             <div class="child-flex">
                 <aside id="nav">
-                    <p>PANEL</p>
-                    <ul>
-                        <li>Aktualności</li>
-                        <li>Wiadomości</li>
-                    </ul>
-                    <p>Grupy</p>
-                    <ul class="groups">
-                        <li><a href="#Groups/AddNewGroup" id="addNewGroupClicker">Dodaj nową</a></li>
-                        <li>Grupa #1</li>
-                        <li>Grupa #2</li>
+                    <p>Grupy:</p>
+                    <form action="#">
+                        <select name="groups" id="groups">
+                            <option>Grupa #1</option>
+                            <option>Grupa #2</option>
+                        </select>
+                    </form>
+                    <ul class="asideUl">
+                        
+                        <li href="#Groups/AddNewGroup" id="addNewGroupClicker">Dodaj nową</li>
                     </ul>
                 </aside>
+
                 <aside id="chat">
                     <p>PANEL</p>
                 </aside>

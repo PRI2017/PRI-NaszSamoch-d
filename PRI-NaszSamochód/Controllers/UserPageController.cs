@@ -39,7 +39,7 @@ namespace PRI_NaszSamochód.Controllers
         {
             String id = User.Identity.GetUserId();
             ProfileViewModel model = new ProfileViewModel(ApplicationDbContext.Create().Users.Single(u => u.Id == id));
-            return View(model);
+            return View();
         }
         public ActionResult UserFriends()
         {
