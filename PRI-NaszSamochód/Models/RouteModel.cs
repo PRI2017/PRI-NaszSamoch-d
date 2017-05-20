@@ -15,6 +15,7 @@ namespace PRI_NaszSamochód.Models
         public ApplicationUser Owner { get; set; }
 
         public string Name { get; set; }
+        public List<POI> PlacesSeen { get; set; }
         public RouteStatisticsModel Statistics { get; set; }
     }
 }

@@ -25,7 +25,6 @@ namespace PRI_NaszSamochód.Models
         public Coordinates StartPoint { get; set; }
         public Coordinates EndPoint { get; set; }
         public double RouteLength { get; set; }
-        public List<POI> PlacesSeen { get; set; }
         public DateTime RouteStartTime { get; set; }
         public DateTime RouteEndTime { get; set; }
     }
