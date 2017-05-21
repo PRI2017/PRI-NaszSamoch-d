@@ -18,9 +18,10 @@ namespace PRI_NaszSamochód.Controllers
         }
         // GET: RouteStatistics
         [ActionName("GetRouteStatsHeader")]
-        public ActionResult Index()
+        public ActionResult GetRouteStatsHeader()
         {
-            return RedirectToAction("RouteStatisticsHeader");
+            //return RedirectToAction("RouteStatisticsHeader");
+            return View();
         }
 
         public ActionResult RouteStatisticsHeader(int? routeId)

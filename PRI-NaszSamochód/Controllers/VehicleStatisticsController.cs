@@ -17,9 +17,10 @@ namespace PRI_NaszSamochód.Controllers
             _context = context;
         }
 
-        public ActionResult Index()
+        public ActionResult GetVehiclesStatistics()
         {
-            return RedirectToAction("VehicleStatisticsHeader");
+            //return RedirectToAction("VehicleStatisticsHeader");
+            return View();
         }
 
         public ActionResult VehicleStatisticsHeader(int? vId, int? sId)
