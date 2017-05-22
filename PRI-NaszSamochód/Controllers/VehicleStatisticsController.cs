@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using PRI_NaszSamochód.Models;
 using PRI_NaszSamochód.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Web.Mvc;
@@ -62,7 +63,7 @@ namespace PRI_NaszSamochód.Controllers
 
             foreach(var item in _context.Vehicles.Find(vId).Statistics)
             {
-                chartPoints.Add(new DataPoint(item.RecordTime.ToOADate(), item.FuelUsed));
+                chartPoints.Add(new DataPoint(item.RecordTime, item.FuelUsed));
             }
 
             ViewBag.DataPoints = JsonConvert.SerializeObject(chartPoints);
@@ -75,7 +76,7 @@ namespace PRI_NaszSamochód.Controllers
 
             foreach (var item in _context.Vehicles.Find(vId).Statistics)
             {
-                chartPoints.Add(new DataPoint(item.RecordTime.ToOADate(), item.KilometersDriven));
+                chartPoints.Add(new DataPoint(item.RecordTime, item.KilometersDriven));
             }
 
             ViewBag.DataPoints = JsonConvert.SerializeObject(chartPoints);
@@ -85,12 +86,14 @@ namespace PRI_NaszSamochód.Controllers
         public ActionResult MaxVelocityChart(int? vId)
         {
             List<DataPoint> chartPoints = new List<DataPoint>();
-
-            foreach (var item in _context.Vehicles.Find(vId).Statistics)
+            try
             {
-                chartPoints.Add(new DataPoint(item.RecordTime.ToOADate(), item.MaxVelocity));
+                foreach (var item in _context.Vehicles.Find(vId).Statistics)
+                {
+                    chartPoints.Add(new DataPoint(item.RecordTime, item.MaxVelocity));
+                }
             }
-
+            catch (Exception) { }
             ViewBag.DataPoints = JsonConvert.SerializeObject(chartPoints);
             return View();
         }
