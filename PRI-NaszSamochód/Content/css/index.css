@@ -38,6 +38,8 @@
       border: 2px solid #ffcaa5;
       border-radius: 10px;
       color: #333; }
+    .main-flex ul.nav#userPageNav {
+      background-color: #999; }
   .main-flex .child-flex {
     display: flex;
     flex-direction: row;
@@ -47,25 +49,40 @@
     .main-flex .child-flex aside {
       height: auto;
       width: 18.75rem;
-      /*flex-shrink: 3;*/ }
+      flex-shrink: 3; }
       .main-flex .child-flex aside#nav {
         order: 1;
-        background-color: #999;
+        background-color: #cccccc;
         display: flex;
         flex-direction: column;
-        align-items: stretch;
-        position: absolute; }
+        align-items: stretch; }
+        .main-flex .child-flex aside#nav ul {
+          list-style: none; }
+          .main-flex .child-flex aside#nav ul li {
+            padding: 20px;
+            border-left: 2px solid #ff4b00; }
+            .main-flex .child-flex aside#nav ul li:hover {
+              background-color: #ff4b00;
+              color: white; }
+            .main-flex .child-flex aside#nav ul li select {
+              width: 100%;
+              font-size: inherit;
+              background-color: transparent;
+              border: none; }
+              .main-flex .child-flex aside#nav ul li select:hover {
+                color: white; }
+            .main-flex .child-flex aside#nav ul li option {
+              color: #0a0a0a;
+              background-color: #cccccc;
+              padding: 20px;
+              border: none; }
+            .main-flex .child-flex aside#nav ul li > a {
+              text-decoration: none;
+              color: inherit; }
       .main-flex .child-flex aside#chat {
         order: 3;
         background-color: #999;
         display: none; }
-      .main-flex .child-flex aside .asideUl li {
-        background-color: white;
-        padding: 0.625rem;
-        border-radius: 5px;
-        position: relative; }
-        .main-flex .child-flex aside .asideUl li:hover {
-          background-color: #cccccc; }
     .main-flex .child-flex .wall {
       flex: 1;
       order: 2;

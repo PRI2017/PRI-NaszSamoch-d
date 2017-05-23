@@ -35,7 +35,7 @@
                 <li class="search">
                         <input type="search"/>
                 </li>
-                <li><a href="#/@Model.User.Name @Model.User.Surname " id="userPageClicker">  @Model.User.Name @Model.User.Surname  </a></li>
+                <li><a href="#/@Model.User.Name-@Model.User.Surname " id="userPageClicker">  @Model.User.Name @Model.User.Surname  </a></li>
                 <li><a href="#"><div class="fao" id="user"></div></a></li>
                 <li><a href="#"><div class="fao" id="envelope"></div></a></li>
                 <li><a href="#"><div class="fao" id="bell"></div></a></li>
@@ -52,18 +52,21 @@
                 <p id="headerPar"></p>
                 <ng-include src="getHeader()" onload="setters()"></ng-include>
             </header>
+
             <div class="child-flex">
+                
                 <aside id="nav">
-                    <p>Grupy:</p>
-                    <form action="#">
-                        <select name="groups" id="groups">
-                            <option>Grupa #1</option>
-                            <option>Grupa #2</option>
+                    <ul>
+                        <li><a href="#">Znajomi</a></li>
+                        <li><a href="#">Wiadomości</a></li>
+                       <li><a href="#Groups/AddNewGroup" id="addNewGroupClicker">Utwórz nową grupę</a></li>
+                       <li>
+                        <select name="groups">
+                            <option value="default" selected>Twoje grupy: </option>
+                            <option value="group1">Volvo fajne jest</option>
+                            <option value="group2">Fiat</option>
                         </select>
-                    </form>
-                    <ul class="asideUl">
-                        
-                        <li href="#Groups/AddNewGroup" id="addNewGroupClicker">Dodaj nową</li>
+                        </li>
                     </ul>
                 </aside>
 

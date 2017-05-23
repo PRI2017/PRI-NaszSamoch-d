@@ -156,13 +156,13 @@ body {
     background-color: white;
     margin: 0.625rem; }
     .container-flex .wall-flex .post .postHeader {
-      background-color: #ff4b00; }
+      background-color: rgba(255, 238, 227, 0.67); }
       .container-flex .wall-flex .post .postHeader ul {
         list-style: none;
         flex-direction: column; }
         .container-flex .wall-flex .post .postHeader ul li, .container-flex .wall-flex .post .postHeader ul p {
           display: inline;
-          color: white;
+          color: #333;
           align-items: flex-end; }
     .container-flex .wall-flex .post .postContent {
       padding: 0.625rem;
