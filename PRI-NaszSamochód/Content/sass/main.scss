@@ -4,15 +4,16 @@
 }*/
 /*@import 'reset';*/
 @import url('https://fonts.googleapis.com/css?family=Lato');
-
+@import 'palette.scss';
 html {
     font-family: 'Lato', sans-serif;
+    color: $fontColor;
 }
 
 /*@import 'loginPage';
 @import 'userPage';
 @import 'index.scss';*/
-@import 'palette.scss';
+
 
 ul.nav {
     display: inline-flex;

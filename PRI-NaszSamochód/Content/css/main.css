@@ -4,18 +4,19 @@
 }*/
 /*@import 'reset';*/
 @import url("https://fonts.googleapis.com/css?family=Lato");
-@import url("https://fonts.googleapis.com/css?family=Dancing+Script");
-html {
-  font-family: 'Lato', sans-serif; }
-
-/*@import 'loginPage';
-@import 'userPage';
-@import 'index.scss';*/
 /*main palette*/
 /*orange*/
 /*light gray*/
 /*dark gray*/
 /*for textboxex in login layout*/
+@import url("https://fonts.googleapis.com/css?family=Dancing+Script");
+html {
+  font-family: 'Lato', sans-serif;
+  color: #0a0a0a; }
+
+/*@import 'loginPage';
+@import 'userPage';
+@import 'index.scss';*/
 ul.nav {
   display: inline-flex;
   list-style: none;

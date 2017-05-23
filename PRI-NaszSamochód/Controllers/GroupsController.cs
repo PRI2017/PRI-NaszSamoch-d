@@ -21,20 +21,25 @@ namespace PRI_NaszSamochód.Controllers
         }
 
         // GET: Groups
-        public ActionResult Index()
+        public ActionResult AddNewGroup()
         {
-            return RedirectToAction("GroupHeader");
+            return View("AddNewGroup");
         }
+        public ActionResult GroupHeader()
+        {
+            return View("GroupHeader");
+        }
+        
 
-        public ActionResult GroupHeader(int? id)
-        {
-            if(id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            GroupViewModel model = new GroupViewModel(_context.Groups.Find(id));
-            return View();
-        }
+        //public ActionResult GroupHeader(int? id)
+        //{
+        //    if(id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    GroupViewModel model = new GroupViewModel(_context.Groups.Find(id));
+        //    return View();
+        //}
 
         [System.Web.Mvc.AllowAnonymous]
         public ActionResult GroupContent()

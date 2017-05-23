@@ -8,7 +8,7 @@
 
     header {
         background-color: $color2;
-        background-image: url('../src/preview1.jpg');
+        background-image: url('../src/preview1.png');
         background-repeat: repeat-x;
         background-size: 40rem;
         background-position-y: center;
@@ -23,7 +23,8 @@
             content: "Nasz Samoch\00f3" + "d.";
             position: absolute;
             top: $tenPx*13;
-            left: $tenPx*80;
+            left: $tenPx*60;
+            right: $tenPx*0;
         }
     }
 
@@ -41,6 +42,10 @@
                 color: $color5;
             }
         }
+
+        &#userPageNav {
+            background-color: $color3;
+        }
     }
 
     .child-flex {
@@ -53,10 +58,51 @@
         aside {
             height: auto;
             width: 18.75rem;
-            /*flex-shrink: 3;*/
+            flex-shrink: 3;
+
             &#nav {
                 order: 1;
-                background-color: $color3;
+                background-color: $color2;
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+
+                ul {
+                    list-style: none;
+
+                    li {
+                        padding: 20px;
+                        border-left: 2px solid $color1;
+
+                        &:hover {
+                            background-color: $color1;
+                            color: white;
+                        }
+
+                        select {
+                            width: 100%;
+                            font-size: inherit;
+                            background-color: rgba(0, 0, 0, 0.00);
+                            border: none;
+
+                            &:hover {
+                                color: white;
+                            }
+                        }
+
+                        option {
+                            color: $fontColor;
+                            background-color: $color2;
+                            padding: 20px;
+                            border: none;
+                        }
+
+                        & > a {
+                            text-decoration: none;
+                            color: inherit;
+                        }
+                    }
+                }
             }
 
             &#chat {
@@ -64,17 +110,6 @@
                 background-color: $color3;
                 display: none;
             }
-
-            ul > li {
-                list-style: none;
-            }
-
-            p {
-                margin-left: 1.875rem;
-            }
-            /*ul.groups li {
-                list-style-position: outside;
-            }*/
         }
 
         .wall {
@@ -82,7 +117,7 @@
             order: 2;
             min-height: 18.75rem;
             min-width: 18.75*2rem;
-            max-height:none;
+            max-height: none;
             background-color: $wallBackground;
             /*flex-shrink: 1;*/
         }
@@ -94,29 +129,29 @@
     }
 }
 
-li .dropdown {
-    position: relative;
-    display: inline-block;
+    li .dropdown {
+        position: relative;
+        display: inline-block;
 
-    &:active .dropdown-content {
-        display: block;
-    }
+        &:active .dropdown-content {
+            display: block;
+        }
 
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        margin: 0;
-        top: 40px;
-        right: 5px;
-        background-color: rgba(0, 0, 0, 0.25);
-        /*min-height: 50px;*/
-        box-shadow: 0px;
-        padding: 20px;
-        z-index: 1;
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            margin: 0;
+            top: 40px;
+            right: 5px;
+            background-color: rgba(0, 0, 0, 0.25);
+            /*min-height: 50px;*/
+            box-shadow: 0px;
+            padding: 20px;
+            z-index: 1;
 
-        a {
-            color: white;
-            text-decoration: none;
+            a {
+                color: white;
+                text-decoration: none;
+            }
         }
     }
-}

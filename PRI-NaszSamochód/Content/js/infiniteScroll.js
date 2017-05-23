@@ -8,7 +8,7 @@ $.getScript("/Content/node_modules/jscroll/jquery.jscroll.js", function (data, t
     $(document).ready(function () {
         $('#scrollIt').jscroll({
             autoTrigger: true,
-            loadingHtml: '<img src="/Content/src/loading.gif/" />',
+            loadingHtml: '<img src="../src/loading.gif/" />',
         });
     });
 });

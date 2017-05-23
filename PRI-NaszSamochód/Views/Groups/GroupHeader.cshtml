@@ -1,5 +1,5 @@
 ﻿@using PRI_NaszSamochód.Models
-@model ProfileViewModel
+@model GroupViewModel
 <!DOCTYPE html>
 <html>
 
@@ -39,24 +39,8 @@
 <body ng-app="myApp">
 
     <div class="container-flex">
-        @*<span my-draggable>Drag Me</span>*@
-        <div class="userPageHeader">
-            <div class="userProfilePhoto" id="userProfilePhoto" style="background-image:url(@Model.ProfilePhotoUrl)"></div>
-        </div>
-        <div id="dialog">
-            <form action="/ProfPhoto/Upload"
-                  
-                  id="my-awesome-dropzone" style="display: none"></form>
-        </div>
-
-        <ul class="nav" id="userPageNav">
-            <li><a href="#User/Info" id="userPageInfoClicker">Informacje</a></li>
-            <li><a href="#User/Friends" id="userPageFriendsClicker">Znajomi</a></li>
-            <li><a href="#User/Gallery" id="userPageGalleryClicker">Galeria</a></li>
-            <li><a href="#User/Statistics" id="userPageStatisticsClicker">Statystyki</a></li>
-        </ul>
+        <h1 style="color: white">Group Header - in progress</h1>
     </div>
-    @*<script src="~/Content/js/dialogScript.js"></script>*@
 </body>
 
 </html>

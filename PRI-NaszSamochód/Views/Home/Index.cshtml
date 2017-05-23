@@ -25,6 +25,8 @@
         <script src="~/Content/js/module.js"></script>
         <script src="~/Content/js/AngularJSControllers/app.js"></script>
         <script src="~/Content/js/AngularJSControllers/WallSwitcherController.js"></script>
+
+        @Scripts.Render("~/Content/js/leftaside.js")
     </head>
     <body ng-app="myApp">
         <div class="main-flex">
@@ -33,7 +35,7 @@
                 <li class="search">
                         <input type="search"/>
                 </li>
-                <li><a href="#/@Model.User.Name @Model.User.Surname " id="userPageClicker">  @Model.User.Name @Model.User.Surname  </a></li>
+                <li><a href="#/@Model.User.Name-@Model.User.Surname " id="userPageClicker">  @Model.User.Name @Model.User.Surname  </a></li>
                 <li><a href="#"><div class="fao" id="user"></div></a></li>
                 <li><a href="#"><div class="fao" id="envelope"></div></a></li>
                 <li><a href="#"><div class="fao" id="bell"></div></a></li>
@@ -50,19 +52,24 @@
                 <p id="headerPar"></p>
                 <ng-include src="getHeader()" onload="setters()"></ng-include>
             </header>
+
             <div class="child-flex">
+                
                 <aside id="nav">
-                    <p>PANEL</p>
                     <ul>
-                        <li>Aktualności</li>
-                        <li>Wiadomości</li>
-                    </ul>
-                    <p>Grupy</p>
-                    <ul class="groups">
-                        <li>Grupa #1</li>
-                        <li>Grupa #2</li>
+                        <li><a href="#">Znajomi</a></li>
+                        <li><a href="#">Wiadomości</a></li>
+                       <li><a href="#Groups/AddNewGroup" id="addNewGroupClicker">Utwórz nową grupę</a></li>
+                       <li>
+                        <select name="groups">
+                            <option value="default" selected>Twoje grupy: </option>
+                            <option value="group1">Volvo fajne jest</option>
+                            <option value="group2">Fiat</option>
+                        </select>
+                        </li>
                     </ul>
                 </aside>
+
                 <aside id="chat">
                     <p>PANEL</p>
                 </aside>
@@ -73,31 +80,5 @@
             </div>
             <footer><p>Footer</p></footer>
             </div>
-        <script>
-            @*github.com/thatisuday/ng-dropzone*@
-
-            //app.controller("indexController", function ($scope)
-            //{
-            //    $scope.$on('$viewContentLoaded', function () {
-            //        url = "https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/dropzone.js";
-            //        $.getScript(url, function () {
-            //            document.getElementById('userProfilePhoto').addEventListener("click", showDialog);
-            //            function showDialog() {
-            //                $("#dialog").dialog();
-            //                document.getElementById("my-awesome-dropzone").style.display = "flex";
-            //            };
-
-            //        });
-            //    })
-            //});
-            //angualarModule.config(function ($routeProvider) {
-            //    $routeProvider.
-            //    when('/UserPageHeader', {
-            //        templateUrl: 'UserPage/UserPageHeader',
-            //        controller: 'indexController'
-            //    })
-               
-            //})
-        </script>
 </body>
 </html>

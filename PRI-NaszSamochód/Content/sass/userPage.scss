@@ -28,6 +28,7 @@ body {
         &.userProfilePhotoSmall {
 
             @include userProfilePhoto(100px,0.4);
+            display: inline-block;
         }
     }
 
@@ -40,7 +41,6 @@ body {
 
         .userProfilePhoto {
             margin-left: 0.625*5rem;
-            position: relative;
 
             &:hover::after {
                 content: "\f07c";
@@ -88,9 +88,10 @@ body {
             justify-content: center;
             background-color: white;
             margin: 0.625rem;
+            border: 1px solid rgba(204, 204, 204, 0.59);
 
             .postHeader {
-                background-color: $color1;
+                background-color: rgba(255, 238, 227, 0.67);
 
                 ul {
                     list-style: none;
@@ -98,7 +99,7 @@ body {
 
                     & li, p {
                         display: inline;
-                        color: white;
+                        color: $color5;
                         align-items: flex-end;
                     }
                 }
@@ -112,6 +113,16 @@ body {
             button {
                 @extend .btn-success;
                 align-self: flex-start;
+            }
+
+            .btn-like {
+                &::after {
+                    font-family: 'FontAwesome';
+                    font-style: normal;
+                    font-weight: normal;
+                    content: "\f087";
+                    margin-left: 5px;
+                }
             }
         }
     }
