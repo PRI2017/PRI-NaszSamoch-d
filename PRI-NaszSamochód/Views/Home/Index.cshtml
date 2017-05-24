@@ -2,6 +2,7 @@
     <head>
         <title>Strona domowa</title>
         <meta charset="UTF-8">
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="~/Content/css/main.css">
         <link rel="stylesheet" href="~/Content/css/index.css">
@@ -11,26 +12,26 @@
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
         @*Dropzone*@
-        <script src="~/Content/js/dropzone.js"></script>
+        <script src="~/Content/js/lib/dropzone.js"></script>
         <link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">
+
         @*Angular*@
         <script src="~/Content/node_modules/angular/angular.js"></script>
         <script src="~/Content/node_modules/angular-route/angular-route.js"></script>
         <script src="~/Content/node_modules/angular-animate/angular-animate.js"></script>
         <script src="~/Content/node_modules/angular-sanitize/angular-sanitize.js"></script>
 
-        @*docs.angularjs.org/tutorial/step_09*@
 
-        <script src="~/Content/js/module.js"></script>
-        <script src="~/Content/js/AngularJSControllers/app.js"></script>
-        <script src="~/Content/js/AngularJSControllers/WallSwitcherController.js"></script>
+        <script src="~/Content/js/angularScripts/app.module.js"></script>
+        <script src="~/Content/js/angularScripts/app.config.js"></script>
+        <script src="~/Content/js/angularScripts/WallSwitcherController.js"></script>
 
-        @Scripts.Render("~/Content/js/leftaside.js")
     </head>
     <body ng-app="myApp">
         <div class="main-flex">
-            @*plnkr.co/edit/5ImqWj65YllaCYD5kX5E?p=preview*@
+      
             <ul class="nav">
                 <li class="search">
                         <input type="search"/>

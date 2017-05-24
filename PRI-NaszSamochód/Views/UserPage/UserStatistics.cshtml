@@ -7,8 +7,7 @@
         <title>Statystyki</title>
         <script src="~/Content/node_modules/jquery/dist/jquery.min.js"></script>
         <script src="~/Content/node_modules/chart.js/dist/Chart.min.js"></script>
-        @Scripts.Render("~/Content/js/chartStuff.js")
-        @*<script src="~/Content/js/chartStuff.js"></script>*@
+        @*@Scripts.Render("~/Content/js/chartStuff.js")*@
     </head>
     <body>
     <h1>Statystyki - simple chart test</h1>
@@ -16,7 +15,7 @@
         <canvas id="canvas" width="20" height="20"></canvas>
         <script>
             
-            $.getScript('/Content/js/jquery.canvasjs.min.js',
+            $.getScript('/Content/js/lib/jquery.canvasjs.min.js',
                 function () {
                     console.log("charts loaded");
                     var options = {
