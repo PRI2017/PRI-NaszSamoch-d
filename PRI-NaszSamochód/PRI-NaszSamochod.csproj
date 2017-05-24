@@ -54,6 +54,9 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
@@ -134,9 +137,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System.Net.Http.Formatting">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
@@ -249,11 +249,20 @@
     <Compile Include="Migrations\201705201622093_mig-after-groups-2.Designer.cs">
       <DependentUpon>201705201622093_mig-after-groups-2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705211334557_Groups.cs" />
+    <Compile Include="Migrations\201705211334557_Groups.Designer.cs">
+      <DependentUpon>201705211334557_Groups.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705241234240_after groups merge.cs" />
+    <Compile Include="Migrations\201705241234240_after groups merge.Designer.cs">
+      <DependentUpon>201705241234240_after groups merge.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MobileAuthentication\CryptoRSA.cs" />
     <Compile Include="MobileAuthentication\KeysHolder.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\POI.cs" />
     <Compile Include="Utilities\Coordinates.cs" />
     <Compile Include="Models\RouteModel.cs" />
     <Compile Include="Models\VehicleModels.cs" />
@@ -271,6 +280,7 @@
     <Compile Include="Models\ProfileViewModel.cs" />
     <Compile Include="Models\StatisticsModels.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Utilities\DataPoint.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\index.css" />
@@ -5169,6 +5179,7 @@
     <Content Include="Views\Groups\GroupContent.cshtml" />
     <Content Include="Views\Wall\WallContent.cshtml" />
     <Content Include="Views\Wall\WallHeader.cshtml" />
+    <Content Include="Views\Groups\GroupDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -5203,6 +5214,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705201622093_mig-after-groups-2.resx">
       <DependentUpon>201705201622093_mig-after-groups-2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705211334557_Groups.resx">
+      <DependentUpon>201705211334557_Groups.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705241234240_after groups merge.resx">
+      <DependentUpon>201705241234240_after groups merge.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
