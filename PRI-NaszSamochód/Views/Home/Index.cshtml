@@ -22,6 +22,7 @@
         <script src="~/Content/node_modules/angular-route/angular-route.js"></script>
         <script src="~/Content/node_modules/angular-animate/angular-animate.js"></script>
         <script src="~/Content/node_modules/angular-sanitize/angular-sanitize.js"></script>
+        <script src="http://unpkg.com/angular-ui-router@latest/release/angular-ui-router.min.js"></script>
 
 
         <script src="~/Content/js/angularScripts/app.module.js"></script>
@@ -49,37 +50,39 @@
                 </li>
             </ul>
             
-            <header ng-controller="WallSwitcherController">
-                <p id="headerPar"></p>
-                <ng-include src="getHeader()" onload="setters()"></ng-include>
-            </header>
+                <header ng-controller="WallSwitcherController">
+                    <p id="headerPar"></p>
+                    <ng-include src="getHeader()" onload="setters()"></ng-include>
+                    <ui-view name="header"></ui-view>
+                </header>
 
-            <div class="child-flex">
-                
-                <aside id="nav">
-                    <ul>
-                        <li><a href="#">Znajomi</a></li>
-                        <li><a href="#">Wiadomości</a></li>
-                       <li><a href="#Groups/AddNewGroup" id="addNewGroupClicker">Utwórz nową grupę</a></li>
-                       <li>
-                        <select name="groups">
-                            <option value="default" selected>Twoje grupy: </option>
-                            <option value="group1">Volvo fajne jest</option>
-                            <option value="group2">Fiat</option>
-                        </select>
-                        </li>
-                    </ul>
-                </aside>
+                <div class="child-flex">
 
-                <aside id="chat">
-                    <p>PANEL</p>
-                </aside>
-                @*<div class="wall" ng-include="'UserPage/UserPageContent'">*@
-                <div class="wall" ng-controller="WallSwitcherController">
-                    <ng-include src="getContent()" ></ng-include>
+                    <aside id="nav">
+                        <ul>
+                            <li><a href="#">Znajomi</a></li>
+                            <li><a href="#">Wiadomości</a></li>
+                            <li><a href="#Groups/AddNewGroup" id="addNewGroupClicker">Utwórz nową grupę</a></li>
+                            <li>
+                                <select name="groups">
+                                    <option value="default" selected>Twoje grupy: </option>
+                                    <option value="group1">Volvo fajne jest</option>
+                                    <option value="group2">Fiat</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </aside>
+
+                    <aside id="chat">
+                        <p>PANEL</p>
+                    </aside>
+                    @*<div class="wall" ng-include="'UserPage/UserPageContent'">*@
+                    <div class="wall" ng-controller="WallSwitcherController">
+                        <ng-include src="getContent()"></ng-include>
+                        <ui-view name="content"></ui-view>
+                        </div>
                 </div>
-            </div>
-            <footer><p>Footer</p></footer>
-            </div>
+                <footer><p>Footer</p></footer>
+</div>
 </body>
 </html>

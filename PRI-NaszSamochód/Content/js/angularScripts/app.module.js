@@ -1,1 +1,1 @@
-﻿angular.module('myApp', ['ngRoute', 'ngAnimate', 'ngSanitize']);
+﻿angular.module('myApp', ['ngRoute', 'ngAnimate', 'ngSanitize', 'ui.router']);

@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
-@*@model PRI_NaszSamochód.Models.RegisterViewModel
-@{
+@model PRI_NaszSamochód.Models.RegisterViewModel
+
+@*@{
     ViewBag.Title = "Register";
 }*@
 
@@ -19,7 +20,7 @@
         @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
         {
             @Html.AntiForgeryToken()
-            @Html.ValidationSummary("", new { @class = "text-danger" })
+            =
             <ul class="flex-outer">
                 <li>
                     <label for="inputName">Imię: </label>
@@ -48,7 +49,7 @@
                     @Html.PasswordFor(m => m.ConfirmPassword)
                     @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                 </li>
-
+                    @Html.ValidationSummary("", new { @class = "text-danger" })
                 <li>
                     <button type="submit" class="btn-success" value="Register">Zarejestruj się</button>
                 </li>

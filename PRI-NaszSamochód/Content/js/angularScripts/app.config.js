@@ -1,20 +1,18 @@
 ﻿angular.
   module('myApp').
-  config(['$locationProvider', '$routeProvider','$sceProvider',
-    function config($locationProvider, $routeProvider, $sceProvider) {
+  config(['$locationProvider', '$routeProvider', '$stateProvider', '$urlRouterProvider',
+    function config($locationProvider, $routeProvider, $stateProvider, $urlRouterProvider) {
         $locationProvider.hashPrefix("");
 
-        $routeProvider.
-          when('/UserPageHeader', {
-              templateUrl: 'UserPage/UserPageHeader'
-          });
+        $urlRouterProvider.otherwise('/');
 
-        // Allow loading from our assets domain.  Notice the difference between * and **.
-        //$sceDelegateProvider.resourceUrlWhitelist(['self', 'http://srv*.assets.example.com/**', 'http://localhost:62368/**']);
-        $sceProvider.enabled(false);
-
+        var mainState = {
+            name: 'main',
+            views: {
+                header: 'UserPage/UserPageHeader',
+                content: 'UserPage/UserPageContent'
+            }
+        }
+         
     }
   ]);
-
-//docs.angularjs.org/api/ng/directive/ngInclude
-//docs.angularjs.org/api/ng/directive/ngSwitch

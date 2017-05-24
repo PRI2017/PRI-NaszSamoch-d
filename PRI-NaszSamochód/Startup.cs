@@ -16,6 +16,7 @@ namespace PRI_NaszSamochód
            
             //TODO: Delete this two lines when the mobile login works !!!
             //CryptoRSA.TestEncDec("Testowe1234$");
+            //System.Diagnostics.Debug.WriteLine(KeysHolder.Instance.SerializePublicKey());
         }
     }
 }
