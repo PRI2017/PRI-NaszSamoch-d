@@ -11,6 +11,7 @@ namespace PRI_NaszSamochód.Models
     {
         [Key]
         [Required]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         [Required]
@@ -21,10 +22,10 @@ namespace PRI_NaszSamochód.Models
         [Required]
         public string GroupTheme { get; set; }
 
+        public ApplicationUser Administrator { get; set; }
+
+        public virtual List<ApplicationUser> Members { get; set; }
+
         public virtual List<PostModel> Posts { get; set; }
-
-        public virtual List<AdministratorsModel> Administrators { get; set; }
-
-        public virtual List<MembersModel> Memebers { get; set; }
     }
 }

@@ -6,14 +6,10 @@ using System.Web;
 
 namespace PRI_NaszSamochód.Models
 {
-    public class MembersModel
-    {   [Key]
-        public int Id { get; set; }
-        public ApplicationUser Member { get; set; }
-    }
-
-    public class AdministratorsModel : MembersModel
-    {
-        
+    public class MembersModel : ApplicationUser
+    {   //[Key]
+        //public int Id { get; set; }
+        //public ApplicationUser Member { get; set; }
+        public bool IsAdmin { get; set; }
     }
 }

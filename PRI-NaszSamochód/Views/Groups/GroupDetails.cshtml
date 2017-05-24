@@ -3,37 +3,35 @@
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="~/Content/css/main.css" />
-        <title>Dodaj nową grupę</title>
+<head>
+    <link rel="stylesheet" href="~/Content/css/main.css" />
+    <title>Dodaj nową grupę</title>
 
-    </head>
-    <body>
-            <div>
-                <label>Nazwa grupy: </label>
-                @Html.TextBoxFor(m => m.Name)
-            </div>
+</head>
+<body>
+    <div>
+        <label>Nazwa grupy: </label>
+        <label>@Html.ViewData.Model.Name</label>
+    </div>
 
-           <div>
-                <label>Admini: </label>
-                @Html.TextBoxFor(m => m.Admins)
-           </div>
+    <div>
+        <label>Opis: </label>
+        <label>@Html.ViewData.Model.Description</label>
+    </div>
 
-            <div>
-            <label>Opis: </label>
-            @Html.TextBoxFor(m => m.Description)
-            </div>
-
-            <div>
-            <label>Temat: </label>
-            @Html.TextBoxFor(m => m.Theme)</div>
-
-           <div>
-            <label>Członkowie: </label>
-                @Html.TextBoxFor(m => m.Members)
-           </div>  
-        @section Scripts {
-            @Scripts.Render("~/bundles/jqueryval")
+    <div>
+        <label>Temat: </label>
+        <label>@Html.ViewData.Model.Theme</label>
+    </div>
+    <div>
+        <label>Członkowie: </label>
+        @foreach(var i in @Html.ViewData.Model.Members)
+        {
+            <label>@i.Name</label>
         }
-    </body>
+    </div>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+</body>
 </html>

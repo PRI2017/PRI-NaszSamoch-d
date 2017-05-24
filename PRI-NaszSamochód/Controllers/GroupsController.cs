@@ -48,7 +48,7 @@ namespace PRI_NaszSamochód.Controllers
         }
 
         // GET: Groups/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult GroupDetails(int? id)
         {
             if (id == null)
             {
@@ -64,17 +64,21 @@ namespace PRI_NaszSamochód.Controllers
 
         // POST: Groups/Create
         [System.Web.Mvc.HttpPost]
-        public ActionResult Create([Bind(Include = "Id, GroupName, Description, GroupTheme")]GroupModel group)
+        public ActionResult AddNewGroup([FromBody]GroupModel group)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    _context.Groups.Add(group);
+                    GroupModel model = group;
+                    string userId = User.Identity.GetUserId();
+                    ApplicationUser admin = _context.Users.Where(x => x.Id.Equals(userId)).FirstOrDefault();
+                    model.Administrator = admin;
+                    //model.Administrator.IsAdmin = true;
+                    _context.Groups.Add(model);
                     _context.SaveChanges();
                     return RedirectToAction("Index");
                 }
-
             }
             catch (Exception ex)
             {
@@ -84,7 +88,7 @@ namespace PRI_NaszSamochód.Controllers
         }
 
         // GET: Groups/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult EditGroup(int? id)
         {
             if (id == null)
             {
@@ -100,7 +104,7 @@ namespace PRI_NaszSamochód.Controllers
 
         // POST: Groups/Edit/5
         [System.Web.Mvc.HttpPut]
-        public ActionResult Edit(int id, [Bind(Include = "Id, GroupName, Description, GroupTheme")]GroupModel model)
+        public ActionResult EditGroup(int id, [Bind(Include = "Id, GroupName, Description, GroupTheme")]GroupModel model)
         {
             try
             {
@@ -119,7 +123,7 @@ namespace PRI_NaszSamochód.Controllers
         }
 
         // GET: Groups/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult DeleteGroup(int? id)
         {
             if (id == null)
             {
@@ -134,7 +138,7 @@ namespace PRI_NaszSamochód.Controllers
         }
 
         // POST: Groups/Delete/5
-        [System.Web.Mvc.HttpDelete, System.Web.Mvc.ActionName("Delete")]
+        [System.Web.Mvc.HttpDelete, System.Web.Mvc.ActionName("DeleteGroup")]
         public ActionResult DeleteConfirmed(int id)
         {
             GroupModel group = _context.Groups.Find(id);

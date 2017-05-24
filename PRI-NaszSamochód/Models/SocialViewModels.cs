@@ -11,8 +11,8 @@ namespace PRI_NaszSamochód.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public string Theme { get; set; }
-        public List<AdministratorsModel> Admins { get; set; }
-        public List<MembersModel> Members { get; set; }
+        public ApplicationUser Admin { get; set; }
+        public List<ApplicationUser> Members { get; set; }
         public List<PostViewModel> LatestPosts { get; set; }
 
         public GroupViewModel(GroupModel group)
@@ -20,8 +20,8 @@ namespace PRI_NaszSamochód.Models
             Name = group.GroupName;
             Description = group.Description;
             Theme = group.GroupTheme;
-            Admins = group.Administrators;
-            Members = group.Memebers;
+            Admin = group.Administrator;
+            Members = group.Members;
             foreach (var i in group.Posts.OrderByDescending(x=>x.Added).Take(20))
             {
                 LatestPosts.Add(new PostViewModel(i));
