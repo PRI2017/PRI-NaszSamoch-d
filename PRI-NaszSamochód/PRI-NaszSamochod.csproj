@@ -5311,6 +5311,7 @@
     <Content Include="Views\Groups\GroupContent.cshtml" />
     <Content Include="Views\Wall\WallContent.cshtml" />
     <Content Include="Views\Wall\WallHeader.cshtml" />
+    <Content Include="Views\Groups\GroupDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

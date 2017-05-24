@@ -1,0 +1,39 @@
+﻿@using PRI_NaszSamochód.Models
+@model GroupViewModel
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="~/Content/css/main.css" />
+        <title>Dodaj nową grupę</title>
+
+    </head>
+    <body>
+            <div>
+                <label>Nazwa grupy: </label>
+                @Html.TextBoxFor(m => m.Name)
+            </div>
+
+           <div>
+                <label>Admini: </label>
+                @Html.TextBoxFor(m => m.Admins)
+           </div>
+
+            <div>
+            <label>Opis: </label>
+            @Html.TextBoxFor(m => m.Description)
+            </div>
+
+            <div>
+            <label>Temat: </label>
+            @Html.TextBoxFor(m => m.Theme)</div>
+
+           <div>
+            <label>Członkowie: </label>
+                @Html.TextBoxFor(m => m.Members)
+           </div>  
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }
+    </body>
+</html>
