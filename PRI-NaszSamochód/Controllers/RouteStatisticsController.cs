@@ -1,12 +1,11 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Net;
-//using System.Web;
-//using System.Web.Mvc;
-//using PRI_NaszSamochód.Models;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Web;
+using System.Web.Mvc;
+using PRI_NaszSamochód.Models;
 
-<<<<<<< HEAD
 //namespace PRI_NaszSamochód.Controllers
 //{
 //    [Authorize]
@@ -41,7 +40,6 @@
 //        }
 //    }
 //}
-=======
 namespace PRI_NaszSamochód.Controllers
 {
     [Authorize]
@@ -80,4 +78,3 @@ namespace PRI_NaszSamochód.Controllers
         }
     }
 }
->>>>>>> origin/Groups
