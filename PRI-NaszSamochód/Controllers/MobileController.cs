@@ -87,7 +87,7 @@ namespace PRI_NaszSamochód.Controllers
             }
             catch (Exception)
             {
-                x = SignInStatus.Failure;
+                //x = SignInStatus.Failure;
             }
 
             switch (x)
