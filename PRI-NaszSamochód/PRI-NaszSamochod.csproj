@@ -237,25 +237,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Controllers\PublicKeyController.cs" />
-    <Compile Include="Migrations\201705151105305_GroupModelMigration.cs" />
-    <Compile Include="Migrations\201705151105305_GroupModelMigration.Designer.cs">
-      <DependentUpon>201705151105305_GroupModelMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201705241752193_init.cs" />
+    <Compile Include="Migrations\201705241752193_init.Designer.cs">
+      <DependentUpon>201705241752193_init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201705191235105_mig-after-groups.cs" />
-    <Compile Include="Migrations\201705191235105_mig-after-groups.Designer.cs">
-      <DependentUpon>201705191235105_mig-after-groups.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201705201622093_mig-after-groups-2.cs" />
-    <Compile Include="Migrations\201705201622093_mig-after-groups-2.Designer.cs">
-      <DependentUpon>201705201622093_mig-after-groups-2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201705211334557_Groups.cs" />
-    <Compile Include="Migrations\201705211334557_Groups.Designer.cs">
-      <DependentUpon>201705211334557_Groups.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201705241234240_after groups merge.cs" />
-    <Compile Include="Migrations\201705241234240_after groups merge.Designer.cs">
-      <DependentUpon>201705241234240_after groups merge.cs</DependentUpon>
+    <Compile Include="Migrations\201705241815582_appUser.cs" />
+    <Compile Include="Migrations\201705241815582_appUser.Designer.cs">
+      <DependentUpon>201705241815582_appUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MobileAuthentication\CryptoRSA.cs" />
@@ -695,7 +683,6 @@
     <Content Include="Content\node_modules\ajv\dist\ajv.min.js" />
     <Content Include="Content\node_modules\ajv\dist\nodent.min.js" />
     <Content Include="Content\node_modules\ajv\dist\regenerator.min.js" />
-    <Content Include="Content\node_modules\ajv\lib\ajv.d.ts" />
     <Content Include="Content\node_modules\ajv\lib\ajv.js" />
     <Content Include="Content\node_modules\ajv\lib\async.js" />
     <Content Include="Content\node_modules\ajv\lib\cache.js" />
@@ -1129,7 +1116,6 @@
     <Content Include="Content\node_modules\ecc-jsbn\lib\sec.js" />
     <Content Include="Content\node_modules\ecc-jsbn\test.js" />
     <Content Include="Content\node_modules\end-of-stream\index.js" />
-    <Content Include="Content\node_modules\end-of-stream\node_modules\once\once.js" />
     <Content Include="Content\node_modules\end-of-stream\test.js" />
     <Content Include="Content\node_modules\error-ex\index.js" />
     <Content Include="Content\node_modules\escape-string-regexp\index.js" />
@@ -1211,11 +1197,6 @@
     <Content Include="Content\node_modules\glob-parent\index.js" />
     <Content Include="Content\node_modules\glob-parent\test.js" />
     <Content Include="Content\node_modules\glob-stream\index.js" />
-    <Content Include="Content\node_modules\glob-stream\node_modules\glob\common.js" />
-    <Content Include="Content\node_modules\glob-stream\node_modules\glob\glob.js" />
-    <Content Include="Content\node_modules\glob-stream\node_modules\glob\sync.js" />
-    <Content Include="Content\node_modules\glob-stream\node_modules\minimatch\browser.js" />
-    <Content Include="Content\node_modules\glob-stream\node_modules\minimatch\minimatch.js" />
     <Content Include="Content\node_modules\glob-stream\node_modules\readable-stream\duplex.js" />
     <Content Include="Content\node_modules\glob-stream\node_modules\readable-stream\lib\_stream_duplex.js" />
     <Content Include="Content\node_modules\glob-stream\node_modules\readable-stream\lib\_stream_passthrough.js" />
@@ -1228,62 +1209,14 @@
     <Content Include="Content\node_modules\glob-stream\node_modules\readable-stream\writable.js" />
     <Content Include="Content\node_modules\glob-stream\node_modules\through2\through2.js" />
     <Content Include="Content\node_modules\glob-watcher\index.js" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\gaze\lib\gaze.js" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\gaze\lib\helper.js" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\globule\Gruntfile.js" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\globule\lib\globule.js" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\globule\test\fixtures\expand\css\baz.css" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\globule\test\fixtures\expand\css\qux.css" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\globule\test\fixtures\expand\deep\deep.txt" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\globule\test\fixtures\expand\deep\deeper\deeper.txt" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\globule\test\fixtures\expand\deep\deeper\deepest\deepest.txt" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\globule\test\fixtures\expand\js\bar.js" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\globule\test\fixtures\expand\js\foo.js" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\globule\test\globule_test.js" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\glob\examples\g.js" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\glob\examples\usr-local.js" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\glob\glob.js" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\glob\test\00-setup.js" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\glob\test\bash-comparison.js" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\glob\test\cwd-test.js" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\glob\test\mark.js" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\glob\test\nocase-nomagic.js" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\glob\test\pause-resume.js" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\glob\test\root-nomount.js" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\glob\test\root.js" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\glob\test\zz-cleanup.js" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\graceful-fs\graceful-fs.js" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\graceful-fs\test\open.js" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\graceful-fs\test\ulimit.js" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\inherits\inherits.js" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\lodash\dist\lodash.compat.js" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\lodash\dist\lodash.compat.min.js" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\lodash\dist\lodash.js" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\lodash\dist\lodash.min.js" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\lodash\dist\lodash.underscore.js" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\lodash\dist\lodash.underscore.min.js" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\lodash\LICENSE.txt" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\lru-cache\lib\lru-cache.js" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\lru-cache\test\basic.js" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\lru-cache\test\foreach.js" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\lru-cache\test\memory-leak.js" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\lru-cache\test\serialize.js" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\minimatch\minimatch.js" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\minimatch\test\basic.js" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\minimatch\test\brace-expand.js" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\minimatch\test\caching.js" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\minimatch\test\defaults.js" />
-    <Content Include="Content\node_modules\glob-watcher\node_modules\minimatch\test\extglob-ending-with-state-char.js" />
     <Content Include="Content\node_modules\glob-watcher\test\main.js" />
     <Content Include="Content\node_modules\glob2base\index.js" />
     <Content Include="Content\node_modules\global-modules\index.js" />
     <Content Include="Content\node_modules\global-prefix\index.js" />
     <Content Include="Content\node_modules\globule\lib\globule.js" />
-    <Content Include="Content\node_modules\globule\node_modules\glob\common.js" />
     <Content Include="Content\node_modules\globule\node_modules\glob\examples\g.js" />
     <Content Include="Content\node_modules\globule\node_modules\glob\examples\usr-local.js" />
     <Content Include="Content\node_modules\globule\node_modules\glob\glob.js" />
-    <Content Include="Content\node_modules\globule\node_modules\glob\sync.js" />
     <Content Include="Content\node_modules\globule\node_modules\glob\test\00-setup.js" />
     <Content Include="Content\node_modules\globule\node_modules\glob\test\bash-comparison.js" />
     <Content Include="Content\node_modules\globule\node_modules\glob\test\cwd-test.js" />
@@ -1330,19 +1263,6 @@
     <Content Include="Content\node_modules\gulp\index.js" />
     <Content Include="Content\node_modules\gulp\lib\completion.js" />
     <Content Include="Content\node_modules\gulp\lib\taskTree.js" />
-    <Content Include="Content\node_modules\gulp\node_modules\semver\foot.js.txt" />
-    <Content Include="Content\node_modules\gulp\node_modules\semver\head.js.txt" />
-    <Content Include="Content\node_modules\gulp\node_modules\semver\semver.browser.js" />
-    <Content Include="Content\node_modules\gulp\node_modules\semver\semver.js" />
-    <Content Include="Content\node_modules\gulp\node_modules\semver\semver.min.js" />
-    <Content Include="Content\node_modules\gulp\node_modules\semver\test\amd.js" />
-    <Content Include="Content\node_modules\gulp\node_modules\semver\test\big-numbers.js" />
-    <Content Include="Content\node_modules\gulp\node_modules\semver\test\clean.js" />
-    <Content Include="Content\node_modules\gulp\node_modules\semver\test\gtr.js" />
-    <Content Include="Content\node_modules\gulp\node_modules\semver\test\index.js" />
-    <Content Include="Content\node_modules\gulp\node_modules\semver\test\ltr.js" />
-    <Content Include="Content\node_modules\gulp\node_modules\semver\test\major-minor-patch.js" />
-    <Content Include="Content\node_modules\gulp\node_modules\semver\test\no-module.js" />
     <Content Include="Content\node_modules\har-schema\lib\index.js" />
     <Content Include="Content\node_modules\har-validator\lib\browser\async.js" />
     <Content Include="Content\node_modules\har-validator\lib\browser\error.js" />
@@ -1467,9 +1387,7 @@
     <Content Include="Content\node_modules\jqueryui\jquery-ui.css" />
     <Content Include="Content\node_modules\jqueryui\jquery-ui.js" />
     <Content Include="Content\node_modules\jqueryui\jquery-ui.min.css" />
-    <Content Include="Content\node_modules\jqueryui\jquery-ui.min.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Content\node_modules\jqueryui\jquery-ui.min.js" />
     <Content Include="Content\node_modules\jqueryui\jquery-ui.structure.css" />
     <Content Include="Content\node_modules\jqueryui\jquery-ui.structure.min.css" />
     <Content Include="Content\node_modules\jqueryui\jquery-ui.theme.css" />
@@ -3000,7 +2918,6 @@
     <Content Include="Content\node_modules\moment\min\moment-with-locales.js" />
     <Content Include="Content\node_modules\moment\min\moment-with-locales.min.js" />
     <Content Include="Content\node_modules\moment\min\moment.min.js" />
-    <Content Include="Content\node_modules\moment\moment.d.ts" />
     <Content Include="Content\node_modules\moment\moment.js" />
     <Content Include="Content\node_modules\moment\package.js" />
     <Content Include="Content\node_modules\moment\src\lib\create\check-overflow.js" />
@@ -3248,57 +3165,7 @@
     <Content Include="Content\node_modules\natives\index.js" />
     <Content Include="Content\node_modules\node-gyp\bin\node-gyp.js" />
     <Content Include="Content\node_modules\node-gyp\gyp\buildbot\aosp_manifest.xml" />
-    <Content Include="Content\node_modules\node-gyp\gyp\buildbot\buildbot_run.py" />
     <Content Include="Content\node_modules\node-gyp\gyp\data\win\large-pdb-shim.cc" />
-    <Content Include="Content\node_modules\node-gyp\gyp\gyptest.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\gyp_main.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\PRESUBMIT.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\common.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\common_test.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\easy_xml.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\easy_xml_test.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\flock_tool.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\generator\analyzer.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\generator\android.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\generator\cmake.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\generator\dump_dependency_json.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\generator\eclipse.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\generator\gypd.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\generator\gypsh.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\generator\make.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\generator\msvs.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\generator\msvs_test.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\generator\ninja.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\generator\ninja_test.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\generator\xcode.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\generator\xcode_test.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\generator\__init__.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\input.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\input_test.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\mac_tool.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\MSVSNew.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\MSVSProject.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\MSVSSettings.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\MSVSSettings_test.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\MSVSToolFile.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\MSVSUserFile.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\MSVSUtil.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\MSVSVersion.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\msvs_emulation.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\ninja_syntax.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\ordered_dict.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\simple_copy.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\win_tool.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\xcodeproj_file.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\xcode_emulation.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\xcode_ninja.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\xml_fix.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\__init__.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\setup.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\tools\graphviz.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\tools\pretty_gyp.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\tools\pretty_sln.py" />
-    <Content Include="Content\node_modules\node-gyp\gyp\tools\pretty_vcproj.py" />
     <Content Include="Content\node_modules\node-gyp\lib\build.js" />
     <Content Include="Content\node_modules\node-gyp\lib\clean.js" />
     <Content Include="Content\node_modules\node-gyp\lib\configure.js" />
@@ -3843,7 +3710,6 @@
     <Content Include="Content\node_modules\tunnel-agent\index.js" />
     <Content Include="Content\node_modules\tweetnacl\nacl-fast.js" />
     <Content Include="Content\node_modules\tweetnacl\nacl-fast.min.js" />
-    <Content Include="Content\node_modules\tweetnacl\nacl.d.ts" />
     <Content Include="Content\node_modules\tweetnacl\nacl.js" />
     <Content Include="Content\node_modules\tweetnacl\nacl.min.js" />
     <Content Include="Content\node_modules\unc-path-regex\index.js" />
@@ -3886,13 +3752,6 @@
     <Content Include="Content\node_modules\vinyl-fs\lib\src\index.js" />
     <Content Include="Content\node_modules\vinyl-fs\node_modules\clone\clone.js" />
     <Content Include="Content\node_modules\vinyl-fs\node_modules\clone\test.js" />
-    <Content Include="Content\node_modules\vinyl-fs\node_modules\graceful-fs\fs.js" />
-    <Content Include="Content\node_modules\vinyl-fs\node_modules\graceful-fs\graceful-fs.js" />
-    <Content Include="Content\node_modules\vinyl-fs\node_modules\graceful-fs\polyfills.js" />
-    <Content Include="Content\node_modules\vinyl-fs\node_modules\graceful-fs\test\max-open.js" />
-    <Content Include="Content\node_modules\vinyl-fs\node_modules\graceful-fs\test\open.js" />
-    <Content Include="Content\node_modules\vinyl-fs\node_modules\graceful-fs\test\readdir-sort.js" />
-    <Content Include="Content\node_modules\vinyl-fs\node_modules\graceful-fs\test\write-then-read.js" />
     <Content Include="Content\node_modules\vinyl-fs\node_modules\readable-stream\duplex.js" />
     <Content Include="Content\node_modules\vinyl-fs\node_modules\readable-stream\lib\_stream_duplex.js" />
     <Content Include="Content\node_modules\vinyl-fs\node_modules\readable-stream\lib\_stream_passthrough.js" />
@@ -3903,8 +3762,6 @@
     <Content Include="Content\node_modules\vinyl-fs\node_modules\readable-stream\readable.js" />
     <Content Include="Content\node_modules\vinyl-fs\node_modules\readable-stream\transform.js" />
     <Content Include="Content\node_modules\vinyl-fs\node_modules\readable-stream\writable.js" />
-    <Content Include="Content\node_modules\vinyl-fs\node_modules\strip-bom\cli.js" />
-    <Content Include="Content\node_modules\vinyl-fs\node_modules\strip-bom\index.js" />
     <Content Include="Content\node_modules\vinyl-fs\node_modules\through2\through2.js" />
     <Content Include="Content\node_modules\vinyl-fs\node_modules\vinyl\index.js" />
     <Content Include="Content\node_modules\vinyl-fs\node_modules\vinyl\lib\cloneBuffer.js" />
@@ -4062,11 +3919,21 @@
     <Content Include="Content\node_modules\amdefine\LICENSE" />
     <Content Include="Content\node_modules\amdefine\package.json" />
     <Content Include="Content\node_modules\amdefine\README.md" />
+    <Content Include="Content\node_modules\angular-animate\angular-animate.min.js.map" />
+    <Content Include="Content\node_modules\angular-animate\bower.json" />
+    <Content Include="Content\node_modules\angular-animate\LICENSE.md" />
+    <Content Include="Content\node_modules\angular-animate\package.json" />
+    <Content Include="Content\node_modules\angular-animate\README.md" />
     <Content Include="Content\node_modules\angular-route\angular-route.min.js.map" />
     <Content Include="Content\node_modules\angular-route\bower.json" />
     <Content Include="Content\node_modules\angular-route\LICENSE.md" />
     <Content Include="Content\node_modules\angular-route\package.json" />
     <Content Include="Content\node_modules\angular-route\README.md" />
+    <Content Include="Content\node_modules\angular-sanitize\angular-sanitize.min.js.map" />
+    <Content Include="Content\node_modules\angular-sanitize\bower.json" />
+    <Content Include="Content\node_modules\angular-sanitize\LICENSE.md" />
+    <Content Include="Content\node_modules\angular-sanitize\package.json" />
+    <Content Include="Content\node_modules\angular-sanitize\README.md" />
     <Content Include="Content\node_modules\angular\angular.min.js.gzip" />
     <Content Include="Content\node_modules\angular\angular.min.js.map" />
     <Content Include="Content\node_modules\angular\bower.json" />
@@ -4323,6 +4190,27 @@
     <Content Include="Content\node_modules\detect-file\LICENSE" />
     <Content Include="Content\node_modules\detect-file\package.json" />
     <Content Include="Content\node_modules\detect-file\README.md" />
+    <Content Include="Content\node_modules\dropzone\.idea\.name" />
+    <Content Include="Content\node_modules\dropzone\.idea\src-dropzone.iml" />
+    <Content Include="Content\node_modules\dropzone\.npmignore" />
+    <Content Include="Content\node_modules\dropzone\.tagconfig" />
+    <Content Include="Content\node_modules\dropzone\.travis.yml" />
+    <Content Include="Content\node_modules\dropzone\AMD_footer" />
+    <Content Include="Content\node_modules\dropzone\AMD_header" />
+    <Content Include="Content\node_modules\dropzone\bower.json" />
+    <Content Include="Content\node_modules\dropzone\component.json" />
+    <Content Include="Content\node_modules\dropzone\composer.json" />
+    <Content Include="Content\node_modules\dropzone\CONTRIBUTING.md" />
+    <Content Include="Content\node_modules\dropzone\dist\readme.md" />
+    <Content Include="Content\node_modules\dropzone\Gruntfile.coffee" />
+    <Content Include="Content\node_modules\dropzone\LICENSE" />
+    <Content Include="Content\node_modules\dropzone\package.json" />
+    <Content Include="Content\node_modules\dropzone\README.md" />
+    <Content Include="Content\node_modules\dropzone\src\basic.scss" />
+    <Content Include="Content\node_modules\dropzone\src\dropzone.coffee" />
+    <Content Include="Content\node_modules\dropzone\src\dropzone.scss" />
+    <Content Include="Content\node_modules\dropzone\test.sh" />
+    <Content Include="Content\node_modules\dropzone\test\test.coffee" />
     <Content Include="Content\node_modules\duplexer2\.npmignore" />
     <Content Include="Content\node_modules\duplexer2\.travis.yml" />
     <Content Include="Content\node_modules\duplexer2\LICENSE.md" />
@@ -4707,6 +4595,7 @@
     <Content Include="Content\node_modules\jodid25519\LICENSE" />
     <Content Include="Content\node_modules\jodid25519\package.json" />
     <Content Include="Content\node_modules\jodid25519\README.md" />
+    <Content Include="Content\node_modules\jqueryui\package.json" />
     <Content Include="Content\node_modules\jquery\bower.json" />
     <Content Include="Content\node_modules\jquery\dist\jquery.min.map" />
     <Content Include="Content\node_modules\jquery\dist\jquery.slim.min.map" />
@@ -4725,6 +4614,17 @@
     <Content Include="Content\node_modules\jsbn\LICENSE" />
     <Content Include="Content\node_modules\jsbn\package.json" />
     <Content Include="Content\node_modules\jsbn\README.md" />
+    <Content Include="Content\node_modules\jscroll\.npmignore" />
+    <Content Include="Content\node_modules\jscroll\.travis.yml" />
+    <Content Include="Content\node_modules\jscroll\bower.json" />
+    <Content Include="Content\node_modules\jscroll\node_modules\jquery\bower.json" />
+    <Content Include="Content\node_modules\jscroll\node_modules\jquery\dist\jquery.min.map" />
+    <Content Include="Content\node_modules\jscroll\node_modules\jquery\external\sizzle\dist\sizzle.min.map" />
+    <Content Include="Content\node_modules\jscroll\node_modules\jquery\package.json" />
+    <Content Include="Content\node_modules\jscroll\node_modules\jquery\README.md" />
+    <Content Include="Content\node_modules\jscroll\node_modules\jquery\src\.jshintrc" />
+    <Content Include="Content\node_modules\jscroll\package.json" />
+    <Content Include="Content\node_modules\jscroll\README.md" />
     <Content Include="Content\node_modules\json-schema\draft-00\hyper-schema" />
     <Content Include="Content\node_modules\json-schema\draft-00\json-ref" />
     <Content Include="Content\node_modules\json-schema\draft-00\links" />
@@ -4950,9 +4850,11 @@
     <Content Include="Content\node_modules\node-gyp\CHANGELOG.md" />
     <Content Include="Content\node_modules\node-gyp\gyp\.npmignore" />
     <Content Include="Content\node_modules\node-gyp\gyp\AUTHORS" />
+    <Content Include="Content\node_modules\node-gyp\gyp\buildbot\buildbot_run.py" />
     <Content Include="Content\node_modules\node-gyp\gyp\buildbot\commit_queue\cq_config.json" />
     <Content Include="Content\node_modules\node-gyp\gyp\buildbot\commit_queue\OWNERS" />
     <Content Include="Content\node_modules\node-gyp\gyp\buildbot\commit_queue\README" />
+<<<<<<< HEAD
     <Content Include="Content\node_modules\angular-animate\angular-animate.min.js.map" />
     <Content Include="Content\node_modules\angular-animate\bower.json" />
     <Content Include="Content\node_modules\angular-animate\LICENSE.md" />
@@ -5316,20 +5218,71 @@
     <Content Include="Content\node_modules\angular-ui-router\release\ui-router-angularjs.js.map" />
     <Content Include="Content\node_modules\angular-ui-router\release\ui-router-angularjs.min.js.map" />
     <Content Include="Content\node_modules\angular-ui-router\yarn.lock" />
+=======
+>>>>>>> 6047bd44fb410ccaad44dc1bbcdc09aded50dd70
     <None Include="Content\node_modules\node-gyp\gyp\codereview.settings" />
     <Content Include="Content\node_modules\node-gyp\gyp\DEPS" />
     <Content Include="Content\node_modules\node-gyp\gyp\gyp" />
     <Content Include="Content\node_modules\node-gyp\gyp\gyp.bat" />
+    <Content Include="Content\node_modules\node-gyp\gyp\gyptest.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\gyp_main.py" />
     <Content Include="Content\node_modules\node-gyp\gyp\LICENSE" />
     <Content Include="Content\node_modules\node-gyp\gyp\OWNERS" />
+    <Content Include="Content\node_modules\node-gyp\gyp\PRESUBMIT.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\common.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\common_test.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\easy_xml.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\easy_xml_test.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\flock_tool.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\generator\analyzer.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\generator\android.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\generator\cmake.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\generator\dump_dependency_json.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\generator\eclipse.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\generator\gypd.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\generator\gypsh.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\generator\make.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\generator\msvs.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\generator\msvs_test.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\generator\ninja.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\generator\ninja_test.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\generator\xcode.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\generator\xcode_test.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\generator\__init__.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\input.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\input_test.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\mac_tool.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\MSVSNew.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\MSVSProject.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\MSVSSettings.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\MSVSSettings_test.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\MSVSToolFile.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\MSVSUserFile.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\MSVSUtil.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\MSVSVersion.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\msvs_emulation.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\ninja_syntax.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\ordered_dict.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\simple_copy.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\win_tool.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\xcodeproj_file.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\xcode_emulation.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\xcode_ninja.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\xml_fix.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\pylib\gyp\__init__.py" />
     <Content Include="Content\node_modules\node-gyp\gyp\samples\samples" />
     <Content Include="Content\node_modules\node-gyp\gyp\samples\samples.bat" />
+    <Content Include="Content\node_modules\node-gyp\gyp\setup.py" />
     <Content Include="Content\node_modules\node-gyp\gyp\tools\emacs\gyp-tests.el" />
     <Content Include="Content\node_modules\node-gyp\gyp\tools\emacs\gyp.el" />
     <Content Include="Content\node_modules\node-gyp\gyp\tools\emacs\README" />
     <Content Include="Content\node_modules\node-gyp\gyp\tools\emacs\run-unit-tests.sh" />
     <Content Include="Content\node_modules\node-gyp\gyp\tools\emacs\testdata\media.gyp" />
     <Content Include="Content\node_modules\node-gyp\gyp\tools\emacs\testdata\media.gyp.fontified" />
+    <Content Include="Content\node_modules\node-gyp\gyp\tools\graphviz.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\tools\pretty_gyp.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\tools\pretty_sln.py" />
+    <Content Include="Content\node_modules\node-gyp\gyp\tools\pretty_vcproj.py" />
     <Content Include="Content\node_modules\node-gyp\gyp\tools\README" />
     <Content Include="Content\node_modules\node-gyp\gyp\tools\Xcode\README" />
     <Content Include="Content\node_modules\node-gyp\gyp\tools\Xcode\Specifications\gyp.pbfilespec" />
@@ -5983,11 +5936,13 @@
     <Content Include="Content\node_modules\yargs\locales\th.json" />
     <Content Include="Content\node_modules\yargs\locales\tr.json" />
     <Content Include="Content\node_modules\yargs\locales\zh_CN.json" />
+    <Content Include="Content\node_modules\yargs\locales\zh_TW.json" />
     <Content Include="Content\node_modules\yargs\node_modules\camelcase\license" />
     <Content Include="Content\node_modules\yargs\node_modules\camelcase\package.json" />
     <Content Include="Content\node_modules\yargs\node_modules\camelcase\readme.md" />
     <Content Include="Content\node_modules\yargs\package.json" />
     <Content Include="Content\node_modules\yargs\README.md" />
+<<<<<<< HEAD
     <Content Include="Content\node_modules\vinyl-fs\node_modules\.bin\strip-bom" />
     <Content Include="Content\node_modules\vinyl-fs\node_modules\.bin\strip-bom.cmd" />
     <Content Include="Content\node_modules\vinyl-fs\node_modules\graceful-fs\.npmignore" />
@@ -5999,6 +5954,8 @@
     <Content Include="Content\node_modules\vinyl-fs\node_modules\strip-bom\readme.md" />
     <Content Include="Content\sass\groups.scss" />
     <Content Include="Content\node_modules\yargs\locales\zh_TW.json" />
+=======
+>>>>>>> 6047bd44fb410ccaad44dc1bbcdc09aded50dd70
     <None Include="Properties\PublishProfiles\NaszSamochod - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -6083,20 +6040,16 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201705151105305_GroupModelMigration.resx">
-      <DependentUpon>201705151105305_GroupModelMigration.cs</DependentUpon>
+    <TypeScriptCompile Include="Content\node_modules\ajv\lib\ajv.d.ts" />
+    <TypeScriptCompile Include="Content\node_modules\moment\moment.d.ts" />
+    <TypeScriptCompile Include="Content\node_modules\tweetnacl\nacl.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201705241752193_init.resx">
+      <DependentUpon>201705241752193_init.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705191235105_mig-after-groups.resx">
-      <DependentUpon>201705191235105_mig-after-groups.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705201622093_mig-after-groups-2.resx">
-      <DependentUpon>201705201622093_mig-after-groups-2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705211334557_Groups.resx">
-      <DependentUpon>201705211334557_Groups.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705241234240_after groups merge.resx">
-      <DependentUpon>201705241234240_after groups merge.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705241815582_appUser.resx">
+      <DependentUpon>201705241815582_appUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

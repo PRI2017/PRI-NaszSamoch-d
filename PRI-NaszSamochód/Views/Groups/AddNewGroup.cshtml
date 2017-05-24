@@ -1,49 +1,50 @@
 ﻿@using PRI_NaszSamochód.Models
-@model GroupViewModel
+@model GroupModel
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="~/Content/css/main.css" />
-        <title>Dodaj nową grupę</title>
+<head>
+    <link rel="stylesheet" href="~/Content/css/main.css" />
+    <title>Dodaj nową grupę</title>
 
-    </head>
-    <body>
-        <h1>Dodaj nową grupę</h1>
-        @*what path?*@
-        @using (Html.BeginForm("AddNewGroup", "Groups", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-        {
-            @Html.AntiForgeryToken()
+</head>
+<body>
+    <h1>Dodaj nową grupę</h1>
+    @*what path?*@
+    @using (Html.BeginForm("AddNewGroup", "Groups", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div>
+            <label>Nazwa grupy: </label>
+            @Html.TextBoxFor(m => m.GroupName)
+        </div>
+
+            @*<div>
+                     <label>Admini: </label>
+                     @Html.TextBoxFor(m => m.Admins)
+                </div>*@
 
             <div>
-                <label>Nazwa grupy: </label>
-                @Html.TextBoxFor(m => m.Name)
+                <label>Opis: </label>
+                @Html.TextBoxFor(m => m.Description)
             </div>
 
-           <div>
-                <label>Admini: </label>
-                @Html.TextBoxFor(m => m.Admins)
-           </div>
-
             <div>
-            <label>Opis: </label>
-            @Html.TextBoxFor(m => m.Description)
+                <label>Temat: </label>
+                @Html.TextBoxFor(m => m.GroupTheme)
             </div>
 
-            <div>
-            <label>Temat: </label>
-            @Html.TextBoxFor(m => m.Theme)</div>
-
-           <div>
-            <label>Członkowie: </label>
-                @Html.TextBoxFor(m => m.Members)
-           </div>
+            @*<div>
+                 <label>Członkowie: </label>
+                     @Html.TextBoxFor(m => m.Members)
+                </div>*@
 
             <button type="submit" class="btn-success" value="Create">Utwórz grupe</button>
 
-        }
-        @section Scripts {
-            @Scripts.Render("~/bundles/jqueryval")
-        }
-    </body>
+    }
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+</body>
 </html>
