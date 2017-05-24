@@ -4854,12 +4854,6 @@
     <Content Include="Content\node_modules\node-gyp\gyp\buildbot\commit_queue\cq_config.json" />
     <Content Include="Content\node_modules\node-gyp\gyp\buildbot\commit_queue\OWNERS" />
     <Content Include="Content\node_modules\node-gyp\gyp\buildbot\commit_queue\README" />
-<<<<<<< HEAD
-    <Content Include="Content\node_modules\angular-animate\angular-animate.min.js.map" />
-    <Content Include="Content\node_modules\angular-animate\bower.json" />
-    <Content Include="Content\node_modules\angular-animate\LICENSE.md" />
-    <Content Include="Content\node_modules\angular-animate\package.json" />
-    <Content Include="Content\node_modules\angular-animate\README.md" />
     <Content Include="Content\node_modules\end-of-stream\node_modules\once\LICENSE" />
     <Content Include="Content\node_modules\end-of-stream\node_modules\once\package.json" />
     <Content Include="Content\node_modules\end-of-stream\node_modules\once\README.md" />
@@ -4916,44 +4910,6 @@
     <Content Include="Content\node_modules\gulp\node_modules\semver\README.md" />
     <Content Include="Content\node_modules\gulp\node_modules\semver\semver.browser.js.gz" />
     <Content Include="Content\node_modules\gulp\node_modules\semver\semver.min.js.gz" />
-    <Content Include="Content\node_modules\angular-sanitize\angular-sanitize.min.js.map" />
-    <Content Include="Content\node_modules\angular-sanitize\bower.json" />
-    <Content Include="Content\node_modules\angular-sanitize\LICENSE.md" />
-    <Content Include="Content\node_modules\angular-sanitize\package.json" />
-    <Content Include="Content\node_modules\angular-sanitize\README.md" />
-    <Content Include="Content\node_modules\jscroll\.npmignore" />
-    <Content Include="Content\node_modules\jscroll\.travis.yml" />
-    <Content Include="Content\node_modules\jscroll\bower.json" />
-    <Content Include="Content\node_modules\jscroll\node_modules\jquery\bower.json" />
-    <Content Include="Content\node_modules\jscroll\node_modules\jquery\dist\jquery.min.map" />
-    <Content Include="Content\node_modules\jscroll\node_modules\jquery\external\sizzle\dist\sizzle.min.map" />
-    <Content Include="Content\node_modules\jscroll\node_modules\jquery\package.json" />
-    <Content Include="Content\node_modules\jscroll\node_modules\jquery\README.md" />
-    <Content Include="Content\node_modules\jscroll\node_modules\jquery\src\.jshintrc" />
-    <Content Include="Content\node_modules\jscroll\package.json" />
-    <Content Include="Content\node_modules\jscroll\README.md" />
-    <Content Include="Content\node_modules\jqueryui\package.json" />
-    <Content Include="Content\node_modules\dropzone\.idea\.name" />
-    <Content Include="Content\node_modules\dropzone\.idea\src-dropzone.iml" />
-    <Content Include="Content\node_modules\dropzone\.npmignore" />
-    <Content Include="Content\node_modules\dropzone\.tagconfig" />
-    <Content Include="Content\node_modules\dropzone\.travis.yml" />
-    <Content Include="Content\node_modules\dropzone\AMD_footer" />
-    <Content Include="Content\node_modules\dropzone\AMD_header" />
-    <Content Include="Content\node_modules\dropzone\bower.json" />
-    <Content Include="Content\node_modules\dropzone\component.json" />
-    <Content Include="Content\node_modules\dropzone\composer.json" />
-    <Content Include="Content\node_modules\dropzone\CONTRIBUTING.md" />
-    <Content Include="Content\node_modules\dropzone\dist\readme.md" />
-    <Content Include="Content\node_modules\dropzone\Gruntfile.coffee" />
-    <Content Include="Content\node_modules\dropzone\LICENSE" />
-    <Content Include="Content\node_modules\dropzone\package.json" />
-    <Content Include="Content\node_modules\dropzone\README.md" />
-    <Content Include="Content\node_modules\dropzone\src\basic.scss" />
-    <Content Include="Content\node_modules\dropzone\src\dropzone.coffee" />
-    <Content Include="Content\node_modules\dropzone\src\dropzone.scss" />
-    <Content Include="Content\node_modules\dropzone\test.sh" />
-    <Content Include="Content\node_modules\dropzone\test\test.coffee" />
     <Content Include="Content\node_modules\%40uirouter\angularjs\CHANGELOG.md" />
     <Content Include="Content\node_modules\%40uirouter\angularjs\CONTRIBUTING.md" />
     <Content Include="Content\node_modules\%40uirouter\angularjs\DOCS.md" />
@@ -5218,8 +5174,6 @@
     <Content Include="Content\node_modules\angular-ui-router\release\ui-router-angularjs.js.map" />
     <Content Include="Content\node_modules\angular-ui-router\release\ui-router-angularjs.min.js.map" />
     <Content Include="Content\node_modules\angular-ui-router\yarn.lock" />
-=======
->>>>>>> 6047bd44fb410ccaad44dc1bbcdc09aded50dd70
     <None Include="Content\node_modules\node-gyp\gyp\codereview.settings" />
     <Content Include="Content\node_modules\node-gyp\gyp\DEPS" />
     <Content Include="Content\node_modules\node-gyp\gyp\gyp" />
@@ -5942,7 +5896,6 @@
     <Content Include="Content\node_modules\yargs\node_modules\camelcase\readme.md" />
     <Content Include="Content\node_modules\yargs\package.json" />
     <Content Include="Content\node_modules\yargs\README.md" />
-<<<<<<< HEAD
     <Content Include="Content\node_modules\vinyl-fs\node_modules\.bin\strip-bom" />
     <Content Include="Content\node_modules\vinyl-fs\node_modules\.bin\strip-bom.cmd" />
     <Content Include="Content\node_modules\vinyl-fs\node_modules\graceful-fs\.npmignore" />
@@ -5953,9 +5906,6 @@
     <Content Include="Content\node_modules\vinyl-fs\node_modules\strip-bom\package.json" />
     <Content Include="Content\node_modules\vinyl-fs\node_modules\strip-bom\readme.md" />
     <Content Include="Content\sass\groups.scss" />
-    <Content Include="Content\node_modules\yargs\locales\zh_TW.json" />
-=======
->>>>>>> 6047bd44fb410ccaad44dc1bbcdc09aded50dd70
     <None Include="Properties\PublishProfiles\NaszSamochod - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
