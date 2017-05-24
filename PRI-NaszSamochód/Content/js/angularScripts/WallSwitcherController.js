@@ -91,12 +91,25 @@
 
     document.getElementById('userPageClicker').addEventListener('click', setUserPage);
     $scope.setters = function () {
-        document.getElementById('userPageInfoClicker').addEventListener('click', setInfo);
-        document.getElementById('userPageFriendsClicker').addEventListener('click', setFriends);
-        document.getElementById('userPageGalleryClicker').addEventListener('click', setGallery);
-        document.getElementById('userPageStatisticsClicker').addEventListener('click', setStatistics);
+        if (document.getElementById('userPageInfoClicker') != null) {
+            document.getElementById('userPageInfoClicker').addEventListener('click', setInfo);
+        }
+        if (document.getElementById('userPageFriendsClicker') != null) {
+            document.getElementById('userPageFriendsClicker').addEventListener('click', setFriends);
+        }
+        if (document.getElementById('userPageGalleryClicker') != null) {
+            document.getElementById('userPageGalleryClicker').addEventListener('click', setGallery);
+        }
+        if (document.getElementById('userPageStatisticsClicker') != null) {
+            document.getElementById('userPageStatisticsClicker').addEventListener('click', setStatistics);
+        }
+        if (document.getElementById('addNewGroupClicker') != null) {
+            document.getElementById('addNewGroupClicker').addEventListener('click', setAddNewGroup);
+        }
+        if (document.getElementById('GroupContentClicker') != null) {
+            document.getElementById('GroupContentClicker').addEventListener('click', setGroupContent);
+        }
     }
-    //document.getElementById('addNewGroupClicker').addEventListener('click', setAddNewGroup);
-    //document.getElementById('GroupContentClicker').addEventListener('click', setGroupContent);
+    
 
 }]);

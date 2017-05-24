@@ -39,6 +39,7 @@
         @*<span my-draggable>Drag Me</span>*@
         <div class="userPageHeader">
             <div class="userProfilePhoto" id="userProfilePhoto" style="background-image:url(@Model.ProfilePhotoUrl)"></div>
+            <span class="bigTag">@Model.User.Name <br /> @Model.User.Surname </span>
         </div>
         <div id="dialog">
             <form action="/ProfPhoto/Upload"
