@@ -7,13 +7,13 @@ namespace PRI_NaszSamochód.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class appUser : IMigrationMetadata
+    public sealed partial class adminMembers : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(appUser));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(adminMembers));
         
         string IMigrationMetadata.Id
         {
-            get { return "201705241815582_appUser"; }
+            get { return "201705251056599_adminMembers"; }
         }
         
         string IMigrationMetadata.Source

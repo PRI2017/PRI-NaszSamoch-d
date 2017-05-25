@@ -11,8 +11,8 @@ namespace PRI_NaszSamochód.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public string Theme { get; set; }
-        public ApplicationUser Admin { get; set; }
-        public List<ApplicationUser> Members { get; set; }
+        public AdministratorModel Admin { get; set; }
+        public List<MembersModel> Members { get; set; }
         public List<PostViewModel> LatestPosts { get; set; }
 
         public GroupViewModel(GroupModel group)

@@ -42,9 +42,19 @@ namespace PRI_NaszSamochód.Controllers
         //}
 
         [System.Web.Mvc.AllowAnonymous]
-        public ActionResult GroupContent()
+        public ActionResult GroupContent(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            GroupModel group = _context.Groups.Find(id);
+            GroupViewModel gvm = new GroupViewModel(group);
+            if (group == null)
+            {
+                return HttpNotFound();
+            }
+            return View(gvm);
         }
 
         // GET: Groups/Details/5
@@ -73,7 +83,7 @@ namespace PRI_NaszSamochód.Controllers
                     GroupModel model = group;
                     string userId = User.Identity.GetUserId();
                     ApplicationUser admin = _context.Users.Where(x => x.Id.Equals(userId)).FirstOrDefault();
-                    model.Administrator = admin;
+                    model.Administrator = new AdministratorModel(admin);
                     //model.Administrator.IsAdmin = true;
                     _context.Groups.Add(model);
                     _context.SaveChanges();

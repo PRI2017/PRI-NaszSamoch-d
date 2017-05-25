@@ -3,7 +3,7 @@ namespace PRI_NaszSamochód.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class init : DbMigration
+    public partial class adminMembers : DbMigration
     {
         public override void Up()
         {
@@ -41,14 +41,9 @@ namespace PRI_NaszSamochód.Migrations
                         LockoutEnabled = c.Boolean(nullable: false),
                         AccessFailedCount = c.Int(nullable: false),
                         UserName = c.String(nullable: false, maxLength: 256),
-                        IsAdmin = c.Boolean(),
-                        Discriminator = c.String(nullable: false, maxLength: 128),
-                        GroupModel_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.GroupModels", t => t.GroupModel_Id)
-                .Index(t => t.UserName, unique: true, name: "UserNameIndex")
-                .Index(t => t.GroupModel_Id);
+                .Index(t => t.UserName, unique: true, name: "UserNameIndex");
             
             CreateTable(
                 "dbo.AspNetUserClaims",
@@ -99,8 +94,33 @@ namespace PRI_NaszSamochód.Migrations
                         Administrator_Id = c.String(maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.AspNetUsers", t => t.Administrator_Id)
+                .ForeignKey("dbo.AdministratorModels", t => t.Administrator_Id)
                 .Index(t => t.Administrator_Id);
+            
+            CreateTable(
+                "dbo.AdministratorModels",
+                c => new
+                    {
+                        Id = c.String(nullable: false, maxLength: 128),
+                        User_Id = c.String(maxLength: 128),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.AspNetUsers", t => t.User_Id)
+                .Index(t => t.User_Id);
+            
+            CreateTable(
+                "dbo.MembersModels",
+                c => new
+                    {
+                        Id = c.String(nullable: false, maxLength: 128),
+                        User_Id = c.String(maxLength: 128),
+                        GroupModel_Id = c.Int(),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.AspNetUsers", t => t.User_Id)
+                .ForeignKey("dbo.GroupModels", t => t.GroupModel_Id)
+                .Index(t => t.User_Id)
+                .Index(t => t.GroupModel_Id);
             
             CreateTable(
                 "dbo.PostModels",
@@ -261,8 +281,10 @@ namespace PRI_NaszSamochód.Migrations
             DropForeignKey("dbo.PostModels", "Creator_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.CommentModels", "PostModel_Id", "dbo.PostModels");
             DropForeignKey("dbo.CommentModels", "Creator_Id", "dbo.AspNetUsers");
-            DropForeignKey("dbo.AspNetUsers", "GroupModel_Id", "dbo.GroupModels");
-            DropForeignKey("dbo.GroupModels", "Administrator_Id", "dbo.AspNetUsers");
+            DropForeignKey("dbo.MembersModels", "GroupModel_Id", "dbo.GroupModels");
+            DropForeignKey("dbo.MembersModels", "User_Id", "dbo.AspNetUsers");
+            DropForeignKey("dbo.GroupModels", "Administrator_Id", "dbo.AdministratorModels");
+            DropForeignKey("dbo.AdministratorModels", "User_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.FriendModels", "User2_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.FriendModels", "User1_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
@@ -281,12 +303,14 @@ namespace PRI_NaszSamochód.Migrations
             DropIndex("dbo.CommentModels", new[] { "Creator_Id" });
             DropIndex("dbo.PostModels", new[] { "GroupModel_Id" });
             DropIndex("dbo.PostModels", new[] { "Creator_Id" });
+            DropIndex("dbo.MembersModels", new[] { "GroupModel_Id" });
+            DropIndex("dbo.MembersModels", new[] { "User_Id" });
+            DropIndex("dbo.AdministratorModels", new[] { "User_Id" });
             DropIndex("dbo.GroupModels", new[] { "Administrator_Id" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
-            DropIndex("dbo.AspNetUsers", new[] { "GroupModel_Id" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.FriendModels", new[] { "User2_Id" });
             DropIndex("dbo.FriendModels", new[] { "User1_Id" });
@@ -300,6 +324,8 @@ namespace PRI_NaszSamochód.Migrations
             DropTable("dbo.LikeModels");
             DropTable("dbo.CommentModels");
             DropTable("dbo.PostModels");
+            DropTable("dbo.MembersModels");
+            DropTable("dbo.AdministratorModels");
             DropTable("dbo.GroupModels");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetUserLogins");

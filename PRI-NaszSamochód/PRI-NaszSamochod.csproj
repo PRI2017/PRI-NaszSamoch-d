@@ -237,13 +237,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Controllers\PublicKeyController.cs" />
-    <Compile Include="Migrations\201705241752193_init.cs" />
-    <Compile Include="Migrations\201705241752193_init.Designer.cs">
-      <DependentUpon>201705241752193_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201705241815582_appUser.cs" />
-    <Compile Include="Migrations\201705241815582_appUser.Designer.cs">
-      <DependentUpon>201705241815582_appUser.cs</DependentUpon>
+    <Compile Include="Migrations\201705251056599_adminMembers.cs" />
+    <Compile Include="Migrations\201705251056599_adminMembers.Designer.cs">
+      <DependentUpon>201705251056599_adminMembers.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MobileAuthentication\CryptoRSA.cs" />
@@ -5920,6 +5916,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="TODO.txt" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -5995,11 +5992,8 @@
     <TypeScriptCompile Include="Content\node_modules\tweetnacl\nacl.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201705241752193_init.resx">
-      <DependentUpon>201705241752193_init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705241815582_appUser.resx">
-      <DependentUpon>201705241815582_appUser.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705251056599_adminMembers.resx">
+      <DependentUpon>201705251056599_adminMembers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
