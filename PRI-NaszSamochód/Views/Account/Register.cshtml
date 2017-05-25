@@ -15,6 +15,7 @@
     <div class="loginPage-container">
         @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
         {
+
             @Html.AntiForgeryToken()
             <ul class="flex-outer">
                 <li>
@@ -44,7 +45,6 @@
                     @Html.PasswordFor(m => m.ConfirmPassword)
                     @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                 </li>
-                    @Html.ValidationSummary("", new { @class = "text-danger" })
                 <li>
                     <button type="submit" class="btn-success" value="Register">Zarejestruj się</button>
                 </li>

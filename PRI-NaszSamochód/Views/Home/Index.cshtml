@@ -27,7 +27,7 @@
 
         <script src="~/Content/js/angularScripts/app.module.js"></script>
         <script src="~/Content/js/angularScripts/app.config.js"></script>
-        <script src="~/Content/js/angularScripts/WallSwitcherController.js"></script>
+        @*<script src="~/Content/js/angularScripts/WallSwitcherController.js"></script>*@
 
     </head>
     <body ng-app="myApp">
@@ -37,7 +37,7 @@
                 <li class="search">
                         <input type="search"/>
                 </li>
-                <li><a href="#/@Model.User.Name-@Model.User.Surname " id="userPageClicker">  @Model.User.Name @Model.User.Surname  </a></li>
+                <li><a ui-sref="User/UserPage">  @Model.User.Name @Model.User.Surname  </a></li>
                 <li><a href="#"><div class="fao" id="user"></div></a></li>
                 <li><a href="#"><div class="fao" id="envelope"></div></a></li>
                 <li><a href="#"><div class="fao" id="bell"></div></a></li>
@@ -50,9 +50,9 @@
                 </li>
             </ul>
             
-                <header ng-controller="WallSwitcherController">
+                <header @*ng-controller="WallSwitcherController"*@>
                     <p id="headerPar"></p>
-                    <ng-include src="getHeader()" onload="setters()"></ng-include>
+                    @*<ng-include src="getHeader()" onload="setters()"></ng-include>*@
                     <ui-view name="header"></ui-view>
                 </header>
 
@@ -78,7 +78,7 @@
                     </aside>
                     @*<div class="wall" ng-include="'UserPage/UserPageContent'">*@
                     <div class="wall" ng-controller="WallSwitcherController">
-                        <ng-include src="getContent()"></ng-include>
+                        @*<ng-include src="getContent()"></ng-include>*@
                         <ui-view name="content"></ui-view>
                         </div>
                 </div>
