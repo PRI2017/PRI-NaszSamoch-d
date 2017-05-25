@@ -1,55 +1,62 @@
 ﻿angular.
-  module('myApp').
-  config(['$locationProvider', '$routeProvider', '$stateProvider', '$urlRouterProvider',
-    function config($locationProvider, $routeProvider, $stateProvider, $urlRouterProvider) {
+  module('myApp', ['ui.router']).
+  config(['$locationProvider', '$stateProvider', '$urlRouterProvider',
+    function config($locationProvider, $stateProvider, $urlRouterProvider) {
+
         $locationProvider.hashPrefix("");
 
-        $urlRouterProvider.otherwise('/');
-
+        $stateProvider.state('main', {
+            abstract: true,
+            url: '/'
+        });
         var userPageState = {
             name: 'User/UserPage',
-            url: 'User/UserPage',
+            url: '/User/UserPage',
             views: {
-                header: 'UserPage/UserPageHeader',
-                content: 'UserPage/UserPageContent'
+                'header': {
+                    templateUrl: 'UserPage/UserPageHeader'
+                },
+                'content': {
+                    templateUrl: 'UserPage/UserPageContent'
+                }
             }
-        }
+        };
 
         var userInfo = {
             name: 'User/Info',
-            url: 'User/Info',
+            url: '/User/Info',
             views: {
-                header: 'UserPage/UserPageHeader',
-                content: 'UserPage/UserInfo'
+                'header': {templateUrl: 'UserPage/UserPageHeader'},
+                'content': {templateUrl: 'UserPage/UserInfo'}
             }
-        }
+        };
 
         var userFriends = {
             name: 'User/Friends',
-            url: 'User/Friends',
+            url: '/User/Friends',
             views: {
-                header: 'UserPage/UserPageHeader',
-                content: 'UserPage/UserFriends'
+                'header': {templateUrl: 'UserPage/UserPageHeader'},
+                'content': {templateUrl: 'UserPage/UserFriends'}
             }
-        }
+        };
 
         var userGallery = {
             name: 'User/Gallery',
-            url: 'User/Gallery',
+            url: '/User/Gallery',
             views: {
-                header: 'UserPage/UserPageHeader',
-                content: 'UserPage/UserGallery'
+                'header': {templateUrl: 'UserPage/UserPageHeader'},
+                    'content': {templateUrl: 'UserPage/UserGallery'}
             }
-        }
+        };
 
         var userStatistics = {
             name: 'User/Statistics',
-            url: 'User/Statistics',
+            url: '/User/Statistics',
             views: {
-                header: 'UserPage/UserPageHeader',
-                content: 'UserPage/UserStatistics'
+                'header': {templateUrl: 'UserPage/UserPageHeader'},
+                'content': {templateUrl: 'UserPage/UserStatistics'}
             }
-        }
+        };
 
 
         $stateProvider.state(userPageState);

@@ -18,12 +18,23 @@
         <link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">
 
         @*Angular*@
-        <script src="~/Content/node_modules/angular/angular.js"></script>
-        <script src="~/Content/node_modules/angular-route/angular-route.js"></script>
+        @*<script src="~/Content/node_modules/angular/angular.js"></script>
         <script src="~/Content/node_modules/angular-animate/angular-animate.js"></script>
-        <script src="~/Content/node_modules/angular-sanitize/angular-sanitize.js"></script>
-        <script src="http://unpkg.com/angular-ui-router@latest/release/angular-ui-router.min.js"></script>
+        @*<script src="~/Content/node_modules/angular-sanitize/angular-sanitize.js"></script>*@
+        @*<script src="//unpkg.com/show-current-browser-url"></script>
+        <script data-require="angular.js@1.5.10" data-semver="1.5.10" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.10/angular.min.js"></script>
+        <script data-require="angular-router@1.2.0-rc1" data-semver="1.2.0-rc1" src="https://code.angularjs.org/1.2.0rc1/angular-route.js"></script>
+        <script src="//unpkg.com/angular-ui-router@1.0.0-beta.3/release/angular-ui-router.js"></script>*@
+        @*<script src="~/Content/node_modules/angular-route/angular-route.js"></script>*@
+        @*<script src="https://code.angularjs.org/1.5.10/angular-route.min.js"></script>*@
 
+        @*<script data-require="angular.js@1.5.10" data-semver="1.5.10" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.10/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.5.10/angular-route.min.js"></script>
+    <script data-require="angular-router@1.2.0-rc1" data-semver="1.2.0-rc1" src="https://code.angularjs.org/1.2.0rc1/angular-route.js"></script>
+    <script src="//unpkg.com/angular-ui-router@1.0.0-beta.3/release/angular-ui-router.js"></script>*@
+        @*<script src="//unpkg.com/show-current-browser-url"></script>*@
+        <script src="//unpkg.com/angular@1.5/angular.js"></script>
+        <script src="//unpkg.com/angular-ui-router@1.0.0-beta.3/release/angular-ui-router.js"></script>
 
         <script src="~/Content/js/angularScripts/app.module.js"></script>
         <script src="~/Content/js/angularScripts/app.config.js"></script>
@@ -37,7 +48,7 @@
                 <li class="search">
                         <input type="search"/>
                 </li>
-                <li><a ui-sref="User/UserPage">  @Model.User.Name @Model.User.Surname  </a></li>
+                <li><a ui-sref="User/UserPage" ui-sref-active="active">  @Model.User.Name @Model.User.Surname  </a></li>
                 <li><a href="#"><div class="fao" id="user"></div></a></li>
                 <li><a href="#"><div class="fao" id="envelope"></div></a></li>
                 <li><a href="#"><div class="fao" id="bell"></div></a></li>
@@ -50,10 +61,9 @@
                 </li>
             </ul>
             
-                <header @*ng-controller="WallSwitcherController"*@>
+                <header>
+                    <div ui-view name="header"></div>
                     <p id="headerPar"></p>
-                    @*<ng-include src="getHeader()" onload="setters()"></ng-include>*@
-                    <ui-view name="header"></ui-view>
                 </header>
 
                 <div class="child-flex">
@@ -77,9 +87,9 @@
                         <p>PANEL</p>
                     </aside>
                     @*<div class="wall" ng-include="'UserPage/UserPageContent'">*@
-                    <div class="wall" ng-controller="WallSwitcherController">
+                    <div class="wall" @*ng-controller="WallSwitcherController"*@>
                         @*<ng-include src="getContent()"></ng-include>*@
-                        <ui-view name="content"></ui-view>
+                        <div ui-view name="content"></div>
                         </div>
                 </div>
                 <footer><p>Footer</p></footer>

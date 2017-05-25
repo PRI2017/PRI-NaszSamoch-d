@@ -15,32 +15,24 @@
     {
         @Html.AntiForgeryToken()
 
-        <div>
-            <label>Nazwa grupy: </label>
-            @Html.TextBoxFor(m => m.GroupName)
-        </div>
-
-            @*<div>
-                     <label>Admini: </label>
-                     @Html.TextBoxFor(m => m.Admins)
-                </div>*@
-
-            <div>
+        <ul>
+            <li>
+                <label>Nazwa grupy: </label>
+                @Html.TextBoxFor(m => m.GroupName)
+            </li>
+        
+            <li>
                 <label>Opis: </label>
                 @Html.TextBoxFor(m => m.Description)
-            </div>
+            </li>
 
-            <div>
+            <li>
                 <label>Temat: </label>
                 @Html.TextBoxFor(m => m.GroupTheme)
-            </div>
+            </li>
 
-            @*<div>
-                 <label>Członkowie: </label>
-                     @Html.TextBoxFor(m => m.Members)
-                </div>*@
-
-            <button type="submit" class="btn-success" value="Create">Utwórz grupe</button>
+            <li><button type="submit" class="btn-success" value="Create">Utwórz grupe</button></li>
+        </ul>
 
     }
     @section Scripts {
