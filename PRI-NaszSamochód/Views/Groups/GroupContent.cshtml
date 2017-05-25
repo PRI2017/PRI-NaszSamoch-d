@@ -1,5 +1,5 @@
 ﻿@using PRI_NaszSamochód.Models
-@Model GroupViewModel
+@model GroupViewModel
 
 
 <!DOCTYPE html>
@@ -23,76 +23,22 @@
 <body>
     <div class="container-flex" id="scrollIt">
         <div class="wall-flex">
-
+            @foreach (var post in Model.LatestPosts)
+            {
             <div class="post">
                 <div class="postHeader">
                     <ul>
                         <li><div class="userProfilePhoto userProfilePhotoSmall"></div></li>
-                        <li><p>Tadeusz Norek<p></li>
+                        <li><p>@post.Creator.Name<p></li>
                         <li><p>1 godz.</p></li>
                     </ul>
                 </div>
                 <div class="postContent">
-                    <p class="postText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed nulla sed nisi pellentesque bibendum id a purus. Duis a scelerisque nunc. Donec interdum turpis quis arcu lacinia ornare. Aliquam iaculis risus vitae tellus ornare suscipit. Ut posuere felis in tristique dapibus. Nullam imperdiet magna in felis tristique, non consectetur erat tempor. Proin vulputate at justo et cursus. Sed rhoncus suscipit quam nec fermentum. Nulla non sagittis velit, at ullamcorper massa. In lacinia augue at libero sollicitudin, eleifend placerat nulla convallis. Praesent tincidunt interdum lacus vitae consequat. Donec nec volutpat mi. Curabitur imperdiet purus nibh, at aliquam risus laoreet quis. Phasellus sit amet ultrices dui. In semper ultrices purus, ut efficitur mauris tempor ac.</p>
+                    <p class="postText">@post.Text</p>
                 </div>
                 <button class="btn-success btn-like">Poleć!</button>
             </div>
-
-            <div class="post">
-                <div class="postHeader">
-                    <ul>
-                        <li><div class="userProfilePhoto userProfilePhotoSmall"></div></li>
-                        <li><p>Tadeusz Norek<p></li>
-                        <li><p>1 godz.</p></li>
-                    </ul>
-                </div>
-                <div class="postContent">
-                    <p class="postText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed nulla sed nisi pellentesque bibendum id a purus. Duis a scelerisque nunc. Donec interdum turpis quis arcu lacinia ornare. Aliquam iaculis risus vitae tellus ornare suscipit. Ut posuere felis in tristique dapibus. Nullam imperdiet magna in felis tristique, non consectetur erat tempor. Proin vulputate at justo et cursus. Sed rhoncus suscipit quam nec fermentum. Nulla non sagittis velit, at ullamcorper massa. In lacinia augue at libero sollicitudin, eleifend placerat nulla convallis. Praesent tincidunt interdum lacus vitae consequat. Donec nec volutpat mi. Curabitur imperdiet purus nibh, at aliquam risus laoreet quis. Phasellus sit amet ultrices dui. In semper ultrices purus, ut efficitur mauris tempor ac.</p>
-                </div>
-                <button class="btn-success btn-like">Poleć!</button>
-            </div>
-
-            <div class="post">
-                <div class="postHeader">
-                    <ul>
-                        <li><div class="userProfilePhoto userProfilePhotoSmall"></div></li>
-                        <li><p>Tadeusz Norek<p></li>
-                        <li><p>1 godz.</p></li>
-                    </ul>
-                </div>
-                <div class="postContent">
-                    <p class="postText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed nulla sed nisi pellentesque bibendum id a purus. Duis a scelerisque nunc. Donec interdum turpis quis arcu lacinia ornare. Aliquam iaculis risus vitae tellus ornare suscipit. Ut posuere felis in tristique dapibus. Nullam imperdiet magna in felis tristique, non consectetur erat tempor. Proin vulputate at justo et cursus. Sed rhoncus suscipit quam nec fermentum. Nulla non sagittis velit, at ullamcorper massa. In lacinia augue at libero sollicitudin, eleifend placerat nulla convallis. Praesent tincidunt interdum lacus vitae consequat. Donec nec volutpat mi. Curabitur imperdiet purus nibh, at aliquam risus laoreet quis. Phasellus sit amet ultrices dui. In semper ultrices purus, ut efficitur mauris tempor ac.</p>
-                </div>
-                <button class="btn-success btn-like">Poleć!</button>
-            </div>
-
-            <div class="post">
-                <div class="postHeader">
-                    <ul>
-                        <li><div class="userProfilePhoto userProfilePhotoSmall"></div></li>
-                        <li><p>Tadeusz Norek<p></li>
-                        <li><p>1 godz.</p></li>
-                    </ul>
-                </div>
-                <div class="postContent">
-                    <p class="postText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed nulla sed nisi pellentesque bibendum id a purus. Duis a scelerisque nunc. Donec interdum turpis quis arcu lacinia ornare. Aliquam iaculis risus vitae tellus ornare suscipit. Ut posuere felis in tristique dapibus. Nullam imperdiet magna in felis tristique, non consectetur erat tempor. Proin vulputate at justo et cursus. Sed rhoncus suscipit quam nec fermentum. Nulla non sagittis velit, at ullamcorper massa. In lacinia augue at libero sollicitudin, eleifend placerat nulla convallis. Praesent tincidunt interdum lacus vitae consequat. Donec nec volutpat mi. Curabitur imperdiet purus nibh, at aliquam risus laoreet quis. Phasellus sit amet ultrices dui. In semper ultrices purus, ut efficitur mauris tempor ac.</p>
-                </div>
-                <button class="btn-success btn-like">Poleć!</button>
-            </div>
-
-            <div class="post">
-                <div class="postHeader">
-                    <ul>
-                        <li><div class="userProfilePhoto userProfilePhotoSmall"></div></li>
-                        <li><p>Tadeusz Norek<p></li>
-                        <li><p>1 godz.</p></li>
-                    </ul>
-                </div>
-                <div class="postContent">
-                    <p class="postText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed nulla sed nisi pellentesque bibendum id a purus. Duis a scelerisque nunc. Donec interdum turpis quis arcu lacinia ornare. Aliquam iaculis risus vitae tellus ornare suscipit. Ut posuere felis in tristique dapibus. Nullam imperdiet magna in felis tristique, non consectetur erat tempor. Proin vulputate at justo et cursus. Sed rhoncus suscipit quam nec fermentum. Nulla non sagittis velit, at ullamcorper massa. In lacinia augue at libero sollicitudin, eleifend placerat nulla convallis. Praesent tincidunt interdum lacus vitae consequat. Donec nec volutpat mi. Curabitur imperdiet purus nibh, at aliquam risus laoreet quis. Phasellus sit amet ultrices dui. In semper ultrices purus, ut efficitur mauris tempor ac.</p>
-                </div>
-                <button class="btn-success btn-like">Poleć!</button>
-            </div>
+            }
 
         </div>
 

@@ -77,11 +77,11 @@ namespace PRI_NaszSamochód.Controllers
 
             try
             {
+                byte[] passBytes = Convert.FromBase64String(model.Password);
+                string password = CryptoRSA.Decrypt(passBytes, KeysHolder.Instance.PrivateKey);
                 x = await SignInManager.PasswordSignInAsync(
                         model.Email,
-                        CryptoRSA.Decrypt(
-                            Convert.FromBase64String(model.Password),
-                            KeysHolder.Instance.PrivateKey),
+                        password,
                         model.RememberMe,
                         shouldLockout: false);
             }

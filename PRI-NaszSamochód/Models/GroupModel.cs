@@ -22,9 +22,9 @@ namespace PRI_NaszSamochód.Models
         [Required]
         public string GroupTheme { get; set; }
 
-        public ApplicationUser Administrator { get; set; }
+        public virtual AdministratorModel Administrator { get; set; }
 
-        public virtual List<ApplicationUser> Members { get; set; }
+        public virtual List<MembersModel> Members { get; set; }
 
         public virtual List<PostModel> Posts { get; set; }
     }
