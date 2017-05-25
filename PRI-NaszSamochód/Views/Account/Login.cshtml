@@ -32,10 +32,10 @@
                 <li class="form-group">
                     <label for="inputPassword">Podaj hasło: </label>
                     @Html.PasswordFor(m => m.Password, new { @id = "inputPassword" })
-                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                 </li>
                 <li>
                     <button type="submit" class="btn-success">Zaloguj</button>
+                    <a class="btn-success" style="text-decoration: none; font-size: 0.875rem; margin: 20px;" href="/Account/Register">Zarejestruj</a>
                 </li>
             </ul>
         }
