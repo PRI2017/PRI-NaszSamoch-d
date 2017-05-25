@@ -241,6 +241,10 @@
     <Compile Include="Migrations\201705251056599_adminMembers.Designer.cs">
       <DependentUpon>201705251056599_adminMembers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705251119407_dbgenkeys.cs" />
+    <Compile Include="Migrations\201705251119407_dbgenkeys.Designer.cs">
+      <DependentUpon>201705251119407_dbgenkeys.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MobileAuthentication\CryptoRSA.cs" />
     <Compile Include="MobileAuthentication\KeysHolder.cs" />
@@ -5994,6 +5998,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201705251056599_adminMembers.resx">
       <DependentUpon>201705251056599_adminMembers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705251119407_dbgenkeys.resx">
+      <DependentUpon>201705251119407_dbgenkeys.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
