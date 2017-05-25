@@ -58,29 +58,13 @@ body {
                 z-index: 100;
             }
         }
-    }
-    /*ul.nav {
-        display: inline-flex;
-        list-style: none;
-        height: auto;
-        width: auto;
-        background-color: $color1;
-        margin-top: 0;
-
-        & > li {
-            padding: 20px;
-
-            & > a {
-                color: white;
-                text-decoration: none;
-            }
-
-
-            &:hover {
-                background-color: $color1Hover;
-            }
+        span.bigTag {
+            font-size: $tenPx*4;
+            color: white;
+            margin-left: $tenPx;
+  
         }
-    }*/
+    }
     .wall-flex {
         .post {
             display: flex;
@@ -88,7 +72,7 @@ body {
             justify-content: center;
             background-color: white;
             margin: 0.625rem;
-            border: 1px solid rgba(204, 204, 204, 0.59);
+            border: 1px solid $postBorderColor;
 
             .postHeader {
                 background-color: rgba(255, 238, 227, 0.67);
@@ -130,9 +114,6 @@ body {
 ul.info {
     list-style-type: none;
     padding-left: 0;
-    /*display: flex;
-    flex-flow: column;
-    align-items: stretch;*/
     li {
         padding: 0.625rem;
         border: 1px solid white;

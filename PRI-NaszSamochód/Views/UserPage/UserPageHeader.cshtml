@@ -24,15 +24,13 @@
     @*Angular*@
     <script data-require="angular.js@1.5.10" data-semver="1.5.10" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.10/angular.min.js"></script>
     <script data-require="angular-router@1.2.0-rc1" data-semver="1.2.0-rc1" src="https://code.angularjs.org/1.2.0rc1/angular-route.js"></script>
-
-    @*<script src="~/Content/js/AngularJSControllers/UserTabsController.js"></script>*@
+    <script src="http://unpkg.com/angular-ui-router@latest/release/angular-ui-router.min.js"></script>
 
     @*Dropzone*@
-@*    <script src="~/Content/js/dropzone.js"></script>*@
     <link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">
-  @*  <script src="~/Content/js/dialogScript.js"></script> *@
-    @Scripts.Render("~/Content/js/dialogScript.js")
-    @Scripts.Render("~/Content/js/dropzone.js")
+
+    @Scripts.Render("~/Content/js/custom/dialogScript.js")
+    @Scripts.Render("~/Content/js/lib/dropzone.js")
     <title>Profil użytkownika</title>
 </head>
 
@@ -42,6 +40,7 @@
         @*<span my-draggable>Drag Me</span>*@
         <div class="userPageHeader">
             <div class="userProfilePhoto" id="userProfilePhoto" style="background-image:url(@Model.ProfilePhotoUrl)"></div>
+            <span class="bigTag">@Model.User.Name <br /> @Model.User.Surname </span>
         </div>
         <div id="dialog">
             <form action="/ProfPhoto/Upload"
@@ -50,7 +49,7 @@
         </div>
 
         <ul class="nav" id="userPageNav">
-            <li><a href="#User/Info" id="userPageInfoClicker">Informacje</a></li>
+            <li><a href="#User/Info" ui-sref="User/Info" id="userPageInfoClicker">Informacje</a></li>
             <li><a href="#User/Friends" id="userPageFriendsClicker">Znajomi</a></li>
             <li><a href="#User/Gallery" id="userPageGalleryClicker">Galeria</a></li>
             <li><a href="#User/Statistics" id="userPageStatisticsClicker">Statystyki</a></li>

@@ -15,7 +15,7 @@
   background-size: cover !important; }
 
 .btn-success, .container-flex .wall-flex .post button {
-  background-color: #ff4b00;
+  background-color: #ff6d31;
   border: none;
   border-radius: 0px;
   font-family: inherit;
@@ -90,29 +90,7 @@ body {
 .container-flex {
   display: flex;
   flex-direction: column;
-  align-content: stretch;
-  /*ul.nav {
-        display: inline-flex;
-        list-style: none;
-        height: auto;
-        width: auto;
-        background-color: $color1;
-        margin-top: 0;
-
-        & > li {
-            padding: 20px;
-
-            & > a {
-                color: white;
-                text-decoration: none;
-            }
-
-
-            &:hover {
-                background-color: $color1Hover;
-            }
-        }
-    }*/ }
+  align-content: stretch; }
   .container-flex .userProfilePhoto {
     height: 150px;
     width: 150px;
@@ -138,7 +116,7 @@ body {
       .container-flex .userPageHeader .userProfilePhoto:hover::after {
         content: "\f07c";
         font-family: 'FontAwesome';
-        color: #ff4b00;
+        color: #ff6d31;
         font-style: normal;
         font-weight: normal;
         text-decoration: inherit;
@@ -149,6 +127,10 @@ body {
         top: 0.625rem;
         left: 0.625rem;
         z-index: 100; }
+    .container-flex .userPageHeader span.bigTag {
+      font-size: 2.5rem;
+      color: white;
+      margin-left: 0.625rem; }
   .container-flex .wall-flex .post {
     display: flex;
     flex-direction: column;
@@ -179,10 +161,7 @@ body {
 
 ul.info {
   list-style-type: none;
-  padding-left: 0;
-  /*display: flex;
-    flex-flow: column;
-    align-items: stretch;*/ }
+  padding-left: 0; }
   ul.info li {
     padding: 0.625rem;
     border: 1px solid white;
