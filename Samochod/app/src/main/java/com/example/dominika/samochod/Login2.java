@@ -100,6 +100,7 @@ public class Login2 extends AppCompatActivity {
 
                                 try {
                                     json.addProperty("Password", String.valueOf(Base64.encodeToString((CryptoRSA.Encrypt(passwordET.getText().toString(), key2)),Base64.DEFAULT)));
+                                    //Zmień String.valueOf na new String(Base64... , "UTF-8"));
                                 } catch (InvalidCipherTextException e1) {
                                     e1.printStackTrace();
                                 }
