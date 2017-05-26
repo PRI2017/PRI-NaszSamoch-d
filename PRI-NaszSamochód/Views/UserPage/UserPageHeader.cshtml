@@ -47,14 +47,15 @@
         </div>
         <div id="dialog">
             <form action="/ProfPhoto/Upload"
-                  id="my-awesome-dropzone" style="display: none"></form>
+                  id="my-awesome-dropzone" style="display: none" class="dropzone">
+            </form>
         </div>
 
         <ul class="nav" id="userPageNav">
-            <li><a ui-sref="User/Info">Informacje</a></li>
-            <li><a ui-sref="User/Friends">Znajomi</a></li>
-            <li><a ui-sref="User/Gallery">Galeria</a></li>
-            <li><a ui-sref="User/Statistics">Statystyki</a></li>
+            <li><a ui-sref="User/Info" ui-sref-active="active">Informacje</a></li>
+            <li><a ui-sref="User/Friends" ui-sref-active="active">Znajomi</a></li>
+            <li><a ui-sref="User/Gallery" ui-sref-active="active">Galeria</a></li>
+            <li><a ui-sref="User/Statistics" ui-sref-active="active">Statystyki</a></li>
         </ul>
     </div>
     @*<script src="~/Content/js/dialogScript.js"></script>*@
