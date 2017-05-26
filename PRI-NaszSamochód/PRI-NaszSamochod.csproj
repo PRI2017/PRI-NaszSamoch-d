@@ -5965,6 +5965,8 @@
     <Content Include="Views\Wall\WallContent.cshtml" />
     <Content Include="Views\Wall\WallHeader.cshtml" />
     <Content Include="Views\Groups\GroupDetails.cshtml" />
+    <Content Include="Views\Wall\AddPost.cshtml" />
+    <Content Include="Views\Account\LogOut.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

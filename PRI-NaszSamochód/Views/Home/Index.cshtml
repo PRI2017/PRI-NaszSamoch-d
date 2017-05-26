@@ -53,10 +53,10 @@
                 <li><a href="#"><div class="fao" id="envelope"></div></a></li>
                 <li><a href="#"><div class="fao" id="bell"></div></a></li>
                 <li><div class="dropdown">
-                        <div class="fao" id="signout"></div>
-                        <div class="dropdown-content">
-                            <a href="#">Wyloguj</a>
+                        <div class="fao" id="signout" ng-controller="LogOffController">
+                            <a ng-click ="LogOff()" >Logout</a>
                         </div>
+                       
                     </div>
                 </li>
             </ul>

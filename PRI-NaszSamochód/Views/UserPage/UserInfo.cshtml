@@ -1,4 +1,12 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
+@using Microsoft.AspNet.Identity
+@using PRI_NaszSamochód
+@model PRI_NaszSamochód.Models.ProfileViewModel
+@{
+    string editable = @Model.User.Id.Equals(Context.User.Identity.GetUserId()).ToString();
+}
+ 
 <html>
     <head>
         <link rel="stylesheet" href="~/Content/css/main.css" />
@@ -11,13 +19,26 @@
     <body>
         <div class="flex-container">
             <ul class="info">
-                <li contenteditable="true" id="userName">@Model.User.Name</li>
-                <li contenteditable="true" id="userSurname">@Model.User.Surname</li>
-                <li contenteditable="true" id="userPhone">@Model.User.PhoneNumber</li>
-                <li contenteditable="true" id="userEmail">@Model.User.Email</li>
+                <li contenteditable="@editable" id="userName" >
+                    @Model.User.Name
+                </li>
+
+                <li contenteditable="@editable" id="userSurname">
+                    @Model.User.Surname
+                </li>
+                <li contenteditable="@editable" id="userPhone">
+                    @Model.User.PhoneNumber
+                </li>
+                <li contenteditable="@editable"id="userEmail"  >
+                   
+                    @Model.User.Email
+                </li>
 
             </ul>
         </div>
-        <script></script>
+    <script>
+      
+   
+    </script>
     </body>
 </html>

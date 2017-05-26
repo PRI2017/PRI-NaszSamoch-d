@@ -57,6 +57,15 @@
                 'content': {templateUrl: 'UserPage/UserStatistics'}
             }
         };
+        var logOff = {
+            name: 'User/LogOff',
+            url: '/User/LogOff',
+            controller: 'LogOffController'
+            //views: {
+            //    'header': { templateUrl: 'Account/LogOff' },
+            //    'content': { templateUrl: 'Account/LogOff' }
+            //}
+        };
 
 
         $stateProvider.state(userPageState);
@@ -64,6 +73,11 @@
         $stateProvider.state(userFriends);
         $stateProvider.state(userGallery);
         $stateProvider.state(userStatistics);
-         
+        $stateProvider.state(logOff);
     }
-  ]);
+    ]).controller('LogOffController', ['$scope', function ($scope) {
+        $scope.LogOff = function() {
+            window.location.replace("/Account/LogOff");
+        }
+
+    }])
