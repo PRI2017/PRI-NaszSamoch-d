@@ -254,7 +254,10 @@
     <Compile Include="MobileAuthentication\KeysHolder.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\GalleryController.cs" />
+    <Compile Include="Models\PhotoModel.cs" />
     <Compile Include="Models\POI.cs" />
+    <Compile Include="Models\UserGallery.cs" />
     <Compile Include="Utilities\Coordinates.cs" />
     <Compile Include="Models\RouteModel.cs" />
     <Compile Include="Models\VehicleModels.cs" />
@@ -5975,6 +5978,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\BackPhoto\" />
+    <Folder Include="Views\Gallery\" />
     <Folder Include="Views\PostPhot\" />
     <Folder Include="Views\RouteStatistics\" />
   </ItemGroup>
