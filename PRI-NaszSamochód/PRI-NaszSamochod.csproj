@@ -224,6 +224,7 @@
     <Compile Include="Content\node_modules\node-gyp\lib\Find-VS2017.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BackPhotoController.cs" />
+    <Compile Include="Controllers\GalleryPhotoController.cs" />
     <Compile Include="Controllers\GroupsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -249,12 +250,16 @@
     <Compile Include="Migrations\201705260644301_GuidForAdmin.Designer.cs">
       <DependentUpon>201705260644301_GuidForAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705261819585_GalleryModel.cs" />
+    <Compile Include="Migrations\201705261819585_GalleryModel.Designer.cs">
+      <DependentUpon>201705261819585_GalleryModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MobileAuthentication\CryptoRSA.cs" />
     <Compile Include="MobileAuthentication\KeysHolder.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
-    <Compile Include="Models\GalleryController.cs" />
+    <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Models\PhotoModel.cs" />
     <Compile Include="Models\POI.cs" />
     <Compile Include="Models\UserGallery.cs" />
@@ -5978,6 +5983,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\BackPhoto\" />
+    <Folder Include="Views\GalleryPhoto\" />
     <Folder Include="Views\Gallery\" />
     <Folder Include="Views\PostPhot\" />
     <Folder Include="Views\RouteStatistics\" />
@@ -6014,6 +6020,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705260644301_GuidForAdmin.resx">
       <DependentUpon>201705260644301_GuidForAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705261819585_GalleryModel.resx">
+      <DependentUpon>201705261819585_GalleryModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
