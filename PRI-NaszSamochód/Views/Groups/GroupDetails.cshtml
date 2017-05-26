@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="~/Content/css/groups.css" />
         <title>Dodaj nową grupę</title>
 
-    <title>Dodaj nową grupę</title>
+    <title>Szczegóły</title>
 
 </head>
 <body>
@@ -19,18 +19,18 @@
 
     <div>
         <label>Opis: </label>
-        <label>@Html.ViewData.Model.Description</label>
+        <label>@Model.Description</label>
     </div>
 
     <div>
         <label>Temat: </label>
-        <label>@Html.ViewData.Model.Theme</label>
+        <label>@Model.Theme</label>
     </div>
     <div>
         <label>Członkowie: </label>
-        @foreach(var i in @Html.ViewData.Model.Members)
+        @foreach(var i in Model.Members)
         {
-            <label>@i.Name</label>
+            <label>@i.User.Name</label>
         }
     </div>
     @section Scripts {

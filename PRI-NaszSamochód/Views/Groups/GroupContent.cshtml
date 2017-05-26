@@ -16,7 +16,7 @@
     @Scripts.Render("~/Content/node_modules/jscroll/jquery.jscroll.min.js")
 
 
-    <title>Profil użytkownika</title>
+    <title>GroupContent</title>
 </head>
 
 <body>
@@ -24,21 +24,20 @@
         <div class="wall-flex">
             @foreach (var post in Model.LatestPosts)
             {
-            <div class="post">
-                <div class="postHeader">
-                    <ul>
-                        <li><div class="userProfilePhoto userProfilePhotoSmall"></div></li>
-                        <li><p>@post.Creator.Name<p></li>
-                        <li><p>1 godz.</p></li>
-                    </ul>
+                <div class="post">
+                    <div class="postHeader">
+                        <ul>
+                            <li><div class="userProfilePhoto userProfilePhotoSmall">@post.CreatorPhoto</div></li>
+                            <li><p>@post.Creator.Name<p></li>
+                            <li><p>1 godz.</p></li>
+                        </ul>
+                    </div>
+                    <div class="postContent">
+                        <p class="postText">@post.Text</p>
+                    </div>
+                    <button class="btn-success btn-like">Poleć!</button>
                 </div>
-                <div class="postContent">
-                    <p class="postText">@post.Text</p>
-                </div>
-                <button class="btn-success btn-like">Poleć!</button>
-            </div>
             }
-
         </div>
 
     </div>

@@ -54,6 +54,11 @@ namespace PRI_NaszSamochód.Controllers
             {
                 return HttpNotFound();
             }
+            //if (gvm.LatestPosts.Capacity != 0)
+            //{
+            //    return View(gvm);
+            //}
+            //gvm.LatestPosts.Add(new PostViewModel(new PostModel()));
             return View(gvm);
         }
 
@@ -65,11 +70,12 @@ namespace PRI_NaszSamochód.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             GroupModel group = _context.Groups.Find(id);
+            GroupViewModel gvm = new GroupViewModel(group);
             if (group == null)
             {
                 return HttpNotFound();
             }
-            return View(group);
+            return View(gvm);
         }
 
         // POST: Groups/Create

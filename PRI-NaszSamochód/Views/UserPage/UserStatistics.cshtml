@@ -1,4 +1,5 @@
-﻿
+﻿@using PRI_NaszSamochód.Models;
+@model VehicleStatisticsModel
 
 <!DOCTYPE html>
 <html>
@@ -26,7 +27,7 @@
                         data: [
                             {
                                 type: "spline", //change it to line, area, column, pie, etc
-                                dataPoints: [@Html.Raw(ViewBag.DataPoints)]
+                                dataPoints: @Html.Raw(ViewBag.DataPoints)
                             }
                         ]
                     };

@@ -27,7 +27,6 @@ namespace PRI_NaszSamochód.Models
     public class AdministratorModel
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string Id { get; set; }
         public ApplicationUser User { get; set; }
 
@@ -38,7 +37,7 @@ namespace PRI_NaszSamochód.Models
 
         public AdministratorModel(ApplicationUser user)
         {
-            Guid guid = new Guid();
+            Guid guid = Guid.NewGuid();
             Id = guid.ToString();
             User = user;
         }
