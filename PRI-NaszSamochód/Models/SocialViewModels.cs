@@ -42,9 +42,13 @@ namespace PRI_NaszSamochód.Models
         {
             Creator = post.Creator;
             Text = post.Text;
-            post.Comments.Map
+            
+           
+                
+          
+            post.Comments?.Map
                 (comment => Comments.Add(new CommentViewModel(comment)));
-            Likes = post.Likes.ToList();
+            Likes = post.Likes?.ToList();
             CreatorPhoto = "/ProfPhoto?userId=" + Creator.Id;
         }
     }
