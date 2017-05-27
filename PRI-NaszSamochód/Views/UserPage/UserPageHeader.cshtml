@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <base href="/">
 
     @*JQuery*@
     <script src="~/Content/node_modules/jquery/dist/jquery.min.js"></script>
@@ -50,8 +50,12 @@
                   id="my-awesome-dropzone" style="display: none" class="dropzone">
             </form>
         </div>
-
+        @*TO DO: change <a href></a>*@
         <ul class="nav" id="userPageNav">
+            @*<li><a ui-sref="User/Info" ui-sref-active="active"><a href="/@Model.User.Name-@Model.User.Surname/Info">Informacje</a></a></li>
+            <li><a ui-sref="User/Friends" ui-sref-active="active"><a href="/@Model.User.Name-@Model.User.Surname/Friends">Znajomi</a></a></li>
+            <li><a ui-sref="User/Gallery" ui-sref-active="active"><a href="/@Model.User.Name-@Model.User.Surname/Gallery">Galeria</a></a></li>
+            <li><a ui-sref="User/Statistics" ui-sref-active="active"><a href="/@Model.User.Name-@Model.User.Surname/Statistics">Statystyki</a></a></li>*@
             <li><a ui-sref="User/Info" ui-sref-active="active">Informacje</a></li>
             <li><a ui-sref="User/Friends" ui-sref-active="active">Znajomi</a></li>
             <li><a ui-sref="User/Gallery" ui-sref-active="active">Galeria</a></li>

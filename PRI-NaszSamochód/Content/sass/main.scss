@@ -31,6 +31,15 @@ ul.nav {
             text-decoration: none;
         }
 
+        &.search {
+            /*align-self: flex-start;*/
+            input[type=search] {
+                border: 2px solid #ffcaa5;
+                border-radius: 10px;
+                color: $color5;
+            }
+        }
+
 
         &:hover {
             background-color: $color1Hover;

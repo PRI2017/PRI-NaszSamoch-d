@@ -29,19 +29,11 @@
     }
 
     ul.nav {
-        justify-content: flex-end;
         background-color: $color1;
         height: auto;
         width: auto;
         margin-bottom: 0;
-
-        li.search {
-            input[type=search] {
-                border: 2px solid #ffcaa5;
-                border-radius: 10px;
-                color: $color5;
-            }
-        }
+        justify-content: flex-end;
     }
 
     .child-flex {

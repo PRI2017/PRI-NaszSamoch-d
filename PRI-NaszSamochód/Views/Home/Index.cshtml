@@ -2,7 +2,7 @@
     <head>
         <title>Strona domowa</title>
         <meta charset="UTF-8">
-
+        @*<base href="/">*@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="~/Content/css/main.css">
         <link rel="stylesheet" href="~/Content/css/index.css">
@@ -37,7 +37,7 @@
         <script src="//unpkg.com/angular-ui-router@1.0.0-beta.3/release/angular-ui-router.js"></script>
 
         <script src="~/Content/js/angularScripts/app.module.js"></script>
-        @*<script src="~/Content/js/angularScripts/app.config.js"></script>*@
+        <script src="~/Content/js/angularScripts/app.config.js"></script>
         @*<script src="~/Content/js/angularScripts/WallSwitcherController.js"></script>*@
 
     </head>
@@ -45,10 +45,12 @@
         <div class="main-flex">
       
             <ul class="nav">
-                <li class="search">
-                        <input type="search"/>
-                </li>
-                <li><a ui-sref="User/UserPage({User:@Model.User.Name-@Model.User.Surname})" ui-sref-active="active">  @Model.User.Name @Model.User.Surname  </a></li>
+                
+                <li class="search"><input type="search"/></li>
+                @*TO DO: change <a href></a>*@
+                @*<li><a ui-sref="User/UserPage({User:@Model.User.Name-@Model.User.Surname})" ui-sref-active="active"><a href="/@Model.User.Name-@Model.User.Surname/UserPage">@Model.User.Name @Model.User.Surname</a></a></li>*@
+                <li><a ui-sref="User/UserPage" ui-sref-active="active">@Model.User.Name @Model.User.Surname</a></li>
+
                 <li><a href="#"><div class="fao" id="user"></div></a></li>
                 <li><a href="#"><div class="fao" id="envelope"></div></a></li>
                 <li><a href="#"><div class="fao" id="bell"></div></a></li>
@@ -56,7 +58,6 @@
                         <div ng-controller="LogOffController">
                             <a ng-click ="LogOff()"><div class="fao" id="signout"></div></a>
                         </div>
-                       
                     </div>
                 </li>
             </ul>
@@ -94,17 +95,22 @@
                 </div>
                 <footer><p>Footer</p></footer>
 </div>
-        <script>
+        @*<script>
             angular.module('myApp', ['ui.router']).
   config(['$locationProvider', '$stateProvider', '$urlRouterProvider',
     function config($locationProvider, $stateProvider, $urlRouterProvider) {
 
         $locationProvider.hashPrefix("");
+        
 
         $stateProvider.state('main', {
-            abstract: true,
-            url: '/'
-        });
+            //abstract: true,
+            url: '/',
+            views: {
+            'content': {
+                templateUrl: 'Wall/WallContent'
+            }
+        }});
         var userPageState = {
             name: '{User}/UserPage',
             url: '/{User}/UserPage',
@@ -190,12 +196,14 @@
         $stateProvider.state(userGallery);
         $stateProvider.state(userStatistics);
         $stateProvider.state(logOff);
+        
+        $locationProvider.html5Mode(true);
     }
   ]).controller('LogOffController', ['$scope', function ($scope) {
       $scope.LogOff = function () {
           window.location.replace("/Account/LogOff");
       }
 
-  }]);</script>
+  }]);</script>*@
 </body>
 </html>
