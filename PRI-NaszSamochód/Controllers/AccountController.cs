@@ -150,7 +150,7 @@ namespace PRI_NaszSamochód.Controllers
             {
                 var user = new ApplicationUser
                 {
-                    UserName = model.Email,
+                    UserName = model.Name + model.Surname,
                     Email = model.Email,
                     Surname = model.Surname,
                     Name = model.Name,

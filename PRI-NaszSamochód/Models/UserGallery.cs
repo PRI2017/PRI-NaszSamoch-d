@@ -13,7 +13,7 @@ namespace PRI_NaszSamochód.Models
         public int Id { get; set; }
         public ApplicationUser Owner { get; set; }
 
-       // public VehicleModel Vehicle { get; set; }
+        public VehicleModel Vehicle { get; set; }
 
         public virtual List<PhotoModel> PhotosList { get; set; } 
 
