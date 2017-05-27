@@ -34,6 +34,17 @@
     width: auto;
     margin-bottom: 0;
     justify-content: flex-end; }
+    .main-flex ul.nav li#lilog {
+      padding: 10px; }
+      .main-flex ul.nav li#lilog div#logo {
+        background-image: url("../src/newLogo.png");
+        height: 40px;
+        width: 40px;
+        background-size: cover;
+        padding: 0; }
+      .main-flex ul.nav li#lilog:hover {
+        background-color: rgba(255, 255, 255, 0);
+        /*cursor: pointer;*/ }
   .main-flex .child-flex {
     display: flex;
     flex-direction: row;

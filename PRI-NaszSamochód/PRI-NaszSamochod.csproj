@@ -3852,6 +3852,7 @@
     <Content Include="Content\src\loading.gif" />
     <Content Include="Content\src\loginBackground.jpeg" />
     <Content Include="Content\src\loginBackgroundblured.jpeg" />
+    <Content Include="Content\src\newLogo.png" />
     <Content Include="Content\src\no-pic-avatar.jpg" />
     <Content Include="Content\src\preview.jpg" />
     <Content Include="Content\src\preview1.jpg" />
