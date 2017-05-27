@@ -20,6 +20,6 @@ namespace PRI_NaszSamochód.Models
         public DbSet<GroupModel> Groups { get; set; }
         public DbSet<VehicleModel> Vehicles { get; set; }
         public DbSet<RouteModel> Routes { get; set; }
-
+        public DbSet<UserGalleryModel> Galleries { get; set; }
     }
 }

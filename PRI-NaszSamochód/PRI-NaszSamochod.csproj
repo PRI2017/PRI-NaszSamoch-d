@@ -47,6 +47,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AttributeRouting, Version=3.5.6.0, Culture=neutral, PublicKeyToken=c10f85d521a011a9, processorArchitecture=MSIL">
+      <HintPath>..\packages\AttributeRouting.Core.3.5.6\lib\net40\AttributeRouting.dll</HintPath>
+    </Reference>
+    <Reference Include="AttributeRouting.Web, Version=3.5.6.0, Culture=neutral, PublicKeyToken=c10f85d521a011a9, processorArchitecture=MSIL">
+      <HintPath>..\packages\AttributeRouting.Core.Web.3.5.6\lib\net40\AttributeRouting.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="AttributeRouting.Web.Mvc, Version=3.5.6.0, Culture=neutral, PublicKeyToken=c10f85d521a011a9, processorArchitecture=MSIL">
+      <HintPath>..\packages\AttributeRouting.3.5.6\lib\net40\AttributeRouting.Web.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.1.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.1\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
@@ -120,6 +129,9 @@
     <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivator, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivator.1.0.0.0\lib\WebActivator.dll</HintPath>
     </Reference>
     <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
       <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
@@ -214,6 +226,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AttributeRoutingConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -224,6 +237,7 @@
     <Compile Include="Content\node_modules\node-gyp\lib\Find-VS2017.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BackPhotoController.cs" />
+    <Compile Include="Controllers\GalleryPhotoController.cs" />
     <Compile Include="Controllers\GroupsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -249,16 +263,23 @@
     <Compile Include="Migrations\201705260644301_GuidForAdmin.Designer.cs">
       <DependentUpon>201705260644301_GuidForAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201705270930550_mig.cs" />
-    <Compile Include="Migrations\201705270930550_mig.Designer.cs">
-      <DependentUpon>201705270930550_mig.cs</DependentUpon>
+    <Compile Include="Migrations\201705261819585_GalleryModel.cs" />
+    <Compile Include="Migrations\201705261819585_GalleryModel.Designer.cs">
+      <DependentUpon>201705261819585_GalleryModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705270944037_GalleryV2.cs" />
+    <Compile Include="Migrations\201705270944037_GalleryV2.Designer.cs">
+      <DependentUpon>201705270944037_GalleryV2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MobileAuthentication\CryptoRSA.cs" />
     <Compile Include="MobileAuthentication\KeysHolder.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Controllers\GalleryController.cs" />
+    <Compile Include="Models\PhotoModel.cs" />
     <Compile Include="Models\POI.cs" />
+    <Compile Include="Models\UserGallery.cs" />
     <Compile Include="Utilities\Coordinates.cs" />
     <Compile Include="Models\RouteModel.cs" />
     <Compile Include="Models\VehicleModels.cs" />
@@ -5979,6 +6000,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\BackPhoto\" />
+    <Folder Include="Views\GalleryPhoto\" />
+    <Folder Include="Views\Gallery\" />
     <Folder Include="Views\PostPhot\" />
     <Folder Include="Views\RouteStatistics\" />
   </ItemGroup>
@@ -6015,8 +6038,11 @@
     <EmbeddedResource Include="Migrations\201705260644301_GuidForAdmin.resx">
       <DependentUpon>201705260644301_GuidForAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705270930550_mig.resx">
-      <DependentUpon>201705270930550_mig.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705261819585_GalleryModel.resx">
+      <DependentUpon>201705261819585_GalleryModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705270944037_GalleryV2.resx">
+      <DependentUpon>201705270944037_GalleryV2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
