@@ -19,11 +19,6 @@ namespace PRI_NaszSamochód
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
 
-            routes.MapRoute(
-                name: "Default",
-                url: "app/{angular}",
-                defaults: new { controller = "Ng", action = "Index", angular = UrlParameter.Optional }
-            );
 
         }
     }
