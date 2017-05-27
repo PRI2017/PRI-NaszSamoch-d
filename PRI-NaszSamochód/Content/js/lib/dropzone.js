@@ -1761,7 +1761,6 @@
       return Dropzone.discover();
     }
   };
- 
   contentLoaded(window, Dropzone._autoDiscoverFunction);
 
 }).call(this);

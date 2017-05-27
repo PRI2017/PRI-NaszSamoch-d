@@ -5,6 +5,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="~/Content/css/main.css" />
+    <link rel="stylesheet" href="~/Content/css/groups.css" />
     <title>Dodaj nową grupę</title>
 
 </head>
@@ -15,19 +16,19 @@
     {
         @Html.AntiForgeryToken()
 
-        <ul>
+        <ul class="addNewGroup">
             <li>
-                <label>Nazwa grupy: </label>
+                <p>Nazwa grupy: </p>
                 @Html.TextBoxFor(m => m.GroupName)
             </li>
         
             <li>
-                <label>Opis: </label>
+                <p>Opis: </p>
                 @Html.TextBoxFor(m => m.Description)
             </li>
 
             <li>
-                <label>Temat: </label>
+                <p>Temat: </p>
                 @Html.TextBoxFor(m => m.GroupTheme)
             </li>
 

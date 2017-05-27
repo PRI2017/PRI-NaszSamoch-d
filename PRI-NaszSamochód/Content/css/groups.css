@@ -1,0 +1,14 @@
+/*main palette*/
+/*orange*/
+/*light gray*/
+/*dark gray*/
+/*for textboxex in login layout*/
+@import url("https://fonts.googleapis.com/css?family=Dancing+Script");
+ul.addNewGroup {
+  list-style: none;
+  display: flex;
+  flex-direction: column; }
+  ul.addNewGroup li input {
+    border: 1px solid #cccccc;
+    padding: 0.625rem;
+    margin: 0.625rem; }

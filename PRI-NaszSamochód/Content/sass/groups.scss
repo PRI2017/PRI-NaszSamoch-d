@@ -1,1 +1,14 @@
-﻿
+﻿@import 'palette.scss';
+
+ul.addNewGroup {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+
+    li input{
+        border: 1px solid $color2;
+        padding: $tenPx;
+        margin: $tenPx;
+    }
+}
+

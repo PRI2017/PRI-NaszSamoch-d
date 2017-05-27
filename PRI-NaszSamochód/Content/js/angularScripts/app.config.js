@@ -57,6 +57,15 @@
                 'content': {templateUrl: 'UserPage/UserStatistics'}
             }
         };
+
+        var addNewGroup = {
+            name: 'Groups/AddNewGroup',
+            url: '/Groups/AddNewGroup',
+            views: {
+                'header': { templateUrl: 'Groups/GroupHeader' },
+                'content': { templateUrl: 'Groups/AddNewGroup' }
+            }
+        };
         var logOff = {
             name: 'User/LogOff',
             url: '/User/LogOff',
@@ -73,6 +82,7 @@
         $stateProvider.state(userFriends);
         $stateProvider.state(userGallery);
         $stateProvider.state(userStatistics);
+        $stateProvider.state(addNewGroup);
         $stateProvider.state(logOff);
     }
     ]).controller('LogOffController', ['$scope', function ($scope) {
