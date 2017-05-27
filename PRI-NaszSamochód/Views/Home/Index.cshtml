@@ -1,101 +1,117 @@
-﻿
+﻿@using PRI_NaszSamochód.Models;
+@model ProfileViewModel
+
 <html>
-    <head>
-        <title>Strona domowa</title>
-        <meta charset="UTF-8">
+<head>
+    <title>Strona domowa</title>
+    <meta charset="UTF-8">
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="~/Content/css/main.css">
-        <link rel="stylesheet" href="~/Content/css/index.css">
-      
-        @*JQuery*@
-        <script src="~/Content/node_modules/jquery/dist/jquery.min.js"></script>
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/css/main.css">
+    <link rel="stylesheet" href="~/Content/css/index.css">
 
-        @*Dropzone*@
-        <script src="~/Content/js/lib/dropzone.js"></script>
-        <link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">
+    @*JQuery*@
+    <script src="~/Content/node_modules/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-        @*Angular*@
-        @*<script src="~/Content/node_modules/angular/angular.js"></script>
+    @*Dropzone*@
+    <script src="~/Content/js/lib/dropzone.js"></script>
+    <link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">
+
+    @*Angular*@
+    @*<script src="~/Content/node_modules/angular/angular.js"></script>
         <script src="~/Content/node_modules/angular-animate/angular-animate.js"></script>
         @*<script src="~/Content/node_modules/angular-sanitize/angular-sanitize.js"></script>*@
-        @*<script src="//unpkg.com/show-current-browser-url"></script>
+    @*<script src="//unpkg.com/show-current-browser-url"></script>
         <script data-require="angular.js@1.5.10" data-semver="1.5.10" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.10/angular.min.js"></script>
         <script data-require="angular-router@1.2.0-rc1" data-semver="1.2.0-rc1" src="https://code.angularjs.org/1.2.0rc1/angular-route.js"></script>
         <script src="//unpkg.com/angular-ui-router@1.0.0-beta.3/release/angular-ui-router.js"></script>*@
-        @*<script src="~/Content/node_modules/angular-route/angular-route.js"></script>*@
-        @*<script src="https://code.angularjs.org/1.5.10/angular-route.min.js"></script>*@
+    @*<script src="~/Content/node_modules/angular-route/angular-route.js"></script>*@
+    @*<script src="https://code.angularjs.org/1.5.10/angular-route.min.js"></script>*@
 
-        @*<script data-require="angular.js@1.5.10" data-semver="1.5.10" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.10/angular.min.js"></script>
-    <script src="https://code.angularjs.org/1.5.10/angular-route.min.js"></script>
-    <script data-require="angular-router@1.2.0-rc1" data-semver="1.2.0-rc1" src="https://code.angularjs.org/1.2.0rc1/angular-route.js"></script>
-    <script src="//unpkg.com/angular-ui-router@1.0.0-beta.3/release/angular-ui-router.js"></script>*@
-        @*<script src="//unpkg.com/show-current-browser-url"></script>*@
-        <script src="//unpkg.com/angular@1.5/angular.js"></script>
-        <script src="//unpkg.com/angular-ui-router@1.0.0-beta.3/release/angular-ui-router.js"></script>
+    @*<script data-require="angular.js@1.5.10" data-semver="1.5.10" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.10/angular.min.js"></script>
+        <script src="https://code.angularjs.org/1.5.10/angular-route.min.js"></script>
+        <script data-require="angular-router@1.2.0-rc1" data-semver="1.2.0-rc1" src="https://code.angularjs.org/1.2.0rc1/angular-route.js"></script>
+        <script src="//unpkg.com/angular-ui-router@1.0.0-beta.3/release/angular-ui-router.js"></script>*@
+    @*<script src="//unpkg.com/show-current-browser-url"></script>*@
+    <script src="//unpkg.com/angular@1.5/angular.js"></script>
+    <script src="//unpkg.com/angular-ui-router@1.0.0-beta.3/release/angular-ui-router.js"></script>
 
-        <script src="~/Content/js/angularScripts/app.module.js"></script>
-        @*<script src="~/Content/js/angularScripts/app.config.js"></script>*@
-        @*<script src="~/Content/js/angularScripts/WallSwitcherController.js"></script>*@
+    <script src="~/Content/js/angularScripts/app.module.js"></script>
+    @*<script src="~/Content/js/angularScripts/app.config.js"></script>*@
+    @*<script src="~/Content/js/angularScripts/WallSwitcherController.js"></script>*@
 
-    </head>
-    <body ng-app="myApp">
-        <div class="main-flex">
-      
-            <ul class="nav">
-                <li class="search">
-                        <input type="search"/>
-                </li>
-                <li><a ui-sref="User/UserPage({User:@Model.User.Name-@Model.User.Surname})" ui-sref-active="active">  @Model.User.Name @Model.User.Surname  </a></li>
-                <li><a href="#"><div class="fao" id="user"></div></a></li>
-                <li><a href="#"><div class="fao" id="envelope"></div></a></li>
-                <li><a href="#"><div class="fao" id="bell"></div></a></li>
-                <li><div class="dropdown">
-                        <div ng-controller="LogOffController">
-                            <a ng-click ="LogOff()"><div class="fao" id="signout"></div></a>
-                        </div>
-                       
+</head>
+<body ng-app="myApp">
+    <div class="main-flex">
+
+        <ul class="nav">
+            <li class="search">
+                <input type="search" />
+            </li>
+            <li><a ui-sref="User/UserPage({User:@Model.User.Name-@Model.User.Surname})" ui-sref-active="active">  @Model.User.Name @Model.User.Surname  </a></li>
+            <li><a href="#"><div class="fao" id="user"></div></a></li>
+            <li><a href="#"><div class="fao" id="envelope"></div></a></li>
+            <li><a href="#"><div class="fao" id="bell"></div></a></li>
+            <li>
+                <div class="dropdown">
+                    <div ng-controller="LogOffController">
+                        <a ng-click="LogOff()"><div class="fao" id="signout"></div></a>
                     </div>
-                </li>
-            </ul>
-            
-                <header>
-                    <div ui-view name="header"></div>
-                    <p id="headerPar"></p>
-                </header>
 
-                <div class="child-flex">
-
-                    <aside id="nav">
-                        <ul>
-                            <li><a href="#">Znajomi</a></li>
-                            <li><a href="#">Wiadomości</a></li>
-                            <li><a href="#Groups/AddNewGroup" id="addNewGroupClicker">Utwórz nową grupę</a></li>
-                            <li>
-                                <select name="groups">
-                                    <option value="default" selected>Twoje grupy: </option>
-                                    <option value="group1">Volvo fajne jest</option>
-                                    <option value="group2">Fiat</option>
-                                </select>
-                            </li>
-                        </ul>
-                    </aside>
-
-                    <aside id="chat">
-                        <p>PANEL</p>
-                    </aside>
-                    @*<div class="wall" ng-include="'UserPage/UserPageContent'">*@
-                    <div class="wall" @*ng-controller="WallSwitcherController"*@>
-                        @*<ng-include src="getContent()"></ng-include>*@
-                        <div ui-view name="content"></div>
-                        </div>
                 </div>
-                <footer><p>Footer</p></footer>
-</div>
-        <script>
+            </li>
+        </ul>
+
+        <header>
+            <div ui-view name="header"></div>
+            <p id="headerPar"></p>
+        </header>
+
+        <div class="child-flex">
+
+            <aside id="nav">
+                <ul>
+                    <li><a href="#">Znajomi</a></li>
+                    <li><a href="#">Wiadomości</a></li>
+                    <li><a href="../Groups/AddNewGroup" id="addNewGroupClicker">Utwórz nową grupę</a></li>
+                    <li>
+                        <select name="groups">
+                            <option value="default" selected>Twoje grupy: </option>
+                            @try
+                            {
+                                foreach (var i in Model.UserGroups.GetGroupViewModels())
+                                {
+                                    if (i.Admin.User.Id == @Model.User.Id)
+                                    {
+                                        <option value="group1">@i.Name</option>
+                                    }
+                                }
+                            }
+                            catch (Exception)
+                            {
+                                <option value="group1">Volvo fajne jest</option>
+                                <option value="group2">Fiat</option>
+                            }
+                        </select>
+                    </li>
+                </ul>
+            </aside>
+
+            <aside id="chat">
+                <p>PANEL</p>
+            </aside>
+            @*<div class="wall" ng-include="'UserPage/UserPageContent'">*@
+            <div class="wall" @*ng-controller="WallSwitcherController"*@>
+                @*<ng-include src="getContent()"></ng-include>*@
+                <div ui-view name="content"></div>
+            </div>
+        </div>
+        <footer><p>Footer</p></footer>
+    </div>
+    <script>
             angular.module('myApp', ['ui.router']).
   config(['$locationProvider', '$stateProvider', '$urlRouterProvider',
     function config($locationProvider, $stateProvider, $urlRouterProvider) {

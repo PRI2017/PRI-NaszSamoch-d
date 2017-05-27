@@ -278,6 +278,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Controllers\GalleryController.cs" />
+    <Compile Include="Models\GroupViewModelList.cs" />
     <Compile Include="Models\PhotoModel.cs" />
     <Compile Include="Models\POI.cs" />
     <Compile Include="Models\UserGallery.cs" />
