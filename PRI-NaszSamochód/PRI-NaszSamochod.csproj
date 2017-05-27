@@ -237,6 +237,7 @@
     <Compile Include="Content\node_modules\node-gyp\lib\Find-VS2017.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BackPhotoController.cs" />
+    <Compile Include="Controllers\FriendsController.cs" />
     <Compile Include="Controllers\GalleryPhotoController.cs" />
     <Compile Include="Controllers\GroupsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -6001,6 +6002,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\BackPhoto\" />
+    <Folder Include="Views\Friends\" />
     <Folder Include="Views\GalleryPhoto\" />
     <Folder Include="Views\Gallery\" />
     <Folder Include="Views\PostPhot\" />

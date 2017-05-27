@@ -17,6 +17,7 @@ using PRI_NaszSamochód.Models;
 
     
     [System.Web.Mvc.HttpPost]
+    [POST("Gallery/")]
     public void Add()
         {
 
