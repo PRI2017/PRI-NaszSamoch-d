@@ -5998,7 +5998,7 @@
     <Content Include="Views\Wall\WallContent.cshtml" />
     <Content Include="Views\Wall\WallHeader.cshtml" />
     <Content Include="Views\Groups\GroupDetails.cshtml" />
-    <Content Include="Views\Wall\AddPost.cshtml" />
+    <Content Include="Views\Wall\AddPostView.cshtml" />
     <Content Include="Views\Account\LogOut.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -6009,7 +6009,6 @@
     <Folder Include="Views\Gallery\" />
     <Folder Include="Views\PostPhot\" />
     <Folder Include="Views\RouteStatistics\" />
-    <Folder Include="Views\UserStatistics\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

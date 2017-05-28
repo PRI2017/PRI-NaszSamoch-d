@@ -6,8 +6,6 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using PRI_NaszSamochod;
 using PRI_NaszSamochód.Models;
-using Newtonsoft.Json;
-using PRI_NaszSamochód.Utilities;
 
 namespace PRI_NaszSamochód.Controllers
 {   [Authorize]
@@ -28,7 +26,10 @@ namespace PRI_NaszSamochód.Controllers
         [AllowAnonymous]
         public ActionResult UserPageContent()
         {
-            return View();
+            var curUserId = User.Identity.GetUserId();
+            return View(new PostViewModelList(ApplicationDbContext.Create().Posts
+                .Where(p => p.Creator.Id == curUserId )
+                .Take(15).ToList()));
         }
         [AllowAnonymous]
         public ActionResult UserInfo()
@@ -37,19 +38,10 @@ namespace PRI_NaszSamochód.Controllers
             ProfileViewModel model = new ProfileViewModel(ApplicationDbContext.Create().Users.Single(u => u.Id == id));
             return View(model);
         }
-        public ActionResult UserStatistics(int? vId)
+        public ActionResult UserStatistics()
         {
             String id = User.Identity.GetUserId();
             ProfileViewModel model = new ProfileViewModel(ApplicationDbContext.Create().Users.Single(u => u.Id == id));
-            //List<DataPoint> chartPoints = new List<DataPoint>();
-
-            //for(int i = 0; i < 10; ++i)
-            //{
-            //    chartPoints.Add(new DataPoint(i, i+1));
-            //}
-
-            //ViewBag.DataPoints = JsonConvert.SerializeObject(chartPoints);
-            //return View(chartPoints);
             return View();
         }
         public ActionResult UserFriends()
@@ -65,13 +57,7 @@ namespace PRI_NaszSamochód.Controllers
             return View(model);
         }
 
-        public ActionResult UserPosts()
-        {
-            return View(new PostViewModelList(ApplicationDbContext.Create().Posts
-                .Where(p => p.Creator.Id == User.Identity.GetUserId())
-                .Take(15).ToList()));
-
-        }
+       
 
         [HttpPost]
         public void AddPost(PostModel post)

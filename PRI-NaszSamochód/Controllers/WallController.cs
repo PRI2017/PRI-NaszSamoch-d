@@ -8,7 +8,7 @@ using Microsoft.AspNet.Identity;
 using PRI_NaszSamochód.Models;
 
 namespace PRI_NaszSamochód.Controllers
-{
+{   [Authorize]
     public class WallController : Controller
     {
        
@@ -32,6 +32,22 @@ namespace PRI_NaszSamochód.Controllers
             return View(new PostViewModelList(posts));
         }
 
-       
+
+        public ActionResult AddPostView()
+        {
+            return View();
+        }
+        [HttpPost]
+        public void AddPost(PostModel post)
+        {
+            
+           var db =  ApplicationDbContext.Create();
+            post.Added = DateTime.Now;
+            post.Creator = db.Users.Find(User.Identity.GetUserId());
+            db.Posts.Add(post);
+            db.SaveChanges();
+        }
+
+
     }
 }
