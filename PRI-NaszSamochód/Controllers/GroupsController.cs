@@ -90,7 +90,6 @@ namespace PRI_NaszSamochód.Controllers
                     string userId = User.Identity.GetUserId();
                     ApplicationUser admin = _context.Users.Where(x => x.Id.Equals(userId)).FirstOrDefault();
                     model.Administrator = new AdministratorModel(admin);
-                    //model.Administrator.IsAdmin = true;
                     _context.Groups.Add(model);
                     _context.SaveChanges();
                     return RedirectToAction("Index");

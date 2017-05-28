@@ -6008,6 +6008,7 @@
     <Folder Include="Views\Gallery\" />
     <Folder Include="Views\PostPhot\" />
     <Folder Include="Views\RouteStatistics\" />
+    <Folder Include="Views\UserStatistics\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
