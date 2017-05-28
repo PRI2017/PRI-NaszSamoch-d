@@ -8,12 +8,12 @@ namespace PRI_NaszSamochód.Utilities
     public class DataPoint
     {
         [DataMember(Name = "x")]
-        public Nullable<DateTime> X = null;
+        public Nullable<double> X = null;
 
         [DataMember(Name = "y")]
         public Nullable<double> Y = null;
 
-        public DataPoint(DateTime x, double y)
+        public DataPoint(double x, double y)
         {
             this.X = x;
             this.Y = y;

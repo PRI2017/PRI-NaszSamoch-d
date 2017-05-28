@@ -12,9 +12,9 @@ namespace PRI_NaszSamochód.Models
             User = user;
             ProfilePhotoUrl = "/ProfPhoto?userId=" + user.Id;
             BackPhotoUrl = "/BackPhoto?userId=" + user.Id;
-            UserGroups = new GroupViewModelList(ApplicationDbContext.Create().Groups.
-                Where(g => g.Administrator.User.Id == user.Id).
-                ToList());
+            UserGroups = new GroupViewModelList((from g in ApplicationDbContext.Create().Groups.Include("Administrator.User")
+                                                 where g.Administrator.User.Id == user.Id
+                                                 select g).ToList());
         }
 
 

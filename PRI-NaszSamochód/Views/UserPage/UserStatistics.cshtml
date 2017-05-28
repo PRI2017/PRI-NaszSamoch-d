@@ -1,22 +1,23 @@
 ﻿@using PRI_NaszSamochód.Models;
-@model VehicleStatisticsModel
+@using PRI_NaszSamochód.Utilities;
+@model List<DataPoint>
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="~/Content/css/main.css" />
-        <title>Statystyki</title>
-        <script src="~/Content/node_modules/jquery/dist/jquery.min.js"></script>
-        <script src="~/Content/node_modules/chart.js/dist/Chart.min.js"></script>
-        @*@Scripts.Render("~/Content/js/chartStuff.js")*@
-    </head>
-    <body>
+<head>
+    <link rel="stylesheet" href="~/Content/css/main.css" />
+    <title>Statystyki</title>
+    <script src="~/Content/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="~/Content/node_modules/chart.js/dist/Chart.min.js"></script>
+    @*@Scripts.Render("~/Content/js/chartStuff.js")*@
+</head>
+<body>
     <h1>Statystyki - simple chart test</h1>
-        <div id="chartTest" style="height: 300px; width: 100%;"></div>
+    @*<div id="chartTest" style="height: 300px; width: 100%;"></div>
         <canvas id="canvas" width="20" height="20"></canvas>
         <script>
-            
-            $.getScript('/Content/js/lib/jquery.canvasjs.min.js',
+
+            $.getScript('http://canvasjs.com/assets/script/canvasjs.min.js',
                 function () {
                     console.log("charts loaded");
                     var options = {
@@ -34,7 +35,36 @@
 
                     $("#chartTest").CanvasJSChart(options);
                 });
+            chart.render();
+        </script>*@
 
-        </script>
-    </body>
+    <div id="chartContainer"></div>
+
+    <script type="text/javascript" src="http://canvasjs.com/assets/script/canvasjs.min.js">
+	var result = @Html.Raw(ViewBag.DataPoints);
+	var dataPoints =[];
+	for(var i = 0; i < result.length; i++){
+		dataPoints.push({label:result[i].x, y:result[i].y});
+	}
+
+	$(function () {
+		var chart = new CanvasJS.Chart("chartContainer", {
+			theme: "theme2",
+			zoomEnabled: true,
+			animationEnabled: true,
+			title: {
+				text: "Line Chart with Data-Points from DataBase"
+			},
+			data: [
+			{
+				type: "line",
+
+				dataPoints: dataPoints,
+			}
+			]
+		});
+		chart.render();
+	});
+    </script>
+</body>
 </html>

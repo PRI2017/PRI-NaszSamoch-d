@@ -21,5 +21,9 @@ namespace PRI_NaszSamochód.Models
             _groups.Map(model => GroupViewList.Add(new GroupViewModel(model)));
             return GroupViewList;
         }
+        public List<GroupModel> GetGroupModels()
+        {
+            return _groups;
+        }
     }
 }
