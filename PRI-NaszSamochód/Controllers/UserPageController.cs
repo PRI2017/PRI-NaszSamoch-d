@@ -61,5 +61,11 @@ namespace PRI_NaszSamochód.Controllers
                 .Take(15).ToList()));
 
         }
+
+        [HttpPost]
+        public void AddPost(PostModel post)
+        {
+            
+        }
     }
 }
