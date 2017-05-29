@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using PRI_NaszSamochod;
 using PRI_NaszSamochód.Models;
+using PRI_NaszSamochód.Utilities;
+using Newtonsoft.Json;
 
 namespace PRI_NaszSamochód.Controllers
 {   [Authorize]
@@ -40,9 +42,24 @@ namespace PRI_NaszSamochód.Controllers
         }
         public ActionResult UserStatistics()
         {
-            String id = User.Identity.GetUserId();
-            ProfileViewModel model = new ProfileViewModel(ApplicationDbContext.Create().Users.Single(u => u.Id == id));
-            return View();
+            //String id = User.Identity.GetUserId();
+            //ProfileViewModel model = new ProfileViewModel(ApplicationDbContext.Create().Users.Single(u => u.Id == id));
+            //return View();
+            List<DataPoint> chartPoints = new List<DataPoint>();
+            try
+            {
+                //foreach (var item in _context.Vehicles.Find(vId).Statistics)
+                //{
+                //    chartPoints.Add(new DataPoint(item.RecordTime, item.MaxVelocity));
+                //}
+                for (var i = 0; i < 10; i++)
+                {
+                    chartPoints.Add(new DataPoint(i, i-1));
+                }
+            }
+            catch (Exception) { }
+            ViewBag.DataPoints = JsonConvert.SerializeObject(chartPoints);
+            return View(chartPoints);
         }
         public ActionResult UserFriends()
         {
