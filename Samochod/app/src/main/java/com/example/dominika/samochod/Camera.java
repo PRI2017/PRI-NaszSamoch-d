@@ -17,7 +17,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-
+import com.google.gson.JsonObject;
+import com.koushikdutta.async.future.FutureCallback;
+import com.koushikdutta.ion.Ion;
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
@@ -32,12 +34,16 @@ import java.util.Date;
 //KLASA OBSLUGUJACA KAMERKE
 public class Camera extends Fragment {
 
+    String url = "http://naszsamochod.com.pl/galleryphoto/galleryid";
+    String url_check = "http://naszsamochod.com.pl/profphoto/upload";
     private static final int REQUEST_IMAGE_CAPTURE = 1888;
     ImageView image;
     Button button;
+    Button button2;
     private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1888;
     private Uri mImageUri;//
-    String TAG = "cos";
+    String TAG = "blad";
+    File photo;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,7 +52,10 @@ public class Camera extends Fragment {
 
 
         button = (Button) rootView.findViewById(R.id.take_photo);
+        button2 = (Button) rootView.findViewById(R.id.send_photo);
         image = (ImageView) rootView.findViewById(R.id.photo);
+
+        //REAKCJA NA KLIKNIECIE PRZYCISKU ZROB ZDJECIE
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,21 +72,39 @@ public class Camera extends Fragment {
                 }
             }
 
+            //TWORZENIE PLIKU TYMCZASOWEGO
             private File createTemporaryFile(String part, String ext) throws Exception {
-                //File outputDir = getContext().getCacheDir(); // context being the Activity pointer
-                //File outputFile = File.createTempFile("prefix", "extension", outputDir);
 
                 String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
 
                 String imageFileName="JPEG_"+timeStamp+".jpg";
 
-                File photo = new File(Environment.getExternalStorageDirectory(),  imageFileName);
+                photo = new File(Environment.getExternalStorageDirectory(),  imageFileName);
+
 
                 return photo;
             }
         });
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //WYSYLANIE ZDJECIA NA SERWER
+                Ion.with(Camera.this)
+                        .load(url_check)
+                        .setMultipartFile("UploadForm[imageFiles]", photo.getName(), photo)
+                        .asJsonObject()
+                        .setCallback(new FutureCallback<JsonObject>() {
+                            @Override
+                            public void onCompleted(Exception e, JsonObject result) {
+                            }
+                        });
+            }
+        });
         return rootView;
     }
+
+
 
     //WYSWIETLENIE ZDJECIA W IMAGEVIEW
     @Override
@@ -94,6 +121,7 @@ public class Camera extends Fragment {
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(cr, mImageUri);
                 image.setImageBitmap(bitmap);
+
             } catch (IOException e) {
                 e.printStackTrace();
             }

@@ -17,7 +17,7 @@ import java.util.List;
 
 
 //KLASA DO RENDERWONIA ELEMENTOW LISTY
-public class RecycleviewAdapterConv extends RecyclerView.Adapter<RecycleviewAdapterConv.ViewHolder> {
+public class RecycleviewAdapterGroup extends RecyclerView.Adapter<RecycleviewAdapterGroup.ViewHolder> {
 
     List<String> groupList;
 
@@ -67,7 +67,7 @@ public class RecycleviewAdapterConv extends RecyclerView.Adapter<RecycleviewAdap
     }
 
 
-    public RecycleviewAdapterConv(List<String> items) {
+    public RecycleviewAdapterGroup(List<String> items) {
         groupList = items;
     }
 

@@ -105,8 +105,8 @@ public class CryptoRSA extends AppCompatActivity {
     }
 */
 
-    /*public void TestEncDec(String publickey) throws InvalidCipherTextException, NoSuchProviderException, NoSuchAlgorithmException, IOException {
-        String message = "1111111111111";
+    public void TestEncDec(String publickey) throws InvalidCipherTextException, NoSuchProviderException, NoSuchAlgorithmException, IOException {
+        String message = "Testowe1234$";
         //GenerateKeys(2048);
 
         String privkey;
@@ -126,5 +126,5 @@ public class CryptoRSA extends AppCompatActivity {
 
         String deciphered = Decrypt(cipher, getPrivateKey());
         System.out.println("Decrypted message: " + deciphered);
-    }*/
+    }
 }

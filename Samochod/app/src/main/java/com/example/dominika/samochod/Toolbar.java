@@ -1,9 +1,6 @@
 package com.example.dominika.samochod;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 
@@ -27,7 +24,7 @@ public class Toolbar extends AppCompatActivity {
             PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager());
 
             //DODANIE FRAGMENTOW, ODPOWIEDNICH KLAS DO ODPOWIEDNICH KART
-            adapter.addFragment(new Conversation(), "Grupa");
+            adapter.addFragment(new Groups(), "Grupa");
             adapter.addFragment(new Chat(), "Czat");
             adapter.addFragment(new Camera(), "Zdjęcie");
             mViewPager.setAdapter(adapter);

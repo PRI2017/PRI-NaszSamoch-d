@@ -8,7 +8,9 @@
     <string name="log">Logowanie</string>
     <string name="take_photo_string">Zrób zdjęcie</string>
     <string name="register">Nie jesteś zarejestrowany?</string>
-    <string name="link"><a href="http://naszsamochod.azurewebsites.net/Account/Register">Register</a></string>
+    <string name="link"><a href="http://naszsamochod.com.pl/PRI-NaszSamochod/Account/Register">Zarejestruj</a></string>
     <string name="message">Wpisz wiadomosc</string>
     <string name="error">Błąd logowania</string>
+    <string name="send">Wyślij</string>
+    <string name="send_photo">Wyślij zdjęcie</string>
 </resources>

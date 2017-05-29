@@ -2,73 +2,58 @@ package com.example.dominika.samochod;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.LinkMovementMethod;
 import android.util.Base64;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.DefaultRetryPolicy;
-import com.android.volley.NetworkResponse;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.RequestFuture;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
+import com.google.gson.JsonObject;
+import com.koushikdutta.async.future.FutureCallback;
+import com.koushikdutta.ion.Ion;
+import com.koushikdutta.ion.Response;
 
-import org.bouncycastle.asn1.crmf.PKIPublicationInfo;
 import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
 import org.bouncycastle.crypto.util.PublicKeyFactory;
-import org.json.JSONObject;
+
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.CookieHandler;
-import java.net.CookieManager;
-import java.security.NoSuchAlgorithmException;
-import java.security.NoSuchProviderException;
-import java.util.HashMap;
-import java.util.concurrent.ExecutionException;
 
+/**
+ * Created by Dominika on 04.05.2017.
+ */
 
-public class LogIn extends AppCompatActivity {
+public class Login extends AppCompatActivity {
+    String url2 = "http://naszsamochod.com.pl/PRI-NaszSamochod/Mobile/Login";
+    String url = "http://naszsamochod.com.pl/PRI-NaszSamochod/api/publickey";
 
-   /* static final int CAM = 0;
-    NetworkResponse errorRes;
-    String stringData = "";
-    RequestQueue requestQueue;
-    String key;
-    String url2 = "http://naszsamochod.azurewebsites.net/Mobile/Login";
-    String url = "http://naszsamochod.azurewebsites.net/api/publickey";
+    //String url2 = "http://naszsamochod.azurewebsites.net/Mobile/Login";
+    //String url = "http://naszsamochod.azurewebsites.net/api/publickey";
+    //groups/mobilegroup/id             mobilegroup/id
+    //String url2 = "http://192.168.1.184:8080/Mobile/Login";
+    //String url = "http://192.168.1.184:8080/api/publickey";
+    private static Context context;
+    private static String key;
+    AsymmetricKeyParameter key2;
+    private static byte[] password;
+    String password_rsa;
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Login.context = getApplicationContext();
+
         setContentView(R.layout.log_in);
-
-       // final CookieManager manager = new CookieManager();
-        //CookieHandler.setDefault( manager  );
-
-        requestQueue = Volley.newRequestQueue(this);
 
         final EditText emailET = (EditText) findViewById(R.id.email_et);
         final EditText passwordET = (EditText) findViewById(R.id.password_et);
         final Button logIn = (Button) findViewById(R.id.logIn_button);
-
-        final StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
-
 
         //UMOZLIWIENIE KLIKANIA NA LINK ODSYLAJACY DO STRONY Z REJESTRACJA
         TextView mLink;
@@ -79,163 +64,75 @@ public class LogIn extends AppCompatActivity {
         //////
 
 
-
-
-        logIn.setOnClickListener(new View.OnClickListener() {
+        logIn.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View v) {
-                /////////////////////////////////////////////////////////////
 
-                /*RequestFuture<JSONObject> future = RequestFuture.newFuture();
-                JsonObjectRequest request = new JsonObjectRequest(url, new JSONObject(), future, future);
-                requestQueue.add(request);
-
-                try {
-                    JSONObject response = future.get();
-                    System.out.println("KLUCZYK: " + response);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
-                }*/
-
-             /*   StringRequest req = new StringRequest(Request.Method.GET, url,
-                        new Response.Listener<String>() {
-
+                //POBIERANIE KLUCZA
+                Ion.with(context)
+                .load(url)
+                        .asString()
+                        .setCallback(new FutureCallback<String>() {
                             @Override
-                            public void onResponse(String response) {
-                                Log.v("Response:%n %s", response.toString());
-                                //Log.v("Cookies: $s $n", manager.getCookieStore().toString());
+                            public void onCompleted(Exception e, String result) {
+                                key = result;
+                                try {
+                                    key2 = PublicKeyFactory.createKey(Base64.decode(result, Base64.DEFAULT));
+                                } catch (IOException e1) {
+                                    e1.printStackTrace();
+                                } catch (Exception e1) {
+                                    e1.printStackTrace();
+                                }
+                                System.out.println(result);
 
-                                key = response.toString();
+
+                                //KODOWANIE KLUCZA I WYSYLANIE JSONA////////////////////////////////////////////
+                                JsonObject json = new JsonObject();
+                                json.addProperty("Email",  emailET.getText().toString());
+
 
                                 try {
-                                    new CryptoRSA().TestEncDec(key);
-                                } catch (InvalidCipherTextException e) {
-                                    e.printStackTrace();
-                                } catch (NoSuchProviderException e) {
-                                    e.printStackTrace();
-                                } catch (NoSuchAlgorithmException e) {
-                                    e.printStackTrace();
-                                } catch (IOException e) {
-                                    e.printStackTrace();
+                                    password_rsa = new String(Base64.encodeToString((CryptoRSA.Encrypt(passwordET.getText().toString(), key2)),Base64.DEFAULT)).replaceAll("\n", "");
+                                } catch (InvalidCipherTextException e1) {
+                                    e1.printStackTrace();
                                 }
-                                //USUNAC
-                                //Intent intent = new Intent(LogIn.this, Toolbar.class);
-                                //startActivityForResult(intent, CAM);
+                                //dodaje znak \n do json
+                                    json.addProperty("Password",password_rsa);
+                                    System.out.println(password_rsa);
+
+                                json.addProperty("RememberMe",  "false");
+
+                                Ion.with(context)
+                                        .load(url2)
+                                        .setJsonObjectBody(json)
+                                        .asJsonObject()
+                                        .withResponse()
+                                        .setCallback(new FutureCallback<Response<JsonObject>>() {
+                                            @Override
+                                            public void onCompleted(Exception e, Response<JsonObject> result) {
+                                                System.out.println("KOD BLEDU: "+result.getHeaders().code());
+                                                if(result.getHeaders().code() == 200)
+                                                {
+                                                    Intent intent = new Intent(Login.this, Toolbar.class);
+                                                    startActivity(intent);
+                                                }
+                                                else
+                                                {
+                                                    showErrorToast();
+                                                }
+                                            }
+                                        });
                             }
-                        }, new Response.ErrorListener() {
-
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        errorRes = error.networkResponse;
-                        if (errorRes != null && errorRes.data != null) {
-                            try {
-                                stringData = new String(errorRes.data, "UTF-8");
-                                showErrorToast();
-                            } catch (UnsupportedEncodingException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                        Log.e("Error", stringData);
-                    }
-                });
-                odp(req);
-
-
-
-
-
-
-
-
-
-                //WYSLANIE POSTA NA SERWER Z EMAIL I HASLEM
-                final HashMap<String, String> params = new HashMap<String, String>();
-
-
-                if(key!=null)
-                {
-                AsymmetricKeyParameter key2 = null;
-                try {
-                    //NAPRAWIC BO KEY NEI JEST WIDOCZNY W TYM MIEJSCU
-                    key2 = PublicKeyFactory.createKey(Base64.decode(key, Base64.DEFAULT));
-                    System.out.println("Klucz: " + key2);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-                try {
-                    CryptoRSA.Encrypt(passwordET.getText().toString(), key2);
-                } catch (InvalidCipherTextException e) {
-                    e.printStackTrace();
-                }
-                params.put("Email", emailET.getText().toString());
-                params.put("Password", passwordET.getText().toString());
-                params.put("RememberMe", "false");
-
-
-                JsonObjectRequest req2 = new JsonObjectRequest(Request.Method.POST, url2, new JSONObject(params),
-                        new Response.Listener<JSONObject>() {
-
-                            @Override
-                            public void onResponse(JSONObject response) {
-                                Log.v("Response:%n %s", response.toString());
-
-                                //DODAC PO WPROWADZENIU ODPOWIEDNIEGO REQUEST
-                                Intent intent = new Intent(LogIn.this, Conversation.class);
-                                startActivity(intent);
-                            }
-                        }, new Response.ErrorListener() {
-
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        errorRes = error.networkResponse;
-                        if (errorRes != null && errorRes.data != null) {
-                            try {
-                                stringData = new String(errorRes.data, "UTF-8");
-                                showErrorToast();
-                            } catch (UnsupportedEncodingException e) {
-                                e.printStackTrace();
-                            }
-                            Log.e("Error", stringData);
-                        }
-                    }
-                });
-                odp2(req2);
-            }
+                        });
             }
         });
     }
 
-    //WYSWIETLENIE POSTA PRZY NIEUDANEJ PROBIE LOGOWANIA
+
+    //WYSWIETLENIE POSTA PRZY NIEUDANEJ PROBLEM LOGOWANIA
     private void showErrorToast() {
         Toast.makeText(this, R.string.error, Toast.LENGTH_SHORT).show();
     }
-
-
-    //STRING REQUEST
-    private void odp(StringRequest postRequest)
-    {
-        Volley.newRequestQueue(this).add(postRequest);
-    }
-
-    //JSON REQUEST
-    private void odp2(JsonObjectRequest postRequest)
-    {
-        Volley.newRequestQueue(this).add(postRequest);
-    }*/
-
-   /* public AsymmetricKeyParameter DeserializePublicKey(String serializedKey)
-    {
-        //return PublicKeyFactory.
-        //return PublicKeyFactory.CreateKey(Convert.FromBase64String(serializedKey));
-    }*/
-
-   /* public boolean isOnline() {
-        ConnectivityManager cm =
-                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo netInfo = cm.getActiveNetworkInfo();
-        return netInfo != null && netInfo.isConnectedOrConnecting();
-    }*/
 }
+
