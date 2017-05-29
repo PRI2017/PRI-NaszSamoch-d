@@ -17,7 +17,7 @@ body {
 
     .userProfilePhoto {
 
-        @include userProfilePhoto(100px,1.5);
+        @include userProfilePhoto($tenPx*10,1.5);
         background-image: url("../src/no-pic-avatar.jpg");
         background-size: cover;
         border-color: white;
@@ -138,6 +138,58 @@ ul.info {
                 left: 10px;*/
                 z-index: 100;
                 margin-left: 0.625rem;
+            }
+        }
+    }
+}
+/*userPageFriends*/
+.flex-cont {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .friendDisplay {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(204, 204, 204, 0.59);
+        padding: $tenPx;
+        margin: $tenPx*2;
+
+        .friendProfilePhoto {
+            order: 1;
+            @include userProfilePhoto($tenPx*10,1);
+            background-image: url("../src/no-pic-avatar.jpg");
+            background-size: cover;
+            border-color: white;
+            border-width: 1px;
+            border: ridge;
+        }
+
+        .friendDetails {
+            margin: $tenPx*2;
+            padding-left: 0;
+            order: 2;
+            list-style: none;
+            min-width: $tenPx*5;
+
+            span.amoutOfFriends {
+                color: $color2;
+            }
+        }
+
+        .friendOptionSelect {
+
+            padding: $tenPx*0.5;
+            order: 3;
+
+            &:hover {
+                background-color: $fadedHover;
+            }
+
+            li {
+                padding: $tenPx*0.5;
             }
         }
     }

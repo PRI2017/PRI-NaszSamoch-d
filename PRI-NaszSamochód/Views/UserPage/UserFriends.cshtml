@@ -2,10 +2,118 @@
 <html>
     <head>
         <link rel="stylesheet" href="~/Content/css/main.css" />
+        <link rel="stylesheet" href="~/Content/css/userPage.css" />
         <title>Znajomi</title>
     </head>
     <body>
         <h1>Znajomi</h1>
-        <script></script>
+        
+        <div class="flex-cont">
+            
+            <div class="friendDisplay">
+                <div class="friendProfilePhoto" id="friendProfilePhoto"></div>
+                <ul class="friendDetails">
+                    <li><span class="friendName">Test Test</span></li>
+                    <li><span class="amoutOfFriends">300 znajomych</span></li>
+                </ul>
+                <ul class="friendOptionSelect" id="friendOptionSelect">
+                    <li>
+                        <div>Znajomy</div>
+                        <ul>
+                            <li><div>Usuń ze znajomych</div></li>
+                            <li><div>Zobacz profil</div></li>
+                            <li><div>Wyślij wiadomość</div></li>
+                        </ul>
+                    </li>
+                </ul>  
+            </div>
+
+            <div class="friendDisplay">
+                <div class="friendProfilePhoto" id="friendProfilePhoto"></div>
+                <ul class="friendDetails">
+                    <li><span class="friendName">Test Test</span></li>
+                    <li><span class="amoutOfFriends">300 znajomych</span></li>
+                </ul>
+                <ul class="friendOptionSelect" id="friendOptionSelect">
+                    <li>
+                        <div>Znajomy</div>
+                        <ul>
+                            <li><div>Usuń ze znajomych</div></li>
+                            <li><div>Zobacz profil</div></li>
+                            <li><div>Wyślij wiadomość</div></li>
+
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="friendDisplay">
+                <div class="friendProfilePhoto" id="friendProfilePhoto"></div>
+                <ul class="friendDetails">
+                    <li><span class="friendName">Test Test</span></li>
+                    <li><span class="amoutOfFriends">300 znajomych</span></li>
+                </ul>
+                <ul class="friendOptionSelect" id="friendOptionSelect">
+                    <li>
+                        <div>Znajomy</div>
+                        <ul>
+                            <li><div>Usuń ze znajomych</div></li>
+                            <li><div>Zobacz profil</div></li>
+                            <li><div>Wyślij wiadomość</div></li>
+
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="friendDisplay">
+                <div class="friendProfilePhoto" id="friendProfilePhoto"></div>
+                <ul class="friendDetails">
+                    <li><span class="friendName">Test Test</span></li>
+                    <li><span class="amoutOfFriends">300 znajomych</span></li>
+                </ul>
+                <ul class="friendOptionSelect" id="friendOptionSelect">
+                    <li>
+                        <div>Znajomy</div>
+                        <ul>
+                            <li><div>Usuń ze znajomych</div></li>
+                            <li><div>Zobacz profil</div></li>
+                            <li><div>Wyślij wiadomość</div></li>
+
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="friendDisplay">
+                <div class="friendProfilePhoto" id="friendProfilePhoto"></div>
+                <ul class="friendDetails">
+                    <li><span class="friendName">Test Test</span></li>
+                    <li><span class="amoutOfFriends">300 znajomych</span></li>
+                </ul>
+                <ul class="friendOptionSelect" id="friendOptionSelect">
+                    <li>
+                        <div>Znajomy</div>
+                        <ul>
+                            <li><div>Usuń ze znajomych</div></li>
+                            <li><div>Zobacz profil</div></li>
+                            <li><div>Wyślij wiadomość</div></li>
+
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        
+        
+        </div>
+
+
+        <script>
+            $.getScript("/Content/node_modules/jqueryui/jquery-ui.min.js",
+            function (data, textStatus, jqxhr) {
+                $('.friendOptionSelect').menu();
+            });
+
+        </script>
     </body>
 </html>
