@@ -1,5 +1,0 @@
-﻿GROUPS:
-	-dodać dodawanie członków do grup
-
-POSTS:
-	-dodać czas utworzenia postu do modelu i widoku
