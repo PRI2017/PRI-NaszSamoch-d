@@ -29,7 +29,7 @@ namespace PRI_NaszSamochód.Controllers
         {
             return View("GroupHeader");
         }
-        
+
 
         //public ActionResult GroupHeader(int? id)
         //{
@@ -102,6 +102,23 @@ namespace PRI_NaszSamochód.Controllers
             return View(group);
         }
 
+        public ActionResult AddPostView()
+        {
+            return View();
+        }
+
+        [System.Web.Mvc.HttpPost]
+        public void AddPost(PostModel post, int? groupId)
+        {
+            using (var db = ApplicationDbContext.Create())
+            {
+                post.Added = DateTime.Now;
+                post.Creator = db.Users.Find(User.Identity.GetUserId());
+                db.Groups.Find(groupId).Posts.Add(post);
+                db.SaveChanges();
+            }
+        }
+
         // GET: Groups/Edit/5
         public ActionResult EditGroup(int? id)
         {
@@ -171,18 +188,16 @@ namespace PRI_NaszSamochód.Controllers
         //////////////////// USED IN THE MOBILE   //////////////////////
         ////////////////////////////////////////////////////////////////
         [System.Web.Mvc.HttpGet]
-        public GroupViewModel MobileGroup(int? id)
+        public JsonResult MobileGroup()
         {
-            if(id == null)
+            string userId = User.Identity.GetUserId();
+            ApplicationUser user = _context.Users.Where(x => x.Id.Equals(userId)).FirstOrDefault();
+            List<GroupViewModel> modelsList = new List<GroupViewModel>();
+            foreach (var i in _context.Groups.Where(g => g.Administrator.User.Id == userId).ToList())
             {
-                return new GroupViewModel(new GroupModel());
+                modelsList.Add(new GroupViewModel(i));
             }
-            GroupModel model = _context.Groups.Find(id);
-            if(model == null)
-            {
-                return new GroupViewModel(new GroupModel());
-            }
-            return new GroupViewModel(model);
+            return Json(modelsList, JsonRequestBehavior.AllowGet);
         }
     }
 }

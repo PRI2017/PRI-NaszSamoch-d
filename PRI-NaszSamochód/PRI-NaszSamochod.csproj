@@ -272,6 +272,10 @@
     <Compile Include="Migrations\201705270944037_GalleryV2.Designer.cs">
       <DependentUpon>201705270944037_GalleryV2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705291040524_membersModel_changed.cs" />
+    <Compile Include="Migrations\201705291040524_membersModel_changed.Designer.cs">
+      <DependentUpon>201705291040524_membersModel_changed.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MobileAuthentication\CryptoRSA.cs" />
     <Compile Include="MobileAuthentication\KeysHolder.cs" />
@@ -5999,6 +6003,7 @@
     <Content Include="Views\Groups\GroupDetails.cshtml" />
     <Content Include="Views\Wall\AddPostView.cshtml" />
     <Content Include="Views\Account\LogOut.cshtml" />
+    <Content Include="Views\Groups\AddPostView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -6047,6 +6052,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705270944037_GalleryV2.resx">
       <DependentUpon>201705270944037_GalleryV2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705291040524_membersModel_changed.resx">
+      <DependentUpon>201705291040524_membersModel_changed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

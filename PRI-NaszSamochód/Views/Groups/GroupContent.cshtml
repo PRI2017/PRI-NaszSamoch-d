@@ -20,6 +20,9 @@
 </head>
 
 <body>
+    <div class="add-post" id="add-post">
+        <button onclick="window.location.href='../AddPostView'">Dodaj post</button>
+    </div>
     <div class="container-flex" id="scrollIt">
         <div class="wall-flex">
             @foreach (var post in Model.LatestPosts)
