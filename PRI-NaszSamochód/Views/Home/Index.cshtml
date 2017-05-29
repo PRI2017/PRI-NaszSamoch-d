@@ -80,15 +80,15 @@
                     <li><a href="#">Wiadomości</a></li>
                     <li><a ui-sref="Groups/AddNewGroup" ui-sref-active="active">Utwórz nową grupę</a></li>
                     <li>
-                        <select name="groups">
+                        <select name="groups" onchange="location = this.value;">
                             <option value="default" selected>Twoje grupy: </option>
                             @try
                             {
-                                foreach (var i in Model.UserGroups.GetGroupViewModels())
+                                foreach (var i in Model.UserGroups.GetGroupModels())
                                 {
-                                    if (i.Admin.User.Id == @Model.User.Id)
+                                    if (i.Administrator.User.Id == @Model.User.Id)
                                     {
-                                        <option value="group1">@i.Name</option>
+                                        <option value="../Groups/GroupContent/@i.Id">@i.GroupName</option>
                                     }
                                 }
                             }

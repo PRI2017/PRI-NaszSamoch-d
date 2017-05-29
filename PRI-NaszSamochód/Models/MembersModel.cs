@@ -9,7 +9,6 @@ namespace PRI_NaszSamochód.Models
 {
     public class MembersModel
     {   [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string Id { get; set; }
         public ApplicationUser User { get; set; }
 
@@ -20,6 +19,8 @@ namespace PRI_NaszSamochód.Models
 
         public MembersModel(ApplicationUser user)
         {
+            Guid guid = Guid.NewGuid();
+            Id = guid.ToString();
             User = user;
         }
     }
