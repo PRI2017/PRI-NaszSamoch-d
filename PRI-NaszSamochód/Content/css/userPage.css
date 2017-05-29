@@ -92,8 +92,8 @@ body {
   flex-direction: column;
   align-content: stretch; }
   .container-flex .userProfilePhoto {
-    height: 150px;
-    width: 150px;
+    height: 9.375rem;
+    width: 9.375rem;
     background-color: #999;
     background-image: url("../src/no-pic-avatar.jpg");
     background-size: cover;
@@ -184,3 +184,42 @@ ul.info {
                 left: 10px;*/
         z-index: 100;
         margin-left: 0.625rem; }
+
+/*userPageFriends*/
+.flex-cont {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; }
+  .flex-cont .friendDisplay {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(204, 204, 204, 0.59);
+    padding: 0.625rem;
+    margin: 1.25rem; }
+    .flex-cont .friendDisplay .friendProfilePhoto {
+      order: 1;
+      height: 6.25rem;
+      width: 6.25rem;
+      background-color: #999;
+      background-image: url("../src/no-pic-avatar.jpg");
+      background-size: cover;
+      border-color: white;
+      border-width: 1px;
+      border: ridge; }
+    .flex-cont .friendDisplay .friendDetails {
+      margin: 1.25rem;
+      padding-left: 0;
+      order: 2;
+      list-style: none;
+      min-width: 3.125rem; }
+      .flex-cont .friendDisplay .friendDetails span.amoutOfFriends {
+        color: #cccccc; }
+    .flex-cont .friendDisplay .friendOptionSelect {
+      padding: 0.3125rem;
+      order: 3; }
+      .flex-cont .friendDisplay .friendOptionSelect:hover {
+        background-color: rgba(128, 128, 128, 0.18); }
+      .flex-cont .friendDisplay .friendOptionSelect li {
+        padding: 0.3125rem; }
