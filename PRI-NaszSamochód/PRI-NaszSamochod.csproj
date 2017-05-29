@@ -6004,6 +6004,7 @@
     <Content Include="Views\Wall\AddPostView.cshtml" />
     <Content Include="Views\Account\LogOut.cshtml" />
     <Content Include="Views\Groups\AddPostView.cshtml" />
+    <Content Include="Views\Groups\NotAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

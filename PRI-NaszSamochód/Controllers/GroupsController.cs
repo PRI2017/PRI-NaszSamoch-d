@@ -30,17 +30,6 @@ namespace PRI_NaszSamochód.Controllers
             return View("GroupHeader");
         }
 
-
-        //public ActionResult GroupHeader(int? id)
-        //{
-        //    if(id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    GroupViewModel model = new GroupViewModel(_context.Groups.Find(id));
-        //    return View();
-        //}
-
         [System.Web.Mvc.AllowAnonymous]
         public ActionResult GroupContent(int? id)
         {
@@ -92,14 +81,14 @@ namespace PRI_NaszSamochód.Controllers
                     model.Administrator = new AdministratorModel(admin);
                     _context.Groups.Add(model);
                     _context.SaveChanges();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("GroupDetails", new { id = model.Id });
                 }
             }
             catch (Exception ex)
             {
                 ModelState.AddModelError("", ex.Message);
             }
-            return View(group);
+            return View();
         }
 
         public ActionResult AddPostView()
@@ -122,29 +111,43 @@ namespace PRI_NaszSamochód.Controllers
         // GET: Groups/Edit/5
         public ActionResult EditGroup(int? id)
         {
+            string userId = User.Identity.GetUserId();
+            ApplicationUser admin = _context.Users.Where(x => x.Id.Equals(userId)).FirstOrDefault();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            GroupModel group = _context.Groups.Find(id);
+            GroupModel group = (from g in _context.Groups.Include("Administrator.User")
+                                where g.Id == id
+                                select g).FirstOrDefault();
             if (group == null)
             {
                 return HttpNotFound();
             }
-            return View(group);
+            if (group.Administrator.User.Id == admin.Id)
+            {
+                return View(group);
+            }
+            return RedirectToAction("NotAdmin");
         }
 
         // POST: Groups/Edit/5
         [System.Web.Mvc.HttpPut]
-        public ActionResult EditGroup(int id, [Bind(Include = "Id, GroupName, Description, GroupTheme")]GroupModel model)
+        public ActionResult EditGroup(int id, [FromBody]GroupModel model)
         {
+            string userId = User.Identity.GetUserId();
+            ApplicationUser admin = _context.Users.Where(x => x.Id.Equals(userId)).FirstOrDefault();
             try
             {
                 if (ModelState.IsValid)
                 {
-                    _context.Entry(model).State = System.Data.Entity.EntityState.Modified;
-                    _context.SaveChanges();
-                    return RedirectToAction("Index");
+                    if (model.Administrator.User.Id == admin.Id)
+                    {
+                        _context.Entry(model).State = System.Data.Entity.EntityState.Modified;
+                        _context.SaveChanges();
+                        return RedirectToAction("GroupDetails", new { id = model.Id });
+                    }
+                    else return RedirectToAction("NotAdmin");
                 }
                 return View(model);
             }
@@ -157,30 +160,50 @@ namespace PRI_NaszSamochód.Controllers
         // GET: Groups/Delete/5
         public ActionResult DeleteGroup(int? id)
         {
+            string userId = User.Identity.GetUserId();
+            ApplicationUser admin = _context.Users.Where(x => x.Id.Equals(userId)).FirstOrDefault();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            GroupModel group = _context.Groups.Find(id);
+            GroupModel group = (from g in _context.Groups.Include("Administrator.User")
+                                where g.Id == id
+                                select g).FirstOrDefault();
             if (group == null)
             {
                 return HttpNotFound();
             }
-            return View(group);
+            if (group.Administrator.User.Id == admin.Id)
+                return View(group);
+            else return RedirectToAction("NotAdmin");
         }
 
         // POST: Groups/Delete/5
         [System.Web.Mvc.HttpDelete, System.Web.Mvc.ActionName("DeleteGroup")]
         public ActionResult DeleteConfirmed(int id)
         {
-            GroupModel group = _context.Groups.Find(id);
+            string userId = User.Identity.GetUserId();
+            ApplicationUser admin = _context.Users.Where(x => x.Id.Equals(userId)).FirstOrDefault();
+            //GroupModel group = _context.Groups.Find(id);
+            GroupModel group = (from g in _context.Groups.Include("Administrator.User")
+                                where g.Id == id
+                                select g).FirstOrDefault();
             if (group == null)
             {
                 return HttpNotFound();
             }
-            _context.Groups.Remove(group);
-            _context.SaveChanges();
-            return RedirectToAction("Index");
+            if (group.Administrator.User.Id == admin.Id)
+            {
+                _context.Groups.Remove(group);
+                _context.SaveChanges();
+                return RedirectToAction("Index", "Home");
+            }
+            else return RedirectToAction("NotAdmin");
+        }
+
+        public ActionResult NotAdmin()
+        {
+            return View();
         }
 
         ////////////////////////////////////////////////////////////////
