@@ -26,8 +26,8 @@
             name: 'User/Info',
             url: '/User/Info',
             views: {
-                'header': {templateUrl: 'UserPage/UserPageHeader'},
-                'content': {templateUrl: 'UserPage/UserInfo'}
+                'header': { templateUrl: 'UserPage/UserPageHeader' },
+                'content': { templateUrl: 'UserPage/UserInfo' }
             }
         };
 
@@ -35,8 +35,8 @@
             name: 'User/Friends',
             url: '/User/Friends',
             views: {
-                'header': {templateUrl: 'UserPage/UserPageHeader'},
-                'content': {templateUrl: 'UserPage/UserFriends'}
+                'header': { templateUrl: 'UserPage/UserPageHeader' },
+                'content': { templateUrl: 'UserPage/UserFriends' }
             }
         };
 
@@ -44,8 +44,8 @@
             name: 'User/Gallery',
             url: '/User/Gallery',
             views: {
-                'header': {templateUrl: 'UserPage/UserPageHeader'},
-                    'content': {templateUrl: 'UserPage/UserGallery'}
+                'header': { templateUrl: 'UserPage/UserPageHeader' },
+                'content': { templateUrl: 'UserPage/UserGallery' }
             }
         };
 
@@ -53,8 +53,8 @@
             name: 'User/Statistics',
             url: '/User/Statistics',
             views: {
-                'header': {templateUrl: 'UserPage/UserPageHeader'},
-                'content': {templateUrl: 'UserPage/UserStatistics'}
+                'header': { templateUrl: 'UserPage/UserPageHeader' },
+                'content': { templateUrl: 'UserPage/UserStatistics' }
             }
         };
 
@@ -64,6 +64,15 @@
             views: {
                 'header': { templateUrl: 'Groups/GroupHeader' },
                 'content': { templateUrl: 'Groups/AddNewGroup' }
+            }
+        };
+
+        var groupDetails = {
+            name: 'Groups/Details',
+            url: '/Groups/Details',
+            views: {
+                'header': { templateUrl: 'Groups/GroupHeader' },
+                'content': { templateUrl: 'Groups/GroupDetails' }
             }
         };
         var logOff = {
@@ -83,11 +92,12 @@
         $stateProvider.state(userGallery);
         $stateProvider.state(userStatistics);
         $stateProvider.state(addNewGroup);
+        $stateProvider.state(groupDetails);
         $stateProvider.state(logOff);
     }
-    ]).controller('LogOffController', ['$scope', function ($scope) {
-        $scope.LogOff = function() {
-            window.location.replace("/Account/LogOff");
-        }
+  ]).controller('LogOffController', ['$scope', function ($scope) {
+      $scope.LogOff = function () {
+          window.location.replace("/Account/LogOff");
+      };
 
-    }])
+  }]);

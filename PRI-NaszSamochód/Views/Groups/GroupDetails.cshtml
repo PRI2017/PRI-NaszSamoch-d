@@ -12,27 +12,29 @@
 
 </head>
 <body>
-    <div>
-        <label>Nazwa grupy: </label>
-        <label>@Html.ViewData.Model.Name</label>
-    </div>
+    <ul class="addNewGroup">
+        <li>
+            <label>Nazwa grupy: </label>
+            <label>@Html.ViewData.Model.Name</label>
+        </li>
 
-    <div>
-        <label>Opis: </label>
-        <label>@Model.Description</label>
-    </div>
+        <li>
+            <label>Opis: </label>
+            <label>@Model.Description</label>
+        </li>
 
-    <div>
-        <label>Temat: </label>
-        <label>@Model.Theme</label>
-    </div>
-    <div>
-        <label>Członkowie: </label>
-        @foreach(var i in Model.Members)
-        {
-            <label>@i.User.Name</label>
-        }
-    </div>
+        <li>
+            <label>Temat: </label>
+            <label>@Model.Theme</label>
+        </li>
+        <li>
+            <label>Członkowie: </label>
+            @foreach (var i in Model.Members)
+            {
+                <label>@i.User.Name</label>
+            }
+        </li>
+    </ul>
     @section Scripts {
         @Scripts.Render("~/bundles/jqueryval")
     }

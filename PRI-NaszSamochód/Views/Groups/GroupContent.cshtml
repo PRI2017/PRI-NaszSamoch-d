@@ -20,10 +20,12 @@
 </head>
 
 <body>
-    <div class="add-post" id="add-post">
-        <button onclick="window.location.href='../AddPostView'">Dodaj post</button>
-    </div>
+
     <div class="container-flex" id="scrollIt">
+        <button class="btn-success" ui-sref="Groups/Details">Wyświetl szczegóły grupy</button>
+        <div class="add-post" id="add-post">
+            <button onclick="window.location.href='../AddPostView'">Dodaj post</button>
+        </div>
         <div class="wall-flex">
             @foreach (var post in Model.LatestPosts)
             {
