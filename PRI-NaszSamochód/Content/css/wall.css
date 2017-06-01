@@ -1,0 +1,16 @@
+/*@import 'palette.scss';
+@import 'loginPage.scss';
+
+.flex-c {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.newPostContent {
+    padding: 0;
+
+iframe {
+    width: 300px;
+    height: 300px;
+}*/

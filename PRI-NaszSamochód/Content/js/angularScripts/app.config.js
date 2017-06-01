@@ -1,7 +1,7 @@
 ﻿angular.
   module('myApp', ['ui.router']).
   config(['$locationProvider', '$stateProvider', '$urlRouterProvider',
-    function config($locationProvider, $stateProvider, $urlRouterProvider) {
+    function config($locationProvider, $stateProvider, $urlRouterProvider, $scope, $rootScope) {
 
         $locationProvider.hashPrefix("");
 
@@ -75,6 +75,26 @@
                 'content': { templateUrl: 'Groups/GroupDetails' }
             }
         };
+
+        var pathMachine = function (path, param) {
+
+            var superPath = path + param;
+            console.log(superPath);
+            return superPath;
+        };
+
+        //var groupContent = {
+        //    name: 'Groups/Content',
+        //    url: '/Groups/Content/:groupId',
+        //    controller: function ($scope, $stateParams) {
+        //        console.log("RAZ: " + $scope.razrId);
+        //        $scope._groupId = $stateParams.groupId;
+        //    },
+        //    views: {
+        //        'header': { templateUrl: 'Groups/GroupHeader' },
+        //        'content': { templateUrl: pathMachine("Groups/GroupContent/", /*$stateParams.groupId JAK SIĘ WPISZE Z PALCA TO DZIAŁA, A TAK TO NIE :((*/ 12) }
+        //    }
+        //};
         var logOff = {
             name: 'User/LogOff',
             url: '/User/LogOff',
@@ -93,6 +113,7 @@
         $stateProvider.state(userStatistics);
         $stateProvider.state(addNewGroup);
         $stateProvider.state(groupDetails);
+        //$stateProvider.state(groupContent);
         $stateProvider.state(logOff);
     }
   ]).controller('LogOffController', ['$scope', function ($scope) {
