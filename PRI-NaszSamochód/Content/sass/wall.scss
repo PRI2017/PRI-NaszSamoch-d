@@ -1,16 +1,64 @@
-﻿/*@import 'palette.scss';
+﻿@import 'palette.scss';
 @import 'loginPage.scss';
 
+
+.newPostDialog {
+    background-color: $wallBackground;
+    margin: 0;
+    padding: 0;
+}
+
+.ui-dialog-content {
+    background-color: red;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .flex-c {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+
+
+    .newPostContent {
+        margin: $tenPx;
+        padding: 0;
+        width: $tenPx*58;
+        height: $tenPx*20;
+        border: none;
+        border: 1px solid $postBorderColor;
+    }
 }
 
-.newPostContent {
-    padding: 0;
 
 iframe {
-    width: 300px;
-    height: 300px;
-}*/
+    background-color: $wallBackground;
+    margin: 0;
+    padding: 0;
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+body, html {
+    margin: 0;
+    padding: 0;
+}
+.flex-add-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin: $tenPx;
+
+    #AddPost::before {
+        font-family: 'FontAwesome';
+        font-style: normal;
+        font-weight: normal;
+        content: '\f0fe';
+        margin-right: $tenPx*0.5;
+    }
+}
+   

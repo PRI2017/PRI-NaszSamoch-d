@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    @*<script src="~/Content/node_modules/jscroll/jquery.jscroll.min.js"></script>*@
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="~/Content/css/main.css">
     <link rel="stylesheet" href="~/Content/css/userPage.css" />
     <link rel="stylesheet" href="~/Content/css/wall.css" />
@@ -24,10 +24,9 @@
 
 <body>
   
-<button type="submit" class="btn-success" value="AddPost" id="AddPost" onclick="AddPost()">Dodaj Post</button>
-<div class="show" hidden="hidden">
-    @*<iframe src="/Wall/AddPostView"></iframe>*@
-    test
+
+<div class="flex-add-button">
+    <button type="submit" class="btn-success" value="AddPost" id="AddPost" onclick="AddPost()">Dodaj Post</button>
 </div>
 <div class="container-flex" id="scrollIt">
     <div class="wall-flex">
@@ -66,20 +65,16 @@
     function AddPost() {
         var page = "/Wall/AddPostView";
 
-        var $dialog = $("<div></div>")
-            .html('<iframe style="border: 5px; background-color:#e9e9e9; " src="' + page +
+        var $dialog = $("<div class='newPostDialog'></div>")
+            .html('<iframe scrolling="no" src="' + page +
             '" width="100%" height="100%"></iframe>').dialog({
                 autoOpen: true,
                 modal: true,
-                width: 300,
-                height: 300,
+                width: 650,
+                height: 350,
                 title: "Dodaj Post",
                 resizable: false
             });
         
     }
-    //function AddPost() {
-    //    $(".show").dialog();
-    //}
-
 </script>
