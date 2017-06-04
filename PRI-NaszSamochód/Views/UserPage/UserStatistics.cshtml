@@ -42,8 +42,13 @@
     chart.render();
     </script>*@
     <div>
-        <img src="@Url.Action("UserStatistics", "UserPage")" alt="Chart" />
+        <img src="@Url.Action("FuelChart", "UserStats")" alt="Chart" />
     </div>
-
+    <div>
+        <img src="@Url.Action("KilometersDrivenChart", "UserStats")" alt="Chart" />
+    </div>
+    <div>
+        <img src="@Url.Action("MaxVelocityChart", "UserStats")" alt="Chart" />
+    </div>
 </body>
 </html>

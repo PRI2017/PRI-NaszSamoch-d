@@ -245,6 +245,7 @@
     <Compile Include="Controllers\ProfPhotoController.cs" />
     <Compile Include="Controllers\MobileController.cs" />
     <Compile Include="Controllers\RouteStatisticsController.cs" />
+    <Compile Include="Controllers\UserStatsController.cs" />
     <Compile Include="Controllers\VehicleStatisticsController.cs" />
     <Compile Include="Controllers\UserPageController.cs" />
     <Compile Include="Controllers\WallController.cs" />

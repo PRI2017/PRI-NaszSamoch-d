@@ -1,18 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
-using PRI_NaszSamochod;
 using PRI_NaszSamochód.Models;
-using PRI_NaszSamochód.Utilities;
-using Newtonsoft.Json;
-using System.Collections;
-using System.Web.Helpers;
 
 namespace PRI_NaszSamochód.Controllers
-{   [Authorize]
+{
+    [Authorize]
     public class UserPageController : Controller
     {
         // GET: UserPage
@@ -44,21 +38,7 @@ namespace PRI_NaszSamochód.Controllers
         }
         public ActionResult UserStatistics()
         {
-            var _context = new ApplicationDbContext();
-            ArrayList xValues = new ArrayList();
-            ArrayList yValues = new ArrayList();
-
-            var results = (from c in _context.UserStatistics select c);
-
-            results.ToList().ForEach(x => xValues.Add(x.RecordTime));
-            results.ToList().ForEach(y => xValues.Add(y.MaxVelocity));
-
-            new Chart(width: 600, height: 400, theme: ChartTheme.Vanilla3D)
-                .AddTitle("MAX VELOCITY")
-                .AddSeries("Default", chartType: "Column", xValue: xValues, yValues: yValues)
-                .Write("bmp");
-
-            return null;
+            return View();
         }
         public ActionResult UserFriends()
         {
