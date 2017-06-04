@@ -277,6 +277,10 @@
     <Compile Include="Migrations\201706041053277_Stats.Designer.cs">
       <DependentUpon>201706041053277_Stats.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706041216276_UserStats.cs" />
+    <Compile Include="Migrations\201706041216276_UserStats.Designer.cs">
+      <DependentUpon>201706041216276_UserStats.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MobileAuthentication\CryptoRSA.cs" />
     <Compile Include="MobileAuthentication\KeysHolder.cs" />
@@ -6060,6 +6064,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706041053277_Stats.resx">
       <DependentUpon>201706041053277_Stats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706041216276_UserStats.resx">
+      <DependentUpon>201706041216276_UserStats.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

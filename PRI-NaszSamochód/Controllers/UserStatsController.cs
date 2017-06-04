@@ -1,4 +1,6 @@
-﻿using PRI_NaszSamochód.Models;
+﻿using Microsoft.AspNet.Identity;
+using PRI_NaszSamochód.Models;
+using System;
 using System.Collections;
 using System.Linq;
 using System.Web.Helpers;
@@ -11,11 +13,13 @@ namespace PRI_NaszSamochód.Controllers
         // GET: UserStats
         public ActionResult FuelChart()
         {
+            String id = User.Identity.GetUserId();
+
             var _context = new ApplicationDbContext();
             ArrayList xValues = new ArrayList();
             ArrayList yValues = new ArrayList();
 
-            var results = (from c in _context.UserStatistics select c);
+            var results = (from c in _context.UserStatistics where c.User.Id == id select c);
 
             results.ToList().ForEach(x => xValues.Add(x.RecordTime));
             results.ToList().ForEach(y => yValues.Add(y.FuelUsed));
@@ -29,11 +33,13 @@ namespace PRI_NaszSamochód.Controllers
         }
         public ActionResult KilometersDrivenChart()
         {
+            String id = User.Identity.GetUserId();
+
             var _context = new ApplicationDbContext();
             ArrayList xValues = new ArrayList();
             ArrayList yValues = new ArrayList();
 
-            var results = (from c in _context.UserStatistics select c);
+            var results = (from c in _context.UserStatistics where c.User.Id == id select c);
 
             results.ToList().ForEach(x => xValues.Add(x.RecordTime));
             results.ToList().ForEach(y => yValues.Add(y.KilometersDriven));
@@ -47,11 +53,13 @@ namespace PRI_NaszSamochód.Controllers
         }
         public ActionResult MaxVelocityChart()
         {
+            String id = User.Identity.GetUserId();
+
             var _context = new ApplicationDbContext();
             ArrayList xValues = new ArrayList();
             ArrayList yValues = new ArrayList();
 
-            var results = (from c in _context.UserStatistics select c);
+            var results = (from c in _context.UserStatistics where c.User.Id == id select c);
 
             results.ToList().ForEach(x => xValues.Add(x.RecordTime));
             results.ToList().ForEach(y => yValues.Add(y.MaxVelocity));

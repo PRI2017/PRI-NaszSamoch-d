@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PRI_NaszSamochód.Models
 {
@@ -8,7 +9,7 @@ namespace PRI_NaszSamochód.Models
         [Key]
         [Required]
         public int Key { get; set; }
-
+        public ApplicationUser User { get; set; }
         public double KilometersDriven { get; set; }
         public double FuelUsed { get; set; }
         public double MaxVelocity { get; set; }
