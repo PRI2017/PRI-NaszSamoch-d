@@ -43,6 +43,7 @@ namespace PRI_NaszSamochód.Controllers
             post.Creator = db.Users.Find(User.Identity.GetUserId());
             db.Posts.Add(post);
             db.SaveChanges();
+            
         }
 
 

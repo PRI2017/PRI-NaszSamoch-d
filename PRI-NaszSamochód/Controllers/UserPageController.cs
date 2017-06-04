@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
@@ -45,20 +46,27 @@ namespace PRI_NaszSamochód.Controllers
 
         }
         [AllowAnonymous]
-        public ActionResult UserInfo()
+        public ActionResult UserInfo(string userId)
         {
-            String id = User.Identity.GetUserId();
-            ProfileViewModel model = new ProfileViewModel(ApplicationDbContext.Create().Users.Single(u => u.Id == id));
-            return View(model);
+            if (userId != null)
+            {
+                ProfileViewModel model =
+                    new ProfileViewModel(ApplicationDbContext.Create().Users.Single(u => u.Id == userId));
+                return View(model);
+            }
+            else
+            {
+                return HttpNotFound();
+            }
         }
         public ActionResult UserStatistics()
         {
             return View();
         }
-        public ActionResult UserFriends()
+        public ActionResult UserFriends(string userId)
         {
-            String id = User.Identity.GetUserId();
-            ProfileViewModel model = new ProfileViewModel(ApplicationDbContext.Create().Users.Single(u => u.Id == id));
+            var model = new FriendsView(ApplicationDbContext.Create().Friends.Where(f => f.User1.Id == userId).Include(f => f.User2).ToList());
+            
             return View(model);
         }
         public ActionResult UserGallery()

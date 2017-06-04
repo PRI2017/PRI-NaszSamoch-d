@@ -44,12 +44,13 @@
             url: '/User/Info',
             views: {
                 'header': {
-                    templateUrl: function($scope) {
-
-                        return 'UserPage/UserPageHeader?userId=' + window.userId;
-                    }
+                    
                 },
-                'content': { templateUrl: 'UserPage/UserInfo' }
+                'content': {
+                    templateUrl: function ($scope) {
+
+                        return 'UserPage/UserInfo?userId=' + window.userId;
+                    } }
             }
         };
 
@@ -64,7 +65,12 @@
 
                     }
                 },
-                'content': { templateUrl: 'UserPage/UserFriends' }
+                'content': {
+                    templateUrl: function ($scope) {
+
+                        return 'UserPage/UserFriends?userId=' + window.userId;
+
+                    } }
             }
         };
 
@@ -163,7 +169,7 @@
             
             
             window.userId = $event.currentTarget.id;
-            $state.reload();
+            $state.go('User/UserPage');
         }
 
 
