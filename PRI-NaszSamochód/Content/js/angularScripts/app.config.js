@@ -6,8 +6,18 @@
         $locationProvider.hashPrefix("");
 
         $stateProvider.state('main', {
-            abstract: true,
-            url: '/'
+           
+            url: '',
+            views: {
+             
+                'content': {
+                    templateUrl: function ($scope) {
+
+                        return 'Wall/WallContent';
+                    },
+                    controller: 'PostController'
+                }
+            }
         });
         var userPageState = {
             name: 'User/UserPage',
@@ -20,19 +30,24 @@
                     }
                 },             
                 'content': {
-                    templateUrl: 'UserPage/UserPageContent',
+                    templateUrl: function ($scope) {
+
+                        return 'UserPage/UserPageContent?userId=' + window.userId;
+                    },
                     controller: 'PostController'
                 }
             }
-        };
+        }; 
 
         var userInfo = {
             name: 'User/Info',
             url: '/User/Info',
             views: {
-                'header': templateUrl: function($scope) {
+                'header': {
+                    templateUrl: function($scope) {
 
-                    return 'UserPage/UserPageHeader?userId=' + window.userId;
+                        return 'UserPage/UserPageHeader?userId=' + window.userId;
+                    }
                 },
                 'content': { templateUrl: 'UserPage/UserInfo' }
             }
@@ -42,11 +57,12 @@
             name: 'User/Friends',
             url: '/User/Friends',
             views: {
-                'header': 
+                'header': {
                     templateUrl: function($scope) {
 
                         return 'UserPage/UserPageHeader?userId=' + window.userId;
-                    
+
+                    }
                 },
                 'content': { templateUrl: 'UserPage/UserFriends' }
             }
@@ -56,11 +72,12 @@
             name: 'User/Gallery',
             url: '/User/Gallery',
             views: {
-                'header': 
+                'header': {
                     templateUrl: function($scope) {
 
                         return 'UserPage/UserPageHeader?userId=' + window.userId;
-                    },
+                    }
+                },
                 'content': { templateUrl: 'UserPage/UserGallery' }
             }
         };
@@ -145,7 +162,7 @@
         $scope.PostClicked = function ($event) {
             
             
-            window.userId = "17167e46-7333-4edb-8d70-e403a8c18b0a";
+            window.userId = $event.currentTarget.id;
             $state.reload();
         }
 

@@ -30,12 +30,19 @@ namespace PRI_NaszSamochód.Controllers
             
           }
         [AllowAnonymous]
-        public ActionResult UserPageContent()
+        public ActionResult UserPageContent(string userId)
         {
-            var curUserId = User.Identity.GetUserId();
-            return View(new PostViewModelList(ApplicationDbContext.Create().Posts
-                .Where(p => p.Creator.Id == curUserId )
-                .Take(15).ToList()));
+            if (userId != null)
+            {
+                return View(new PostViewModelList(ApplicationDbContext.Create().Posts
+                    .Where(p => p.Creator.Id == userId)
+                    .Take(15).OrderByDescending(p => p.Id).ToList()));
+            }
+            else
+            {
+                return HttpNotFound();
+            }
+
         }
         [AllowAnonymous]
         public ActionResult UserInfo()

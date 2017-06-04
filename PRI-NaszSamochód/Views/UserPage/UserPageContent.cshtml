@@ -28,15 +28,15 @@
             {
 
                 <div class="post" ng-controller="PostController" >
-                    <div class="postHeader" ng-click="PostClicked()" id="@post.Creator.Id">
+                    <div class="postHeader" ng-click="PostClicked($event)" id="@post.Creator.Id">
                         <ul>
                             <li>
                                 <div class="userProfilePhoto userProfilePhotoSmall" style="background-image:url(@post.CreatorPhoto)"></div></li>
                             <li>
-                                <p>@post.Creator.Name + @post.Creator.Surname
+                                <p>@post.Creator.Name  @post.Creator.Surname
                                 <p></li>
                             <li>
-                                <p>@post.</p></li>
+                                <p></p></li>
                         </ul>
                     </div>
                     <div class="postContent">
