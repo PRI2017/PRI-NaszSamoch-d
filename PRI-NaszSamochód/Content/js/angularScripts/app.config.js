@@ -14,10 +14,14 @@
             url: '/User/UserPage',
             views: {
                 'header': {
-                    templateUrl: 'UserPage/UserPageHeader'
-                },
+                    templateUrl: function($scope) {
+                        
+                        return 'UserPage/UserPageHeader?userId='+window.userId;
+                    }
+                },             
                 'content': {
-                    templateUrl: 'UserPage/UserPageContent'
+                    templateUrl: 'UserPage/UserPageContent',
+                    controller: 'PostController'
                 }
             }
         };
@@ -26,7 +30,10 @@
             name: 'User/Info',
             url: '/User/Info',
             views: {
-                'header': { templateUrl: 'UserPage/UserPageHeader' },
+                'header': templateUrl: function($scope) {
+
+                    return 'UserPage/UserPageHeader?userId=' + window.userId;
+                },
                 'content': { templateUrl: 'UserPage/UserInfo' }
             }
         };
@@ -35,7 +42,12 @@
             name: 'User/Friends',
             url: '/User/Friends',
             views: {
-                'header': { templateUrl: 'UserPage/UserPageHeader' },
+                'header': 
+                    templateUrl: function($scope) {
+
+                        return 'UserPage/UserPageHeader?userId=' + window.userId;
+                    
+                },
                 'content': { templateUrl: 'UserPage/UserFriends' }
             }
         };
@@ -44,7 +56,11 @@
             name: 'User/Gallery',
             url: '/User/Gallery',
             views: {
-                'header': { templateUrl: 'UserPage/UserPageHeader' },
+                'header': 
+                    templateUrl: function($scope) {
+
+                        return 'UserPage/UserPageHeader?userId=' + window.userId;
+                    },
                 'content': { templateUrl: 'UserPage/UserGallery' }
             }
         };
@@ -53,7 +69,11 @@
             name: 'User/Statistics',
             url: '/User/Statistics',
             views: {
-                'header': { templateUrl: 'UserPage/UserPageHeader' },
+                'header': {
+                    templateUrl: function($scope) {
+
+                        return 'UserPage/UserPageHeader?userId=' + window.userId;
+                    } },
                 'content': { templateUrl: 'UserPage/UserStatistics' }
             }
         };
@@ -121,4 +141,13 @@
           window.location.replace("/Account/LogOff");
       };
 
-  }]);
+    }]).controller('PostController', ['$scope','$state', function($scope,$state) {
+        $scope.PostClicked = function ($event) {
+            
+            
+            window.userId = "17167e46-7333-4edb-8d70-e403a8c18b0a";
+            $state.reload();
+        }
+
+
+    }]);

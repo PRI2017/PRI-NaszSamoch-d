@@ -27,8 +27,8 @@
             @foreach (var post in Model.GetPostViewModels())
             {
 
-                <div class="post">
-                    <div class="postHeader">
+                <div class="post" ng-controller="PostController" >
+                    <div class="postHeader" ng-click="PostClicked()" id="@post.Creator.Id">
                         <ul>
                             <li>
                                 <div class="userProfilePhoto userProfilePhotoSmall" style="background-image:url(@post.CreatorPhoto)"></div></li>

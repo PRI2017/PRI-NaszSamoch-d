@@ -19,11 +19,19 @@ namespace PRI_NaszSamochód.Controllers
             return RedirectToAction("UserPageHeader");
         }
 
-        public ActionResult UserPageHeader()
+        public ActionResult UserPageHeader(string userId)
         {
-            String id = User.Identity.GetUserId();
-            ProfileViewModel model = new ProfileViewModel(ApplicationDbContext.Create().Users.Single(u => u.Id == id ));
-            return View(model);
+            if (userId != null)
+            {
+                ProfileViewModel model =
+                    new ProfileViewModel(ApplicationDbContext.Create().Users.Single(u => u.Id == userId));
+                return View(model);
+            }
+            else
+            {
+                return HttpNotFound();
+            }
+            
           }
         [AllowAnonymous]
         public ActionResult UserPageContent()
