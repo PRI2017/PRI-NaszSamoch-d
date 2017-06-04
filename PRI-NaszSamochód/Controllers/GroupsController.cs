@@ -43,6 +43,7 @@ namespace PRI_NaszSamochód.Controllers
             {
                 return HttpNotFound();
             }
+            HttpContext.Session.Add("CurrentGroupId", id);
             //if (gvm.LatestPosts.Capacity != 0)
             //{
             //    return View(gvm);
@@ -97,15 +98,17 @@ namespace PRI_NaszSamochód.Controllers
         }
 
         [System.Web.Mvc.HttpPost]
-        public void AddPost(PostModel post, int? groupId)
+        public void AddPost(PostModel post)
         {
+            int? id = (int) Session["CurrentGroupId"];
             using (var db = ApplicationDbContext.Create())
             {
                 post.Added = DateTime.Now;
                 post.Creator = db.Users.Find(User.Identity.GetUserId());
-                db.Groups.Find(groupId).Posts.Add(post);
+                db.Groups.Find(id).Posts.Add(post);
                 db.SaveChanges();
             }
+            RedirectToAction("GroupContent", id);
         }
 
         // GET: Groups/Edit/5

@@ -245,6 +245,7 @@
     <Compile Include="Controllers\ProfPhotoController.cs" />
     <Compile Include="Controllers\MobileController.cs" />
     <Compile Include="Controllers\RouteStatisticsController.cs" />
+    <Compile Include="Controllers\UserStatsController.cs" />
     <Compile Include="Controllers\VehicleStatisticsController.cs" />
     <Compile Include="Controllers\UserPageController.cs" />
     <Compile Include="Controllers\WallController.cs" />
@@ -272,6 +273,14 @@
     <Compile Include="Migrations\201705270944037_GalleryV2.Designer.cs">
       <DependentUpon>201705270944037_GalleryV2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706041053277_Stats.cs" />
+    <Compile Include="Migrations\201706041053277_Stats.Designer.cs">
+      <DependentUpon>201706041053277_Stats.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706041216276_UserStats.cs" />
+    <Compile Include="Migrations\201706041216276_UserStats.Designer.cs">
+      <DependentUpon>201706041216276_UserStats.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MobileAuthentication\CryptoRSA.cs" />
     <Compile Include="MobileAuthentication\KeysHolder.cs" />
@@ -283,6 +292,7 @@
     <Compile Include="Models\PhotoModel.cs" />
     <Compile Include="Models\POI.cs" />
     <Compile Include="Models\UserGallery.cs" />
+    <Compile Include="Models\UserStatistics.cs" />
     <Compile Include="Utilities\Coordinates.cs" />
     <Compile Include="Models\RouteModel.cs" />
     <Compile Include="Models\VehicleModels.cs" />
@@ -6011,6 +6021,7 @@
     <Folder Include="Views\Gallery\" />
     <Folder Include="Views\PostPhot\" />
     <Folder Include="Views\RouteStatistics\" />
+    <Folder Include="Views\UserStats\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -6050,6 +6061,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705270944037_GalleryV2.resx">
       <DependentUpon>201705270944037_GalleryV2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706041053277_Stats.resx">
+      <DependentUpon>201706041053277_Stats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706041216276_UserStats.resx">
+      <DependentUpon>201706041216276_UserStats.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -20,8 +20,8 @@
     @Html.AntiForgeryToken()
 
         <div class="flex-c">
-               @Html.TextBoxFor(m => m.Text, new { @class="newPostContent"})
-        <button type="submit" class="btn-success" value="AddPost">Dodaj Post</button>
+            @Html.TextAreaFor(m => m.Text, new { @class="newPostContent"})
+            <button type="submit" class="btn-success" value="AddPost">Dodaj Post</button>
         </div>
 }
 </body>
