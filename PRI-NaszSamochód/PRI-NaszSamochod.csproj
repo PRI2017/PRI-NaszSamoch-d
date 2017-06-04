@@ -283,6 +283,7 @@
     <Compile Include="Models\PhotoModel.cs" />
     <Compile Include="Models\POI.cs" />
     <Compile Include="Models\UserGallery.cs" />
+    <Compile Include="Models\UserStatistics.cs" />
     <Compile Include="Utilities\Coordinates.cs" />
     <Compile Include="Models\RouteModel.cs" />
     <Compile Include="Models\VehicleModels.cs" />
@@ -6011,6 +6012,7 @@
     <Folder Include="Views\Gallery\" />
     <Folder Include="Views\PostPhot\" />
     <Folder Include="Views\RouteStatistics\" />
+    <Folder Include="Views\UserStats\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PRI_NaszSamochód.Utilities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -15,7 +16,9 @@ namespace PRI_NaszSamochód.Models
         public ApplicationUser Owner { get; set; }
 
         public string Name { get; set; }
+        public Coordinates StartPoint { get; set; }
+        public Coordinates EndPoint { get; set; }
         public List<POI> PlacesSeen { get; set; }
-        public RouteStatisticsModel Statistics { get; set; }
+        public virtual List<RouteStatisticsModel> Statistics { get; set; }
     }
 }

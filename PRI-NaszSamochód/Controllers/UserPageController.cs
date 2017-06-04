@@ -8,6 +8,8 @@ using PRI_NaszSamochod;
 using PRI_NaszSamochód.Models;
 using PRI_NaszSamochód.Utilities;
 using Newtonsoft.Json;
+using System.Collections;
+using System.Web.Helpers;
 
 namespace PRI_NaszSamochód.Controllers
 {   [Authorize]
@@ -42,24 +44,21 @@ namespace PRI_NaszSamochód.Controllers
         }
         public ActionResult UserStatistics()
         {
-            //String id = User.Identity.GetUserId();
-            //ProfileViewModel model = new ProfileViewModel(ApplicationDbContext.Create().Users.Single(u => u.Id == id));
-            //return View();
-            List<DataPoint> chartPoints = new List<DataPoint>();
-            try
-            {
-                //foreach (var item in _context.Vehicles.Find(vId).Statistics)
-                //{
-                //    chartPoints.Add(new DataPoint(item.RecordTime, item.MaxVelocity));
-                //}
-                for (var i = 0; i < 10; i++)
-                {
-                    chartPoints.Add(new DataPoint(i, i-1));
-                }
-            }
-            catch (Exception) { }
-            ViewBag.DataPoints = JsonConvert.SerializeObject(chartPoints);
-            return View(chartPoints);
+            var _context = new ApplicationDbContext();
+            ArrayList xValues = new ArrayList();
+            ArrayList yValues = new ArrayList();
+
+            var results = (from c in _context.UserStatistics select c);
+
+            results.ToList().ForEach(x => xValues.Add(x.RecordTime));
+            results.ToList().ForEach(y => xValues.Add(y.MaxVelocity));
+
+            new Chart(width: 600, height: 400, theme: ChartTheme.Vanilla3D)
+                .AddTitle("MAX VELOCITY")
+                .AddSeries("Default", chartType: "Column", xValue: xValues, yValues: yValues)
+                .Write("bmp");
+
+            return null;
         }
         public ActionResult UserFriends()
         {
