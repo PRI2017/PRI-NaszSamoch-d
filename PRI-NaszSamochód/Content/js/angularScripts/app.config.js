@@ -70,7 +70,9 @@
 
                         return 'UserPage/UserFriends?userId=' + window.userId;
 
-                    } }
+                    },
+                    controller:"FriendController"
+                }
             }
         };
 
@@ -168,6 +170,27 @@
         $scope.PostClicked = function ($event) {
             
             
+            window.userId = $event.currentTarget.id;
+            $state.go('User/UserPage');
+        }
+
+
+    }]).controller('FriendController', ['$scope', '$state','$http', function ($scope, $state, $http) {
+        $scope.DeleteFriend = function DeleteFriend($event) {
+            var urlDelete = '/Friends/DeleteFriend?userId=' + $event.currentTarget.id;
+
+            $http({
+                method: 'POST',
+                url: urlDelete
+            }).then(function successCallback(response) {
+                $state.reload();
+            }, function errorCallback(response) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+            });
+        }
+        $scope.ViewProfile = function ViewProfile($event) {
+
             window.userId = $event.currentTarget.id;
             $state.go('User/UserPage');
         }

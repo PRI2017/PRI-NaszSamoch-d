@@ -248,7 +248,7 @@
     <Compile Include="Controllers\UserStatsController.cs" />
     <Compile Include="Controllers\VehicleStatisticsController.cs" />
     <Compile Include="Controllers\UserPageController.cs" />
-    <Compile Include="fonts\WallController.cs" />
+    <Compile Include="Controllers\WallController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -6004,6 +6004,7 @@
     <Content Include="Views\Account\LogOut.cshtml" />
     <Content Include="Views\Groups\AddPostView.cshtml" />
     <Content Include="Views\Groups\NotAdmin.cshtml" />
+    <Content Include="Views\Mobile\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

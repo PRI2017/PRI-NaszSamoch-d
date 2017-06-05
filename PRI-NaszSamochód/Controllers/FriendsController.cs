@@ -19,5 +19,17 @@ namespace PRI_NaszSamochód.Controllers
             var requestedFriends = db.Friends.Where(f => f.User2.Id == curUserId && f.Status == FriendStatus.Requested).Include(P => P.User1);
             return View();
         }
+        [HttpPost]
+        public void DeleteFriend(string userId)
+        {
+            if (userId != null)
+            {
+                var db = ApplicationDbContext.Create();
+                db.Friends.Remove(db.Friends.Single(f => f.User2.Id == userId));
+                db.Friends.Remove(db.Friends.Single(f => f.User1.Id == userId));
+                db.SaveChanges();
+            }
+           
+        }
     }
 }

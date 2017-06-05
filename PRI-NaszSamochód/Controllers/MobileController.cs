@@ -93,7 +93,7 @@ namespace PRI_NaszSamochód.Controllers
             switch (x)
             {
                 case SignInStatus.Success:
-                    return new HttpStatusCodeResult(HttpStatusCode.OK, "User found");
+                    return View();
                 case SignInStatus.Failure:
                     return new HttpStatusCodeResult(HttpStatusCode.NoContent, "Sign in failed");
                 case SignInStatus.LockedOut:
