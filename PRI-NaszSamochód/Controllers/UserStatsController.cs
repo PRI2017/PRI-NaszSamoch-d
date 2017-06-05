@@ -24,7 +24,7 @@ namespace PRI_NaszSamochód.Controllers
             results.ToList().ForEach(x => xValues.Add(x.RecordTime));
             results.ToList().ForEach(y => yValues.Add(y.FuelUsed));
 
-            new Chart(width: 600, height: 400, theme: ChartTheme.Vanilla3D)
+            new Chart(width: 600, height: 400, theme: ChartTheme.Blue)
                 .AddTitle("FUEL USED")
                 .AddSeries("Default", chartType: "Column", xValue: xValues, yValues: yValues)
                 .Write("jpeg");
@@ -44,7 +44,7 @@ namespace PRI_NaszSamochód.Controllers
             results.ToList().ForEach(x => xValues.Add(x.RecordTime));
             results.ToList().ForEach(y => yValues.Add(y.KilometersDriven));
 
-            new Chart(width: 600, height: 400, theme: ChartTheme.Vanilla3D)
+            new Chart(width: 600, height: 400, theme: ChartTheme.Blue)
                 .AddTitle("Kilometers Driven")
                 .AddSeries("Default", chartType: "Column", xValue: xValues, yValues: yValues)
                 .Write("jpeg");
@@ -64,7 +64,7 @@ namespace PRI_NaszSamochód.Controllers
             results.ToList().ForEach(x => xValues.Add(x.RecordTime));
             results.ToList().ForEach(y => yValues.Add(y.MaxVelocity));
 
-            new Chart(width: 600, height: 400, theme: ChartTheme.Vanilla3D)
+            new Chart(width: 600, height: 400, theme: ChartTheme.Blue)
                 .AddTitle("Max Velocity")
                 .AddSeries("Default", chartType: "Column", xValue: xValues, yValues: yValues)
                 .Write("jpeg");

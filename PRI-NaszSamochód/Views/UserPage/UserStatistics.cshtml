@@ -9,38 +9,8 @@
     <title>Statystyki</title>
     <script src="~/Content/node_modules/jquery/dist/jquery.min.js"></script>
     <script src="~/Content/node_modules/chart.js/dist/Chart.min.js"></script>
-    @*@Scripts.Render("~/Content/js/chartStuff.js")*@
 </head>
 <body>
-    @*<h1>Statystyki - simple chart test</h1>
-    <div id="chartTest" style="height: 300px; width: 100%;"></div>
-    <canvas id="canvas" width="20" height="20"></canvas>
-    <script>
-            var result = @Html.Raw(ViewBag.DataPoints);
-	var dataPoints =[];
-	for(var i = 0; i < result.length; i++){
-		dataPoints.push({label:result[i].x, y:result[i].y});
-	}
-            $.getScript('http://canvasjs.com/assets/script/canvasjs.min.js',
-                function () {
-                    console.log("charts loaded");
-                    var options = {
-                        title: {
-                            text: "Spline Chart using jQuery Plugin"
-                        },
-                        animationEnabled: true,
-                        data: [
-                            {
-                                type: "spline", //change it to line, area, column, pie, etc
-                                dataPoints: @Html.Raw(ViewBag.DataPoints);
-                            }
-                        ]
-                    };
-
-                    $("#chartTest").CanvasJSChart(options);
-        });
-    chart.render();
-    </script>*@
     <div>
         <img src="@Url.Action("FuelChart", "UserStats")" alt="Chart" />
     </div>
