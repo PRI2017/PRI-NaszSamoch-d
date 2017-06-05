@@ -58,14 +58,13 @@ body {
                 z-index: 100;
             }
         }
-
         span.bigTag {
             font-size: $tenPx*4;
             color: white;
             margin-left: $tenPx;
+  
         }
     }
-
     .wall-flex {
         .post {
             display: flex;
@@ -91,7 +90,7 @@ body {
             }
 
             .postContent {
-                padding: 0 $tenPx*5 0 $tenPx*5;
+                padding: 0.625rem;
                 /*background-color: white;*/
             }
 
