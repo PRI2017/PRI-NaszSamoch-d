@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
@@ -18,6 +19,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 /**
@@ -37,45 +39,43 @@ public class Groups extends Fragment {
             "Toyota","Suzuki","Subaru","Volvo","Volkswagen","Peugeot","Opel","Nissan","Maserati",
             "Mazda","Mitsubishi","Rolls-Royce","Lamborgini","Infiniti","Isuzu","Iveco","Chrystel"};
 
+    public static List<String> groupsList = new ArrayList<>();
+
     //PRZEKONWERTOWANIE ARRAY DO LIST
     List carslist = Arrays.asList(CarsList);
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
 
         Groups.context = getContext();
 
+        final RecyclerView rv = (RecyclerView) inflater.inflate(
+                R.layout.group_list_layout, container, false);
 
         Ion.with(context)
-                .load(url)
-                .asString()
-                .setCallback(new FutureCallback<String>() {
-                    @Override
-                    public void onCompleted(Exception e, String result) {
-                        System.out.println("BRAWO2");
-                    }
-                });
-
-
-        /*Ion.with(context)
                 .load(url)
                 .asJsonArray()
                 .setCallback(new FutureCallback<JsonArray>() {
                     @Override
                     public void onCompleted(Exception e, JsonArray result) {
-                        System.out.println("BRAWO");
+                        for(int i = 0; i < result.size(); i++) {
+                            JsonElement json = result.get(i);
+                            JsonObject object = json.getAsJsonObject();
+                            String resultt = object.get("Name").toString();
+                            groupsList.add(resultt);
+                            System.out.println(resultt);
+                            //PODLACZENIE POD RECYCLEVIEW
+                        }
+
+
+                        rv.setLayoutManager(new LinearLayoutManager(rv.getContext()));
+                        rv.setAdapter(new RecycleviewAdapterGroup(groupsList));
                     }
                 });
-*/
 
-        //PODLACZENIE POD RECYCLEVIEW
-        RecyclerView rv = (RecyclerView) inflater.inflate(
-                R.layout.group_list_layout, container, false);
 
-        rv.setLayoutManager(new LinearLayoutManager(rv.getContext()));
-        rv.setAdapter(new RecycleviewAdapterGroup(carslist));
 
         return rv;
     }
