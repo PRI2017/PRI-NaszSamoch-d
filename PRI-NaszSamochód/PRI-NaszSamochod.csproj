@@ -245,9 +245,10 @@
     <Compile Include="Controllers\ProfPhotoController.cs" />
     <Compile Include="Controllers\MobileController.cs" />
     <Compile Include="Controllers\RouteStatisticsController.cs" />
+    <Compile Include="Controllers\UserStatsController.cs" />
     <Compile Include="Controllers\VehicleStatisticsController.cs" />
     <Compile Include="Controllers\UserPageController.cs" />
-    <Compile Include="Controllers\WallController.cs" />
+    <Compile Include="fonts\WallController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -287,6 +288,7 @@
     <Compile Include="Models\PhotoModel.cs" />
     <Compile Include="Models\POI.cs" />
     <Compile Include="Models\UserGallery.cs" />
+    <Compile Include="Models\UserStatistics.cs" />
     <Compile Include="Utilities\Coordinates.cs" />
     <Compile Include="Models\RouteModel.cs" />
     <Compile Include="Models\VehicleModels.cs" />
@@ -6015,6 +6017,7 @@
     <Folder Include="Views\Gallery\" />
     <Folder Include="Views\PostPhot\" />
     <Folder Include="Views\RouteStatistics\" />
+    <Folder Include="Views\UserStats\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

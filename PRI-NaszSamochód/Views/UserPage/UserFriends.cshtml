@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@model PRI_NaszSamochód.Models.FriendsView
+<!DOCTYPE html>
 <html>
     <head>
         <link rel="stylesheet" href="~/Content/css/main.css" />
@@ -9,100 +10,30 @@
         <h1>Znajomi</h1>
         
         <div class="flex-cont">
-            
-            <div class="friendDisplay">
-                <div class="friendProfilePhoto" id="friendProfilePhoto"></div>
-                <ul class="friendDetails">
-                    <li><span class="friendName">Test Test</span></li>
-                    <li><span class="amoutOfFriends">300 znajomych</span></li>
-                </ul>
-                <ul class="friendOptionSelect" id="friendOptionSelect">
-                    <li>
-                        <div>Znajomy</div>
-                        <ul>
-                            <li><div>Usuń ze znajomych</div></li>
-                            <li><div>Zobacz profil</div></li>
-                            <li><div>Wyślij wiadomość</div></li>
-                        </ul>
-                    </li>
-                </ul>  
-            </div>
+            @foreach (var friend in @Model.Friends)
+            {
+                <div class="friendDisplay">
+                    <div class="friendProfilePhoto" id="friendProfilePhoto" style="background-image:url(/ProfPhoto?userId=@friend.User2.Id")></div>
+                    <ul class="friendDetails">
+                        <li><span class="friendName">@friend.User2.Name @friend.User2.Surname</span></li>
+                        <li><span class="amoutOfFriends">300 znajomych</span></li>
+                    </ul>
+                    <ul class="friendOptionSelect" id="friendOptionSelect">
+                        <li>
+                            <div>Znajomy</div>
+                            <ul>
+                                <li>
+                                    <div>Usuń ze znajomych</div></li>
+                                <li>
+                                    <div>Zobacz profil</div></li>
+                                <li>
+                                    <div>Wyślij wiadomość</div></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
 
-            <div class="friendDisplay">
-                <div class="friendProfilePhoto" id="friendProfilePhoto"></div>
-                <ul class="friendDetails">
-                    <li><span class="friendName">Test Test</span></li>
-                    <li><span class="amoutOfFriends">300 znajomych</span></li>
-                </ul>
-                <ul class="friendOptionSelect" id="friendOptionSelect">
-                    <li>
-                        <div>Znajomy</div>
-                        <ul>
-                            <li><div>Usuń ze znajomych</div></li>
-                            <li><div>Zobacz profil</div></li>
-                            <li><div>Wyślij wiadomość</div></li>
-
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="friendDisplay">
-                <div class="friendProfilePhoto" id="friendProfilePhoto"></div>
-                <ul class="friendDetails">
-                    <li><span class="friendName">Test Test</span></li>
-                    <li><span class="amoutOfFriends">300 znajomych</span></li>
-                </ul>
-                <ul class="friendOptionSelect" id="friendOptionSelect">
-                    <li>
-                        <div>Znajomy</div>
-                        <ul>
-                            <li><div>Usuń ze znajomych</div></li>
-                            <li><div>Zobacz profil</div></li>
-                            <li><div>Wyślij wiadomość</div></li>
-
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="friendDisplay">
-                <div class="friendProfilePhoto" id="friendProfilePhoto"></div>
-                <ul class="friendDetails">
-                    <li><span class="friendName">Test Test</span></li>
-                    <li><span class="amoutOfFriends">300 znajomych</span></li>
-                </ul>
-                <ul class="friendOptionSelect" id="friendOptionSelect">
-                    <li>
-                        <div>Znajomy</div>
-                        <ul>
-                            <li><div>Usuń ze znajomych</div></li>
-                            <li><div>Zobacz profil</div></li>
-                            <li><div>Wyślij wiadomość</div></li>
-
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="friendDisplay">
-                <div class="friendProfilePhoto" id="friendProfilePhoto"></div>
-                <ul class="friendDetails">
-                    <li><span class="friendName">Test Test</span></li>
-                    <li><span class="amoutOfFriends">300 znajomych</span></li>
-                </ul>
-                <ul class="friendOptionSelect" id="friendOptionSelect">
-                    <li>
-                        <div>Znajomy</div>
-                        <ul>
-                            <li><div>Usuń ze znajomych</div></li>
-                            <li><div>Zobacz profil</div></li>
-                            <li><div>Wyślij wiadomość</div></li>
-
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+            }
         
         
         </div>

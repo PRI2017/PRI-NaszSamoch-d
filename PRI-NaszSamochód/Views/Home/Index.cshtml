@@ -1,8 +1,12 @@
-﻿@using PRI_NaszSamochód.Models;
+﻿@using Microsoft.AspNet.Identity
+@using PRI_NaszSamochód.Models;
 @model ProfileViewModel
-
-<html>
-    <head>
+<script>
+ var userId = "@User.Identity.GetUserId()";
+</script>
+    
+        <html>
+        <head>
         <title>Nasz Samochód</title>
         <link rel="icon" href="../Content/src/newLogo.png">
         <meta charset="UTF-8">
@@ -12,7 +16,8 @@
         <link rel="stylesheet" href="~/Content/css/index.css">
       
         @*JQuery*@
-        <script src="~/Content/node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="~/Content/node_modules/jquery/dist/jquery.min.js">
+        </script>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>

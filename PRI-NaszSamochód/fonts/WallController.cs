@@ -20,15 +20,12 @@ namespace PRI_NaszSamochód.Controllers
                 join friend in db.Friends on
                 p.Creator equals friend.User2
                 where friend.User1.Id == currentUserId
+                orderby p.Id descending 
                 select p
-                ).Take(10).ToList();
+                
+                ).ToList();
 
-            posts.Add(new PostModel()
-            {
-                Added = DateTime.Today,
-               Creator = new ApplicationUser() {Name = "test",Surname = "Test"},
-               Text = "Testowy post"
-            });
+            
             return View(new PostViewModelList(posts));
         }
 
@@ -46,6 +43,7 @@ namespace PRI_NaszSamochód.Controllers
             post.Creator = db.Users.Find(User.Identity.GetUserId());
             db.Posts.Add(post);
             db.SaveChanges();
+            
         }
 
 

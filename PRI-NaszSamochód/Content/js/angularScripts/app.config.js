@@ -6,28 +6,51 @@
         $locationProvider.hashPrefix("");
 
         $stateProvider.state('main', {
-            abstract: true,
-            url: '/'
+           
+            url: '',
+            views: {
+             
+                'content': {
+                    templateUrl: function ($scope) {
+
+                        return 'Wall/WallContent';
+                    },
+                    controller: 'PostController'
+                }
+            }
         });
         var userPageState = {
             name: 'User/UserPage',
             url: '/User/UserPage',
             views: {
                 'header': {
-                    templateUrl: 'UserPage/UserPageHeader'
-                },
+                    templateUrl: function($scope) {
+                        
+                        return 'UserPage/UserPageHeader?userId='+window.userId;
+                    }
+                },             
                 'content': {
-                    templateUrl: 'UserPage/UserPageContent'
+                    templateUrl: function ($scope) {
+
+                        return 'UserPage/UserPageContent?userId=' + window.userId;
+                    },
+                    controller: 'PostController'
                 }
             }
-        };
+        }; 
 
         var userInfo = {
             name: 'User/Info',
             url: '/User/Info',
             views: {
-                'header': { templateUrl: 'UserPage/UserPageHeader' },
-                'content': { templateUrl: 'UserPage/UserInfo' }
+                'header': {
+                    
+                },
+                'content': {
+                    templateUrl: function ($scope) {
+
+                        return 'UserPage/UserInfo?userId=' + window.userId;
+                    } }
             }
         };
 
@@ -35,8 +58,19 @@
             name: 'User/Friends',
             url: '/User/Friends',
             views: {
-                'header': { templateUrl: 'UserPage/UserPageHeader' },
-                'content': { templateUrl: 'UserPage/UserFriends' }
+                'header': {
+                    templateUrl: function($scope) {
+
+                        return 'UserPage/UserPageHeader?userId=' + window.userId;
+
+                    }
+                },
+                'content': {
+                    templateUrl: function ($scope) {
+
+                        return 'UserPage/UserFriends?userId=' + window.userId;
+
+                    } }
             }
         };
 
@@ -44,7 +78,12 @@
             name: 'User/Gallery',
             url: '/User/Gallery',
             views: {
-                'header': { templateUrl: 'UserPage/UserPageHeader' },
+                'header': {
+                    templateUrl: function($scope) {
+
+                        return 'UserPage/UserPageHeader?userId=' + window.userId;
+                    }
+                },
                 'content': { templateUrl: 'UserPage/UserGallery' }
             }
         };
@@ -53,7 +92,11 @@
             name: 'User/Statistics',
             url: '/User/Statistics',
             views: {
-                'header': { templateUrl: 'UserPage/UserPageHeader' },
+                'header': {
+                    templateUrl: function($scope) {
+
+                        return 'UserPage/UserPageHeader?userId=' + window.userId;
+                    } },
                 'content': { templateUrl: 'UserPage/UserStatistics' }
             }
         };
@@ -121,4 +164,13 @@
           window.location.replace("/Account/LogOff");
       };
 
-  }]);
+    }]).controller('PostController', ['$scope','$state', function($scope,$state) {
+        $scope.PostClicked = function ($event) {
+            
+            
+            window.userId = $event.currentTarget.id;
+            $state.go('User/UserPage');
+        }
+
+
+    }]);

@@ -12,7 +12,7 @@
     @*@Scripts.Render("~/Content/js/chartStuff.js")*@
 </head>
 <body>
-    <h1>Statystyki - simple chart test</h1>
+    @*<h1>Statystyki - simple chart test</h1>
     <div id="chartTest" style="height: 300px; width: 100%;"></div>
     <canvas id="canvas" width="20" height="20"></canvas>
     <script>
@@ -40,6 +40,15 @@
                     $("#chartTest").CanvasJSChart(options);
         });
     chart.render();
-    </script>
+    </script>*@
+    <div>
+        <img src="@Url.Action("FuelChart", "UserStats")" alt="Chart" />
+    </div>
+    <div>
+        <img src="@Url.Action("KilometersDrivenChart", "UserStats")" alt="Chart" />
+    </div>
+    <div>
+        <img src="@Url.Action("MaxVelocityChart", "UserStats")" alt="Chart" />
+    </div>
 </body>
 </html>

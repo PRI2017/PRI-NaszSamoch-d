@@ -32,6 +32,6 @@ namespace PRI_NaszSamochód.Models
         public EngineModel Engine { get; set; }
         public VehicleBody VehicleBody { get; set; }
 
-        public List<VehicleStatisticsModel> Statistics { get; set; }
+        public virtual List<VehicleStatisticsModel> Statistics { get; set; }
     }
 }
