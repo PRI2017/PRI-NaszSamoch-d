@@ -19,7 +19,7 @@ public class Toolbar extends AppCompatActivity {
             mViewPager = (ViewPager) findViewById(R.id.container);
 
             //USTAWIENIE LICZYBY KART KTORE MA GENEROWAC
-            mViewPager.setOffscreenPageLimit(3);
+            mViewPager.setOffscreenPageLimit(4);
 
             PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager());
 
@@ -27,6 +27,7 @@ public class Toolbar extends AppCompatActivity {
             adapter.addFragment(new Groups(), "Grupa");
             adapter.addFragment(new Chat(), "Czat");
             adapter.addFragment(new Camera(), "Zdjęcie");
+            adapter.addFragment(new Statistics(), "Statystyki");
             mViewPager.setAdapter(adapter);
 
             tabLayout = (TabLayout) findViewById(R.id.tabs);
@@ -41,5 +42,6 @@ public class Toolbar extends AppCompatActivity {
         tabLayout.getTabAt(0).setIcon(R.drawable.group_icon);
         tabLayout.getTabAt(1).setIcon(R.drawable.chat_icon);
         tabLayout.getTabAt(2).setIcon(R.drawable.camera_icon);
+        tabLayout.getTabAt(3).setIcon(R.drawable.statistics);
     }
 }
