@@ -3,6 +3,7 @@ package com.example.dominika.samochod;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -44,6 +45,7 @@ public class Camera extends Fragment {
     private Uri mImageUri;//
     String TAG = "blad";
     File photo;
+    private Context context;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

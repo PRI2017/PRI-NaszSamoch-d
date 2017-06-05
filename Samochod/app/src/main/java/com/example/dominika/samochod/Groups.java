@@ -8,9 +8,16 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.Arrays;
 import java.util.List;
 /**
@@ -22,7 +29,7 @@ import java.util.List;
 public class Groups extends Fragment {
 
     private static Context context;
-    String url = "http://naszsamochod.com.pl/PRI-NaszSamochod/groups/mobilegroup/0";
+    String url = "http://naszsamochod.com.pl/groups/mobilegroup";
 
     //LISTA GRUP DYSKUSYJNYCH
     public static final String[] CarsList = {"Alfa Romeo","Audi","BMW","Bentley","Daewoo","Dacia","Citroen","Ford",
@@ -40,20 +47,28 @@ public class Groups extends Fragment {
 
         Groups.context = getContext();
 
-        //POBIERANIE KONKRETNEJ GRUPY
+
         Ion.with(context)
                 .load(url)
-                .asJsonObject()
-                .setCallback(new FutureCallback<JsonObject>() {
+                .asString()
+                .setCallback(new FutureCallback<String>() {
                     @Override
-                    public void onCompleted(Exception e, JsonObject result) {
-                        JsonObject json2 = new JsonObject();
-                        json2.getAsJsonObject("Name");
-                        System.out.println(result);
-                        //System.out.println("KeyOk: " + password);
+                    public void onCompleted(Exception e, String result) {
+                        System.out.println("BRAWO2");
                     }
                 });
 
+
+        /*Ion.with(context)
+                .load(url)
+                .asJsonArray()
+                .setCallback(new FutureCallback<JsonArray>() {
+                    @Override
+                    public void onCompleted(Exception e, JsonArray result) {
+                        System.out.println("BRAWO");
+                    }
+                });
+*/
 
         //PODLACZENIE POD RECYCLEVIEW
         RecyclerView rv = (RecyclerView) inflater.inflate(
