@@ -22,8 +22,9 @@ ul.nav {
     width: auto;
     background-color: $color1;
     margin-top: 0;
+
     & > li {
-        padding: 0.625*2rem;
+        padding: $tenPx*2;
 
         & > a {
             color: white;
@@ -33,9 +34,10 @@ ul.nav {
         &.search {
             padding: 0;
             padding-top: $tenPx;
+
             input[type=search] {
                 border: 2px solid #ffcaa5;
-                border-radius: 10px;
+                border-radius: $tenPx;
                 color: $color5;
                 width: $tenPx*25;
                 height: $tenPx*3.5;

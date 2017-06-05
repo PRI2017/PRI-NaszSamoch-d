@@ -21,7 +21,7 @@
 
         <div class="flex-c">
             @Html.TextAreaFor(m => m.Text, new { @class="newPostContent"})
-            <button type="submit" class="btn-success" value="AddPost">Dodaj Post</button>
+            <button type="submit" class="btn-success" value="AddPost" onclick="(function (){window.close();})">Dodaj Post</button>
         </div>
 }
 </body>
