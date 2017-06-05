@@ -13,4 +13,12 @@
     <string name="error">Błąd logowania</string>
     <string name="send">Wyślij</string>
     <string name="send_photo">Wyślij zdjęcie</string>
+    <string name="statistics_info">STATYSTYKI</string>
+    <string name="kilometersDrivenString">Przejechane kilometry</string>
+    <string name="fuelUsedString">Zużyte paliwo</string>
+    <string name="maxVelocityString">Maksymalna prędkość</string>
+    <string name="send_photo_info">Czy chcesz wysłać to zdjęcie?</string>
+    <string name="send_title">Wysyłanie zdjęcia</string>
+    <string name="ok">Tak</string>
+    <string name="cancel">Nie</string>
 </resources>

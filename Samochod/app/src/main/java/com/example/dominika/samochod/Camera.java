@@ -2,8 +2,10 @@ package com.example.dominika.samochod;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -18,6 +20,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
+
 import com.google.gson.JsonObject;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
@@ -45,13 +49,18 @@ public class Camera extends Fragment {
     private Uri mImageUri;//
     String TAG = "blad";
     File photo;
-    private Context context;
+
+    private Context mContext;
+    @Override
+    public void onAttach(final Activity activity) {
+        super.onAttach(activity);
+        mContext = activity;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.camera, container, false);
-
 
         button = (Button) rootView.findViewById(R.id.take_photo);
         button2 = (Button) rootView.findViewById(R.id.send_photo);
@@ -78,11 +87,8 @@ public class Camera extends Fragment {
             private File createTemporaryFile(String part, String ext) throws Exception {
 
                 String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-
                 String imageFileName="JPEG_"+timeStamp+".jpg";
-
                 photo = new File(Environment.getExternalStorageDirectory(),  imageFileName);
-
 
                 return photo;
             }
@@ -91,18 +97,10 @@ public class Camera extends Fragment {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //WYSYLANIE ZDJECIA NA SERWER
-                Ion.with(Camera.this)
-                        .load(url_check)
-                        .setMultipartFile("UploadForm[imageFiles]", photo.getName(), photo)
-                        .asJsonObject()
-                        .setCallback(new FutureCallback<JsonObject>() {
-                            @Override
-                            public void onCompleted(Exception e, JsonObject result) {
-                            }
-                        });
+                showDialog();
             }
         });
+
         return rootView;
     }
 
@@ -147,4 +145,44 @@ public class Camera extends Fragment {
         requestPermissions(permissions, requestCode);
     }
     //////////////////////////////////////////////////////////////
+
+    /////////////OKIENKO DIALOG - POTWIERDZENIE WYSLANIA ZDJECIA/////////////
+    private void showDialog() {
+        AlertDialog.Builder builder;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            builder = new AlertDialog.Builder(mContext, android.R.style.Theme_Material_Dialog_Alert);
+        } else {
+            builder = new AlertDialog.Builder(mContext);
+        }
+
+        builder.setMessage(R.string.send_photo_info)
+                .setTitle(R.string.send_title);
+
+        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                        //WYSYLANIE ZDJECIA NA SERWER
+                        Ion.with(Camera.this)
+                                .load(url_check)
+                                .setMultipartFile("UploadForm[imageFiles]", photo.getName(), photo)
+                                .asJsonObject()
+                                .setCallback(new FutureCallback<JsonObject>() {
+                                    @Override
+                                    public void onCompleted(Exception e, JsonObject result) {
+                                    }
+                                });
+            }
+        });
+
+        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+    //////////////////////////////////////////////////////////
 }
