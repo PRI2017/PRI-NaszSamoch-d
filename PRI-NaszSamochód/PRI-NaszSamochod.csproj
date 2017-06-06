@@ -273,10 +273,6 @@
     <Compile Include="Migrations\201705270944037_GalleryV2.Designer.cs">
       <DependentUpon>201705270944037_GalleryV2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201706050700032_nieChcemAleMuszem.cs" />
-    <Compile Include="Migrations\201706050700032_nieChcemAleMuszem.Designer.cs">
-      <DependentUpon>201706050700032_nieChcemAleMuszem.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MobileAuthentication\CryptoRSA.cs" />
     <Compile Include="MobileAuthentication\KeysHolder.cs" />
@@ -6008,6 +6004,7 @@
     <Content Include="Views\Account\LogOut.cshtml" />
     <Content Include="Views\Groups\AddPostView.cshtml" />
     <Content Include="Views\Groups\NotAdmin.cshtml" />
+    <Content Include="Views\UserStats\AddStats.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -6017,7 +6014,6 @@
     <Folder Include="Views\Gallery\" />
     <Folder Include="Views\PostPhot\" />
     <Folder Include="Views\RouteStatistics\" />
-    <Folder Include="Views\UserStats\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -6057,9 +6053,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705270944037_GalleryV2.resx">
       <DependentUpon>201705270944037_GalleryV2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706050700032_nieChcemAleMuszem.resx">
-      <DependentUpon>201706050700032_nieChcemAleMuszem.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

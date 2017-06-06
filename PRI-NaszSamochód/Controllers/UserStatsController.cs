@@ -4,12 +4,20 @@ using System;
 using System.Collections;
 using System.Linq;
 using System.Web.Helpers;
+using System.Web.Http;
 using System.Web.Mvc;
 
 namespace PRI_NaszSamochód.Controllers
 {
     public class UserStatsController : Controller
     {
+        private readonly ApplicationDbContext _context;
+
+        public UserStatsController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
         // GET: UserStats
         public ActionResult FuelChart()
         {
@@ -19,13 +27,16 @@ namespace PRI_NaszSamochód.Controllers
             ArrayList xValues = new ArrayList();
             ArrayList yValues = new ArrayList();
 
-            var results = (from c in _context.UserStatistics where c.User.Id == id select c);
+            var results = (from c in _context.UserStatistics
+                           where c.User.Id == id
+                           orderby c.RecordTime descending
+                           select c).Take(50);
 
             results.ToList().ForEach(x => xValues.Add(x.RecordTime));
             results.ToList().ForEach(y => yValues.Add(y.FuelUsed));
 
-            new Chart(width: 600, height: 400, theme: ChartTheme.Blue)
-                .AddTitle("FUEL USED")
+            new Chart(width: 1200, height: 400, theme: ChartTheme.Blue)
+                .AddTitle("Zużyte paliwo")
                 .AddSeries("Default", chartType: "Column", xValue: xValues, yValues: yValues)
                 .Write("jpeg");
 
@@ -39,13 +50,16 @@ namespace PRI_NaszSamochód.Controllers
             ArrayList xValues = new ArrayList();
             ArrayList yValues = new ArrayList();
 
-            var results = (from c in _context.UserStatistics where c.User.Id == id select c);
+            var results = (from c in _context.UserStatistics
+                           where c.User.Id == id
+                           orderby c.RecordTime descending
+                           select c).Take(50);
 
             results.ToList().ForEach(x => xValues.Add(x.RecordTime));
             results.ToList().ForEach(y => yValues.Add(y.KilometersDriven));
 
-            new Chart(width: 600, height: 400, theme: ChartTheme.Blue)
-                .AddTitle("Kilometers Driven")
+            new Chart(width: 1200, height: 400, theme: ChartTheme.Blue)
+                .AddTitle("Przejechane kilometry")
                 .AddSeries("Default", chartType: "Column", xValue: xValues, yValues: yValues)
                 .Write("jpeg");
 
@@ -59,17 +73,43 @@ namespace PRI_NaszSamochód.Controllers
             ArrayList xValues = new ArrayList();
             ArrayList yValues = new ArrayList();
 
-            var results = (from c in _context.UserStatistics where c.User.Id == id select c);
+            var results = (from c in _context.UserStatistics
+                           where c.User.Id == id
+                           orderby c.RecordTime descending
+                           select c).Take(50);
 
             results.ToList().ForEach(x => xValues.Add(x.RecordTime));
             results.ToList().ForEach(y => yValues.Add(y.MaxVelocity));
 
-            new Chart(width: 600, height: 400, theme: ChartTheme.Blue)
-                .AddTitle("Max Velocity")
+            new Chart(width: 1200, height: 400, theme: ChartTheme.Blue)
+                .AddTitle("Prędkość maksymalna")
                 .AddSeries("Default", chartType: "Column", xValue: xValues, yValues: yValues)
                 .Write("jpeg");
 
             return null;
         }
+
+        [System.Web.Mvc.HttpGet]
+        public ActionResult AddStats()
+        {
+            return View();
+        }
+
+        [System.Web.Mvc.HttpPost]
+        public ActionResult AddStats([FromBody] UserStatistics stats)
+        {
+            if (ModelState.IsValid)
+            {
+                string id = User.Identity.GetUserId();
+                DateTime nowDate = DateTime.Now;
+                stats.RecordTime = new DateTime(nowDate.Year, nowDate.Month, nowDate.Day, nowDate.Hour, 0, 0);
+                stats.User = _context.Users.Single(u=>u.Id == id);
+                _context.UserStatistics.Add(stats);
+                _context.SaveChanges();
+                return RedirectToAction("AddStats");
+            }
+            return View();
+        }
+
     }
 }

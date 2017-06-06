@@ -43,12 +43,7 @@ namespace PRI_NaszSamochód.Controllers
             {
                 return HttpNotFound();
             }
-            HttpContext.Session.Add("CurrentGroupId", id);
-            //if (gvm.LatestPosts.Capacity != 0)
-            //{
-            //    return View(gvm);
-            //}
-            //gvm.LatestPosts.Add(new PostViewModel(new PostModel()));
+            HttpContext.Session.Add("CurrentGroupId", id); // PROBLEM Z SESJĄ !!!!!!!!!!!!!!!
             return View(gvm);
         }
 
@@ -100,7 +95,7 @@ namespace PRI_NaszSamochód.Controllers
         [System.Web.Mvc.HttpPost]
         public void AddPost(PostModel post)
         {
-            int? id = (int) Session["CurrentGroupId"];
+            int? id = (int) Session["CurrentGroupId"]; // PROBLEM Z SESJĄ !!!!!!!!!!!!!!!
             using (var db = ApplicationDbContext.Create())
             {
                 post.Added = DateTime.Now;
