@@ -69,31 +69,34 @@ namespace PRI_NaszSamochód.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl = null)
         {
-            SignInStatus x = new SignInStatus();
+            
             if (!ModelState.IsValid)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
+            SignInStatus x;
             try
             {
-                byte[] passBytes = Convert.FromBase64String(model.Password);
-                string password = CryptoRSA.Decrypt(passBytes, KeysHolder.Instance.PrivateKey);
+ //               byte[] passBytes = Convert.FromBase64String(model.Password);
+ //               string password = CryptoRSA.Decrypt(passBytes, KeysHolder.Instance.PrivateKey);
                 x = await SignInManager.PasswordSignInAsync(
                         model.Email,
-                        password,
+                       model.Password,
                         model.RememberMe,
                         shouldLockout: false);
             }
-            catch (Exception)
-            {
-                //x = SignInStatus.Failure;
+            catch (Exception e)
+            {   
+                x = SignInStatus.Failure;
             }
 
             switch (x)
             {
                 case SignInStatus.Success:
-                    return new HttpStatusCodeResult(HttpStatusCode.OK, "User found");
+                    var user =
+                        SignInManager.AuthenticationManager;
+                    var c = System.Web.HttpContext.Current.Response.Cookies;
+                    return View();
                 case SignInStatus.Failure:
                     return new HttpStatusCodeResult(HttpStatusCode.NoContent, "Sign in failed");
                 case SignInStatus.LockedOut:

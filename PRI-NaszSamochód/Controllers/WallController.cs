@@ -19,7 +19,7 @@ namespace PRI_NaszSamochód.Controllers
             var posts = (from p in db.Posts
                 join friend in db.Friends on
                 p.Creator equals friend.User2
-                where friend.User1.Id == currentUserId
+                where friend.User1.Id == currentUserId 
                 orderby p.Id descending 
                 select p
                 

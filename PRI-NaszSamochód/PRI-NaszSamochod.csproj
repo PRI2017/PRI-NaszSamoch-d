@@ -248,7 +248,7 @@
     <Compile Include="Controllers\UserStatsController.cs" />
     <Compile Include="Controllers\VehicleStatisticsController.cs" />
     <Compile Include="Controllers\UserPageController.cs" />
-    <Compile Include="fonts\WallController.cs" />
+    <Compile Include="Controllers\WallController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -285,6 +285,7 @@
     <Compile Include="Models\POI.cs" />
     <Compile Include="Models\UserGallery.cs" />
     <Compile Include="Models\UserStatistics.cs" />
+    <Compile Include="Utilities\CookieExtractor.cs" />
     <Compile Include="Utilities\Coordinates.cs" />
     <Compile Include="Models\RouteModel.cs" />
     <Compile Include="Models\VehicleModels.cs" />
@@ -6004,7 +6005,7 @@
     <Content Include="Views\Account\LogOut.cshtml" />
     <Content Include="Views\Groups\AddPostView.cshtml" />
     <Content Include="Views\Groups\NotAdmin.cshtml" />
-    <Content Include="Views\UserStats\AddStats.cshtml" />
+    <Content Include="Views\Mobile\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -6014,6 +6015,7 @@
     <Folder Include="Views\Gallery\" />
     <Folder Include="Views\PostPhot\" />
     <Folder Include="Views\RouteStatistics\" />
+    <Folder Include="Views\UserStats\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
