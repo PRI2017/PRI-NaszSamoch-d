@@ -220,5 +220,19 @@ namespace PRI_NaszSamochód.Controllers
             }
             return Json(modelsList, JsonRequestBehavior.AllowGet);
         }
+
+        [System.Web.Mvc.HttpPost]
+        public ActionResult AddMobilePost([FromBody] PostModel model, int groupId)
+        {
+            if (!ModelState.IsValid)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            model.Added = DateTime.Now;
+            model.Creator = _context.Users.Find(User.Identity.GetUserId());
+            _context.Groups.Find(groupId).Posts.Add(model);
+            _context.SaveChanges();
+            return new HttpStatusCodeResult(HttpStatusCode.OK);
+        }
     }
 }

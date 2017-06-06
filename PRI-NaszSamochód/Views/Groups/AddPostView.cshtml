@@ -10,15 +10,11 @@
 <body>
     @using (Html.BeginForm("AddPost", "Groups", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
-        <div>
-            @Html.AntiForgeryToken()
-            <ul class="flex-outer">
-                <li>
-                    <label for="inputName"> Tekst </label>
-                    @Html.TextBoxFor(m => m.Text)
-                </li>
-            </ul>
-            <button type="submit" class="btn-success" value="AddPost">Dodaj Post</button>
+        @Html.AntiForgeryToken()
+
+        <div class="flex-c">
+            @Html.TextAreaFor(m => m.Text, new { @class="newPostContent"})
+            <button type="submit" class="btn-success" value="AddPost" onclick="(function (){window.close();})">Dodaj Post</button>
         </div>
     }
 </body>
