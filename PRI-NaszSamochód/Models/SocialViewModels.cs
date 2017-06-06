@@ -8,6 +8,7 @@ namespace PRI_NaszSamochód.Models
 {
     public class GroupViewModel
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public string Theme { get; set; }
@@ -17,6 +18,7 @@ namespace PRI_NaszSamochód.Models
 
         public GroupViewModel(GroupModel group)
         {
+            Id = group.Id;
             LatestPosts = new List<PostViewModel>();
             Name = group.GroupName;
             Description = group.Description;
