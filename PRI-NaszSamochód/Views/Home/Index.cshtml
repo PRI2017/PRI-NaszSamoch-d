@@ -60,10 +60,9 @@
                 @*TO DO: change <a href></a>*@
                 @*<li><a ui-sref="User/UserPage({User:@Model.User.Name-@Model.User.Surname})" ui-sref-active="active"><a href="/@Model.User.Name-@Model.User.Surname/UserPage">@Model.User.Name @Model.User.Surname</a></a></li>*@
                 <li><a ui-sref="User/UserPage" ui-sref-active="active">@Model.User.Name @Model.User.Surname</a></li>
-
+                <li><a href="#"><div class="fao" id="bell"></div></a></li>
                 <li><a href="#"><div class="fao" id="user"></div></a></li>
                 <li><a href="#"><div class="fao" id="envelope"></div></a></li>
-                <li><a href="#"><div class="fao" id="bell"></div></a></li>
                 <li><div class="dropdown">
                         <div ng-controller="LogOffController">
                             <a ng-click ="LogOff()"><div class="fao" id="signout"></div></a>
@@ -71,6 +70,17 @@
                     </div>
                 </li>
             </ul>
+            <div class="wrapper">
+                <div class="notificationBar" style="display:none">
+                    <h3 class="notificationBarMain">Powiadomienia</h3>
+                    <div style="display: none"><p style="display: none"></p></div>
+                    <h3>Janusz zaprosił Cię do znajomych</h3>
+                    <div>
+                        <button class="ui-button">Akceptuj</button>
+                        <button class="ui-button">Odrzuć</button>
+                    </div>
+                </div>
+            </div>
             
                 <header>
                     <div ui-view name="header"></div>
@@ -118,115 +128,13 @@
                 </div>
                 <footer><p>Footer</p></footer>
 </div>
-        @*<script>
-            angular.module('myApp', ['ui.router']).
-  config(['$locationProvider', '$stateProvider', '$urlRouterProvider',
-    function config($locationProvider, $stateProvider, $urlRouterProvider) {
+       <script>
+           $("#bell").click(
+               function () { $(".notificationBar").css("display", "flex").accordion(); });
+           $(".notificationBarMain").click(
+               function () { $(".notificationBar").css("display", "none");});
 
-        $locationProvider.hashPrefix("");
-        
-
-        $stateProvider.state('main', {
-            //abstract: true,
-            url: '/',
-            views: {
-            'content': {
-                templateUrl: 'Wall/WallContent'
-            }
-        }});
-        var userPageState = {
-            name: '{User}/UserPage',
-            url: '/{User}/UserPage',
-            controller: function ($stateParams) {
-                expect($stateParams).toBe({ User: "@Model.User.Name-@Model.User.Surname" });
-
-            },
-            views: {
-                'header': {
-                    templateUrl: 'UserPage/UserPageHeader'
-                },
-                'content': {
-                    templateUrl: 'UserPage/UserPageContent'
-                }
-            }
-        };
-
-        var userInfo = {
-            name: '{User}/Info',
-            url: '/{User}/Info',
-            controller: function ($stateParams) {
-                expect($stateParams).toBe({ User: "@Model.User.Name-@Model.User.Surname" });
-
-            },
-            views: {
-                'header': { templateUrl: 'UserPage/UserPageHeader' },
-                'content': { templateUrl: 'UserPage/UserInfo' }
-            }
-        };
-
-        var userFriends = {
-            name: '{User}/Friends',
-            url: '/{User}/Friends',
-            controller: function ($stateParams) {
-                expect($stateParams).toBe({ User: "@Model.User.Name-@Model.User.Surname" });
-
-            },
-            views: {
-                'header': { templateUrl: 'UserPage/UserPageHeader' },
-                'content': { templateUrl: 'UserPage/UserFriends' }
-            }
-        };
-
-        var userGallery = {
-            name: '{User}/Gallery',
-            url: '/{User}/Gallery',
-            controller: function ($stateParams) {
-                expect($stateParams).toBe({ User: "@Model.User.Name-@Model.User.Surname" });
-
-            },
-            views: {
-                'header': { templateUrl: 'UserPage/UserPageHeader' },
-                'content': { templateUrl: 'UserPage/UserGallery' }
-            }
-        };
-
-        var userStatistics = {
-            name: '{User}/Statistics',
-            url: '/{User}/Statistics',
-            controller: function ($stateParams) {
-                expect($stateParams).toBe({ User: "@Model.User.Name-@Model.User.Surname" });
-
-            },
-            views: {
-                'header': { templateUrl: 'UserPage/UserPageHeader' },
-                'content': { templateUrl: 'UserPage/UserStatistics' }
-            }
-        };
-        var logOff = {
-            name: 'User/LogOff',
-            url: '/User/LogOff',
-            controller: 'LogOffController'
-            //views: {
-            //    'header': { templateUrl: 'Account/LogOff' },
-            //    'content': { templateUrl: 'Account/LogOff' }
-            //}
-        };
-
-
-        $stateProvider.state(userPageState);
-        $stateProvider.state(userInfo);
-        $stateProvider.state(userFriends);
-        $stateProvider.state(userGallery);
-        $stateProvider.state(userStatistics);
-        $stateProvider.state(logOff);
-        
-        $locationProvider.html5Mode(true);
-    }
-  ]).controller('LogOffController', ['$scope', function ($scope) {
-      $scope.LogOff = function () {
-          window.location.replace("/Account/LogOff");
-      }
-
-  }]);</script>*@
+           
+       </script>
 </body>
 </html>

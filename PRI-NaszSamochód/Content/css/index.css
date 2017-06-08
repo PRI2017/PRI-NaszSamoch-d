@@ -23,7 +23,7 @@
       font-size: 6.25rem;
       font-family: 'Dancing Script', cursive;
       font-style: normal;
-      content: "Nasz Samochód.";
+      /*content: "Nasz Samoch\00f3" + "d.";*/
       position: absolute;
       top: 8.125rem;
       left: 37.5rem;
@@ -133,3 +133,28 @@ li .dropdown {
     #userPageNav li:hover {
       background-color: rgba(128, 128, 128, 0.18);
       color: inherit; }
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 100%; }
+  .wrapper .notificationBar {
+    position: absolute;
+    flex-direction: column;
+    width: 25rem;
+    z-index: 10000;
+    /*margin: 0 $tenPx $tenPx $tenPx;*/ }
+
+.ui-accordion {
+  font-family: inherit;
+  border: none; }
+  .ui-accordion .ui-state-active {
+    border: 1px solid rgba(204, 204, 204, 0.59); }
+  .ui-accordion button:hover {
+    background-color: rgba(128, 128, 128, 0.18); }
+  .ui-accordion .ui-accordion-header {
+    background-color: white;
+    color: #0a0a0a; }
+    .ui-accordion .ui-accordion-header-active {
+      background-color: #f6f6f6; }

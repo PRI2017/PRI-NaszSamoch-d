@@ -52,6 +52,7 @@ body, html {
     flex-direction: row;
     justify-content: flex-end;
     margin: $tenPx;
+    order: 2;
 
     #AddPost::before {
         font-family: 'FontAwesome';

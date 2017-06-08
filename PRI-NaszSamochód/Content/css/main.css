@@ -34,7 +34,7 @@ ul.nav {
       padding-top: 0.625rem; }
       ul.nav > li.search input[type=search] {
         border: 2px solid #ffcaa5;
-        border-radius: 10px;
+        border-radius: 0.625rem;
         color: #333;
         width: 15.625rem;
         height: 2.1875rem; }
@@ -45,11 +45,11 @@ div.fao {
   font-family: 'FontAwesome';
   font-style: normal;
   font-weight: normal; }
-  div.fao#bell::before {
+  div.fao#user::before {
     content: "\f0c0"; }
   div.fao#envelope::before {
     content: "\f0e0"; }
-  div.fao#user::before {
+  div.fao#bell::before {
     content: "\f0f3"; }
   div.fao#signout::before {
     content: "\f08b";

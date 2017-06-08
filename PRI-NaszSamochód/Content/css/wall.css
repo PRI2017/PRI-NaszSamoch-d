@@ -121,7 +121,8 @@ body, html {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  margin: 0.625rem; }
+  margin: 0.625rem;
+  order: 2; }
   .flex-add-button #AddPost::before {
     font-family: 'FontAwesome';
     font-style: normal;

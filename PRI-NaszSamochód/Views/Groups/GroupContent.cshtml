@@ -12,6 +12,8 @@
     <script src="~/Content/node_modules/jquery/dist/jquery.min.js"></script>
     <link rel="stylesheet" href="~/Content/css/main.css">
     <link rel="stylesheet" href="~/Content/css/userPage.css" />
+    <link rel="stylesheet" href="~/Content/css/wall.css"/>
+    <link rel="stylesheet" href="~/Content/css/groups.css" />
     @Scripts.Render("~/Content/js/custom/infiniteScroll.js")
     @Scripts.Render("~/Content/node_modules/jscroll/jquery.jscroll.min.js")
 
@@ -22,19 +24,24 @@
 <body>
 
     <div class="container-flex" id="scrollIt">
-        <button class="btn-success" ui-sref="Groups/Details" ui-sref-active="active">Wyświetl szczegóły grupy</button>
-        <div class="add-post" id="add-post">
-            <button onclick="window.location.href='../AddPostView'">Dodaj post</button>
+        @*wall.css*@
+        <div class="flex-add-button">
+            <button type="submit" class="btn-success" value="AddPost" id="AddPost" onclick="AddPost()">Dodaj Post</button>
+            <button class="btn-success" ui-sref="Groups/Details" ui-sref-active="active" id="groupDetails">Wyświetl szczegóły grupy</button>
         </div>
+        
+        @*<div class="add-post" id="add-post">
+            <button onclick="window.location.href='../AddPostView'" class="btn-success">Dodaj post</button>
+        </div>*@
         <div class="wall-flex">
             @foreach (var post in Model.LatestPosts)
             {
                 <div class="post">
                     <div class="postHeader">
                         <ul>
-                            <li><div class="userProfilePhoto userProfilePhotoSmall">@post.CreatorPhoto</div></li>
-                            <li><p>@post.Creator.Name<p></li>
-                            <li><p>1 godz.</p></li>
+                            <li><div class="userProfilePhoto userProfilePhotoSmall" style="background-image:url(@post.CreatorPhoto)"></div></li>
+                            <li><p>@post.Creator.Name @post.Creator.Surname<p></li>
+                            <li><p>@*1 godz.*@</p></li>
                         </ul>
                     </div>
                     <div class="postContent">

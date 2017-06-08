@@ -306,6 +306,7 @@
     <Compile Include="Utilities\DataPoint.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\css\groups.css" />
     <Content Include="Content\css\index.css" />
     <Content Include="Content\css\loginPage.css" />
     <Content Include="Content\css\main.css" />
@@ -313,6 +314,7 @@
     <Content Include="Content\css\palette.css" />
     <Content Include="Content\css\reset.css" />
     <Content Include="Content\css\userPage.css" />
+    <Content Include="Content\css\wall.css" />
     <Content Include="Content\gulpfile.js" />
     <Content Include="Content\js\angularScripts\WallSwitcherController.js" />
     <Content Include="Content\js\angularScripts\app.config.js" />
