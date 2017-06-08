@@ -55,7 +55,7 @@ div.fao {
     font-style: normal;
     font-weight: normal;
 
-    &#bell::before {
+    &#user::before {
         content: "\f0c0";
     }
 
@@ -63,7 +63,7 @@ div.fao {
         content: "\f0e0";
     }
 
-    &#user::before {
+    &#bell::before {
         content: "\f0f3";
     }
 

@@ -12,3 +12,24 @@ ul.addNewGroup {
     border: 1px solid #cccccc;
     padding: 0.625rem;
     margin: 0.625rem; }
+
+.flex-add-button {
+  width: 99%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0.625rem;
+  order: 2; }
+  .flex-add-button #AddPost {
+    order: 2;
+    align-self: flex-end; }
+    .flex-add-button #AddPost::before {
+      font-family: 'FontAwesome';
+      font-style: normal;
+      font-weight: normal;
+      content: '\f0fe';
+      margin-right: 0.3125rem; }
+  .flex-add-button #groupDetails {
+    order: 1;
+    align-self: flex-start; }

@@ -148,7 +148,7 @@ body {
           color: #333;
           align-items: flex-end; }
     .container-flex .wall-flex .post .postContent {
-      padding: 0 3.125rem 0 3.125rem;
+      padding: 0.625rem;
       /*background-color: white;*/ }
     .container-flex .wall-flex .post button {
       align-self: flex-start; }
