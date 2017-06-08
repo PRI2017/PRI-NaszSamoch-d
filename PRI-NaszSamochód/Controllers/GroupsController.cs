@@ -106,6 +106,25 @@ namespace PRI_NaszSamochód.Controllers
             RedirectToAction("GroupContent", id);
         }
 
+        [System.Web.Mvc.HttpPost]
+        public ActionResult AddGroupMember([FromBody]ApplicationUser user, int? id)
+        {
+            if (id != null)
+            {
+                GroupModel group = _context.Groups.Find(id);
+                MembersModel member = new MembersModel(user);
+                var isInGroup = group.Members.Where(x => x.User.Id == member.User.Id);
+                if(isInGroup.Count() == 0)
+                {
+                    group.Members.Add(member);
+                    EditGroup((int) id, group);
+                    return RedirectToAction("GroupContent", id);
+                }
+                return new HttpStatusCodeResult(HttpStatusCode.Conflict);
+            }
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        }
+
         // GET: Groups/Edit/5
         public ActionResult EditGroup(int? id)
         {
