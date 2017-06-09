@@ -17,6 +17,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
+import com.koushikdutta.ion.Response;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -35,7 +36,7 @@ public class Conv extends AppCompatActivity {
     String url = "http://naszsamochod.com.pl/groups/mobilegroup";
 
     ArrayList<ConvUser> arrayOfUsers = new ArrayList<>();
-
+    final JsonObject json = new JsonObject();
     public ConvUser newUser;
     public ConvAdapter adapter;
     Button send;
@@ -44,6 +45,8 @@ public class Conv extends AppCompatActivity {
     private static Context context;
     public static List<String> usersList = new ArrayList<>();
     public static List<String> postsList = new ArrayList<>();
+    String idGroup;
+    String url2;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -76,6 +79,7 @@ public class Conv extends AppCompatActivity {
                                 JsonObject object = json.getAsJsonObject();
 
                                 String group = object.get("Name").toString();
+                                idGroup = object.get("Id").toString();
 
                                 if(group.equals(getName)) {
                                     JsonArray jsonArray = object.getAsJsonArray("LatestPosts");
@@ -111,7 +115,29 @@ public class Conv extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 message_ = message.getText().toString();
-                arrayOfUsers.add(new ConvUser("COS", message_));
+                url2 = "http://naszsamochod.com.pl/groups/addmobilepost/"+idGroup;
+                json.addProperty("Text", message_);
+
+                Ion.with(context)
+                        .load(url2)
+                        .setJsonObjectBody(json)
+                        .asJsonObject()
+                        .withResponse()
+                        .setCallback(new FutureCallback<Response<JsonObject>>() {
+                            @Override
+                            public void onCompleted(Exception e, Response<JsonObject> result) {
+                                System.out.println("KOD BLEDU - STATYSTYKI: "+result.getHeaders().code());
+                                if(result.getHeaders().code() == 200)
+                                {
+                                    System.out.println("Wysłano post");
+                                }
+                                else
+                                {
+                                    System.out.println("Nie wysłano posta");
+                                }
+                            }
+                        });
+                //arrayOfUsers.add(new ConvUser("COS", message_));
             }
         });
     }

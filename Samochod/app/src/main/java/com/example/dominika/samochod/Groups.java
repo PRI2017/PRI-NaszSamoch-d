@@ -34,7 +34,7 @@ public class Groups extends Fragment {
     String url = "http://naszsamochod.com.pl/groups/mobilegroup";
     public static String resultt;
 
-    //groups/addmobilepost/id_grupy          ""
+    //groups/addmobilepost/id_grupy          "Text"
 
 
 
