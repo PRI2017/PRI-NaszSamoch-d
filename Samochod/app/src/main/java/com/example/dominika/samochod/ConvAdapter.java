@@ -13,6 +13,7 @@ import java.util.ArrayList;
  * Created by Dominika on 28.05.2017.
  */
 
+//KLASA WYSWIETLAJACA DANY POST W DANEJ GRUPIE
 public class ConvAdapter extends ArrayAdapter<ConvUser> {
     public ConvAdapter(Context context, ArrayList<ConvUser> users) {
         super(context, 0, users);
@@ -32,7 +33,7 @@ public class ConvAdapter extends ArrayAdapter<ConvUser> {
         // Populate the data into the template view using the data object
         tvName.setText(conv.nick);
         tvHome.setText(conv.message);
-        // Return the completed view to render on screen
+
         return convertView;
     }
 }

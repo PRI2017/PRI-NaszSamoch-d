@@ -58,8 +58,13 @@ public class RecycleviewAdapterGroup extends RecyclerView.Adapter<RecycleviewAda
             //ANIMACJA NA ITEM W RECYCLERVIEW
             v.animate().rotationX(360);
 
-            Intent intent;
+            Groups group = new Groups();
+            List<String> cos = group.groupsList;
+            System.out.println("Wynik: " + cos.get(getPosition()));
+            Intent intent = null;
+
             intent =  new Intent(context, Conv.class);
+            intent.putExtra("NameOfTheGroup", cos.get(getPosition()));
 
             context.startActivity(intent);
 

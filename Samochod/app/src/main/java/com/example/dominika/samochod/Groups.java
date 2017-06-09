@@ -32,17 +32,12 @@ public class Groups extends Fragment {
 
     private static Context context;
     String url = "http://naszsamochod.com.pl/groups/mobilegroup";
+    public static String resultt;
 
-    //LISTA GRUP DYSKUSYJNYCH
-    public static final String[] CarsList = {"Alfa Romeo","Audi","BMW","Bentley","Daewoo","Dacia","Citroen","Ford",
-            "Fiat","Ferrari","Honda","Hyundai","Lancia","Lexus","Mercedes","Seat","Skoda","Porsche","Renault",
-            "Toyota","Suzuki","Subaru","Volvo","Volkswagen","Peugeot","Opel","Nissan","Maserati",
-            "Mazda","Mitsubishi","Rolls-Royce","Lamborgini","Infiniti","Isuzu","Iveco","Chrystel"};
 
+
+    //LISTA DOSTEPNYCH GROUP
     public static List<String> groupsList = new ArrayList<>();
-
-    //PRZEKONWERTOWANIE ARRAY DO LIST
-    List carslist = Arrays.asList(CarsList);
 
 
     @Override
@@ -54,6 +49,7 @@ public class Groups extends Fragment {
         final RecyclerView rv = (RecyclerView) inflater.inflate(
                 R.layout.group_list_layout, container, false);
 
+        //ODBIERANIE GRUP Z SERWERA
         Ion.with(context)
                 .load(url)
                 .asJsonArray()
@@ -63,19 +59,14 @@ public class Groups extends Fragment {
                         for(int i = 0; i < result.size(); i++) {
                             JsonElement json = result.get(i);
                             JsonObject object = json.getAsJsonObject();
-                            String resultt = object.get("Name").toString();
+                            resultt = object.get("Name").toString();
                             groupsList.add(resultt);
-                            System.out.println(resultt);
-                            //PODLACZENIE POD RECYCLEVIEW
                         }
-
 
                         rv.setLayoutManager(new LinearLayoutManager(rv.getContext()));
                         rv.setAdapter(new RecycleviewAdapterGroup(groupsList));
                     }
                 });
-
-
 
         return rv;
     }
