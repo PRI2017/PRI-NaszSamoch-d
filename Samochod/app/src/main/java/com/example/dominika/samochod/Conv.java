@@ -33,9 +33,9 @@ import java.util.List;
 public class Conv extends AppCompatActivity {
 
     String url = "http://naszsamochod.com.pl/groups/mobilegroup";
-    // Construct the data source
+
     ArrayList<ConvUser> arrayOfUsers = new ArrayList<>();
-    // Create the adapter to convert the array to views
+
     public ConvUser newUser;
     public ConvAdapter adapter;
     Button send;
@@ -55,10 +55,6 @@ public class Conv extends AppCompatActivity {
         send = (Button) findViewById(R.id.send_message_button);
         message = (EditText) findViewById(R.id.message_tv);
 
-        //DODANIE PRZYKLADOWEGO POSTU
-        //newUser = new ConvUser("Nathan", "San Diego");
-        //adapter =  new ConvAdapter(this, arrayOfUsers);
-
 
         //ODBIERANIE NAZWY GRUPY NA KTORA KLIKNELISMY
         Intent intent = getIntent();
@@ -75,11 +71,6 @@ public class Conv extends AppCompatActivity {
                         @Override
                         public void onCompleted(Exception e, JsonArray result) {
                             for(int i = 0; i < result.size(); i++) {
-
-                                //JsonElement json = result.get(i);
-                                //JsonObject object = json.getAsJsonObject();
-                                //resultt = object.get("Name").toString();
-
 
                                 JsonElement json = result.get(i);
                                 JsonObject object = json.getAsJsonObject();
@@ -98,20 +89,17 @@ public class Conv extends AppCompatActivity {
                                         String surname = jsonObject1.get("Surname").toString(); //UZYSKANIE NAZWISKA OSOBY KTORA DODALA POST
                                         String resultt = jsonObject.get("Text").toString();     //UZYSKANIE POSTU DODANEGO PRZEZ UZYTKOWNIKA POWYZEJ
                                         System.out.println(resultt);
-                                        newUser = new ConvUser(name2, resultt);
-                                        adapter = new ConvAdapter(context, arrayOfUsers);
-                                        listView.setAdapter(adapter);
-                                        adapter.add(newUser);
+                                        usersList.add(name2);
+                                        postsList.add(resultt);
                                     }
                                 }
                             }
+                            adapter = new ConvAdapter(context, usersList, postsList);
+                            listView.setAdapter(adapter);
                         }
                     });
         }
         ///////////////////////////////////////////////////
-
-        //listView.setAdapter(adapter);
-        //adapter.add(newUser);
 
         //newUser = new ConvUser("Nathan", "San Diego");
         //adapter =  new ConvAdapter(this, arrayOfUsers);
@@ -126,6 +114,13 @@ public class Conv extends AppCompatActivity {
                 arrayOfUsers.add(new ConvUser("COS", message_));
             }
         });
+    }
 
+    //CZYSZCZENIE LIST PO KLIKNIECIU WSTECZ
+    @Override
+    public void onBackPressed() {
+        usersList.clear();
+        postsList.clear();
+        super.onBackPressed();
     }
 }

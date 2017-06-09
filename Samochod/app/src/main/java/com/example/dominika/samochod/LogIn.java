@@ -30,13 +30,7 @@ public class LogIn extends AppCompatActivity{
     NetworkResponse errorRes;
     String stringData = "";
         String url2 = "http://naszsamochod.com.pl/Mobile/Login";
-        //String url = "http://naszsamochod.com.pl/PRI-NaszSamochod/api/publickey";
 
-        //String url2 = "http://naszsamochod.azurewebsites.net/Mobile/Login";
-        //String url = "http://naszsamochod.azurewebsites.net/api/publickey";
-        //groups/mobilegroup/id             mobilegroup/id
-        //String url2 = "http://192.168.1.184:8080/Mobile/Login";
-        //String url = "http://192.168.1.184:8080/api/publickey";
         private static Context context;
         private static String key;
         AsymmetricKeyParameter key2;
