@@ -3,6 +3,7 @@ using PRI_NaszSamochód.Models;
 using System;
 using System.Collections;
 using System.Linq;
+using System.Net;
 using System.Web.Helpers;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -89,11 +90,11 @@ namespace PRI_NaszSamochód.Controllers
             return null;
         }
 
-        [System.Web.Mvc.HttpGet]
-        public ActionResult AddStats()
-        {
-            return View();
-        }
+        //[System.Web.Mvc.HttpGet]
+        //public ActionResult AddStats()
+        //{
+        //    return View();
+        //}
 
         [System.Web.Mvc.HttpPost]
         public ActionResult AddStats([FromBody] UserStatistics stats)
@@ -106,9 +107,11 @@ namespace PRI_NaszSamochód.Controllers
                 stats.User = _context.Users.Single(u=>u.Id == id);
                 _context.UserStatistics.Add(stats);
                 _context.SaveChanges();
-                return RedirectToAction("AddStats");
+                //return RedirectToAction("AddStats");
+                return new HttpStatusCodeResult(HttpStatusCode.OK);
             }
-            return View();
+            //return View();
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         }
 
     }
