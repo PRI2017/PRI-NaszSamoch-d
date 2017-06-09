@@ -56,8 +56,8 @@ public class Conv extends AppCompatActivity {
         message = (EditText) findViewById(R.id.message_tv);
 
         //DODANIE PRZYKLADOWEGO POSTU
-        newUser = new ConvUser("Nathan", "San Diego");
-        adapter =  new ConvAdapter(this, arrayOfUsers);
+        //newUser = new ConvUser("Nathan", "San Diego");
+        //adapter =  new ConvAdapter(this, arrayOfUsers);
 
 
         //ODBIERANIE NAZWY GRUPY NA KTORA KLIKNELISMY
@@ -65,7 +65,7 @@ public class Conv extends AppCompatActivity {
         Bundle bd = intent.getExtras();
         if(bd != null)
         {
-            String getName = (String) bd.get("NameOfTheGroup");
+            final String getName = (String) bd.get("NameOfTheGroup");   //POBIERANIE NAZWY GRUPY NA KTORA KLIKNELISMY
             System.out.println("Wynik: " + getName);
             //ODBIERANIE GRUP Z SERWERA
             Ion.with(context)
@@ -75,28 +75,49 @@ public class Conv extends AppCompatActivity {
                         @Override
                         public void onCompleted(Exception e, JsonArray result) {
                             for(int i = 0; i < result.size(); i++) {
+
+                                //JsonElement json = result.get(i);
+                                //JsonObject object = json.getAsJsonObject();
+                                //resultt = object.get("Name").toString();
+
+
                                 JsonElement json = result.get(i);
                                 JsonObject object = json.getAsJsonObject();
-                                JsonArray jsonArray = object.getAsJsonArray("LatestPosts");
-                                for(int j = 0; j < jsonArray.size(); j++) {
-                                    JsonElement jsonElement = jsonArray.get(j);
-                                    JsonObject jsonObject = jsonElement.getAsJsonObject();
-                                    JsonElement jsonElement1 = jsonObject.get("Creator");
-                                    JsonObject jsonObject1 = jsonElement1.getAsJsonObject();
-                                    String name2 = jsonObject1.get("Name").toString();      //UZYSKANIE IMIENIA OSOBY KTORA DODALA POST
-                                    String surname = jsonObject1.get("Surname").toString(); //UZYSKANIE NAZWISKA OSOBY KTORA DODALA POST
-                                    String resultt = jsonObject.get("Text").toString();     //UZYSKANIE POSTU DODANEGO PRZEZ UZYTKOWNIKA POWYZEJ
-                                    System.out.println(resultt);
-                                    newUser = new ConvUser(name2, resultt);
-                                    adapter =  new ConvAdapter(context, arrayOfUsers);
-                                    //listView.setAdapter(adapter);
-                                    //adapter.add(newUser);
+
+                                String group = object.get("Name").toString();
+
+                                if(group.equals(getName)) {
+                                    JsonArray jsonArray = object.getAsJsonArray("LatestPosts");
+                                    for (int j = 0; j < jsonArray.size(); j++) {
+                                        System.out.println("Rozmiar: " + jsonArray.size());
+                                        JsonElement jsonElement = jsonArray.get(j);
+                                        JsonObject jsonObject = jsonElement.getAsJsonObject();
+                                        JsonElement jsonElement1 = jsonObject.get("Creator");
+                                        JsonObject jsonObject1 = jsonElement1.getAsJsonObject();
+                                        String name2 = jsonObject1.get("Name").toString();      //UZYSKANIE IMIENIA OSOBY KTORA DODALA POST
+                                        String surname = jsonObject1.get("Surname").toString(); //UZYSKANIE NAZWISKA OSOBY KTORA DODALA POST
+                                        String resultt = jsonObject.get("Text").toString();     //UZYSKANIE POSTU DODANEGO PRZEZ UZYTKOWNIKA POWYZEJ
+                                        System.out.println(resultt);
+                                        newUser = new ConvUser(name2, resultt);
+                                        adapter = new ConvAdapter(context, arrayOfUsers);
+                                        listView.setAdapter(adapter);
+                                        adapter.add(newUser);
+                                    }
                                 }
                             }
                         }
                     });
         }
         ///////////////////////////////////////////////////
+
+        //listView.setAdapter(adapter);
+        //adapter.add(newUser);
+
+        //newUser = new ConvUser("Nathan", "San Diego");
+        //adapter =  new ConvAdapter(this, arrayOfUsers);
+
+        //listView.setAdapter(adapter);
+        //adapter.add(newUser);
 
         send.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,7 +127,5 @@ public class Conv extends AppCompatActivity {
             }
         });
 
-        listView.setAdapter(adapter);
-        adapter.add(newUser);
     }
 }
