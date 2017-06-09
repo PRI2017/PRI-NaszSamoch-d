@@ -21,7 +21,20 @@ namespace PRI_NaszSamochód.Controllers
         // GET: UserStats
         public ActionResult FuelChart()
         {
-            String id = User.Identity.GetUserId();
+
+            string Blue =
+            @"<Chart BackColor=""#D3DFF0"" BackGradientStyle=""TopBottom"" BackSecondaryColor=""White"" BorderColor=""26, 59, 105""
+            BorderlineDashStyle=""Solid"" BorderWidth=""2"" Palette=""BrightPastel"">
+            <ChartAreas>
+            <ChartArea Name=""Default"" _Template_=""All"" BackColor=""64, 165, 191, 228"" BackGradientStyle=""TopBottom""
+            BackSecondaryColor=""White"" BorderColor=""64, 64, 64, 64"" BorderDashStyle=""Solid"" ShadowColor=""Transparent"" />
+            </ChartAreas>
+            <Legends>
+            <Legend _Template_=""All"" BackColor=""Transparent"" Font=""Trebuchet MS, 8.25pt, style=Bold"" IsTextAutoFit=""False"" />
+            </Legends>
+            <BorderSkin SkinStyle=""Emboss"" />
+            </Chart>";
+        String id = User.Identity.GetUserId();
 
             var _context = new ApplicationDbContext();
             ArrayList xValues = new ArrayList();
