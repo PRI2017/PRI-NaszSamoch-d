@@ -56,10 +56,10 @@
             <ul class="nav">
                 @*TO DO: change <a href></a>*@
                 <li id="lilog"><a href="#"><div id="logo"></div></a></li>
-                <li class="search"><input type="search"/></li>
+                <li id="searchLi"><input id="searchBox" type="search" name="search"/></li>
                 @*TO DO: change <a href></a>*@
                 @*<li><a ui-sref="User/UserPage({User:@Model.User.Name-@Model.User.Surname})" ui-sref-active="active"><a href="/@Model.User.Name-@Model.User.Surname/UserPage">@Model.User.Name @Model.User.Surname</a></a></li>*@
-                <li><a ui-sref="User/UserPage" ui-sref-active="active">@Model.User.Name @Model.User.Surname</a></li>
+                <li id="userNameLi"><a ui-sref="User/UserPage" ui-sref-active="active">@Model.User.Name @Model.User.Surname</a></li>
                 <li><a href="#"><div class="fao" id="bell"></div></a></li>
                 <li><a href="#"><div class="fao" id="user"></div></a></li>
                 <li><a href="#"><div class="fao" id="envelope"></div></a></li>
@@ -74,6 +74,7 @@
                 <div class="notificationBar" style="display:none">
                     <h3 class="notificationBarMain">Powiadomienia</h3>
                     <div style="display: none"><p style="display: none"></p></div>
+                    
                     <h3>Janusz zaprosił Cię do znajomych</h3>
                     <div>
                         <button class="ui-button">Akceptuj</button>
@@ -129,12 +130,39 @@
                 <footer><p>Footer</p></footer>
 </div>
        <script>
+           //Notification Bar
            $("#bell").click(
                function () { $(".notificationBar").css("display", "flex").accordion(); });
            $(".notificationBarMain").click(
                function () { $(".notificationBar").css("display", "none");});
 
-           
+           //Search box
+           var availableTags = [
+      "ActionScript",
+      "AppleScript",
+      "Asp",
+      "BASIC",
+      "C",
+      "C++",
+      "Clojure",
+      "COBOL",
+      "ColdFusion",
+      "Erlang",
+      "Fortran",
+      "Groovy",
+      "Haskell",
+      "Java",
+      "JavaScript",
+      "Lisp",
+      "Perl",
+      "PHP",
+      "Python",
+      "Ruby",
+      "Scala",
+      "Scheme"];
+           $("#searchBox").autocomplete({
+               source: availableTags
+           });
        </script>
 </body>
 </html>

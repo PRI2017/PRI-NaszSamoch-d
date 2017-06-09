@@ -31,20 +31,6 @@ ul.nav {
             text-decoration: none;
         }
 
-        &.search {
-            padding: 0;
-            padding-top: $tenPx;
-
-            input[type=search] {
-                border: 2px solid #ffcaa5;
-                border-radius: $tenPx;
-                color: $color5;
-                width: $tenPx*25;
-                height: $tenPx*3.5;
-            }
-        }
-
-
         &:hover {
             background-color: $color1Hover;
         }

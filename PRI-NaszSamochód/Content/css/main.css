@@ -29,15 +29,6 @@ ul.nav {
     ul.nav > li > a {
       color: white;
       text-decoration: none; }
-    ul.nav > li.search {
-      padding: 0;
-      padding-top: 0.625rem; }
-      ul.nav > li.search input[type=search] {
-        border: 2px solid #ffcaa5;
-        border-radius: 0.625rem;
-        color: #333;
-        width: 15.625rem;
-        height: 2.1875rem; }
     ul.nav > li:hover {
       background-color: #fc8351; }
 
