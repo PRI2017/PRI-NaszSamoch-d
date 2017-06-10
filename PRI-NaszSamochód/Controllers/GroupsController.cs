@@ -54,7 +54,10 @@ namespace PRI_NaszSamochód.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            GroupModel group = _context.Groups.Find(id);
+            //GroupModel group = _context.Groups.Find(id);
+            GroupModel group = (from g in _context.Groups.Include("Members.User")
+                                where g.Id == id
+                                select g).Single();
             GroupViewModel gvm = new GroupViewModel(group);
             if (group == null)
             {
@@ -111,14 +114,17 @@ namespace PRI_NaszSamochód.Controllers
             ApplicationUser user = _context.Users.Where(x=>x.UserName == username).Single();
             if (groupId != null)
             {
-                GroupModel group = _context.Groups.Find(groupId);
+                int id = groupId.Value;
+                GroupModel group = (from g in _context.Groups.Include("Members.User")
+                                    where g.Id == groupId
+                                    select g).Single();
                 MembersModel member = new MembersModel(user);
                 var isInGroup = group.Members.Where(x => x.User.Id == member.User.Id);
                 if(isInGroup.Count() == 0)
                 {
                     group.Members.Add(member);
                     EditGroup((int) groupId, group);
-                    return RedirectToAction("GroupContent", groupId);
+                    return RedirectToAction("GroupContent", id);
                 }
                 return new HttpStatusCodeResult(HttpStatusCode.Conflict);
             }
