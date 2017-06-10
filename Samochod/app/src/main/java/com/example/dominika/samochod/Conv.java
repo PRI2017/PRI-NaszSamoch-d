@@ -47,6 +47,7 @@ public class Conv extends AppCompatActivity {
     public static List<String> postsList = new ArrayList<>();
     String idGroup;
     String url2;
+    String getName;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -64,9 +65,9 @@ public class Conv extends AppCompatActivity {
         Bundle bd = intent.getExtras();
         if(bd != null)
         {
-            final String getName = (String) bd.get("NameOfTheGroup");   //POBIERANIE NAZWY GRUPY NA KTORA KLIKNELISMY
+            getName = (String) bd.get("NameOfTheGroup");   //POBIERANIE NAZWY GRUPY NA KTORA KLIKNELISMY
             System.out.println("Wynik: " + getName);
-            //ODBIERANIE GRUP Z SERWERA
+            //ODBIERANIE POSTOW I NAZWY USERA Z SERWERA
             Ion.with(context)
                     .load(url)
                     .asJsonArray()
@@ -123,7 +124,7 @@ public class Conv extends AppCompatActivity {
                         .setCallback(new FutureCallback<Response<JsonObject>>() {
                             @Override
                             public void onCompleted(Exception e, Response<JsonObject> result) {
-                                System.out.println("KOD BLEDU - STATYSTYKI: "+result.getHeaders().code());
+                                System.out.println("KOD BLEDU - NOWY POST: "+result.getHeaders().code());
                                 if(result.getHeaders().code() == 200)
                                 {
                                     System.out.println("Wysłano post");
@@ -132,6 +133,46 @@ public class Conv extends AppCompatActivity {
                                 {
                                     System.out.println("Nie wysłano posta");
                                 }
+                            }
+                        });
+                usersList.clear();
+                postsList.clear();
+
+                //ODBIERANIE GRUP Z SERWERA
+                Ion.with(context)
+                        .load(url)
+                        .asJsonArray()
+                        .setCallback(new FutureCallback<JsonArray>() {
+                            @Override
+                            public void onCompleted(Exception e, JsonArray result) {
+                                for(int i = 0; i < result.size(); i++) {
+
+                                    JsonElement json = result.get(i);
+                                    JsonObject object = json.getAsJsonObject();
+
+                                    String group = object.get("Name").toString();
+                                    System.out.println("IDGROUP: "+ idGroup);
+
+                                    if(group.equals(getName)) {
+                                        idGroup = object.get("Id").toString();
+                                        JsonArray jsonArray = object.getAsJsonArray("LatestPosts");
+                                        for (int j = 0; j < jsonArray.size(); j++) {
+                                            System.out.println("Rozmiar: " + jsonArray.size());
+                                            JsonElement jsonElement = jsonArray.get(j);
+                                            JsonObject jsonObject = jsonElement.getAsJsonObject();
+                                            JsonElement jsonElement1 = jsonObject.get("Creator");
+                                            JsonObject jsonObject1 = jsonElement1.getAsJsonObject();
+                                            String name2 = jsonObject1.get("Name").toString();      //UZYSKANIE IMIENIA OSOBY KTORA DODALA POST
+                                            String surname = jsonObject1.get("Surname").toString(); //UZYSKANIE NAZWISKA OSOBY KTORA DODALA POST
+                                            String resultt = jsonObject.get("Text").toString();     //UZYSKANIE POSTU DODANEGO PRZEZ UZYTKOWNIKA POWYZEJ
+                                            System.out.println(resultt);
+                                            usersList.add(name2);
+                                            postsList.add(resultt);
+                                        }
+                                    }
+                                }
+                                adapter = new ConvAdapter(context, usersList, postsList);
+                                listView.setAdapter(adapter);
                             }
                         });
             }

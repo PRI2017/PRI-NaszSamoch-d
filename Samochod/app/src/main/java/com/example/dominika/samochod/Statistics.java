@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.gson.JsonObject;
+import com.google.gson.internal.Excluder;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
 import com.koushikdutta.ion.Response;
@@ -25,6 +26,7 @@ public class Statistics extends Fragment {
 
     private static Context context;
     String url = "http://naszSamochod.com.pl/userStats/addStats";
+    Double prop1,prop2,prop3;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -45,32 +47,40 @@ public class Statistics extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Double prop1 = new Double(km.getText().toString());
-                Double prop2 = new Double(fuel.getText().toString());
-                Double prop3 = new Double(velocity.getText().toString());
-                json.addProperty("KilometersDriven", prop1);
-                json.addProperty("FuelUsed", prop2);
-                json.addProperty("MaxVelocity", prop3);
+                boolean isDataValid = true;
+                try {
+                    prop1 = new Double(km.getText().toString());
+                    prop2 = new Double(fuel.getText().toString());
+                    prop3 = new Double(velocity.getText().toString());
+                }
+                catch(Exception e)
+                {
+                    isDataValid = false;
+                    showErrorToast2();
+                }
 
-                Ion.with(context)
-                        .load(url)
-                        .setJsonObjectBody(json)
-                        .asJsonObject()
-                        .withResponse()
-                        .setCallback(new FutureCallback<Response<JsonObject>>() {
-                            @Override
-                            public void onCompleted(Exception e, Response<JsonObject> result) {
-                                System.out.println("KOD BLEDU - STATYSTYKI: "+result.getHeaders().code());
-                                if(result.getHeaders().code() == 200)
-                                {
-                                    System.out.println("Wysłano statystyki");
+                if(isDataValid) {
+                    json.addProperty("KilometersDriven", prop1);
+                    json.addProperty("FuelUsed", prop2);
+                    json.addProperty("MaxVelocity", prop3);
+
+                    Ion.with(context)
+                            .load(url)
+                            .setJsonObjectBody(json)
+                            .asJsonObject()
+                            .withResponse()
+                            .setCallback(new FutureCallback<Response<JsonObject>>() {
+                                @Override
+                                public void onCompleted(Exception e, Response<JsonObject> result) {
+                                    System.out.println("KOD BLEDU - STATYSTYKI: " + result.getHeaders().code());
+                                    if (result.getHeaders().code() == 200) {
+                                        System.out.println("Wysłano statystyki");
+                                    } else {
+                                        showErrorToast();
+                                    }
                                 }
-                                else
-                                {
-                                    showErrorToast();
-                                }
-                            }
-                        });
+                            });
+                }
             }
         });
 
@@ -81,4 +91,7 @@ public class Statistics extends Fragment {
         Toast.makeText(context, "Nie wysłano statystyk", Toast.LENGTH_SHORT).show();
     }
 
+    private void showErrorToast2() {
+        Toast.makeText(context, "Błędne dane. Spróbuj jeszcze raz", Toast.LENGTH_SHORT).show();
+    }
 }
