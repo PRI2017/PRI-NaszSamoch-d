@@ -23,19 +23,8 @@ namespace PRI_NaszSamochód.Controllers
         public ActionResult FuelChart()
         {
 
-            string Blue =
-            @"<Chart BackColor=""#D3DFF0"" BackGradientStyle=""TopBottom"" BackSecondaryColor=""White"" BorderColor=""26, 59, 105""
-            BorderlineDashStyle=""Solid"" BorderWidth=""2"" Palette=""BrightPastel"">
-            <ChartAreas>
-            <ChartArea Name=""Default"" _Template_=""All"" BackColor=""64, 165, 191, 228"" BackGradientStyle=""TopBottom""
-            BackSecondaryColor=""White"" BorderColor=""64, 64, 64, 64"" BorderDashStyle=""Solid"" ShadowColor=""Transparent"" />
-            </ChartAreas>
-            <Legends>
-            <Legend _Template_=""All"" BackColor=""Transparent"" Font=""Trebuchet MS, 8.25pt, style=Bold"" IsTextAutoFit=""False"" />
-            </Legends>
-            <BorderSkin SkinStyle=""Emboss"" />
-            </Chart>";
-        String id = User.Identity.GetUserId();
+    
+            String id = User.Identity.GetUserId();
 
             var _context = new ApplicationDbContext();
             ArrayList xValues = new ArrayList();
@@ -49,7 +38,7 @@ namespace PRI_NaszSamochód.Controllers
             results.ToList().ForEach(x => xValues.Add(x.RecordTime));
             results.ToList().ForEach(y => yValues.Add(y.FuelUsed));
 
-            new Chart(width: 1200, height: 400, theme: ChartTheme.Blue)
+            new Chart(width: 1200, height: 400, theme: ChartTheme.Vanilla)
                 .AddTitle("Zużyte paliwo")
                 .AddSeries("Default", chartType: "Column", xValue: xValues, yValues: yValues)
                 .Write("jpeg");
@@ -72,7 +61,7 @@ namespace PRI_NaszSamochód.Controllers
             results.ToList().ForEach(x => xValues.Add(x.RecordTime));
             results.ToList().ForEach(y => yValues.Add(y.KilometersDriven));
 
-            new Chart(width: 1200, height: 400, theme: ChartTheme.Blue)
+            new Chart(width: 1200, height: 400, theme: ChartTheme.Vanilla)
                 .AddTitle("Przejechane kilometry")
                 .AddSeries("Default", chartType: "Column", xValue: xValues, yValues: yValues)
                 .Write("jpeg");
@@ -95,7 +84,7 @@ namespace PRI_NaszSamochód.Controllers
             results.ToList().ForEach(x => xValues.Add(x.RecordTime));
             results.ToList().ForEach(y => yValues.Add(y.MaxVelocity));
 
-            new Chart(width: 1200, height: 400, theme: ChartTheme.Blue)
+            new Chart(width: 1200, height: 400, theme: ChartTheme.Vanilla)
                 .AddTitle("Prędkość maksymalna")
                 .AddSeries("Default", chartType: "Column", xValue: xValues, yValues: yValues)
                 .Write("jpeg");

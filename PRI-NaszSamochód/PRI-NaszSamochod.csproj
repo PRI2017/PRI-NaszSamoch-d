@@ -6010,6 +6010,7 @@
     <Content Include="Views\Groups\AddPostView.cshtml" />
     <Content Include="Views\Groups\NotAdmin.cshtml" />
     <Content Include="Views\Mobile\Login.cshtml" />
+    <Content Include="Views\UserPage\EditStatistics.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

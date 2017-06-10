@@ -194,3 +194,20 @@ ul.info {
         }
     }
 }
+.cont-fl{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+div.chart {
+    width: 95%;
+    height: 100%;
+    margin: $tenPx*2;
+    background-repeat: no-repeat;
+    background-size: $tenPx*100;
+}
+.flex-add-button {
+    margin-top: $tenPx*2;
+    display: flex;
+    flex-direction: row-reverse;
+}

@@ -223,3 +223,20 @@ ul.info {
         background-color: rgba(128, 128, 128, 0.18); }
       .flex-cont .friendDisplay .friendOptionSelect li {
         padding: 0.3125rem; }
+
+.cont-fl {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; }
+
+div.chart {
+  width: 95%;
+  height: 100%;
+  margin: 1.25rem;
+  background-repeat: no-repeat;
+  background-size: 62.5rem; }
+
+.flex-add-button {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-direction: row-reverse; }

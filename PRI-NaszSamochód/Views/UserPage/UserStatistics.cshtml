@@ -1,24 +1,26 @@
 ﻿@using PRI_NaszSamochód.Models;
 @using PRI_NaszSamochód.Utilities;
 @model List<DataPoint>
+@*@model UserStatistics*@
 
 <!DOCTYPE html>
 <html>
 <head>
     <link rel="stylesheet" href="~/Content/css/main.css" />
+    <link rel="stylesheet" href="~/Content/css/userPage.css" />
     <title>Statystyki</title>
-    <script src="~/Content/node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="~/Content/node_modules/chart.js/dist/Chart.min.js"></script>
 </head>
 <body>
-    <div>
-        <img src="@Url.Action("FuelChart", "UserStats")" alt="Chart" />
-    </div>
-    <div>
-        <img src="@Url.Action("KilometersDrivenChart", "UserStats")" alt="Chart" />
-    </div>
-    <div>
-        <img src="@Url.Action("MaxVelocityChart", "UserStats")" alt="Chart" />
-    </div>
+    <div class="flex-add-button">
+        <button class="btn-success"><a href="/UserPage/EditStatistics" style="text-decoration: none; color: white;">Edytuj statystyki</a></button>
+    </div>    
+    <div class="cont-fl" id="charts">
+            <div class="chart" style="background-image:url(@Url.Action("FuelChart", "UserStats"));">
+            </div>
+            <div class="chart" style="background-image:url(@Url.Action("KilometersDrivenChart", "UserStats"));">
+            </div>
+            <div class="chart" style="background-image:url(@Url.Action("MaxVelocityChart", "UserStats"));">
+            </div>
+        </div>
 </body>
 </html>
