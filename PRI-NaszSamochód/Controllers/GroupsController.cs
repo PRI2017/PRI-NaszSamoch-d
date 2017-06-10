@@ -43,7 +43,7 @@ namespace PRI_NaszSamochód.Controllers
             {
                 return HttpNotFound();
             }
-            HttpContext.Session.Add("CurrentGroupId", id); // PROBLEM Z SESJĄ !!!!!!!!!!!!!!!
+            
             return View(gvm);
         }
 
@@ -87,38 +87,38 @@ namespace PRI_NaszSamochód.Controllers
             return View();
         }
 
-        public ActionResult AddPostView()
+        public ActionResult AddPostView([FromUri] int groupId)
         {
             return View();
         }
 
         [System.Web.Mvc.HttpPost]
-        public void AddPost(PostModel post)
+        public void AddPost(PostModel post, [FromUri] int? groupId)
         {
-            int? id = (int) Session["CurrentGroupId"]; // PROBLEM Z SESJĄ !!!!!!!!!!!!!!!
             using (var db = ApplicationDbContext.Create())
             {
                 post.Added = DateTime.Now;
                 post.Creator = db.Users.Find(User.Identity.GetUserId());
-                db.Groups.Find(id).Posts.Add(post);
+                db.Groups.Find(groupId).Posts.Add(post);
                 db.SaveChanges();
             }
-            RedirectToAction("GroupContent", id);
+            RedirectToAction("GroupContent", groupId);
         }
 
         [System.Web.Mvc.HttpPost]
-        public ActionResult AddGroupMember([FromBody]ApplicationUser user, int? id)
+        public ActionResult AddGroupMember([FromBody]string username, [FromUri] int? groupId)
         {
-            if (id != null)
+            ApplicationUser user = _context.Users.Where(x=>x.UserName == username).Single();
+            if (groupId != null)
             {
-                GroupModel group = _context.Groups.Find(id);
+                GroupModel group = _context.Groups.Find(groupId);
                 MembersModel member = new MembersModel(user);
                 var isInGroup = group.Members.Where(x => x.User.Id == member.User.Id);
                 if(isInGroup.Count() == 0)
                 {
                     group.Members.Add(member);
-                    EditGroup((int) id, group);
-                    return RedirectToAction("GroupContent", id);
+                    EditGroup((int) groupId, group);
+                    return RedirectToAction("GroupContent", groupId);
                 }
                 return new HttpStatusCodeResult(HttpStatusCode.Conflict);
             }
@@ -241,14 +241,20 @@ namespace PRI_NaszSamochód.Controllers
         }
 
         [System.Web.Mvc.HttpPost]
-        public ActionResult AddMobilePost([FromBody] PostModel model, int groupId)
+        public ActionResult AddMobilePost([FromBody] PostModel model, [FromUri] int? groupId)
         {
-            if (!ModelState.IsValid)
+            if(groupId == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            model.Added = DateTime.Now;
+
+            model.Id = new Random(DateTime.Now.Millisecond).Next();
             model.Creator = _context.Users.Find(User.Identity.GetUserId());
+            model.Added = DateTime.Now;
+            model.Comments = new List<CommentModel>() { };
+            model.Likes = new List<LikeModel>() { };
+            model.PhotoPath = "";
+            
             _context.Groups.Find(groupId).Posts.Add(model);
             _context.SaveChanges();
             return new HttpStatusCodeResult(HttpStatusCode.OK);

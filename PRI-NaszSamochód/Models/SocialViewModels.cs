@@ -44,10 +44,6 @@ namespace PRI_NaszSamochód.Models
         {
             Creator = post.Creator;
             Text = post.Text;
-            
-           
-                
-          
             post.Comments?.Map
                 (comment => Comments.Add(new CommentViewModel(comment)));
             Likes = post.Likes?.ToList();

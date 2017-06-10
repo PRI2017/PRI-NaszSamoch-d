@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Net;
 using PRI_NaszSamochód.Models;
+using Microsoft.AspNet.Identity;
 
 namespace PRI_NaszSamochód.Controllers
 {
@@ -105,6 +106,19 @@ namespace PRI_NaszSamochód.Controllers
                     return new HttpStatusCodeResult(HttpStatusCode.Forbidden, "User requires verification");
                 default:
                     return new HttpStatusCodeResult(HttpStatusCode.Conflict, "Server has a problem");
+            }
+        }
+
+        public ActionResult Logout()
+        {
+            try
+            {
+                HttpContext.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+                return new HttpStatusCodeResult(HttpStatusCode.OK);
+            }
+            catch (Exception ex)
+            {
+                return new HttpStatusCodeResult(666, ex.Message);
             }
         }
     }

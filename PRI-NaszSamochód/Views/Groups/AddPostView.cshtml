@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    @using (Html.BeginForm("AddPost", "Groups", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    @using (Html.BeginForm("AddPost", "Groups", new { groupId = Request.Cookies.Get("groupId") } ,FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
         @Html.AntiForgeryToken()
 
