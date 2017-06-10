@@ -95,6 +95,8 @@ namespace PRI_NaszSamochód.Controllers
             return View();
         }
 
+        // PRZEKAZYWANIE ID GRUPY Z AddPostView DALEJ NIE DZIAŁA
+        // W BeginForm W WIDOKU TRZEBA PRZEKAZYWAĆ ID GRUPY, Z KTÓREJ NASTĄPIŁO PRZEKIEROWANIE (NA RAZIE NA SZTYWNO WRZUCA ID = 2)
         [System.Web.Mvc.HttpPost]
         public void AddPost(PostModel post, [FromUri] int? groupId)
         {
