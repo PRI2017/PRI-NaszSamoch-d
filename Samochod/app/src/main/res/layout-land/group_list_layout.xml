@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--LAYOUT LACZACY W JEDNA CALOSC (W JEDNO FORUM) WIADOMOSCI UZYTKOWNIKOW NALEZACYCH DO DANEJ GRUPY ROZMOWCOW-->
+<android.support.v7.widget.RecyclerView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/id_recycleview">
+
+</android.support.v7.widget.RecyclerView>

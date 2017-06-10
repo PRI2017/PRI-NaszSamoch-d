@@ -47,7 +47,7 @@ public class Statistics extends Fragment {
             @Override
             public void onClick(View v) {
 
-                boolean isDataValid = true;
+                boolean isDataValid = true;                 //ZAPEWNIENIE ZE WPROWADZONE DANE SA PRAWIDLOWE
                 try {
                     prop1 = new Double(km.getText().toString());
                     prop2 = new Double(fuel.getText().toString());
@@ -75,6 +75,7 @@ public class Statistics extends Fragment {
                                     System.out.println("KOD BLEDU - STATYSTYKI: " + result.getHeaders().code());
                                     if (result.getHeaders().code() == 200) {
                                         System.out.println("Wysłano statystyki");
+                                        showSuccesToast();
                                     } else {
                                         showErrorToast();
                                     }
@@ -93,5 +94,9 @@ public class Statistics extends Fragment {
 
     private void showErrorToast2() {
         Toast.makeText(context, "Błędne dane. Spróbuj jeszcze raz", Toast.LENGTH_SHORT).show();
+    }
+
+    private void showSuccesToast() {
+        Toast.makeText(context, "Wysłano statystyk", Toast.LENGTH_SHORT).show();
     }
 }

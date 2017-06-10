@@ -10,8 +10,9 @@
         android:id="@+id/photo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:srcCompat="@drawable/camera_land"
+        android:layout_centerHorizontal="true"
         android:scaleType="centerCrop"
+        app:srcCompat="@drawable/camera1_land"
         />
 
     <Button
@@ -19,9 +20,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/take_photo_string"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
         android:background="@drawable/button_shape"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:layout_marginBottom="29dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="56dp" />
+
+    <Button
+        android:id="@+id/send_photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/button_shape"
+        android:textColor="@color/white"
+        android:layout_alignTop="@+id/take_photo"
+        android:layout_marginStart="67dp"
+        android:text="@string/send_photo" />
 
 </RelativeLayout>
