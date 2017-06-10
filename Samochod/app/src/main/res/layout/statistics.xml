@@ -6,81 +6,96 @@
     tools:context="com.example.dominika.samochod.Toolbar">
 
 
-    <TextView
-        android:id="@+id/kilometersDriven"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/statistics_info"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="22dp"
-        android:text="@string/kilometersDrivenString" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/statistics_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="36dp"
-        android:text="@string/statistics_info" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
 
-    <Button
-        android:id="@+id/send_stat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/fuelUsed"
-        android:layout_marginBottom="49dp"
-        android:text="@string/send" />
+            <TextView
+                android:id="@+id/maxVelocity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/kilometersDriven"
+                android:layout_below="@+id/fuelUsedET"
+                android:layout_marginTop="31dp"
+                android:text="@string/maxVelocityString" />
 
-    <EditText
-        android:id="@+id/kilDrivenET"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/kilometersDriven"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="33dp"
-        android:ems="10"
-        android:hint="km"
-        android:inputType="textPersonName" />
+            <EditText
+                android:id="@+id/maxVelocityET"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/kilDrivenET"
+                android:layout_below="@+id/maxVelocity"
+                android:layout_marginTop="36dp"
+                android:ems="10"
+                android:hint="prędkość"
+                android:inputType="textPersonName" />
 
-    <EditText
-        android:id="@+id/fuelUsedET"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/maxVelocityET"
-        android:layout_below="@+id/fuelUsed"
-        android:layout_marginTop="28dp"
-        android:ems="10"
-        android:hint="paliwo"
-        android:inputType="textPersonName" />
 
-    <EditText
-        android:id="@+id/maxVelocityET"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/kilDrivenET"
-        android:layout_below="@+id/maxVelocity"
-        android:layout_marginTop="36dp"
-        android:ems="10"
-        android:hint="prędkość"
-        android:inputType="textPersonName" />
+            <EditText
+                android:id="@+id/kilDrivenET"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/kilometersDriven"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="33dp"
+                android:ems="10"
+                android:hint="km"
+                android:inputType="textPersonName" />
 
-    <TextView
-        android:id="@+id/fuelUsed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/fuelUsedString"
-        android:layout_below="@+id/kilDrivenET"
-        android:layout_alignStart="@+id/statistics_info" />
+            <TextView
+                android:id="@+id/statistics_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="36dp"
+                android:text="@string/statistics_info" />
 
-    <TextView
-        android:id="@+id/maxVelocity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/kilometersDriven"
-        android:layout_below="@+id/fuelUsedET"
-        android:layout_marginTop="31dp"
-        android:text="@string/maxVelocityString" />
+            <EditText
+                android:id="@+id/fuelUsedET"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/maxVelocityET"
+                android:layout_below="@+id/fuelUsed"
+                android:layout_marginTop="28dp"
+                android:ems="10"
+                android:hint="paliwo"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/kilometersDriven"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/statistics_info"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="22dp"
+                android:text="@string/kilometersDrivenString" />
+
+            <TextView
+                android:id="@+id/fuelUsed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/statistics_info"
+                android:layout_below="@+id/kilDrivenET"
+                android:layout_marginTop="24dp"
+                android:text="@string/fuelUsedString" />
+
+
+            <Button
+                android:id="@+id/send_stat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:background="@drawable/button_shape"
+                android:text="@string/send"
+                android:layout_alignParentBottom="true"
+                android:layout_alignEnd="@+id/statistics_info" />
+        </RelativeLayout>
+    </ScrollView>
+
 </RelativeLayout>

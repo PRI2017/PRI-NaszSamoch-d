@@ -79,9 +79,10 @@ public class Conv extends AppCompatActivity {
                                 JsonObject object = json.getAsJsonObject();
 
                                 String group = object.get("Name").toString();
-                                idGroup = object.get("Id").toString();
+                                System.out.println("IDGROUP: "+ idGroup);
 
                                 if(group.equals(getName)) {
+                                    idGroup = object.get("Id").toString();
                                     JsonArray jsonArray = object.getAsJsonArray("LatestPosts");
                                     for (int j = 0; j < jsonArray.size(); j++) {
                                         System.out.println("Rozmiar: " + jsonArray.size());
@@ -105,17 +106,13 @@ public class Conv extends AppCompatActivity {
         }
         ///////////////////////////////////////////////////
 
-        //newUser = new ConvUser("Nathan", "San Diego");
-        //adapter =  new ConvAdapter(this, arrayOfUsers);
-
-        //listView.setAdapter(adapter);
-        //adapter.add(newUser);
-
+        //WYSYLANIE NOWEJ WIADOMOSCI
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 message_ = message.getText().toString();
-                url2 = "http://naszsamochod.com.pl/groups/addmobilepost/"+idGroup;
+                url2 = "http://naszsamochod.com.pl/Groups/AddMobilePost?groupId="+idGroup;
+                System.out.println("Id: " + idGroup);
                 json.addProperty("Text", message_);
 
                 Ion.with(context)
@@ -137,7 +134,6 @@ public class Conv extends AppCompatActivity {
                                 }
                             }
                         });
-                //arrayOfUsers.add(new ConvUser("COS", message_));
             }
         });
     }
