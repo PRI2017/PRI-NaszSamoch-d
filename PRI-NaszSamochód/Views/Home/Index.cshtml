@@ -56,7 +56,7 @@
             <ul class="nav">
                 @*TO DO: change <a href></a>*@
                 <li id="lilog"><a href="#"><div id="logo"></div></a></li>
-                <li id="searchLi"><input id="searchBox" type="search" name="search"/></li>
+                <li id="searchLi" ><input id="searchBox" type="search" name="search"/></li>
                 @*TO DO: change <a href></a>*@
                 @*<li><a ui-sref="User/UserPage({User:@Model.User.Name-@Model.User.Surname})" ui-sref-active="active"><a href="/@Model.User.Name-@Model.User.Surname/UserPage">@Model.User.Name @Model.User.Surname</a></a></li>*@
                 <li id="userNameLi"><a ui-sref="User/UserPage" ui-sref-active="active">@Model.User.Name @Model.User.Surname</a></li>
@@ -71,15 +71,7 @@
                 </li>
             </ul>
             <div class="wrapper">
-                <div class="notificationBar" style="display:none">
-                    <h3 class="notificationBarMain">Powiadomienia</h3>
-                    <div style="display: none"><p style="display: none"></p></div>
-                    
-                    <h3>Janusz zaprosił Cię do znajomych</h3>
-                    <div>
-                        <button class="ui-button">Akceptuj</button>
-                        <button class="ui-button">Odrzuć</button>
-                    </div>
+                @Html.Action("FriendRequests","Friends")
                 </div>
             </div>
             
@@ -137,32 +129,37 @@
                function () { $(".notificationBar").css("display", "none");});
 
            //Search box
-           var availableTags = [
-      "ActionScript",
-      "AppleScript",
-      "Asp",
-      "BASIC",
-      "C",
-      "C++",
-      "Clojure",
-      "COBOL",
-      "ColdFusion",
-      "Erlang",
-      "Fortran",
-      "Groovy",
-      "Haskell",
-      "Java",
-      "JavaScript",
-      "Lisp",
-      "Perl",
-      "PHP",
-      "Python",
-      "Ruby",
-      "Scala",
-      "Scheme"];
+
            $("#searchBox").autocomplete({
-               source: availableTags
-           });
+               source: "/Friends/SearchFriend",
+               minLength: 4,
+               select: function(event, ui) {
+                   console.log(event.toElement.id);
+                   window.userId = event.toElement.id;
+                   var ang = angular.element("#searchBox").injector();
+                   ang.invoke(function ($state) {
+                       if ($state.current.name == 'User/UserPage') {
+                           $state.reload();
+                       }else{
+                           $state.go('User/UserPage', { reload: true });
+                       }
+                   });
+               }
+               }
+           ).data("ui-autocomplete")._renderItem = function( ul, item ) {
+                  
+               return $("<li>")
+                   .attr("id", item.Id)
+                   .attr("value",item.UserName)
+                   .append(item.UserName)
+                   .appendTo( ul );
+               }
+               ;
+          
+          
+
+                 
+           
        </script>
 </body>
 </html>

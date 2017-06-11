@@ -279,10 +279,12 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Controllers\GalleryController.cs" />
+    <Compile Include="Models\FriendRequestsModel.cs" />
     <Compile Include="Models\FriendsView.cs" />
     <Compile Include="Models\GroupViewModelList.cs" />
     <Compile Include="Models\PhotoModel.cs" />
     <Compile Include="Models\POI.cs" />
+    <Compile Include="Models\SearchFriendModel.cs" />
     <Compile Include="Models\UserGallery.cs" />
     <Compile Include="Models\UserStatistics.cs" />
     <Compile Include="Utilities\CookieExtractor.cs" />
@@ -6011,11 +6013,11 @@
     <Content Include="Views\Groups\NotAdmin.cshtml" />
     <Content Include="Views\Mobile\Login.cshtml" />
     <Content Include="Views\UserPage\EditStatistics.cshtml" />
+    <Content Include="Views\Friends\FriendRequests.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\BackPhoto\" />
-    <Folder Include="Views\Friends\" />
     <Folder Include="Views\GalleryPhoto\" />
     <Folder Include="Views\Gallery\" />
     <Folder Include="Views\PostPhot\" />

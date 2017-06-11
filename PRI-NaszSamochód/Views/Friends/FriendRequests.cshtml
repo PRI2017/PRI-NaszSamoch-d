@@ -1,0 +1,16 @@
+﻿
+@model PRI_NaszSamochód.Models.FriendRequestsModel
+<div class="notificationBar" style="display:none">
+<h3 class="notificationBarMain">Powiadomienia</h3>
+<div style="display: none"><p style="display: none"></p></div>
+ @foreach (var request in Model.Requests)
+ {
+     
+         <h3>@request.User1.UserName zaprosił Cię do znajomych</h3>
+         <div>
+             
+             <button class="ui-button" id="@request.User1.Id" onclick="" >Akceptuj</button>
+             <button class="ui-button" id="@request.User1.Id" >Odrzuć</button>
+         </div>
+     
+ } 
