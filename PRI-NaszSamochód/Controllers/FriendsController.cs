@@ -31,5 +31,60 @@ namespace PRI_NaszSamochód.Controllers
             }
            
         }
+        [HttpGet]
+        public ActionResult SearchFriend(string term)
+        {
+           if (term != null)
+            {
+                var db = ApplicationDbContext.Create();
+                List<SearchFriendModel> models = (from u in db.Users
+                    where u.UserName.Contains(term)
+                    select new SearchFriendModel(){Id = u.Id,UserName = u.UserName}).ToList();
+                
+                return Json(models,JsonRequestBehavior.AllowGet);
+            }
+            return HttpNotFound();
+
+
+        }
+
+        public void AddFriend(string userId)
+        {  
+            var db = ApplicationDbContext.Create();
+            var userExternal = db.Users.Single(u => u.Id == userId);
+            var curUserId = User.Identity.GetUserId();
+            var curUser = db.Users.Single(u => u.Id == curUserId);
+            if (userExternal != null)
+            { 
+              var requestFriend = new FriendModel(){User1 = curUser, User2 = userExternal,Status = FriendStatus.Requested};
+              var respondFriend = new FriendModel(){User1 = userExternal,User2 = curUser, Status = FriendStatus.Pending};
+                db.Friends.Add(respondFriend);
+                db.Friends.Add(requestFriend);
+                db.SaveChanges();
+            }
+
+        }
+
+        public ActionResult FriendRequests()
+        {
+            var db = ApplicationDbContext.Create();
+            var curUserId = User.Identity.GetUserId();
+            FriendRequestsModel model = new FriendRequestsModel(){Requests = db.Friends.Where(f => f.User2.Id == curUserId 
+            && f.Status == FriendStatus.Requested)
+           .Include(f=> f.User1).Include(f => f.User2).ToList()};
+            return PartialView(model);
+        }
+        [HttpPost]
+        public void AcceptRequest(string userId)
+        {
+            var curUserId = User.Identity.GetUserId();
+            var db = ApplicationDbContext.Create();
+            var req = db.Friends.Single(f => f.User1.Id == curUserId && f.User2.Id == userId);
+            var red = db.Friends.Single(f => f.User2.Id == curUserId && f.User1.Id == userId);
+            req.Status = FriendStatus.Friends;
+            red.Status = FriendStatus.Friends;
+            db.SaveChanges();
+
+        }
     }
 }

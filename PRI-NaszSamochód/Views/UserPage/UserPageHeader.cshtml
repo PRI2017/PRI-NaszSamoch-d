@@ -51,12 +51,12 @@
             </form>
         </div>
         @*TO DO: change <a href></a>*@
-        <ul class="nav" id="userPageNav">
+        <ul class="nav" id="userPageNav" ng-controller="FriendController">
             @*<li><a ui-sref="User/Info" ui-sref-active="active"><a href="/@Model.User.Name-@Model.User.Surname/Info">Informacje</a></a></li>
             <li><a ui-sref="User/Friends" ui-sref-active="active"><a href="/@Model.User.Name-@Model.User.Surname/Friends">Znajomi</a></a></li>
             <li><a ui-sref="User/Gallery" ui-sref-active="active"><a href="/@Model.User.Name-@Model.User.Surname/Gallery">Galeria</a></a></li>
             <li><a ui-sref="User/Statistics" ui-sref-active="active"><a href="/@Model.User.Name-@Model.User.Surname/Statistics">Statystyki</a></a></li>*@
-            <li id="addToFriendsButtonLi"><div id="addToFriendsButton"><button class="ui-button">Dodaj do znajomych</button></div></li>
+            <li id="addToFriendsButtonLi"><div id="addToFriendsButton"><button class="ui-button" id="@Model.User.Id" ng-click ="AddFriend($event)">Dodaj do znajomych</button></div></li>
             <li><a ui-sref="User/Info" ui-sref-active="active">Informacje</a></li>
             <li><a ui-sref="User/Friends" ui-sref-active="active">Znajomi</a></li>
             <li><a ui-sref="User/Gallery" ui-sref-active="active">Galeria</a></li>

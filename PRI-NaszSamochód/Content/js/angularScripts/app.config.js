@@ -1,12 +1,17 @@
 ﻿angular.
   module('myApp', ['ui.router']).
-  config(['$locationProvider', '$stateProvider', '$urlRouterProvider',
-    function config($locationProvider, $stateProvider, $urlRouterProvider, $scope, $rootScope) {
-
+    config(['$locationProvider', '$stateProvider', '$urlRouterProvider','$controllerProvider',
+        function config($locationProvider, $stateProvider, $urlRouterProvider, $scope, $rootScope, $controllerProvider) {
+        
         $locationProvider.hashPrefix("");
+            $scope.create
+                = function create($event,$state) {
 
+                window.userId = $event.currentTarget.id;
+                $state.go('User/UserPage');
+            };
         $stateProvider.state('main', {
-           
+            
             url: '',
             views: {
              
@@ -28,6 +33,7 @@
                         
                         return 'UserPage/UserPageHeader?userId='+window.userId;
                     }
+                    
                 },             
                 'content': {
                     templateUrl: function ($scope) {
@@ -44,6 +50,10 @@
             url: '/User/Info',
             views: {
                 'header': {
+                    templateUrl: function ($scope) {
+
+                        return 'UserPage/UserPageHeader?userId=' + window.userId;
+                    }
                     
                 },
                 'content': {
@@ -116,8 +126,13 @@
             name: 'Groups/Details',
             url: '/Groups/Details',
             views: {
-                'header': { templateUrl: 'Groups/GroupHeader' },
-                'content': { templateUrl: 'Groups/GroupDetails' }
+                'header': { templateUrl: function() {
+
+                    return 'Groups/GroupHeader/ '+ window.GroupId;
+                } },
+                'content': { templateUrl: function() {
+                    return 'Groups/GroupDetails/ ' + window.GroupId;
+                } }
             }
         };
 
@@ -193,6 +208,25 @@
 
             window.userId = $event.currentTarget.id;
             $state.go('User/UserPage');
+        }
+        $scope.AddFriend = function AddFriend($event) {
+            var url = '/Friends/AddFriend?userId=' + $event.currentTarget.id;
+            $http({
+                method: 'POST',
+                url: url
+            }).then(function successCallback(response) {
+                $state.reload();
+            }, function errorCallback(response) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+            });
+        }
+
+    }]).controller('GroupController', ['$scope', '$state', '$http', function($scope, $state, $http) {
+
+        $scope.GroupDetails = function GroupDetails($event) {
+            window.GroupId = $event.currentTarget.id;
+            $state.go('Groups/Details');
         }
 
 

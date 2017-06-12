@@ -56,13 +56,13 @@
             <ul class="nav">
                 @*TO DO: change <a href></a>*@
                 <li id="lilog"><a href="#"><div id="logo"></div></a></li>
-                <li id="searchLi"><input id="searchBox" type="search" name="search"/></li>
+                <li id="searchLi" ><input id="searchBox" type="search" name="search"/></li>
                 @*TO DO: change <a href></a>*@
                 @*<li><a ui-sref="User/UserPage({User:@Model.User.Name-@Model.User.Surname})" ui-sref-active="active"><a href="/@Model.User.Name-@Model.User.Surname/UserPage">@Model.User.Name @Model.User.Surname</a></a></li>*@
                 <li id="userNameLi"><a ui-sref="User/UserPage" ui-sref-active="active">@Model.User.Name @Model.User.Surname</a></li>
-                <li><a href="#"><div class="fao" id="bell"></div></a></li>
-                <li><a href="#"><div class="fao" id="user"></div></a></li>
-                <li><a href="#"><div class="fao" id="envelope"></div></a></li>
+                <li><a><div class="fao" id="bell"></div></a></li>
+                <li><a><div class="fao" id="user"></div></a></li>
+                <li><a><div class="fao" id="envelope"></div></a></li>
                 <li><div class="dropdown">
                         <div ng-controller="LogOffController">
                             <a ng-click ="LogOff()"><div class="fao" id="signout"></div></a>
@@ -71,15 +71,7 @@
                 </li>
             </ul>
             <div class="wrapper">
-                <div class="notificationBar" style="display:none">
-                    <h3 class="notificationBarMain">Powiadomienia</h3>
-                    <div style="display: none"><p style="display: none"></p></div>
-                    
-                    <h3>Janusz zaprosił Cię do znajomych</h3>
-                    <div>
-                        <button class="ui-button">Akceptuj</button>
-                        <button class="ui-button">Odrzuć</button>
-                    </div>
+                @Html.Action("FriendRequests","Friends")
                 </div>
             </div>
             
@@ -96,7 +88,7 @@
                     <li><a href="#">Wiadomości</a></li>
                     <li><a ui-sref="Groups/AddNewGroup" ui-sref-active="active">Utwórz nową grupę</a></li>
                     <li>
-                        <select name="groups" onchange="location = this.value;">
+                        <select name="groups" onchange="location = this.value;" ng-controller="GroupController">
                             <option value="default" selected>Twoje grupy: </option>
                             @try
                             {
@@ -104,7 +96,7 @@
                                 {
                                     if (i.Administrator.User.Id == @Model.User.Id)
                                     {
-                                        <option @*ng-init="razId=@i.Id" ui-sref="Groups/Content({ _groupId: razId })" ui-sref-active="active"*@ value="@*#/Groups/Content/*@ ../Groups/GroupContent/@i.Id">@i.GroupName</option>
+                                        <option id="@i.Id" ng-click ="GroupDetails($event)" disabled>@i.GroupName</option>
                                     }
                                 }
                             }
@@ -137,32 +129,40 @@
                function () { $(".notificationBar").css("display", "none");});
 
            //Search box
-           var availableTags = [
-      "ActionScript",
-      "AppleScript",
-      "Asp",
-      "BASIC",
-      "C",
-      "C++",
-      "Clojure",
-      "COBOL",
-      "ColdFusion",
-      "Erlang",
-      "Fortran",
-      "Groovy",
-      "Haskell",
-      "Java",
-      "JavaScript",
-      "Lisp",
-      "Perl",
-      "PHP",
-      "Python",
-      "Ruby",
-      "Scala",
-      "Scheme"];
+
            $("#searchBox").autocomplete({
-               source: availableTags
-           });
+               source: "/Friends/SearchFriend",
+               minLength: 4,
+               select: function(event, ui) {
+                   console.log(event.toElement.id);
+                   window.userId = event.toElement.id;
+                   var ang = angular.element("#searchBox").injector();
+                   ang.invoke(function ($state) {
+                       if ($state.current.name == 'User/UserPage') {
+                           $state.reload();
+                       }else{
+                           $state.go('User/UserPage', { reload: true });
+                       }
+                   });
+               }
+               }
+           ).data("ui-autocomplete")._renderItem = function( ul, item ) {
+                  
+               return $("<li>")
+                   .attr("id", item.Id)
+                   .attr("value",item.UserName)
+                   .append(item.UserName)
+                   .appendTo( ul );
+               }
+               ;
+          // Accepting and declining friend request
+           function AcceptFriendRequest(elem) {
+               $.post("/Friends/AcceptRequest", { userId: elem.id});
+           }
+          
+
+                 
+           
        </script>
 </body>
 </html>

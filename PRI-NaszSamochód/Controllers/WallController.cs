@@ -20,10 +20,11 @@ namespace PRI_NaszSamochód.Controllers
                 join friend in db.Friends on
                 p.Creator equals friend.User2
                 where friend.User1.Id == currentUserId 
+                && friend.Status == FriendStatus.Friends
                 orderby p.Id descending 
                 select p
                 
-                ).ToList();
+                ).Take(10).ToList();
 
             
             return View(new PostViewModelList(posts));
