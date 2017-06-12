@@ -33,3 +33,37 @@ ul.addNewGroup {
   .flex-add-button #groupDetails {
     order: 1;
     align-self: flex-start; }
+
+ul.info {
+  list-style-type: none;
+  padding-left: 0; }
+  ul.info li {
+    padding: 0.625rem;
+    border: 1px solid white;
+    position: relative; }
+    ul.info li:hover {
+      background-color: #cccccc;
+      cursor: pointer;
+      /*&::after {
+                font-family: 'FontAwesome';
+                content: '\f040';
+                color: $color5;
+                font-style: normal;
+                font-weight: normal;
+                text-decoration: inherit;
+                font-size: 18px;
+                position: sticky;
+                z-index: 100;
+                margin-left: 0.625rem;
+            }*/ }
+
+.main-fl {
+  display: flex;
+  flex-direction: row;
+  align-content: flex-start; }
+  .main-fl .add {
+    order: 1;
+    min-width: 18.75rem;
+    padding: 1.25rem; }
+  .main-fl .details {
+    order: 2; }

@@ -12,31 +12,45 @@
 
 </head>
 <body>
-    <ul class="addNewGroup">
-        <li>
-            <label>Nazwa grupy: </label>
-            <label>@Html.ViewData.Model.Name</label>
-        </li>
+    <div class="main-fl">
+        <aside class="add">
+            <div id="search">Wyszukiwarka</div>
+            <div>Zdjęcia</div>
+            <div class="flex-add">
+                <button class="btn-success">Dodaj członków</button>
+            </div>
+        </aside>
+        <div class="details">
+            <ul class="addNewGroup info">
+                <li>
+                    <label>Nazwa grupy: </label>
+                    <label>@Html.ViewData.Model.Name</label>
+                </li>
 
-        <li>
-            <label>Opis: </label>
-            <label>@Model.Description</label>
-        </li>
+                <li>
+                    <label>Opis: </label>
+                    <label>@Model.Description</label>
+                </li>
 
-        <li>
-            <label>Temat: </label>
-            <label>@Model.Theme</label>
-        </li>
-        <li>
-            <label>Członkowie: </label>
-            @foreach (var i in Model.Members)
+                <li>
+                    <label>Temat: </label>
+                    <label>@Model.Theme</label>
+                </li>
+                <li>
+                    <label>Członkowie: </label>
+                    @foreach (var i in Model.Members)
             {
-                <label>@i.User.Name</label>
-            }
-        </li>
-    </ul>
+                        <label>@i.User.Name</label>
+                    }
+                </li>
+            </ul>
+        </div>
+    </div>
     @section Scripts {
         @Scripts.Render("~/bundles/jqueryval")
     }
+    <script>
+        $("#search").autocomplete();
+    </script>
 </body>
 </html>
