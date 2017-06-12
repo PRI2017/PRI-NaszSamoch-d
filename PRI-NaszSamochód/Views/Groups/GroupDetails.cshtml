@@ -6,38 +6,47 @@
     <head>
         <link rel="stylesheet" href="~/Content/css/main.css" />
         <link rel="stylesheet" href="~/Content/css/groups.css" />
-        <title>Dodaj nową grupę</title>
-
+        @*<script src="~/Content/node_modules/jquery/dist/jquery.min.js"></script>*@
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        
+        @*<script src="~/Content/js/angularScripts/app.module.js"></script>
+        <script src="~/Content/js/angularScripts/app.config.js"></script>*@
     <title>Szczegóły</title>
 
 </head>
 <body>
     <div class="main-fl">
-        <aside class="add">
-            <div id="search">Wyszukiwarka</div>
-            <div>Zdjęcia</div>
+
+        <div class="add">
+            <div class="search">
+                <input id="search">
+            </div>
+            <div id="users"></div>
             <div class="flex-add">
                 <button class="btn-success">Dodaj członków</button>
             </div>
-        </aside>
+        </div>
+
         <div class="details">
             <ul class="addNewGroup info">
                 <li>
-                    <label>Nazwa grupy: </label>
+                    <label class="label">Nazwa grupy: </label>
                     <label>@Html.ViewData.Model.Name</label>
                 </li>
 
                 <li>
-                    <label>Opis: </label>
+                    <label class="label">Opis: </label>
                     <label>@Model.Description</label>
                 </li>
 
                 <li>
-                    <label>Temat: </label>
+                    <label class="label">Temat: </label>
                     <label>@Model.Theme</label>
                 </li>
                 <li>
-                    <label>Członkowie: </label>
+                    <label class="label">Członkowie: </label>
                     @foreach (var i in Model.Members)
             {
                         <label>@i.User.Name</label>
@@ -50,7 +59,38 @@
         @Scripts.Render("~/bundles/jqueryval")
     }
     <script>
-        $("#search").autocomplete();
+        $.getScript('~/Content/node_modules/jqueryui/jquery-ui.js',
+            function () {
+                var availableTags = [
+                  "ActionScript",
+                  "AppleScript",
+                  "Asp",
+                  "BASIC",
+                  "C",
+                  "C++",
+                  "Clojure",
+                  "COBOL",
+                  "ColdFusion",
+                  "Erlang",
+                  "Fortran",
+                  "Groovy",
+                  "Haskell",
+                  "Java",
+                  "JavaScript",
+                  "Lisp",
+                  "Perl",
+                  "PHP",
+                  "Python",
+                  "Ruby",
+                  "Scala",
+                  "Scheme"
+                ];
+                $("#search").autocomplete({
+                    source: availableTags
+                });
+            }
+        );
+        
     </script>
 </body>
 </html>

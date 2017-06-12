@@ -42,12 +42,12 @@ ul.info {
     padding-left: 0;
 
     li {
-        padding: 0.625rem;
-        border: 1px solid white;
+        padding: $tenPx;
         position: relative;
+        padding-right: $tenPx*20;
 
         &:hover {
-            background-color: $color2;
+            background-color: $fadedHover;
             cursor: pointer;
 
             /*&::after {
@@ -65,16 +65,51 @@ ul.info {
         }
     }
 }
-.main-fl{
+.main-fl {
     display: flex;
     flex-direction: row;
     align-content: flex-start;
-    .add{
-        order:1;
+
+    .add {
+        order: 1;
         min-width: $tenPx*30;
         padding: $tenPx*2;
+        border-right: 2px solid $color1;
+
+        #search {
+            padding: 0 $tenPx 0 $tenPx;
+            width: $tenPx*30;
+            height: $tenPx*4;
+            margin: $tenPx 0 $tenPx 0;
+            border: none;
+            border-bottom: 3px solid $postBorderColor;
+        }
     }
-    .details{
-        order:2;
+
+    .details {
+        order: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        .label {
+            font-weight: 700;
+        }
+    }
+
+    #users {
+        width: auto;
+        height: $tenPx*20;
+        border: 1px solid $postBorderColor;
+    }
+
+    .flex-add {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        button {
+            margin: $tenPx*2;
+        }
     }
 }
