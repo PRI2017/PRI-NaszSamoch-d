@@ -60,9 +60,9 @@
                 @*TO DO: change <a href></a>*@
                 @*<li><a ui-sref="User/UserPage({User:@Model.User.Name-@Model.User.Surname})" ui-sref-active="active"><a href="/@Model.User.Name-@Model.User.Surname/UserPage">@Model.User.Name @Model.User.Surname</a></a></li>*@
                 <li id="userNameLi"><a ui-sref="User/UserPage" ui-sref-active="active">@Model.User.Name @Model.User.Surname</a></li>
-                <li><a href="#"><div class="fao" id="bell"></div></a></li>
-                <li><a href="#"><div class="fao" id="user"></div></a></li>
-                <li><a href="#"><div class="fao" id="envelope"></div></a></li>
+                <li><a><div class="fao" id="bell"></div></a></li>
+                <li><a><div class="fao" id="user"></div></a></li>
+                <li><a><div class="fao" id="envelope"></div></a></li>
                 <li><div class="dropdown">
                         <div ng-controller="LogOffController">
                             <a ng-click ="LogOff()"><div class="fao" id="signout"></div></a>
@@ -88,7 +88,7 @@
                     <li><a href="#">Wiadomości</a></li>
                     <li><a ui-sref="Groups/AddNewGroup" ui-sref-active="active">Utwórz nową grupę</a></li>
                     <li>
-                        <select name="groups" onchange="location = this.value;">
+                        <select name="groups" onchange="location = this.value;" ng-controller="GroupController">
                             <option value="default" selected>Twoje grupy: </option>
                             @try
                             {
@@ -96,7 +96,7 @@
                                 {
                                     if (i.Administrator.User.Id == @Model.User.Id)
                                     {
-                                        <option @*ng-init="razId=@i.Id" ui-sref="Groups/Content({ _groupId: razId })" ui-sref-active="active"*@ value="@*#/Groups/Content/*@ ../Groups/GroupContent/@i.Id">@i.GroupName</option>
+                                        <option id="@i.Id" ng-click ="GroupDetails($event)" disabled>@i.GroupName</option>
                                     }
                                 }
                             }
@@ -157,7 +157,7 @@
                ;
           // Accepting and declining friend request
            function AcceptFriendRequest(elem) {
-               console.log(elem.id);
+               $.post("/Friends/AcceptRequest", { userId: elem.id});
            }
           
 

@@ -126,8 +126,13 @@
             name: 'Groups/Details',
             url: '/Groups/Details',
             views: {
-                'header': { templateUrl: 'Groups/GroupHeader' },
-                'content': { templateUrl: 'Groups/GroupDetails' }
+                'header': { templateUrl: function() {
+
+                    return 'Groups/GroupHeader/ '+ window.GroupId;
+                } },
+                'content': { templateUrl: function() {
+                    return 'Groups/GroupDetails/ ' + window.GroupId;
+                } }
             }
         };
 
@@ -216,5 +221,13 @@
                 // or server returns response with an error status.
             });
         }
+
+    }]).controller('GroupController', ['$scope', '$state', '$http', function($scope, $state, $http) {
+
+        $scope.GroupDetails = function GroupDetails($event) {
+            window.GroupId = $event.currentTarget.id;
+            $state.go('Groups/Details');
+        }
+
 
     }]);

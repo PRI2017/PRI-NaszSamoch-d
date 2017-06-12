@@ -77,7 +77,14 @@ namespace PRI_NaszSamochód.Controllers
         [HttpPost]
         public void AcceptRequest(string userId)
         {
-            
+            var curUserId = User.Identity.GetUserId();
+            var db = ApplicationDbContext.Create();
+            var req = db.Friends.Single(f => f.User1.Id == curUserId && f.User2.Id == userId);
+            var red = db.Friends.Single(f => f.User2.Id == curUserId && f.User1.Id == userId);
+            req.Status = FriendStatus.Friends;
+            red.Status = FriendStatus.Friends;
+            db.SaveChanges();
+
         }
     }
 }
