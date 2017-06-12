@@ -9,8 +9,8 @@
          <h3>@request.User1.UserName zaprosił Cię do znajomych</h3>
          <div>
              
-             <button class="ui-button" id="@request.User1.Id" onclick="" >Akceptuj</button>
-             <button class="ui-button" id="@request.User1.Id" >Odrzuć</button>
+             <button class="ui-button" id="@request.User1.Id" onclick="AcceptFriendRequest(this)" >Akceptuj</button>
+             <button class="ui-button" id="@request.User1.Id" onclick="DeclineFriendRequest(this)" >Odrzuć</button>
          </div>
      
  } 

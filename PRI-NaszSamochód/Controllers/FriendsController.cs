@@ -70,14 +70,14 @@ namespace PRI_NaszSamochód.Controllers
             var db = ApplicationDbContext.Create();
             var curUserId = User.Identity.GetUserId();
             FriendRequestsModel model = new FriendRequestsModel(){Requests = db.Friends.Where(f => f.User2.Id == curUserId 
-            && f.Status == FriendStatus.Pending)
+            && f.Status == FriendStatus.Requested)
            .Include(f=> f.User1).Include(f => f.User2).ToList()};
-            return View(model);
+            return PartialView(model);
         }
         [HttpPost]
-        public void AcceptRequest(FriendModel model,string command)
+        public void AcceptRequest(string userId)
         {
-            var b = model;
+            
         }
     }
 }
