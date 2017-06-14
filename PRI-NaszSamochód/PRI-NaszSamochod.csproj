@@ -277,6 +277,14 @@
     <Compile Include="Migrations\201706141151554_Gallery-New.Designer.cs">
       <DependentUpon>201706141151554_Gallery-New.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706141711279_miration.cs" />
+    <Compile Include="Migrations\201706141711279_miration.Designer.cs">
+      <DependentUpon>201706141711279_miration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706141713491_miration1.cs" />
+    <Compile Include="Migrations\201706141713491_miration1.Designer.cs">
+      <DependentUpon>201706141713491_miration1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MobileAuthentication\CryptoRSA.cs" />
     <Compile Include="MobileAuthentication\KeysHolder.cs" />
@@ -290,6 +298,7 @@
     <Compile Include="Models\POI.cs" />
     <Compile Include="Models\SearchFriendModel.cs" />
     <Compile Include="Models\UserGallery.cs" />
+    <Compile Include="Models\UserGalleryViewModel.cs" />
     <Compile Include="Models\UserStatistics.cs" />
     <Compile Include="Utilities\CookieExtractor.cs" />
     <Compile Include="Utilities\Coordinates.cs" />
@@ -6019,6 +6028,7 @@
     <Content Include="Views\UserPage\EditStatistics.cshtml" />
     <Content Include="Views\Friends\FriendRequests.cshtml" />
     <Content Include="Views\Gallery\UserGallery.cshtml" />
+    <Content Include="Views\Gallery\GetAll.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -6069,6 +6079,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706141151554_Gallery-New.resx">
       <DependentUpon>201706141151554_Gallery-New.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706141711279_miration.resx">
+      <DependentUpon>201706141711279_miration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706141713491_miration1.resx">
+      <DependentUpon>201706141713491_miration1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
