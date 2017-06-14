@@ -13,7 +13,8 @@ public class GalleryController : Controller
     [GET("Gallery/{galleryId}")]
     public ActionResult UserGallery(int galleryId)
     {
-        UserGalleryModel gallery = ApplicationDbContext.Create().Galleries.Single(x => x.Id == galleryId);
+        ApplicationDbContext db = ApplicationDbContext.Create();
+        UserGalleryModel gallery = db.Galleries.Single(x => x.Id == galleryId);
         return View(gallery);
     }
 
@@ -21,10 +22,11 @@ public class GalleryController : Controller
     [System.Web.Mvc.Authorize]
     [System.Web.Mvc.HttpPost]
     [POST("Gallery/")]
-    public ActionResult Add(string name)
+    public ActionResult Add([FromUri]string name)
     {
         var db = ApplicationDbContext.Create();
-        ApplicationUser owner = db.Users.First(x => x.Id == User.Identity.GetUserId());
+        string userId = User.Identity.GetUserId();
+        ApplicationUser owner = db.Users.Where(x=>x.Id == userId).FirstOrDefault();
         UserGalleryModel model = new UserGalleryModel(name, owner);
         db.Galleries.Add(model);
         db.SaveChanges();

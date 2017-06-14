@@ -6018,12 +6018,12 @@
     <Content Include="Views\Mobile\Login.cshtml" />
     <Content Include="Views\UserPage\EditStatistics.cshtml" />
     <Content Include="Views\Friends\FriendRequests.cshtml" />
+    <Content Include="Views\Gallery\UserGallery.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\BackPhoto\" />
     <Folder Include="Views\GalleryPhoto\" />
-    <Folder Include="Views\Gallery\" />
     <Folder Include="Views\PostPhot\" />
     <Folder Include="Views\RouteStatistics\" />
     <Folder Include="Views\UserStats\" />

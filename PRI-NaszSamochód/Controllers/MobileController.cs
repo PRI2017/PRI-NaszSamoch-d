@@ -7,6 +7,8 @@ using System.Web.Mvc;
 using System.Net;
 using PRI_NaszSamochód.Models;
 using Microsoft.AspNet.Identity;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace PRI_NaszSamochód.Controllers
 {
@@ -120,6 +122,23 @@ namespace PRI_NaszSamochód.Controllers
             {
                 return new HttpStatusCodeResult(666, ex.Message);
             }
+        }
+
+        public JsonResult UserGalleries()
+        {
+            var db = ApplicationDbContext.Create();
+            List<int> ids = new List<int>();
+            var galleries = (from g in db.Galleries.Include("Owner")
+                             select g).ToList();
+                         
+            foreach (var i in galleries)
+            {
+                if (i.Owner.Id == User.Identity.GetUserId())
+                {
+                    ids.Add(i.Id);
+                }
+            }
+            return Json(ids, JsonRequestBehavior.AllowGet);
         }
     }
 }

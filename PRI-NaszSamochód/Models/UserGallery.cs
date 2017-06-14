@@ -13,6 +13,8 @@ namespace PRI_NaszSamochód.Models
         public string Name { get; set; }
         public virtual List<PhotoModel> PhotosList { get; set; }
 
+        public UserGalleryModel() { }
+
         public UserGalleryModel(string name, ApplicationUser owner)
         {
             Name = name;
