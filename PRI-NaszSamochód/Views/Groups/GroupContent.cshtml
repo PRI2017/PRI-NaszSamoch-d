@@ -1,7 +1,6 @@
 ﻿@using PRI_NaszSamochód.Models
 @model GroupViewModel
 
-
 <!DOCTYPE html>
 <html>
 
@@ -26,8 +25,10 @@
     <div class="container-flex" id="scrollIt">
         @*wall.css*@
         <div class="flex-add-button">
-            <button type="submit" class="btn-success" value="AddPost" id="AddPost" onclick="AddPost()">Dodaj Post</button>
-            <button class="btn-success" ui-sref="Groups/Details" ui-sref-active="active" id="groupDetails">Wyświetl szczegóły grupy</button>
+            <button type="submit" class="btn-success" value="AddPost" id="AddPost" onclick="@("window.location.href='" + @Url.Action("AddPostView","Groups",new { groupId = ViewBag.groupId } ) + "'");" >Dodaj Post</button>
+            <button class="btn-success" ui-sref="Groups/Details" ui-sref-active="active" id="groupDetails" onclick="@("window.location.href='" + @Url.Action("GroupDetails","Groups",new { id = ViewBag.groupId } ) + "'");" >Wyświetl szczegóły grupy</button>
+            @*<input type="button" value="Szczegóły" onclick="@("window.location.href='" + @Url.Action("GroupDetails","Groups",new { id = ViewBag.groupId } ) + "'");" />
+            <input type="button" value="Dodaj post" onclick="@("window.location.href='" + @Url.Action("AddPostView","Groups",new { id = ViewBag.groupId } ) + "'");" />*@
         </div>
         
         @*<div class="add-post" id="add-post">

@@ -29,6 +29,7 @@ public class GalleryController : Controller
         {
             return RedirectToAction("GetAll");
         }
+        ViewBag.galleryId = galleryId;
         ApplicationDbContext db = ApplicationDbContext.Create();
         UserGalleryModel gallery = db.Galleries.Single(x => x.Id == galleryId);
         return View(gallery);

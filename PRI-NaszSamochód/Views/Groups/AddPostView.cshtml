@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    @using (Html.BeginForm("AddPost", "Groups", new { groupId =2 }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    @using (Html.BeginForm("AddPost", "Groups", new { groupId = ViewBag.groupId }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
         @Html.AntiForgeryToken()
 

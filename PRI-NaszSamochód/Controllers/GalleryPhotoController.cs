@@ -33,8 +33,9 @@ namespace PRI_NaszSamochód.Controllers
         public void Upload(int galleryId)
         {
             var db = ApplicationDbContext.Create();
+            var id = User.Identity.GetUserId();
             UserGalleryModel gallery =
-                db.Galleries.First(g => g.Owner.Id == User.Identity.GetUserId() && g.Id == galleryId);
+                db.Galleries.First(g => g.Owner.Id == id && g.Id == galleryId);
             var pathbulider = new StringBuilder("Galleries/");
             var dir = Server.MapPath(pathbulider.Append(User.Identity.GetUserId()).Append("/")
                 .Append(galleryId).ToString());
