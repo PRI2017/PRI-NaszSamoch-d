@@ -206,6 +206,11 @@ div.chart {
     background-repeat: no-repeat;
     background-size: $tenPx*100;
 }
+span#chartTitle{
+    padding: $tenPx*2 0 0 0;
+    /*align-self: center;*/
+    font-weight: 700;
+}
 .flex-add-button {
     margin-top: $tenPx*2;
     display: flex;
