@@ -32,6 +32,7 @@
                 <li class="form-group">
                     <label for="inputPassword">Podaj hasło: </label>
                     @Html.PasswordFor(m => m.Password, new { @id = "inputPassword" })
+                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                 </li>
                 <li>
                     <button type="submit" class="btn-success">Zaloguj</button>
