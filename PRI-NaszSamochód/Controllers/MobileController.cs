@@ -9,6 +9,7 @@ using PRI_NaszSamochód.Models;
 using Microsoft.AspNet.Identity;
 using System.Collections.Generic;
 using System.Linq;
+using PRI_NaszSamochód.Utilities;
 
 namespace PRI_NaszSamochód.Controllers
 {
@@ -72,7 +73,7 @@ namespace PRI_NaszSamochód.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl = null)
         {
-            
+
             if (!ModelState.IsValid)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -80,8 +81,8 @@ namespace PRI_NaszSamochód.Controllers
             SignInStatus x;
             try
             {
- //               byte[] passBytes = Convert.FromBase64String(model.Password);
- //               string password = CryptoRSA.Decrypt(passBytes, KeysHolder.Instance.PrivateKey);
+                //               byte[] passBytes = Convert.FromBase64String(model.Password);
+                //               string password = CryptoRSA.Decrypt(passBytes, KeysHolder.Instance.PrivateKey);
                 x = await SignInManager.PasswordSignInAsync(
                         model.Email,
                        model.Password,
@@ -89,7 +90,7 @@ namespace PRI_NaszSamochód.Controllers
                         shouldLockout: false);
             }
             catch (Exception e)
-            {   
+            {
                 x = SignInStatus.Failure;
             }
 
@@ -127,24 +128,19 @@ namespace PRI_NaszSamochód.Controllers
         public JsonResult UserGalleries()
         {
             var db = ApplicationDbContext.Create();
-            List<int> ids = new List<int>();
-            List<string> names = new List<string>();
+            var result = new List<GalleryMob>();
             var galleries = (from g in db.Galleries.Include("Owner")
                              select g).ToList();
-                         
+
             foreach (var i in galleries)
             {
                 if (i.Owner.Id == User.Identity.GetUserId())
                 {
-                    ids.Add(i.Id);
-                    names.Add(i.Name);
+                    var temp = new GalleryMob { id = i.Id, name = i.Name };
+                    result.Add(temp);
                 }
             }
-            return Json(new
-            {
-                ids = ids,
-                names = names
-            }, JsonRequestBehavior.AllowGet);
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
     }
 }

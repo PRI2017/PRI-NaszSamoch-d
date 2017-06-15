@@ -319,6 +319,7 @@
     <Compile Include="Models\StatisticsModels.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Utilities\DataPoint.cs" />
+    <Compile Include="Utilities\GalleryMob.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\blueimp-gallery-indicator.css" />
