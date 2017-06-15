@@ -38,12 +38,12 @@
                 <li>
                     <label for="inputPassword">Hasło: </label>
                     @Html.PasswordFor(m => m.Password)
-
+                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                 </li>
                 <li>
                     <label for="inputConfirmedPassword">Powtórz hasło: </label>
                     @Html.PasswordFor(m => m.ConfirmPassword)
-                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
                 </li>
                 <li>
                     <button type="submit" class="btn-success" value="Register">Zarejestruj się</button>
