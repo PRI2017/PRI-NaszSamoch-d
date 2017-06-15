@@ -18,7 +18,7 @@
     <div>
         @foreach(var i in Model.Get())
         {
-            <a href="~/Views/Gallery/UserGallery.cshtml">@i.Name</a>
+            <a href="Gallery/@i.Id">@i.Name</a>
         }
     </div>
 </body>

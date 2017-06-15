@@ -321,6 +321,10 @@
     <Compile Include="Utilities\DataPoint.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\css\blueimp-gallery-indicator.css" />
+    <Content Include="Content\css\blueimp-gallery-video.css" />
+    <Content Include="Content\css\blueimp-gallery.css" />
+    <Content Include="Content\css\blueimp-gallery.min.css" />
     <Content Include="Content\css\groups.css" />
     <Content Include="Content\css\index.css" />
     <Content Include="Content\css\loginPage.css" />
@@ -331,8 +335,25 @@
     <Content Include="Content\css\userPage.css" />
     <Content Include="Content\css\wall.css" />
     <Content Include="Content\gulpfile.js" />
+    <Content Include="Content\img\error.png" />
+    <Content Include="Content\img\error.svg" />
+    <Content Include="Content\img\loading.gif" />
+    <Content Include="Content\img\play-pause.png" />
+    <Content Include="Content\img\play-pause.svg" />
+    <Content Include="Content\img\video-play.png" />
+    <Content Include="Content\img\video-play.svg" />
     <Content Include="Content\js\angularScripts\WallSwitcherController.js" />
     <Content Include="Content\js\angularScripts\app.config.js" />
+    <Content Include="Content\js\blueimp-gallery-fullscreen.js" />
+    <Content Include="Content\js\blueimp-gallery-indicator.js" />
+    <Content Include="Content\js\blueimp-gallery-video.js" />
+    <Content Include="Content\js\blueimp-gallery-vimeo.js" />
+    <Content Include="Content\js\blueimp-gallery-youtube.js" />
+    <Content Include="Content\js\blueimp-gallery.js" />
+    <Content Include="Content\js\blueimp-gallery.min.js" />
+    <Content Include="Content\js\blueimp-helper.js" />
+    <Content Include="Content\js\jquery.blueimp-gallery.js" />
+    <Content Include="Content\js\jquery.blueimp-gallery.min.js" />
     <Content Include="Content\js\lib\dropzone.js" />
     <Content Include="Content\js\custom\dialogScript.js" />
     <Content Include="Content\js\custom\chartStuff.js" />
@@ -5230,6 +5251,9 @@
     <Content Include="Content\node_modules\angular-ui-router\release\ui-router-angularjs.js.map" />
     <Content Include="Content\node_modules\angular-ui-router\release\ui-router-angularjs.min.js.map" />
     <Content Include="Content\node_modules\angular-ui-router\yarn.lock" />
+    <Content Include="Content\css\blueimp-gallery.min.css.map" />
+    <Content Include="Content\js\blueimp-gallery.min.js.map" />
+    <Content Include="Content\js\jquery.blueimp-gallery.min.js.map" />
     <None Include="Content\node_modules\node-gyp\gyp\codereview.settings" />
     <Content Include="Content\node_modules\node-gyp\gyp\DEPS" />
     <Content Include="Content\node_modules\node-gyp\gyp\gyp" />
