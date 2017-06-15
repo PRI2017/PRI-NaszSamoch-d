@@ -12,13 +12,13 @@
     <title>Albumy</title>
 </head>
 <body>
-    <div> 
+    <div>
         <h1>Twoje albumy</h1>
     </div>
     <div>
-        @foreach(var i in Model.Get())
+        @foreach (var i in Model.Get())
         {
-            <a href="Gallery/@i.Id">@i.Name</a>
+            <a href="Gallery/@i.Id">@i.Name</a><br />
         }
     </div>
 </body>

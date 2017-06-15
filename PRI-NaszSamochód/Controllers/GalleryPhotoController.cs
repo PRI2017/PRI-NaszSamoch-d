@@ -36,7 +36,7 @@ namespace PRI_NaszSamochód.Controllers
             var id = User.Identity.GetUserId();
             UserGalleryModel gallery =
                 db.Galleries.First(g => g.Owner.Id == id && g.Id == galleryId);
-            var pathbulider = new StringBuilder("Galleries/");
+            var pathbulider = new StringBuilder("~/Galleries/");
             var dir = Server.MapPath(pathbulider.Append(User.Identity.GetUserId()).Append("/")
                 .Append(galleryId).ToString());
 
@@ -50,6 +50,10 @@ namespace PRI_NaszSamochód.Controllers
                 var httpPostedFile = httpPostedFiles[i];
                 if (httpPostedFile != null)
                 {
+                    // If the directory does not exist, create it
+                    var path = new StringBuilder("~/Galleries/");
+                    Directory.CreateDirectory(Server.MapPath(path.Append(User.Identity.GetUserId()).Append("/").Append(galleryId).ToString()));
+
                     // Validate the uploaded image(optional)
 
                     // Get the complete file path

@@ -1,10 +1,13 @@
 ﻿<!DOCTYPE html>
 @using PRI_NaszSamochód.Models;
 @model UserGalleryModel
+
 <html>
 <head>
-    <link rel="stylesheet" href="~/Content/css/main.css" />
-    <link rel="stylesheet" href="css/blueimp-gallery.min.css">
+    @*<link rel="stylesheet" href="~/Content/css/main.css" />*@
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+    <link rel="stylesheet" href="~/Content/bootstrap-image-gallery.min.css" />
     <title>Galeria</title>
 
 </head>
@@ -20,40 +23,68 @@
         }
     </div>
 
-    @*@foreach (PhotoModel i in Model.PhotosList)
-        {
-            <div class="userProfilePhoto" id="userProfilePhoto" style="image:url(@i.Path)"></div>
-        }*@
-
-
-    <div id="blueimp-gallery" class="blueimp-gallery">
+    <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+    <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+        <!-- The container for the modal slides -->
         <div class="slides"></div>
+        <!-- Controls for the borderless lightbox -->
         <h3 class="title"></h3>
         <a class="prev">‹</a>
         <a class="next">›</a>
         <a class="close">×</a>
         <a class="play-pause"></a>
         <ol class="indicator"></ol>
+        <!-- The modal dialog, which will be used to wrap the lightbox content -->
+        <div class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body next" style="max-height: 500px; min-height: 400px;"></div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default pull-left prev">
+                            <i class="glyphicon glyphicon-chevron-left"></i>
+                            Previous
+                        </button>
+                        <button type="button" class="btn btn-primary next">
+                            Next
+                            <i class="glyphicon glyphicon-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div id="links">
-        @foreach (var i in Model.PhotosList)
-        {
-            <a href="@i.Path">
-                <img src="@i.Path" />
-            </a>
+    <div style="margin-top: 17px;">
+        <div id="links">
+            @foreach (var item in Model.PhotosList)
+            {
+                <a href="@item.Path" data-gallery>
+                    <img src="@item.Path" class="img-rounded" style="margin-bottom:7px;" />
+                </a>
+            }
+        </div>
+    </div>
+    <div>
+        @{
+            var grid = new WebGrid();
+
+            grid.Bind(Model.PhotosList, rowCount: Model.PhotosList.Count, autoSortAndPage: false);
+            grid.Pager(WebGridPagerModes.All);
+
+            @grid.GetHtml(htmlAttributes: new { id = "grid" },
+            fillEmptyRows: false,
+            mode: WebGridPagerModes.All,
+            columns: grid.Columns());
         }
     </div>
-    <script src="js/blueimp-gallery.min.js"></script>
-    <script>
-        document.getElementById('links').onclick = function (event) {
-            event = event || window.event;
-            var target = event.target || event.srcElement,
-                link = target.src ? target.parentNode : target,
-                options = { index: link, event: event },
-                links = this.getElementsByTagName('a');
-            blueimp.Gallery(links, options);
-        };
-    </script>
 
+
+
+    @Scripts.Render("~/bundles/jquery")
+    <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+    <script src="~/Scripts/bootstrap-image-gallery.min.js"></script>
 </body>
 </html>

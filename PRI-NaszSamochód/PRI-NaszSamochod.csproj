@@ -294,6 +294,7 @@
     <Compile Include="Models\FriendRequestsModel.cs" />
     <Compile Include="Models\FriendsView.cs" />
     <Compile Include="Models\GroupViewModelList.cs" />
+    <Compile Include="Models\PagedList.cs" />
     <Compile Include="Models\PhotoModel.cs" />
     <Compile Include="Models\POI.cs" />
     <Compile Include="Models\SearchFriendModel.cs" />
@@ -6057,6 +6058,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Galleries\" />
     <Folder Include="Views\BackPhoto\" />
     <Folder Include="Views\GalleryPhoto\" />
     <Folder Include="Views\PostPhot\" />
