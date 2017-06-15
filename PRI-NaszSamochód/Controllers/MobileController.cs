@@ -128,6 +128,7 @@ namespace PRI_NaszSamochód.Controllers
         {
             var db = ApplicationDbContext.Create();
             List<int> ids = new List<int>();
+            List<string> names = new List<string>();
             var galleries = (from g in db.Galleries.Include("Owner")
                              select g).ToList();
                          
@@ -136,9 +137,14 @@ namespace PRI_NaszSamochód.Controllers
                 if (i.Owner.Id == User.Identity.GetUserId())
                 {
                     ids.Add(i.Id);
+                    names.Add(i.Name);
                 }
             }
-            return Json(ids, JsonRequestBehavior.AllowGet);
+            return Json(new
+            {
+                ids = ids,
+                names = names
+            }, JsonRequestBehavior.AllowGet);
         }
     }
 }
