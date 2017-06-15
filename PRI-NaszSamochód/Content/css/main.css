@@ -14,6 +14,9 @@ html {
   font-family: 'Lato', sans-serif;
   color: #0a0a0a; }
 
+body {
+  background-color: #f7f7f7; }
+
 /*@import 'loginPage';
 @import 'userPage';
 @import 'index.scss';*/
@@ -46,3 +49,17 @@ div.fao {
     content: "\f08b";
     color: white;
     cursor: pointer; }
+
+.btn-success {
+  background-color: #ff6d31;
+  border: none;
+  border-radius: 0px;
+  font-family: inherit;
+  padding: 0.5rem 1rem;
+  border: none;
+  letter-spacing: .09em;
+  border-radius: 2px;
+  color: white;
+  margin: 0.625rem; }
+  .btn-success:hover {
+    background-color: #fc8351; }

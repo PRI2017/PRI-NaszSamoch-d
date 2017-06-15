@@ -229,8 +229,9 @@ li#addToFriendsButtonLi {
     align-items: center;
     padding: $tenPx*1.5;
     width: 100%;
+
     &:hover {
-        background-color: none;
+        background-color: white;
         border: none;
     }
 
@@ -240,8 +241,12 @@ li#addToFriendsButtonLi {
         flex-wrap: nowrap;
         align-items: flex-start;
         /*width: $tenPx*85;*/
-        button {
+        button:after {
             margin-left: $tenPx*0.3;
+            font-family: inherit;
+            font-style: normal;
+            font-weight: normal;
+            content: "Dodaj do znajomych";
         }
     }
 }

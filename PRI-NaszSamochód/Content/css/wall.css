@@ -79,7 +79,7 @@
   flex: 1 0 13.75rem; }
 
 .newPostDialog {
-  background-color: #e9e9e9;
+  background-color: #f7f7f7;
   margin: 0;
   padding: 0; }
 
@@ -106,7 +106,7 @@
     border: 1px solid rgba(204, 204, 204, 0.59); }
 
 iframe {
-  background-color: #e9e9e9;
+  background-color: #f7f7f7;
   margin: 0;
   padding: 0;
   border: none;

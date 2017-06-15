@@ -273,6 +273,18 @@
     <Compile Include="Migrations\201705270944037_GalleryV2.Designer.cs">
       <DependentUpon>201705270944037_GalleryV2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706141151554_Gallery-New.cs" />
+    <Compile Include="Migrations\201706141151554_Gallery-New.Designer.cs">
+      <DependentUpon>201706141151554_Gallery-New.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706141711279_miration.cs" />
+    <Compile Include="Migrations\201706141711279_miration.Designer.cs">
+      <DependentUpon>201706141711279_miration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706141713491_miration1.cs" />
+    <Compile Include="Migrations\201706141713491_miration1.Designer.cs">
+      <DependentUpon>201706141713491_miration1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MobileAuthentication\CryptoRSA.cs" />
     <Compile Include="MobileAuthentication\KeysHolder.cs" />
@@ -286,6 +298,7 @@
     <Compile Include="Models\POI.cs" />
     <Compile Include="Models\SearchFriendModel.cs" />
     <Compile Include="Models\UserGallery.cs" />
+    <Compile Include="Models\UserGalleryViewModel.cs" />
     <Compile Include="Models\UserStatistics.cs" />
     <Compile Include="Utilities\CookieExtractor.cs" />
     <Compile Include="Utilities\Coordinates.cs" />
@@ -308,6 +321,10 @@
     <Compile Include="Utilities\DataPoint.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\css\blueimp-gallery-indicator.css" />
+    <Content Include="Content\css\blueimp-gallery-video.css" />
+    <Content Include="Content\css\blueimp-gallery.css" />
+    <Content Include="Content\css\blueimp-gallery.min.css" />
     <Content Include="Content\css\groups.css" />
     <Content Include="Content\css\index.css" />
     <Content Include="Content\css\loginPage.css" />
@@ -318,8 +335,25 @@
     <Content Include="Content\css\userPage.css" />
     <Content Include="Content\css\wall.css" />
     <Content Include="Content\gulpfile.js" />
+    <Content Include="Content\img\error.png" />
+    <Content Include="Content\img\error.svg" />
+    <Content Include="Content\img\loading.gif" />
+    <Content Include="Content\img\play-pause.png" />
+    <Content Include="Content\img\play-pause.svg" />
+    <Content Include="Content\img\video-play.png" />
+    <Content Include="Content\img\video-play.svg" />
     <Content Include="Content\js\angularScripts\WallSwitcherController.js" />
     <Content Include="Content\js\angularScripts\app.config.js" />
+    <Content Include="Content\js\blueimp-gallery-fullscreen.js" />
+    <Content Include="Content\js\blueimp-gallery-indicator.js" />
+    <Content Include="Content\js\blueimp-gallery-video.js" />
+    <Content Include="Content\js\blueimp-gallery-vimeo.js" />
+    <Content Include="Content\js\blueimp-gallery-youtube.js" />
+    <Content Include="Content\js\blueimp-gallery.js" />
+    <Content Include="Content\js\blueimp-gallery.min.js" />
+    <Content Include="Content\js\blueimp-helper.js" />
+    <Content Include="Content\js\jquery.blueimp-gallery.js" />
+    <Content Include="Content\js\jquery.blueimp-gallery.min.js" />
     <Content Include="Content\js\lib\dropzone.js" />
     <Content Include="Content\js\custom\dialogScript.js" />
     <Content Include="Content\js\custom\chartStuff.js" />
@@ -5217,6 +5251,9 @@
     <Content Include="Content\node_modules\angular-ui-router\release\ui-router-angularjs.js.map" />
     <Content Include="Content\node_modules\angular-ui-router\release\ui-router-angularjs.min.js.map" />
     <Content Include="Content\node_modules\angular-ui-router\yarn.lock" />
+    <Content Include="Content\css\blueimp-gallery.min.css.map" />
+    <Content Include="Content\js\blueimp-gallery.min.js.map" />
+    <Content Include="Content\js\jquery.blueimp-gallery.min.js.map" />
     <None Include="Content\node_modules\node-gyp\gyp\codereview.settings" />
     <Content Include="Content\node_modules\node-gyp\gyp\DEPS" />
     <Content Include="Content\node_modules\node-gyp\gyp\gyp" />
@@ -6014,12 +6051,13 @@
     <Content Include="Views\Mobile\Login.cshtml" />
     <Content Include="Views\UserPage\EditStatistics.cshtml" />
     <Content Include="Views\Friends\FriendRequests.cshtml" />
+    <Content Include="Views\Gallery\UserGallery.cshtml" />
+    <Content Include="Views\Gallery\GetAll.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\BackPhoto\" />
     <Folder Include="Views\GalleryPhoto\" />
-    <Folder Include="Views\Gallery\" />
     <Folder Include="Views\PostPhot\" />
     <Folder Include="Views\RouteStatistics\" />
     <Folder Include="Views\UserStats\" />
@@ -6062,6 +6100,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705270944037_GalleryV2.resx">
       <DependentUpon>201705270944037_GalleryV2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706141151554_Gallery-New.resx">
+      <DependentUpon>201706141151554_Gallery-New.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706141711279_miration.resx">
+      <DependentUpon>201706141711279_miration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706141713491_miration1.resx">
+      <DependentUpon>201706141713491_miration1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

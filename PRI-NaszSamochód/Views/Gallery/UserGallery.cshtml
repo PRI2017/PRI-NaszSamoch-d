@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+@using PRI_NaszSamochód.Models;
+@model UserGalleryModel
+<html>
+<head>
+    <link rel="stylesheet" href="~/Content/css/main.css" />
+    <link rel="stylesheet" href="css/blueimp-gallery.min.css">
+    <title>Galeria</title>
+
+</head>
+<body>
+    <h1>Galeria</h1>
+    <div id="dialog" title="Dodaj zdjęcie profilowe">
+        <form action="/GalleryPhoto/Upload/{id}"
+              id="my-awesome-dropzone" style="display: none" class="dropzone"></form>
+    </div>
+
+    @*@foreach (PhotoModel i in Model.PhotosList)
+    {
+        <div class="userProfilePhoto" id="userProfilePhoto" style="image:url(@i.Path)"></div>
+    }*@
+
+
+    <div id="blueimp-gallery" class="blueimp-gallery">
+        <div class="slides"></div>
+        <h3 class="title"></h3>
+        <a class="prev">‹</a>
+        <a class="next">›</a>
+        <a class="close">×</a>
+        <a class="play-pause"></a>
+        <ol class="indicator"></ol>
+    </div>
+    <div id="links">
+        @foreach (var i in Model.PhotosList)
+        {
+            <a href="@i.Path">
+                <img src="@i.Path"/>
+            </a>
+        }
+    </div>
+    <script src="js/blueimp-gallery.min.js"></script>
+    <script>
+        document.getElementById('links').onclick = function (event) {
+            event = event || window.event;
+            var target = event.target || event.srcElement,
+                link = target.src ? target.parentNode : target,
+                options = { index: link, event: event },
+                links = this.getElementsByTagName('a');
+            blueimp.Gallery(links, options);
+        };
+    </script>
+
+</body>
+</html>

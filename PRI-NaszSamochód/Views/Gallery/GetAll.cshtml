@@ -1,0 +1,25 @@
+﻿@model PRI_NaszSamochód.Models.UserGalleryViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Albumy</title>
+</head>
+<body>
+    <div> 
+        <h1>Twoje albumy</h1>
+    </div>
+    <div>
+        @foreach(var i in Model.Get())
+        {
+            <a href="Gallery/@i.Id">@i.Name</a>
+        }
+    </div>
+</body>
+</html>

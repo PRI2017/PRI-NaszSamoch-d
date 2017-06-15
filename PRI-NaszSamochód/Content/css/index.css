@@ -87,7 +87,7 @@
       flex-shrink: 3; }
       .main-flex .child-flex aside#nav {
         order: 1;
-        background-color: #e9e9e9;
+        background-color: #f7f7f7;
         display: flex;
         flex-direction: column;
         align-items: stretch; }
@@ -124,7 +124,7 @@
       min-height: 18.75rem;
       min-width: 37.5rem;
       max-height: none;
-      background-color: #e9e9e9;
+      background-color: #f7f7f7;
       /*flex-shrink: 1;*/ }
   .main-flex footer {
     background-color: #333;
@@ -174,7 +174,7 @@ li#addToFriendsButtonLi {
   padding: 0.9375rem;
   width: 100%; }
   li#addToFriendsButtonLi:hover {
-    background-color: none;
+    background-color: white;
     border: none; }
   li#addToFriendsButtonLi div#addToFriendsButton {
     display: flex;
@@ -182,8 +182,12 @@ li#addToFriendsButtonLi {
     flex-wrap: nowrap;
     align-items: flex-start;
     /*width: $tenPx*85;*/ }
-    li#addToFriendsButtonLi div#addToFriendsButton button {
-      margin-left: 0.1875rem; }
+    li#addToFriendsButtonLi div#addToFriendsButton button:after {
+      margin-left: 0.1875rem;
+      font-family: inherit;
+      font-style: normal;
+      font-weight: normal;
+      content: "Dodaj do znajomych"; }
 
 .wrapper {
   display: flex;

@@ -9,6 +9,9 @@ html {
     font-family: 'Lato', sans-serif;
     color: $fontColor;
 }
+body {
+    background-color: $wallBackground;
+}
 
 /*@import 'loginPage';
 @import 'userPage';
@@ -57,5 +60,21 @@ div.fao {
         content: "\f08b";
         color: white;
         cursor: pointer;
+    }
+}
+.btn-success {
+    background-color: $color1;
+    border: none;
+    border-radius: 0px;
+    font-family: inherit;
+    padding: 0.5rem 1rem;
+    border: none;
+    letter-spacing: .09em;
+    border-radius: 2px;
+    color: white;
+    margin: 0.625rem;
+
+    &:hover {
+        background-color: $color1Hover;
     }
 }

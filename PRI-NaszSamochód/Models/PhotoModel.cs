@@ -10,18 +10,16 @@ namespace PRI_NaszSamochód.Models
     {
         [Key]
         public int Id { get; set; }
-        public String path { get; set; }
+        public string Path { get; set; }
 
         public PhotoModel()
         {
             
         }
 
-        public PhotoModel(String path)
+        public PhotoModel(string path)
         {
-            this.path = path;
+            this.Path = path;
         }
-
-       
     }
 }

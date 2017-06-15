@@ -1,4 +1,6 @@
 ﻿<!DOCTYPE html>
+@using PRI_NaszSamochód.Models;
+@model UserGalleryModel
 <html>
     <head>
         <link rel="stylesheet" href="~/Content/css/main.css" />
@@ -7,6 +9,15 @@
     </head>
     <body>
         <h1>Galeria</h1>
+        <div id="dialog" title="Dodaj zdjęcie profilowe">
+            <form action="/GalleryPhoto/Upload/{id}"
+                  id="my-awesome-dropzone" style="display: none" class="dropzone"></form>
+        </div>
+
+        @foreach (PhotoModel i in Model.PhotosList)
+        {
+            <div class="userProfilePhoto" id="userProfilePhoto" style="image:url(@i.Path)"></div>
+        }
         <script></script>
     </body>
 </html>

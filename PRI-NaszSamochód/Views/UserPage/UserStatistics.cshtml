@@ -15,10 +15,13 @@
         <button class="btn-success"><a href="/UserPage/EditStatistics" style="text-decoration: none; color: white;">Edytuj statystyki</a></button>
     </div>*@    
     <div class="cont-fl" id="charts">
+            <span id="chartTitle">Zużyte paliwo</span>
             <div class="chart" style="background-image:url(@Url.Action("FuelChart", "UserStats"));">
             </div>
+            <span id="chartTitle">Przejechane kilometry</span>
             <div class="chart" style="background-image:url(@Url.Action("KilometersDrivenChart", "UserStats"));">
             </div>
+            <span id="chartTitle">Prędkość maksymalna</span>
             <div class="chart" style="background-image:url(@Url.Action("MaxVelocityChart", "UserStats"));">
             </div>
         </div>

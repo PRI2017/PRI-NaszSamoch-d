@@ -33,3 +33,60 @@ ul.addNewGroup {
   .flex-add-button #groupDetails {
     order: 1;
     align-self: flex-start; }
+
+ul.info {
+  list-style-type: none;
+  padding-left: 0; }
+  ul.info li {
+    padding: 0.625rem;
+    position: relative;
+    padding-right: 12.5rem; }
+    ul.info li:hover {
+      background-color: rgba(128, 128, 128, 0.18);
+      cursor: pointer;
+      /*&::after {
+                font-family: 'FontAwesome';
+                content: '\f040';
+                color: $color5;
+                font-style: normal;
+                font-weight: normal;
+                text-decoration: inherit;
+                font-size: 18px;
+                position: sticky;
+                z-index: 100;
+                margin-left: 0.625rem;
+            }*/ }
+
+.main-fl {
+  display: flex;
+  flex-direction: row;
+  align-content: flex-start; }
+  .main-fl .add {
+    order: 1;
+    min-width: 18.75rem;
+    padding: 1.25rem;
+    border-right: 2px solid #ff6d31; }
+    .main-fl .add #search {
+      padding: 0 0.625rem 0 0.625rem;
+      width: 18.75rem;
+      height: 2.5rem;
+      margin: 0.625rem 0 0.625rem 0;
+      border: none;
+      border-bottom: 3px solid rgba(204, 204, 204, 0.59); }
+  .main-fl .details {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; }
+    .main-fl .details .label {
+      font-weight: 700; }
+  .main-fl #users {
+    width: auto;
+    height: 12.5rem;
+    border: 1px solid rgba(204, 204, 204, 0.59); }
+  .main-fl .flex-add {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; }
+    .main-fl .flex-add button {
+      margin: 1.25rem; }
