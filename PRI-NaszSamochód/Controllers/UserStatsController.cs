@@ -39,7 +39,7 @@ namespace PRI_NaszSamochód.Controllers
             results.ToList().ForEach(y => yValues.Add(y.FuelUsed));
 
             new Chart(width: 1200, height: 400, theme: ChartTheme.Vanilla)
-                .AddTitle("Zużyte paliwo")
+                
                 .AddSeries("Default", chartType: "Column", xValue: xValues, yValues: yValues)
                 .Write("jpeg");
 
@@ -62,7 +62,7 @@ namespace PRI_NaszSamochód.Controllers
             results.ToList().ForEach(y => yValues.Add(y.KilometersDriven));
 
             new Chart(width: 1200, height: 400, theme: ChartTheme.Vanilla)
-                .AddTitle("Przejechane kilometry")
+
                 .AddSeries("Default", chartType: "Column", xValue: xValues, yValues: yValues)
                 .Write("jpeg");
 
@@ -85,7 +85,7 @@ namespace PRI_NaszSamochód.Controllers
             results.ToList().ForEach(y => yValues.Add(y.MaxVelocity));
 
             new Chart(width: 1200, height: 400, theme: ChartTheme.Vanilla)
-                .AddTitle("Prędkość maksymalna")
+
                 .AddSeries("Default", chartType: "Column", xValue: xValues, yValues: yValues)
                 .Write("jpeg");
 
