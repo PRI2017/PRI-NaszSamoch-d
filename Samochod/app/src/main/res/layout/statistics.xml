@@ -10,7 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
-        android:background="@drawable/wykres">
+        android:background="@drawable/wykres"
+        android:layout_marginBottom="50dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -87,18 +88,16 @@
                 android:layout_marginTop="24dp"
                 android:text="@string/fuelUsedString" />
 
-
-            <Button
-                android:id="@+id/send_stat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:background="@drawable/button_shape"
-                android:text="@string/send"
-                android:layout_alignParentBottom="true"
-                android:layout_toStartOf="@+id/fuelUsed"
-                android:layout_marginBottom="48dp" />
         </RelativeLayout>
     </ScrollView>
 
+    <Button
+        android:id="@+id/send_stat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:background="@drawable/button_shape"
+        android:text="@string/send"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

@@ -1,6 +1,8 @@
 package com.example.dominika.samochod;
 import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.LinkMovementMethod;
@@ -24,9 +26,6 @@ import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
 
 public class LogIn extends AppCompatActivity{
 
-    /**
-     * Created by Dominika on 04.05.2017.
-     */
     NetworkResponse errorRes;
     String stringData = "";
         String url2 = "http://naszsamochod.com.pl/Mobile/Login";
@@ -78,52 +77,66 @@ public class LogIn extends AppCompatActivity{
                                     } catch (Exception e1) {
                                         e1.printStackTrace();
                                     }
-                                    System.out.println(result);
+                                    System.out.println(result);*/
 
-*/
-                                             //KODOWANIE KLUCZA I WYSYLANIE JSONA////////////////////////////////////////////
-                                             JsonObject json = new JsonObject();
-                                             json.addProperty("Email", emailET.getText().toString());
+                   if(isOnline()) {
+                        //KODOWANIE KLUCZA I WYSYLANIE JSONA////////////////////////////////////////////
+                        JsonObject json = new JsonObject();
+                        json.addProperty("Email", emailET.getText().toString());
 
-                                        //password_rsa = new String(Base64.encodeToString((CryptoRSA.Encrypt(passwordET.getText().toString(), key2)),Base64.DEFAULT)).replaceAll("\n", "");
+                        //password_rsa = new String(Base64.encodeToString((CryptoRSA.Encrypt(passwordET.getText().toString(), key2)),Base64.DEFAULT)).replaceAll("\n", "");
 
-                                             json.addProperty("Password", passwordET.getText().toString());
-                                             json.addProperty("RememberMe", "false");
+                        json.addProperty("Password", passwordET.getText().toString());
+                        json.addProperty("RememberMe", "false");
 
-                                    Ion.with(context)
-                                            .load(url2)
-                                            .setJsonObjectBody(json)
-                                            .asJsonObject()
-                                            .withResponse()
-                                            .setCallback(new FutureCallback<Response<JsonObject>>() {
-                                                @Override
-                                                public void onCompleted(Exception e, Response<JsonObject> result) {
-                                                    System.out.println("KOD BLEDU: "+result.getHeaders().code());
-                                                    if(result.getHeaders().code() == 200)
-                                                    {
-                                                        Intent intent = new Intent(LogIn.this, Toolbar.class);
-                                                        startActivity(intent);
-                                                    }
-                                                    else
-                                                    {
-                                                        showErrorToast();
-                                                    }
-                                                }
-                                            });
+                        Ion.with(context)
+                                .load(url2)
+                                .setJsonObjectBody(json)
+                                .asJsonObject()
+                                .withResponse()
+                                .setCallback(new FutureCallback<Response<JsonObject>>() {
+                                    @Override
+                                    public void onCompleted(Exception e, Response<JsonObject> result) {
+                                        System.out.println("KOD BLEDU: " + result.getHeaders().code());
+                                        if (result.getHeaders().code() == 200) {
+                                            Intent intent = new Intent(LogIn.this, Toolbar.class);
+                                            startActivity(intent);
+                                        } else {
+                                            showErrorToast();
+                                        }
+                                    }
+                                });
+                    }
+                    else
+                   {
+                        showConnectionToast();
+                   }
                 }
 
             });
         }
 
 
-        //WYSWIETLENIE POSTA PRZY NIEUDANEJ PROBLEM LOGOWANIA
-        private void showErrorToast() {
-            Toast.makeText(this, R.string.error, Toast.LENGTH_SHORT).show();
-        }
+    //WYSWIETLENIE POSTA PRZY NIEUDANEJ PROBLEM LOGOWANIA
+    private void showErrorToast() {
+        Toast.makeText(this, R.string.error, Toast.LENGTH_SHORT).show();
+    }
 
     private void odp(JsonObjectRequest postRequest)
     {
         Volley.newRequestQueue(this).add(postRequest);
+    }
+
+
+    public boolean isOnline() {
+        ConnectivityManager cm =
+                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        return netInfo != null && netInfo.isConnectedOrConnecting();
+    }
+
+    private void showConnectionToast() {
+        Toast.makeText(this, "Brak połączenia z internetem", Toast.LENGTH_SHORT).show();
     }
 
 }
