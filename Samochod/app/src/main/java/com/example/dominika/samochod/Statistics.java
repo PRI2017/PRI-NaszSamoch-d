@@ -2,7 +2,9 @@ package com.example.dominika.samochod;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,6 +29,7 @@ public class Statistics extends Fragment {
     private static Context context;
     String url = "http://naszSamochod.com.pl/userStats/addStats";
     Double prop1,prop2,prop3;
+    String logOutUrl = "http://naszSamochod.com.pl/mobile/logout";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,9 +42,28 @@ public class Statistics extends Fragment {
         final EditText fuel = (EditText) rootView.findViewById(R.id.fuelUsedET);
         final EditText velocity = (EditText) rootView.findViewById(R.id.maxVelocityET);
         final Button send = (Button) rootView.findViewById(R.id.send_stat);
-
+        FloatingActionButton fab = (FloatingActionButton) rootView.findViewById(R.id.logOut);
         final JsonObject json = new JsonObject();
 
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                json.addProperty("", "");
+
+                Ion.with(context)
+                        .load(logOutUrl)
+                        .setJsonObjectBody(json)
+                        .asJsonObject()
+                        .withResponse()
+                        .setCallback(new FutureCallback<Response<JsonObject>>() {
+                            @Override
+                            public void onCompleted(Exception e, Response<JsonObject> result) {
+                                Intent intent = new Intent(context, LogIn.class);
+                                startActivity(intent);
+                            }
+                        });
+            }
+        });
 
         send.setOnClickListener(new View.OnClickListener() {
             @Override
