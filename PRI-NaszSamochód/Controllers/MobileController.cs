@@ -149,8 +149,7 @@ namespace PRI_NaszSamochód.Controllers
 
         [System.Web.Mvc.Authorize]
         [System.Web.Mvc.HttpPost]
-        [POST("Gallery/")]
-        public ActionResult Add([FromUri]string name)
+        public ActionResult AddGallery([FromUri]string name)
         {
             try
             {
@@ -168,8 +167,7 @@ namespace PRI_NaszSamochód.Controllers
             }
         }
 
-        [POST("GalleryPhoto/{galleryId}")]
-        public ActionResult Upload(int galleryId)
+        public ActionResult UploadPhoto(int galleryId)
         {
             try
             {
