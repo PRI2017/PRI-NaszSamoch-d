@@ -273,18 +273,6 @@
     <Compile Include="Migrations\201705270944037_GalleryV2.Designer.cs">
       <DependentUpon>201705270944037_GalleryV2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201706141151554_Gallery-New.cs" />
-    <Compile Include="Migrations\201706141151554_Gallery-New.Designer.cs">
-      <DependentUpon>201706141151554_Gallery-New.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706141711279_miration.cs" />
-    <Compile Include="Migrations\201706141711279_miration.Designer.cs">
-      <DependentUpon>201706141711279_miration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706141713491_miration1.cs" />
-    <Compile Include="Migrations\201706141713491_miration1.Designer.cs">
-      <DependentUpon>201706141713491_miration1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MobileAuthentication\CryptoRSA.cs" />
     <Compile Include="MobileAuthentication\KeysHolder.cs" />
@@ -6103,15 +6091,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705270944037_GalleryV2.resx">
       <DependentUpon>201705270944037_GalleryV2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706141151554_Gallery-New.resx">
-      <DependentUpon>201706141151554_Gallery-New.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706141711279_miration.resx">
-      <DependentUpon>201706141711279_miration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706141713491_miration1.resx">
-      <DependentUpon>201706141713491_miration1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
