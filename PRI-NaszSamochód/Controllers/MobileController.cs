@@ -10,6 +10,10 @@ using Microsoft.AspNet.Identity;
 using System.Collections.Generic;
 using System.Linq;
 using PRI_NaszSamochód.Utilities;
+using AttributeRouting.Web.Mvc;
+using System.Web.Http;
+using System.Text;
+using System.IO;
 
 namespace PRI_NaszSamochód.Controllers
 {
@@ -69,8 +73,8 @@ namespace PRI_NaszSamochód.Controllers
 
         //
         // POST: Mobile/Login
-        [HttpPost]
-        [AllowAnonymous]
+        [System.Web.Mvc.HttpPost]
+        [System.Web.Mvc.AllowAnonymous]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl = null)
         {
 
@@ -141,6 +145,71 @@ namespace PRI_NaszSamochód.Controllers
                 }
             }
             return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        [System.Web.Mvc.Authorize]
+        [System.Web.Mvc.HttpPost]
+        [POST("Gallery/")]
+        public ActionResult Add([FromUri]string name)
+        {
+            try
+            {
+                var db = ApplicationDbContext.Create();
+                string userId = User.Identity.GetUserId();
+                ApplicationUser owner = db.Users.Where(x => x.Id == userId).FirstOrDefault();
+                UserGalleryModel model = new UserGalleryModel(name, owner);
+                db.Galleries.Add(model);
+                db.SaveChanges();
+                return new HttpStatusCodeResult(HttpStatusCode.OK);
+            }
+            catch (Exception)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+        }
+
+        [POST("GalleryPhoto/{galleryId}")]
+        public ActionResult Upload(int galleryId)
+        {
+            try
+            {
+                var db = ApplicationDbContext.Create();
+                var id = User.Identity.GetUserId();
+                UserGalleryModel gallery =
+                    db.Galleries.First(g => g.Owner.Id == id && g.Id == galleryId);
+                var pathbulider = new StringBuilder("~/Galleries/");
+                var dir = Server.MapPath(pathbulider.Append(User.Identity.GetUserId()).Append("/")
+                    .Append(galleryId).ToString());
+
+                var httpPostedFiles = HttpContext.Request.Files;
+
+                var args = httpPostedFiles.AllKeys;
+                for (int i = 0; i < args.Length; i++)
+                {
+                    var httpPostedFile = httpPostedFiles[i];
+                    if (httpPostedFile != null)
+                    {
+                        // If the directory does not exist, create it
+                        var path = new StringBuilder("~/Galleries/");
+                        Directory.CreateDirectory(Server.MapPath(path.Append(User.Identity.GetUserId()).Append("/").Append(galleryId).ToString()));
+
+                        // Validate the uploaded image(optional)
+
+                        // Get the complete file path
+                        var fileSavePath = Path.Combine(dir, Path.GetRandomFileName() + ".jpg");
+
+                        // Save the uploaded file to "UploadedFiles" folder
+                        httpPostedFile.SaveAs(fileSavePath);
+                        gallery.PhotosList.Add(new PhotoModel(fileSavePath));
+                    }
+                }
+                db.SaveChanges();
+                return new HttpStatusCodeResult(HttpStatusCode.OK);
+            }
+            catch (Exception)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
         }
     }
 }
