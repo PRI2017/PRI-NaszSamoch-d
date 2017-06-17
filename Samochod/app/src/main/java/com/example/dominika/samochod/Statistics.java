@@ -58,8 +58,15 @@ public class Statistics extends Fragment {
                         .setCallback(new FutureCallback<Response<JsonObject>>() {
                             @Override
                             public void onCompleted(Exception e, Response<JsonObject> result) {
-                                Intent intent = new Intent(context, LogIn.class);
-                                startActivity(intent);
+                                System.out.println("KOD WYLOGOWANIA: " + result.getHeaders().code());
+                                if(result.getHeaders().code()==200) {
+                                    Intent intent = new Intent(context, LogIn.class);
+                                    startActivity(intent);
+                                }
+                                else
+                                {
+                                    showLogoutToast();
+                                }
                             }
                         });
             }
@@ -120,5 +127,8 @@ public class Statistics extends Fragment {
 
     private void showSuccesToast() {
         Toast.makeText(context, "Wysłano statystyk", Toast.LENGTH_SHORT).show();
+    }
+    private void showLogoutToast() {
+        Toast.makeText(context, "Wylogowanie nie powiodło się. Spróbuj ponownie", Toast.LENGTH_SHORT).show();
     }
 }

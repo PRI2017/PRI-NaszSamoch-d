@@ -35,6 +35,8 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
+import com.koushikdutta.ion.Response;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
@@ -52,8 +54,6 @@ import java.util.Map;
 
 //KLASA OBSLUGUJACA KAMERKE
 public class Camera extends Fragment {
-
-    String url_sendPhotoGallery = "http://naszsamochod.com.pl/galleryphoto/";
     String url_profile = "http://naszsamochod.com.pl/profphoto/upload";
     String url_getGalleries = "http://naszsamochod.com.pl/mobile/UserGalleries";
     private static final int REQUEST_IMAGE_CAPTURE = 1888;
@@ -67,7 +67,8 @@ public class Camera extends Fragment {
     private Uri mImageUri;//
     String TAG = "blad";
     File photo;
-    String[] items;
+    String[] galleries_names;
+    String[] id_galleries;
     Map<String, String> galleries = new HashMap<>();
 
     private Context mContext;
@@ -95,7 +96,8 @@ public class Camera extends Fragment {
                 .setCallback(new FutureCallback<JsonArray>() {
                     @Override
                     public void onCompleted(Exception e, JsonArray result) {
-                        items = new String[result.size()];
+                        galleries_names = new String[result.size()];
+                        id_galleries = new String[result.size()];
                         for(int i = 0; i < result.size(); i++) {
                             JsonElement json = result.get(i);
                             JsonObject object = json.getAsJsonObject();
@@ -103,8 +105,9 @@ public class Camera extends Fragment {
                             id_gallery = object.get("id").toString();
                             galleries.put(name_gallery,id_gallery);
                             //list_galleries.add(name_gallery);
-                            items[i] = name_gallery;
-                            System.out.println(items[i]);
+                            galleries_names[i] = name_gallery;
+                            System.out.println(galleries_names[i]);
+                            id_galleries[i] = id_gallery;
                         }
                     }
                 });
@@ -153,7 +156,7 @@ public class Camera extends Fragment {
             @Override
             public void onClick(View v) {
                 if(photo!=null) {
-                    showAllert(items);
+                    showAllert(galleries_names);
                 }
                 else
                 {
@@ -167,20 +170,29 @@ public class Camera extends Fragment {
 
     //WYSWIETLENIE LISTY DOSTEPNYCH GALERII I WYSLANIE ZDJECIA DO WYBRANEJ PRZEZ UZYTKOWNIKA GALERII
     private void showAllert(final CharSequence[] tab) {
+        final String[] url_sendPhotoGallery = {"http://naszsamochod.com.pl/mobile/UploadPhoto?galleryId="};
         System.out.println(tab[0]);
         AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
         builder.setTitle("Wybierz galerię");
         builder.setItems(tab, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int item) {
-                System.out.println(tab[item]);
-                String id = galleries.get(tab[item]);
-                Ion.with(Camera.this)
-                        .load(url_sendPhotoGallery+id)
-                        .setMultipartFile("UploadForm[imageFiles]", photo.getName(), photo)
+                System.out.println("Tablica: " + tab[item]);
+                System.out.println("Wybrales : " + item);
+                String id = id_galleries[item];
+                url_sendPhotoGallery[0] = url_sendPhotoGallery[0] + id;
+                System.out.println("Url: " + url_sendPhotoGallery[0]);
+
+                Ion.with(mContext)
+                        .load(url_sendPhotoGallery[0])
                         .asJsonObject()
-                        .setCallback(new FutureCallback<JsonObject>() {
+                        .withResponse()
+                        .setCallback(new FutureCallback<Response<JsonObject>>() {
                             @Override
-                            public void onCompleted(Exception e, JsonObject result) {
+                            public void onCompleted(Exception e, Response<JsonObject> result) {
+                                System.out.println("KOD WYSLANIA ZDJECIA NA SERWER: " + result.getHeaders().code());
+                                if (result.getHeaders().code() == 200) {
+                                    System.out.println("Wyslano");
+                                }
                             }
                         });
             }
@@ -205,7 +217,6 @@ public class Camera extends Fragment {
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(cr, mImageUri);
                 image.setImageBitmap(bitmap);
-                //checkSizeImageView(image, list);
                 image.setImageBitmap(Bitmap.createScaledBitmap(bitmap,400,500,false));      //ZMIANA WIELKOSCI ZDJECIA
 
             } catch (IOException e) {
