@@ -6046,7 +6046,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Galleries\" />
     <Folder Include="Views\BackPhoto\" />
     <Folder Include="Views\GalleryPhoto\" />
     <Folder Include="Views\PostPhot\" />

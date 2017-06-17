@@ -21,7 +21,7 @@
     <div>
         @foreach (var i in Model.Get())
         {
-            <a href="Gallery/@i.Id">@i.Name</a><br />
+            <a href="Gallery/@i.Owner.Id/@i.Id">@i.Name</a><br />
         }
     </div>
 </body>
