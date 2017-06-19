@@ -48,7 +48,7 @@ namespace PRI_NaszSamochód.Controllers
             return View(gvm);
         }
 
-        // GET: Groups/Details/5
+        
         public ActionResult GroupDetails(int? id)
         {
             if (id == null)
@@ -81,7 +81,7 @@ namespace PRI_NaszSamochód.Controllers
                     model.Administrator = new AdministratorModel(admin);
                     _context.Groups.Add(model);
                     _context.SaveChanges();
-                    return RedirectToAction("GroupDetails", new { id = model.Id });
+                   return new HttpStatusCodeResult(HttpStatusCode.OK);
                 }
             }
             catch (Exception ex)

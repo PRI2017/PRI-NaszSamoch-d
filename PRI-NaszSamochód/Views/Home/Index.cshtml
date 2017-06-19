@@ -89,7 +89,7 @@
                     <li><a href="#">Wiadomości</a></li>
                     <li><a ui-sref="Groups/AddNewGroup" ui-sref-active="active">Utwórz nową grupę</a></li>
                     <li>
-                        <select name="groups" onchange="location = this.value;" ng-controller="GroupController">
+                        <select name="groups" onchange="redirectToGroupView(this)">
                             <option value="default" selected>Twoje grupy: </option>
                             @try
                             {
@@ -97,7 +97,7 @@
                                 {
                                     if (i.Administrator.User.Id == @Model.User.Id)
                                     {
-                                        <option id="@i.Id" ng-click ="GroupDetails($event)" disabled>@i.GroupName</option>
+                                        <option value="@i.Id" ng-click ="GroupDetails($event)" >@i.GroupName</option>
                                     }
                                 }
                             }
@@ -173,6 +173,18 @@
                        $state.reload();
                    }else{
                        $state.go('User/UserPage', { reload: true });
+                   }
+               });
+           }
+           function redirectToGroupView(elem) {
+
+               window.GroupId = elem.value;
+               var ang = angular.element("#searchBox").injector();
+               ang.invoke(function ($state) {
+                   if ($state.current.name == 'Groups/Details') {
+                       $state.reload();
+                   }else{
+                       $state.go('Groups/Details', { reload: true });
                    }
                });
            }

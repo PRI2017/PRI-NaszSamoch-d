@@ -134,10 +134,10 @@
             views: {
                 'header': { templateUrl: function() {
 
-                    return 'Groups/GroupHeader/ '+ window.GroupId;
+                    return 'Groups/GroupHeader?id='+ window.GroupId;
                 } },
                 'content': { templateUrl: function() {
-                    return 'Groups/GroupDetails/ ' + window.GroupId;
+                    return 'Groups/GroupContent?id=' + window.GroupId;
                 } }
             }
         };
