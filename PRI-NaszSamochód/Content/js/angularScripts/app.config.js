@@ -60,7 +60,8 @@
                     templateUrl: function ($scope) {
 
                         return 'UserPage/UserInfo?userId=' + window.userId;
-                    } }
+                    }
+                }
             }
         };
 
@@ -186,11 +187,10 @@
         $stateProvider.state(groupDetails);
         //$stateProvider.state(groupContent);
         $stateProvider.state(logOff);
-    }
-  ]).controller('LogOffController', ['$scope', function ($scope) {
-      $scope.LogOff = function () {
-          window.location.replace("/Account/LogOff");
-      };
+    }]).controller('LogOffController', ['$scope', function ($scope) {
+        $scope.LogOff = function () {
+            window.location.replace("/Account/LogOff");
+        };
 
     }]).controller('PostController', ['$scope','$state', function($scope,$state) {
         $scope.PostClicked = function ($event) {
