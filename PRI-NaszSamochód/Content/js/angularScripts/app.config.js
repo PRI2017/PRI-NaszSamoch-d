@@ -114,8 +114,13 @@
                     templateUrl: function($scope) {
 
                         return 'UserPage/UserPageHeader?userId=' + window.userId;
-                    } },
-                'content': { templateUrl: 'UserPage/UserStatistics' }
+                    }
+                },
+                'content': {
+                    templateUrl: function ($scope) {
+                        return 'UserPage/UserStatistics?userId=' + window.userId;
+                    }
+                }
             }
         };
 

@@ -20,18 +20,16 @@ namespace PRI_NaszSamochód.Controllers
         }
 
         // GET: UserStats
-        public ActionResult FuelChart()
+        public ActionResult FuelChart(string userId)
         {
-
-    
-            String id = User.Identity.GetUserId();
+            //String id = User.Identity.GetUserId();
 
             var _context = new ApplicationDbContext();
             ArrayList xValues = new ArrayList();
             ArrayList yValues = new ArrayList();
 
             var results = (from c in _context.UserStatistics
-                           where c.User.Id == id
+                           where c.User.Id == userId
                            orderby c.RecordTime descending
                            select c).Take(50);
 
@@ -45,16 +43,16 @@ namespace PRI_NaszSamochód.Controllers
 
             return null;
         }
-        public ActionResult KilometersDrivenChart()
+        public ActionResult KilometersDrivenChart(string userId)
         {
-            String id = User.Identity.GetUserId();
+            //String id = User.Identity.GetUserId();
 
             var _context = new ApplicationDbContext();
             ArrayList xValues = new ArrayList();
             ArrayList yValues = new ArrayList();
 
             var results = (from c in _context.UserStatistics
-                           where c.User.Id == id
+                           where c.User.Id == userId
                            orderby c.RecordTime descending
                            select c).Take(50);
 
@@ -68,16 +66,16 @@ namespace PRI_NaszSamochód.Controllers
 
             return null;
         }
-        public ActionResult MaxVelocityChart()
+        public ActionResult MaxVelocityChart(string userId)
         {
-            String id = User.Identity.GetUserId();
+            //String id = User.Identity.GetUserId();
 
             var _context = new ApplicationDbContext();
             ArrayList xValues = new ArrayList();
             ArrayList yValues = new ArrayList();
 
             var results = (from c in _context.UserStatistics
-                           where c.User.Id == id
+                           where c.User.Id == userId
                            orderby c.RecordTime descending
                            select c).Take(50);
 

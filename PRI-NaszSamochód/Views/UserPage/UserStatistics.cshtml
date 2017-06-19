@@ -1,6 +1,6 @@
 ﻿@using PRI_NaszSamochód.Models;
 @using PRI_NaszSamochód.Utilities;
-@model List<DataPoint>
+@model ProfileViewModel
 @*@model UserStatistics*@
 
 <!DOCTYPE html>
@@ -16,13 +16,13 @@
     </div>*@    
     <div class="cont-fl" id="charts">
             <span id="chartTitle">Zużyte paliwo</span>
-            <div class="chart" style="background-image:url(@Url.Action("FuelChart", "UserStats"));">
+            <div class="chart" style="background-image:url(/UserStats/FuelChart?userId=@Model.User.Id);">
             </div>
             <span id="chartTitle">Przejechane kilometry</span>
-            <div class="chart" style="background-image:url(@Url.Action("KilometersDrivenChart", "UserStats"));">
+            <div class="chart" style="background-image:url(/UserStats/KilometersDrivenChart?userId=@Model.User.Id);">
             </div>
             <span id="chartTitle">Prędkość maksymalna</span>
-            <div class="chart" style="background-image:url(@Url.Action("MaxVelocityChart", "UserStats"));">
+            <div class="chart" style="background-image:url(/UserStats/MaxVelocityChart?userId=@Model.User.Id);">
             </div>
         </div>
 </body>

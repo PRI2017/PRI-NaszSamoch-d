@@ -59,9 +59,10 @@ namespace PRI_NaszSamochód.Controllers
                 return HttpNotFound();
             }
         }
-        public ActionResult UserStatistics()
+        public ActionResult UserStatistics(string userId)
         {
-            return View();
+            ProfileViewModel model = new ProfileViewModel(ApplicationDbContext.Create().Users.Single(u => u.Id == userId));
+            return View(model);
         }
         public ActionResult UserFriends(string userId)
         {
@@ -69,10 +70,10 @@ namespace PRI_NaszSamochód.Controllers
             
             return View(model);
         }
-        public ActionResult UserGallery()
+        public ActionResult UserGallery(string userId)
         {
-            String id = User.Identity.GetUserId();
-            ProfileViewModel model = new ProfileViewModel(ApplicationDbContext.Create().Users.Single(u => u.Id == id));
+            //String id = User.Identity.GetUserId();
+            ProfileViewModel model = new ProfileViewModel(ApplicationDbContext.Create().Users.Single(u => u.Id == userId));
             return View(model);
         }
 
