@@ -96,7 +96,13 @@
                         return 'UserPage/UserPageHeader?userId=' + window.userId;
                     }
                 },
-                'content': { templateUrl: 'UserPage/UserGallery' }
+                'content': {
+                    templateUrl: function ($scope) {
+
+                        return 'Gallery/?userId' + window.userId;
+                    }
+                    
+                }
             }
         };
 

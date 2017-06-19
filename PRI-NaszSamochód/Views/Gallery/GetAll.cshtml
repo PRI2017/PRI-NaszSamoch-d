@@ -16,9 +16,12 @@
         <h1>Twoje albumy</h1>
     </div>
     <div>
+        Dodaj galerię
+    </div>
+    <div>
         @foreach (var i in Model.Get())
         {
-            <a href="Gallery/@i.Id">@i.Name</a><br />
+            <a href="Gallery/@i.Owner.Id/@i.Id">@i.Name</a><br />
         }
     </div>
 </body>

@@ -17,20 +17,23 @@ public class GalleryController : Controller
     {
         var db = ApplicationDbContext.Create();
         string id = User.Identity.GetUserId();
-        var a = db.Galleries.Where(x => x.Owner.Id == id).ToList();
+        //var a = db.Galleries.Where(x => x.Owner.Id == id).ToList();
+        var a = (from g in db.Galleries.Include("Owner") where g.Owner.Id == id select g).ToList();
         UserGalleryViewModel all = new UserGalleryViewModel(a);
         return View(all);
     }
 
-    [GET("Gallery/{galleryId}")]
-    public ActionResult UserGallery(int? galleryId)
+    [GET("Gallery/{userId}/{galleryId}")]
+    public ActionResult UserGallery(string userId, int? galleryId)
     {
         if (galleryId == null)
         {
             return RedirectToAction("GetAll");
         }
         ViewBag.galleryId = galleryId;
+        ViewBag.userId = userId;
         ApplicationDbContext db = ApplicationDbContext.Create();
+        ApplicationUser user = db.Users.Single(x => x.Id == userId);
         UserGalleryModel gallery = db.Galleries.Single(x => x.Id == galleryId);
         return View(gallery);
     }

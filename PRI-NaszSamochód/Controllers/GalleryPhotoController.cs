@@ -17,14 +17,14 @@ namespace PRI_NaszSamochód.Controllers
     public class GalleryPhotoController : Controller
     {
         // GET: GalleryPhoto
-        [GET("GalleryPhoto/{userId}/{galleryId}/{photoId}")]
+        [GET("/{userId}/{galleryId}/{photoId}")]
         public ActionResult GetPhoto(string userId, int galleryId, int photoId)
         {
             UserGalleryModel gallery = ApplicationDbContext.Create().Galleries
                 .First(g => g.Owner.Id == userId && g.Id == galleryId);
-            var pathbulider = new StringBuilder("Galleries/");
+            var pathbulider = new StringBuilder("~/Galleries/");
             var dir = Server.MapPath(pathbulider.Append(userId).Append("/").Append(galleryId).ToString());
-            var path = Path.Combine(dir, photoId + ".jpg");
+            var path = Path.Combine(dir, gallery.PhotosList.Where(x=>x.Id == photoId).Single().Path);
             Debug.WriteLine(path);
             return base.File(path, "image/jpeg");
         }

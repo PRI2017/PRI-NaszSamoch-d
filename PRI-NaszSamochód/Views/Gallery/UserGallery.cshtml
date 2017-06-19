@@ -4,7 +4,7 @@
 
 <html>
 <head>
-    @*<link rel="stylesheet" href="~/Content/css/main.css" />*@
+    <link rel="stylesheet" href="~/Content/css/main.css" />
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
     <link rel="stylesheet" href="~/Content/bootstrap-image-gallery.min.css" />
@@ -61,8 +61,13 @@
         <div id="links">
             @foreach (var item in Model.PhotosList)
             {
-                <a href="@item.Path" data-gallery>
-                    <img src="@item.Path" class="img-rounded" style="margin-bottom:7px;" />
+                <a href="@Html.Raw(Url.Action("GetPhoto", "GalleryPhoto", 
+                                new { userId = ViewBag.userId, galleryId = ViewBag.galleryId, photoId = item.Id }))" data-gallery>
+                    <img src="@Html.Raw(Url.Action("GetPhoto", "GalleryPhoto", 
+                                new { userId = ViewBag.userId, galleryId = ViewBag.galleryId, photoId = item.Id }))"
+                         height="150" width="150"
+                         class="img-rounded" 
+                         style="margin-bottom:7px;" />
                 </a>
             }
         </div>
