@@ -2,7 +2,8 @@
 @using PRI_NaszSamochód.Models;
 @model ProfileViewModel
 <script>
- var userId = "@User.Identity.GetUserId()";
+    var userId = "@User.Identity.GetUserId()";
+    var currentLoggedUserId = "@User.Identity.GetUserId()";
 </script>
     
         <html>
@@ -59,7 +60,7 @@
                 <li id="searchLi" ><input id="searchBox" type="search" name="search"/></li>
                 @*TO DO: change <a href></a>*@
                 @*<li><a ui-sref="User/UserPage({User:@Model.User.Name-@Model.User.Surname})" ui-sref-active="active"><a href="/@Model.User.Name-@Model.User.Surname/UserPage">@Model.User.Name @Model.User.Surname</a></a></li>*@
-                <li id="userNameLi"><a ui-sref="User/UserPage" ui-sref-active="active">@Model.User.Name @Model.User.Surname</a></li>
+                <li id="userNameLi"><a ui-sref="User/UserPage" ui-sref-active="active" onclick="changeToCurUserPage()">@Model.User.Name @Model.User.Surname</a></li>
                 <li><a><div class="fao" id="bell"></div></a></li>
                 <li><a><div class="fao" id="user"></div></a></li>
                 <li><a><div class="fao" id="envelope"></div></a></li>
@@ -84,7 +85,7 @@
 
             <aside id="nav">
                 <ul>
-                    <li><a ui-sref="User/Friends" ui-sref-active="active">Znajomi</a></li>
+                    <li><a ui-sref="User/Friends" ui-sref-active="active" onclick="changeToCurUserId()">Znajomi</a></li>
                     <li><a href="#">Wiadomości</a></li>
                     <li><a ui-sref="Groups/AddNewGroup" ui-sref-active="active">Utwórz nową grupę</a></li>
                     <li>
@@ -159,8 +160,22 @@
            function AcceptFriendRequest(elem) {
                $.post("/Friends/AcceptRequest", { userId: elem.id});
            }
-          
+           function DeclineFriendRequest(elem) {
+               $.post("/Friends/DecilneRequest", { userId: elem.id });
+           }
 
+           function changeToCurUserId () {  window.userId = window.currentLoggedUserId}
+           function changeToCurUserPage() {
+               window.userId = window.currentLoggedUserId;
+               var ang = angular.element("#searchBox").injector();
+               ang.invoke(function ($state) {
+                   if ($state.current.name == 'User/UserPage') {
+                       $state.reload();
+                   }else{
+                       $state.go('User/UserPage', { reload: true });
+                   }
+               });
+           }
                  
            
        </script>

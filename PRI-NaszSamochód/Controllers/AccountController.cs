@@ -1,4 +1,7 @@
-﻿using System.Linq;
+﻿using System;
+using System.Data.Entity.Validation;
+using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -169,7 +172,26 @@ namespace PRI_NaszSamochód.Controllers
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-
+                    
+                    var db = ApplicationDbContext.Create();
+                    
+                    var CurUser = db.Users.Single(p => p.Id == user.Id);
+                    var friend = new FriendModel() { User1 = CurUser, User2 = CurUser, Status = FriendStatus.Friends };
+                    db.Friends.Add(friend);
+                    try
+                    {
+                        db.SaveChanges();
+                    }
+                    catch (DbEntityValidationException ex)
+                    {
+                        foreach (var entityValidationErrors in ex.EntityValidationErrors)
+                        {
+                            foreach (var validationError in entityValidationErrors.ValidationErrors)
+                            {
+                               Debug.WriteLine("Property: " + validationError.PropertyName + " Error: " + validationError.ErrorMessage);
+                            }
+                        }
+                    }
                     return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);

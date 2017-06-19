@@ -4,8 +4,17 @@
 @using PRI_NaszSamochód
 @model PRI_NaszSamochód.Models.ProfileViewModel
 @{
-    string editable = @Model.User.Id.Equals(Context.User.Identity.GetUserId()).ToString();
+    
+    string editable = Model.User.Id.Equals(Context.User.Identity.GetUserId()).ToString();
+
+    
+
+
+
+
 }
+
+
 <html>
     <head>
         <link rel="stylesheet" href="~/Content/css/main.css" />
@@ -28,12 +37,15 @@
                 <li contenteditable="@editable" id="userPhone">
                     @Model.User.PhoneNumber
                 </li>
-                <li contenteditable="@editable"id="userEmail"  >
+                <li contenteditable="@editable"id="userEmail" style="content: @content" >
                    
                     @Model.User.Email
                 </li>
-                </ul>
-            <button class="btn-success"><a href="/UserPage/EditStatistics" style="text-decoration: none; color: white;">Edytuj</a></button>
+            </ul>
+            @if (editable.Equals("True"))
+            {
+                <button class="btn-success"><a href="/UserPage/EditStatistics" style="text-decoration: none; color: white;">Edytuj</a></button>
+            }
         </div>
     <script>
       

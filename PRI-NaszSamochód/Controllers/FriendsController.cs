@@ -86,5 +86,17 @@ namespace PRI_NaszSamochód.Controllers
             db.SaveChanges();
 
         }
+
+        [HttpPost]
+        public void DecilneRequest(string userId)
+        {
+            var curUserId = User.Identity.GetUserId();
+            var db = ApplicationDbContext.Create();
+            var req = db.Friends.Single(f => f.User1.Id == curUserId && f.User2.Id == userId);
+            var red = db.Friends.Single(f => f.User2.Id == curUserId && f.User1.Id == userId);
+            db.Friends.Remove(req);
+            db.Friends.Remove(red);
+            db.SaveChanges();
+        }
     }
 }

@@ -5,9 +5,9 @@
 <div style="display: none"><p style="display: none"></p></div>
  @foreach (var request in Model.Requests)
  {
-     
+        
          <h3>@request.User1.UserName zaprosił Cię do znajomych</h3>
-         <div>
+        <div>
              
              <button class="ui-button" id="@request.User1.Id" onclick="AcceptFriendRequest(this)" >Akceptuj</button>
              <button class="ui-button" id="@request.User1.Id" onclick="DeclineFriendRequest(this)" >Odrzuć</button>
