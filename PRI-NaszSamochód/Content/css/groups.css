@@ -15,7 +15,7 @@ ul.addNewGroup {
 
 .flex-add-button {
   width: 99%;
-  height: 100%;
+  /*height:100%;*/
   display: flex;
   flex-direction: row;
   justify-content: space-between;
