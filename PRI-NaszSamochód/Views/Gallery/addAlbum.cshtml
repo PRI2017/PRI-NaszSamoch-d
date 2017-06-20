@@ -1,0 +1,20 @@
+﻿@model PRI_NaszSamochód.Models.UserGalleryModel
+
+@{
+    <h5>Dodaj album:</h5>
+    using (Html.BeginForm("Add", "Gallery", FormMethod.Post, new { name = Model.Name }))
+    {
+        @Html.TextBoxFor(m => m.Name, new { @placeholder = "Nazwa albumu" })
+        <br />
+        <button type="submit" class="btn-success">Utwórz</button>
+    }
+
+
+
+
+    @*<form method="post">
+            <input type="text" id="albumName" placeholder="nazwa albumu" />
+            <br />
+            <button type="submit" class="btn-success">Utwórz</button>
+        </form>*@
+}

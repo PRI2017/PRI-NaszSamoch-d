@@ -1,5 +1,4 @@
 ﻿@model PRI_NaszSamochód.Models.UserGalleryViewModel
-
 @{
     Layout = null;
 }
@@ -18,21 +17,15 @@
         <h1>Albumy</h1>
     </div>
     <div>
-        <h5>Dodaj album:</h5><br />
-        @*@using(Html.BeginForm("Add", "Gallery", new { name=@ }, FormMethod.Post, ))*@
-        <form method="post">
-            <input type="text" id="albumName" />
-            <br />
-            <button type="submit" class="btn-success">Utwórz</button>
-        </form>
-       
+        @Html.Partial("addAlbum",new PRI_NaszSamochód.Models.UserGalleryModel())
+        <br/>
     </div>
     <div>
-        <ul class="addNewGroup info" style="content:''";>
+        <ul class="addNewGroup info" style="content:''" ;>
             @foreach (var i in Model.Get())
-        {
-            <li><a href="Gallery/@i.Owner.Id/@i.Id">@i.Name</a></li>
-        }
+            {
+                <li><a href="Gallery/@i.Owner.Id/@i.Id">@i.Name</a></li>
+            }
         </ul>
     </div>
 </body>
