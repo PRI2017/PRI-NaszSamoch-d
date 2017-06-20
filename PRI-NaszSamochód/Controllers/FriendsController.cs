@@ -38,7 +38,7 @@ namespace PRI_NaszSamochód.Controllers
             {
                 var db = ApplicationDbContext.Create();
                 List<SearchFriendModel> models = (from u in db.Users
-                    where u.UserName.Contains(term)
+                    where u.Surname.Contains(term) || u.Name.Contains(term)
                     select new SearchFriendModel(){Id = u.Id,UserName = u.UserName}).ToList();
                 
                 return Json(models,JsonRequestBehavior.AllowGet);
@@ -47,7 +47,7 @@ namespace PRI_NaszSamochód.Controllers
 
 
         }
-
+         
         public void AddFriend(string userId)
         {  
             var db = ApplicationDbContext.Create();
