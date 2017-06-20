@@ -50,7 +50,7 @@ public class GalleryController : Controller
         UserGalleryModel model = new UserGalleryModel(name, owner);
         db.Galleries.Add(model);
         db.SaveChanges();
-        return RedirectToAction("UserGallery", new { userId = owner.Id, galleryId = model.Id });
+        return new HttpStatusCodeResult(HttpStatusCode.OK);
     }
 
     public ActionResult Delete(int? id)

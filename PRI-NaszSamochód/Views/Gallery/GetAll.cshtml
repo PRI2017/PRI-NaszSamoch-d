@@ -9,20 +9,31 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Content/css/main.css">
+    <link rel="stylesheet" href="~/Content/css/groups.css" />
     <title>Albumy</title>
 </head>
 <body>
     <div>
-        <h1>Twoje albumy</h1>
+        <h1>Albumy</h1>
     </div>
     <div>
-        Dodaj galerię
+        <h5>Dodaj album:</h5><br />
+        @*@using(Html.BeginForm("Add", "Gallery", new { name=@ }, FormMethod.Post, ))*@
+        <form method="post">
+            <input type="text" id="albumName" />
+            <br />
+            <button type="submit" class="btn-success">Utwórz</button>
+        </form>
+       
     </div>
     <div>
-        @foreach (var i in Model.Get())
+        <ul class="addNewGroup info" style="content:''";>
+            @foreach (var i in Model.Get())
         {
-            <a href="Gallery/@i.Owner.Id/@i.Id">@i.Name</a><br />
+            <li><a href="Gallery/@i.Owner.Id/@i.Id">@i.Name</a></li>
         }
+        </ul>
     </div>
 </body>
 </html>

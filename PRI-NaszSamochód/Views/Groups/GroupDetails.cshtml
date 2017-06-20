@@ -48,7 +48,7 @@
                     <label class="label">Członkowie: </label>
                     @foreach (var i in Model.Members)
             {
-                        <label>@i.User.Name</label>
+                        <label>@i.User.Name @i.User.Surname</label>
                     }
                 </li>
             </ul>
