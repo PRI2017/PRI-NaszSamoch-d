@@ -41,8 +41,8 @@ public class GalleryController : Controller
 
     [System.Web.Mvc.Authorize]
     [System.Web.Mvc.HttpPost]
-    [POST("Gallery/")]
-    public ActionResult Add([FromUri]string name)
+    //[POST("Gallery/")]
+    public void Add([FromUri]string name)
     {
         var db = ApplicationDbContext.Create();
         string userId = User.Identity.GetUserId();
@@ -50,7 +50,7 @@ public class GalleryController : Controller
         UserGalleryModel model = new UserGalleryModel(name, owner);
         db.Galleries.Add(model);
         db.SaveChanges();
-        return RedirectToAction("UserGallery", new { userId = owner.Id, galleryId = model.Id });
+        //return null;
     }
 
     public ActionResult Delete(int? id)

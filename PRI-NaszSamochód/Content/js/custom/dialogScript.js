@@ -12,7 +12,7 @@
                 init: function () {
                     myDropzone = this;
                     this.on("addedfile", function (file) {
-                        $("#dialog").append("<button id='sub'class='btn-success'>Zatwierź</button>").display = "block";
+                        $("#dialog").append("<button id='sub'class='btn-success'>Zatwierdź</button>").display = "block";
 
                         $("#sub").click(function () {
                             myDropzone.processQueue()

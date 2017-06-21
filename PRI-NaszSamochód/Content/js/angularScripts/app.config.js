@@ -2,7 +2,8 @@
   module('myApp', ['ui.router']).
     config(['$locationProvider', '$stateProvider', '$urlRouterProvider','$controllerProvider',
         function config($locationProvider, $stateProvider, $urlRouterProvider, $scope, $rootScope, $controllerProvider) {
-        
+            var tmp = null;
+            var tmp1 = null;
         $locationProvider.hashPrefix("");
             $scope.create
                 = function create($event,$state) {
@@ -133,18 +134,29 @@
                 'content': { templateUrl: 'Groups/AddNewGroup' }
             }
         };
-
         var groupDetails = {
             name: 'Groups/Details',
-            url: '/Groups/Details',
+            url: '/Groups/GroupDetails',
             views: {
-                'header': { templateUrl: function() {
+                'header': {
+                    templateUrl: function ($scope) {
+                        return 'Groups/GroupHeader';
+                    }
+                },
+                'content': {
+                    templateUrl: function ($scope) {
+                        console.log("GROUP: " + window.GroupId);
+                        if (tmp1 == null && window.GroupId != undefined) {
+                            tmp1 = window.GroupId;
+                        };
 
-                    return 'Groups/GroupHeader?id='+ window.GroupId;
-                } },
-                'content': { templateUrl: function() {
-                    return 'Groups/GroupContent?id=' + window.GroupId;
-                } }
+                        window.onbeforeunload = function (e) {
+                            window.GroupId = tmp1;
+                            console.log(e + "Gunwo");
+                        }
+                        return 'Groups/GroupContent?id=' + window.GroupId;
+                    }
+                }
             }
         };
 
@@ -237,8 +249,13 @@
 
         $scope.GroupDetails = function GroupDetails($event) {
             window.GroupId = $event.currentTarget.id;
-            $state.go('Groups/Details');
+            var group_id = window.GroupId;
+            console.log("Id form controller" + group_id);
+            //$state.go('Groups/GroupDetails', {}, { reload: true });
+            //$state.reload();
         }
-
+        this.$update().then(function () {
+            $state.go('Groups/GroupDetails', {}, { reload: true });
+        });
 
     }]);

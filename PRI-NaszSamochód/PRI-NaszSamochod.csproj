@@ -6043,6 +6043,7 @@
     <Content Include="Views\Friends\FriendRequests.cshtml" />
     <Content Include="Views\Gallery\UserGallery.cshtml" />
     <Content Include="Views\Gallery\GetAll.cshtml" />
+    <Content Include="Views\Gallery\addAlbum.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

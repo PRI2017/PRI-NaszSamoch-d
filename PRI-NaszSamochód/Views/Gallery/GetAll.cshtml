@@ -1,5 +1,4 @@
 ﻿@model PRI_NaszSamochód.Models.UserGalleryViewModel
-
 @{
     Layout = null;
 }
@@ -9,20 +8,25 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Content/css/main.css">
+    <link rel="stylesheet" href="~/Content/css/groups.css" />
     <title>Albumy</title>
 </head>
 <body>
     <div>
-        <h1>Twoje albumy</h1>
+        <h1>Albumy</h1>
     </div>
     <div>
-        Dodaj galerię
+        @Html.Partial("addAlbum",new PRI_NaszSamochód.Models.UserGalleryModel())
+        <br/>
     </div>
     <div>
-        @foreach (var i in Model.Get())
-        {
-            <a href="Gallery/@i.Owner.Id/@i.Id">@i.Name</a><br />
-        }
+        <ul class="addNewGroup info" style="content:''" ;>
+            @foreach (var i in Model.Get())
+            {
+                <li><a href="Gallery/@i.Owner.Id/@i.Id">@i.Name</a></li>
+            }
+        </ul>
     </div>
 </body>
 </html>
