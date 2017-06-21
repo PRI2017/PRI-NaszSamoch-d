@@ -66,7 +66,7 @@ namespace PRI_NaszSamochód.Controllers
         }
         public ActionResult UserFriends(string userId)
         {
-            var model = new FriendsView(ApplicationDbContext.Create().Friends.Where(f => f.User1.Id == userId &&  (f.Status == FriendStatus.Friends)).Include(f => f.User2).ToList());
+            var model = new FriendsView(ApplicationDbContext.Create().Friends.Where(f => f.User1.Id == userId &&  (f.Status == FriendStatus.Friends) && (f.User1 != f.User2)).Include(f => f.User2).ToList());
             
             return View(model);
         }
