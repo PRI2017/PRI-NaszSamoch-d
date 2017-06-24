@@ -62,6 +62,9 @@ public class Statistics extends Fragment {
                                 if(result.getHeaders().code()==200) {
                                     Intent intent = new Intent(context, LogIn.class);
                                     startActivity(intent);
+                                    Conv.usersList.clear();
+                                    Conv.postsList.clear();
+                                    Groups.groupsList.clear();
                                 }
                                 else
                                 {
@@ -126,7 +129,7 @@ public class Statistics extends Fragment {
     }
 
     private void showSuccesToast() {
-        Toast.makeText(context, "Wysłano statystyk", Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, "Wysłano statystyki", Toast.LENGTH_SHORT).show();
     }
     private void showLogoutToast() {
         Toast.makeText(context, "Wylogowanie nie powiodło się. Spróbuj ponownie", Toast.LENGTH_SHORT).show();

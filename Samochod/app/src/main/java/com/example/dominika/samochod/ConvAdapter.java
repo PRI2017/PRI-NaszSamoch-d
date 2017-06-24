@@ -40,14 +40,12 @@ public class ConvAdapter extends ArrayAdapter<List> {
 
         TextView tvName = (TextView) convertView.findViewById(R.id.username_tv_conv);
         TextView tvHome = (TextView) convertView.findViewById(R.id.message_tv_conv);
-        TextView user = (TextView) convertView.findViewById(R.id.user);
-        TextView message = (TextView) convertView.findViewById(R.id.message);
+
         //ImageView image = (ImageView) convertView.findViewById(R.id.profile_icon_conv);
         //image.setImageResource(R.drawable.group_icon);
-        tvName.setTextColor(Color.parseColor("#000000"));
-        tvHome.setTextColor(Color.parseColor("#000000"));
-        user.setTextColor(Color.parseColor("#000000"));
-        message.setTextColor(Color.parseColor("#000000"));
+        tvName.setTextColor(Color.parseColor("#FFFFFF"));
+        tvHome.setTextColor(Color.parseColor("#FFFFFF"));
+
 
         tvName.setText(users.get(position));
         tvHome.setText(messages.get(position));

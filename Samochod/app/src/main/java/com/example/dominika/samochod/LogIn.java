@@ -40,6 +40,9 @@ public class LogIn extends AppCompatActivity{
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
+            Groups.groupsList.clear();
+            Conv.postsList.clear();
+            Conv.usersList.clear();
 
             LogIn.context = getApplicationContext();
 
@@ -89,23 +92,23 @@ public class LogIn extends AppCompatActivity{
                         json.addProperty("Password", passwordET.getText().toString());
                         json.addProperty("RememberMe", "false");
 
-                        Ion.with(context)
-                                .load(url2)
-                                .setJsonObjectBody(json)
-                                .asJsonObject()
-                                .withResponse()
-                                .setCallback(new FutureCallback<Response<JsonObject>>() {
-                                    @Override
-                                    public void onCompleted(Exception e, Response<JsonObject> result) {
-                                        System.out.println("KOD BLEDU: " + result.getHeaders().code());
-                                        if (result.getHeaders().code() == 200) {
-                                            Intent intent = new Intent(LogIn.this, Toolbar.class);
-                                            startActivity(intent);
-                                        } else {
-                                            showErrorToast();
-                                        }
-                                    }
-                                });
+                           Ion.with(context)
+                                   .load(url2)
+                                   .setJsonObjectBody(json)
+                                   .asJsonObject()
+                                   .withResponse()
+                                   .setCallback(new FutureCallback<Response<JsonObject>>() {
+                                       @Override
+                                       public void onCompleted(Exception e, Response<JsonObject> result) {
+                                           System.out.println("KOD BLEDU: " + result.getHeaders().code());
+                                           if (result.getHeaders().code() == 200) {
+                                               Intent intent = new Intent(LogIn.this, Toolbar.class);
+                                               startActivity(intent);
+                                           } else {
+                                               showErrorToast();
+                                           }
+                                       }
+                                   });
                     }
                     else
                    {
@@ -139,4 +142,8 @@ public class LogIn extends AppCompatActivity{
         Toast.makeText(this, "Brak połączenia z internetem", Toast.LENGTH_SHORT).show();
     }
 
+
+    private void showConnectionErrorToast() {
+        Toast.makeText(this, "Błąd połączenia z internetem", Toast.LENGTH_SHORT).show();
+    }
 }

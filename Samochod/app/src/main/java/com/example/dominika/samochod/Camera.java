@@ -184,6 +184,7 @@ public class Camera extends Fragment {
 
                 Ion.with(mContext)
                         .load(url_sendPhotoGallery[0])
+                        .setMultipartFile("UploadForm[imageFiles]", photo.getName(), photo)
                         .asJsonObject()
                         .withResponse()
                         .setCallback(new FutureCallback<Response<JsonObject>>() {
@@ -192,6 +193,7 @@ public class Camera extends Fragment {
                                 System.out.println("KOD WYSLANIA ZDJECIA NA SERWER: " + result.getHeaders().code());
                                 if (result.getHeaders().code() == 200) {
                                     System.out.println("Wyslano");
+                                    showSuccesToast();
                                 }
                             }
                         });
@@ -296,5 +298,10 @@ public class Camera extends Fragment {
 
     private void showToast() {
         Toast.makeText(mContext, "Zrob zdjecie", Toast.LENGTH_SHORT).show();
+    }
+
+
+    private void showSuccesToast() {
+        Toast.makeText(mContext, "Wysłano", Toast.LENGTH_SHORT).show();
     }
 }
